@@ -1,0 +1,9 @@
+.main{
+   background-image: url("computer.png");
+   height: 50rem;
+   background-repeat: no-repeat;
+   background-size: 100%;
+}
+.one{
+   margin-left: 800px;
+}
