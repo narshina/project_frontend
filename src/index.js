@@ -21,6 +21,11 @@ import { Viewstaffdetail } from './Admin/Viewstaffdetail';
 import { Editstaff } from './Admin/Editstaff';
 import { Addwardmember } from './Admin/Addwardmember';
 import { Viewwardmember } from './Admin/Viewwardmember';
+import { Viewmemberdetail } from './Admin/Viewmemberdetail';
+import { Editmember } from './Admin/Editmember';
+import { Userview } from './Admin/Userview';
+import { Userviewdetail } from './Admin/Userviewdetail';
+import { Addnotification } from './Admin/Addnotification';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -46,6 +51,11 @@ root.render(
         <Route path='editstaff' element={<Editstaff/>}/>
         <Route path='addwardmember' element={<Addwardmember/>}/>
         <Route path='viewwardmember' element={<Viewwardmember/>}/>
+        <Route path='viewmemberdetail' element={<Viewmemberdetail/>}/>
+        <Route path='editmember' element={<Editmember/>}/>
+        <Route path='userview' element={<Userview/>}/>
+        <Route path='userviewdetail' element={<Userviewdetail/>}/>
+        <Route path='addnot' element={<Addnotification/>}/>
       </Route>
 
       <Route path='*' element={<div> no routes</div>}/>

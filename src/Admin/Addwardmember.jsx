@@ -61,6 +61,7 @@ export const Addwardmember = () => {
 
             </span>
            <select className='h-9 w-56 bg-white rounded-r-lg text-black'  name="" id="">
+            <option disabled value="">select</option>
             <option value="">Kakkanchery</option>
             <option value="">koyakkad west</option>
             <option value="">koyakkad</option>
