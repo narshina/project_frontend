@@ -1,51 +1,50 @@
 import React from 'react'
-import photo from './photo.jpg'
 import { Link } from 'react-router-dom'
 
-export const Viewwardmember = () => {
+export const Viewmeeting = () => {
     return (
         <div className=' w-screen h-[655px] bg-[#CCDAF6]  pt-5 content-center' >
-            <div className='ml-[650px] font-serif text-[20px] font-bold'><h2>WARD MEMBER MANAGEMENT</h2></div>
+            <div className=' text-center font-serif text-[20px] font-bold'><h2>MEETINGS</h2></div>
 
             <div class="relative overflow-x-auto justify-center flex">
-                <table class="w-[850PX] text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-5">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
+                <table class="w-[80%] text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400 mt-5">
+                    <thead class="text-xs text-gray-700 uppercase bg-slate-400 dark:bg-gray-700 dark:text-gray-400">
+                        <tr className='text-center'>
                             <th scope="col" class="px-6 py-3">
-                                NAME
+                                AGENDA
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                PHOTO
+                                DATE
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                WARD NUMBER
+                                TIME
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                WARD NAME
+                                VENUE
                             </th>
-                            <th scope="col" class="px-6 py-3 text-center col-span-2">
+                            <th scope="col" class="px-6 py-3  ">
                                 Action
                             </th>
 
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                        <tr class="odd:bg-white text-center odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Akil
+                                mmfff gggh rrtt
                             </th>
-                            <td class="px-6 py-4">
-                                <img className='h-9 w-9' src={photo} alt='' />
+                            <td class="">
+                                15/34/23
                             </td>
-                            <td class="px-6 py-4">
-                                1
+                            <td class="">
+                                10:00am
                             </td>
-                            <td class="px-6 py-4">
-                                Ulliyeri North
+                            <td class="">
+                                Ulliyeri 
                             </td>
-                            <td class="px-6 py-4 flex justify-between">
-                                <Link to='/admin/viewmemberdetail'><a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a></Link>
-                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                            <td class="">
+                           <Link to='/admin/editmeet'><a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a></Link> 
+            
                             </td>
                         </tr>
                         {/* <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">

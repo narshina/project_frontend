@@ -26,6 +26,15 @@ import { Editmember } from './Admin/Editmember';
 import { Userview } from './Admin/Userview';
 import { Userviewdetail } from './Admin/Userviewdetail';
 import { Addnotification } from './Admin/Addnotification';
+import { Viewnot } from './Admin/Viewnot';
+import { Addmeeting } from './Admin/Addmeeting';
+import { Viewmeeting } from './Admin/Viewmeeting';
+import { Editmeeting } from './Admin/Editmeeting';
+import { Viewcomplaint } from './Admin/Viewcomplaint';
+import { Replycomplaint } from './Admin/Replycomplaint';
+import { Presidentnav } from './President/Presidentnav';
+import { Sechome } from './President/Sechome';
+import { Secservices } from './President/Secservices';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -56,6 +65,16 @@ root.render(
         <Route path='userview' element={<Userview/>}/>
         <Route path='userviewdetail' element={<Userviewdetail/>}/>
         <Route path='addnot' element={<Addnotification/>}/>
+        <Route path='viewnot'element={<Viewnot/>}/>
+        <Route path='addmeet' element={<Addmeeting/>}/>
+        <Route path='viewmeet'element={<Viewmeeting/>}/>
+        <Route path='editmeet'element={<Editmeeting/>}/>
+        <Route path='viewcomplaint' element={<Viewcomplaint/>}/>
+        <Route path='replycomplaint' element={<Replycomplaint/>}/>
+      </Route>
+      <Route path='/president' element={<Presidentnav/>}>
+        <Route index element={<Sechome/>}/>
+        <Route path='secservice' element={<Secservices/>}/>
       </Route>
 
       <Route path='*' element={<div> no routes</div>}/>

@@ -6,6 +6,7 @@ const AdminRouter = () => {
   const [staff,setStaff]=useState(false)
   const [member,setmember]=useState(false)
   const [not,setnot]=useState(false)
+  const [meet,setmeet]=useState(false)
   let dropdown=()=>{
     setdrop(!drop)
     setmember(false)
@@ -30,11 +31,19 @@ const AdminRouter = () => {
     setStaff(false)
     setdrop(false)
   }
+  let meetdropdown=()=>{
+    setmeet(!meet)
+    setmember(false)
+    setStaff(false)
+    setdrop(false)
+    setnot(false)
+  }
   let close=()=>{
     setdrop(false)
     setStaff(false)
     setmember(false)
     setnot(false)
+    setmeet(false)
   }
   return (
     <>
@@ -45,7 +54,7 @@ const AdminRouter = () => {
         </div>
 
         <div className='flex nav1 p-5 gap-6 flex-wrap text-white text-[15px]'>
-          <div>HOME</div>
+       <Link to='/admin'>   <div>HOME</div></Link>
           <div><span  onClick={dropdown}>
                   SECRETARY
                   </span>
@@ -88,13 +97,23 @@ const AdminRouter = () => {
                   {not &&
                       <div className='list-none absolute top-[78px] bg-[#0F3053] p-4 pt-2 w-[90px] '>
                 <Link to='/admin/addnot'><li>ADD</li></Link> 
-                      <li>VIEW</li>
+                <Link to='/admin/viewnot' ><li>VIEW</li></Link>
                         </div> 
                    }
 
                    </div>
-          <div>MEETING</div>
-          <div>COMPLAINT</div>
+                   <div><span  onClick={meetdropdown}>
+                  MEETING
+                  </span>
+                  {meet &&
+                      <div className='list-none absolute top-[78px] bg-[#0F3053] p-4 pt-2 w-[90px] '>
+                <Link to='/admin/addmeet'><li>ADD</li></Link> 
+              <Link to='/admin/viewmeet'> <li>VIEW</li></Link>
+                        </div> 
+                   }
+
+                   </div>
+       <Link to='/admin/viewcomplaint'><div>COMPLAINT</div></Link>
           <div>LOG OUT</div>
 
         </div>
