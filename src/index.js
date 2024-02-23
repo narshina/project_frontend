@@ -35,6 +35,8 @@ import { Replycomplaint } from './Admin/Replycomplaint';
 import { Presidentnav } from './President/Presidentnav';
 import { Sechome } from './President/Sechome';
 import { Secservices } from './President/Secservices';
+import { Secviewapplisn } from './President/Secviewapplisn';
+import { Secviewaplsndetail } from './President/Secviewaplsndetail';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -75,6 +77,8 @@ root.render(
       <Route path='/president' element={<Presidentnav/>}>
         <Route index element={<Sechome/>}/>
         <Route path='secservice' element={<Secservices/>}/>
+        <Route path='secviewapllcsn' element={<Secviewapplisn/>}/>
+        <Route path='secviewaplsndetail' element={<Secviewaplsndetail/>}/>
       </Route>
 
       <Route path='*' element={<div> no routes</div>}/>
