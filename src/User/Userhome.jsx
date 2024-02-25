@@ -11,7 +11,7 @@ export const Userhome = () => {
     <div className='bg-[#CCDAF6]'>
       <div className='flex flex-wrap gap-20'>
     <div >
-      <img className='mt-4' src={meet} alt=''/>
+      <img className='mt-4 ' src={meet} alt=''/>
     </div>
     <div className='mt-20 w-[750px]'><a className='font-serif font-bold text-[25px] hover:text-[28px]'>WELCOME TO ULLIYERI-E-PANCHAYAT PORTAL</a><br></br>
     <a className='font-serif font-bold text-[20px]'>Our services are available here</a><br></br>
@@ -19,7 +19,7 @@ export const Userhome = () => {
         This project endeavors to modernize Panchayat services, promoting accessibility and efficiency in rural governance through technology. The goal is to empower communities, enhance communication, and foster transparent decision-making. </a>
     </div>
     </div>
-    <div className='bg-[#617DB2] w-[100%] h-64 flex flex-wrap gap-24 justify-center'>
+    <div className='bg-[#617DB2] w-[100%] h-60 flex flex-wrap gap-24 justify-center mt-4'>
       <div className=''>
         <img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={service} alt=''/>
         <b className=''>SERVICES</b>
@@ -40,9 +40,7 @@ export const Userhome = () => {
         <img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={not} alt=''/>
         <b>NOTIFICATION</b>
       </div>
-      
-      
-    </div>
+       </div> 
     </div>
   )
 }

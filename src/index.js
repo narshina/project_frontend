@@ -42,6 +42,24 @@ import { Secviewnot } from './President/Secviewnot';
 import { Usernav } from './User/Usernav';
 import { Userhome } from './User/Userhome';
 import { Userviewservice } from './User/Userviewservice';
+import { Userapplication } from './User/Userapplication';
+import { Postcomplaint } from './User/Postcomplaint';
+import { Userviewreply } from './User/Userviewreply';
+import { Useviewnot } from './User/Useviewnot';
+import { Userviewmeet } from './User/Userviewmeet';
+import { Userviewapplicatin } from './User/Userviewapplicatin';
+import { Viewaplcationdetail } from './User/Viewaplcationdetail';
+import { Wardnav } from './Wardmember/Wardnav';
+import { Wardhome } from './Wardmember/Wardhome';
+import { Membernot } from './Wardmember/Membernot';
+import { Memberviewnot } from './Wardmember/Memberviewnot';
+import { Memberedirnot } from './Wardmember/Memberedirnot';
+import { Membermeet } from './Wardmember/Membermeet';
+import { Memberviewmeet } from './Wardmember/Memberviewmeet';
+import { Membereditmeet } from './Wardmember/Membereditmeet';
+import { Memberviewsevice } from './Wardmember/Memberviewsevice';
+import { Memberviewcomp } from './Wardmember/Memberviewcomp';
+import { Memberreplycomp } from './Wardmember/Memberreplycomp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -90,6 +108,25 @@ root.render(
       <Route path='/user' element={<Usernav/>}>
         <Route index element={<Userhome/>}/>
         <Route path='userviewservice' element={<Userviewservice/>}/>
+        <Route path='userapply' element={<Userapplication/>}/>
+        <Route path='postcomplaint' element={<Postcomplaint/>}/>
+        <Route path='viewreply' element={<Userviewreply/>}/>
+        <Route path='userviewnot' element={<Useviewnot/>}/>
+        <Route path='userviewmeet' element={<Userviewmeet/>}/>
+        <Route path='userviewapplication' element={<Userviewapplicatin/>}/>
+        <Route path='applicationdetail' element={<Viewaplcationdetail/>}/>
+      </Route>
+      <Route path='/member' element={<Wardnav/>}>
+        <Route index element={<Wardhome/>}/>
+        <Route path='membernot'element={<Membernot/>}/>
+        <Route path='memberviewnot' element={<Memberviewnot/>}/>
+        <Route path='membereditnot' element={<Memberedirnot/>}/>
+        <Route path='membermeet' element={<Membermeet/>}/>
+        <Route path='memberviewmeet' element={<Memberviewmeet/>}/>
+        <Route path='membereditmeet' element={<Membereditmeet/>}/>
+        <Route path='memberviewservice' element={<Memberviewsevice/>}/>
+        <Route path='memberviewcomp' element={<Memberviewcomp/>}/>
+        <Route path='memberreply' element={<Memberreplycomp/>}/>
       </Route>
 
       <Route path='*' element={<div> no routes</div>}/>
