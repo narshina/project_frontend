@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 export const Usernav = () => {
   return (
     <>
-    <div className='flex navcolor p-2  w-[100%] gap-6 text-white justify-between items-center text-[20px] flex-wrap sm:z-30 sm:fixed'>
+    <div className='flex navcolor p-2  w-[100%] gap-6 text-white justify-between items-center text-[20px] flex-wrap '>
         <div>
           <b> ULLIYERI-E-PANCHAYAT PORTAL</b>
         </div>
@@ -15,7 +15,6 @@ export const Usernav = () => {
         <div>COMPLAINT</div>
         <div>MEETING</div>
         <div>NOTIFICATION</div>
-        <div>FEEDBACK</div>
         <div>TRANLATE</div>
         <div>LOG OUT</div>
         </div>

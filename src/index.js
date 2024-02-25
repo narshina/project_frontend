@@ -41,6 +41,7 @@ import { Secviewmeet } from './President/Secviewmeet';
 import { Secviewnot } from './President/Secviewnot';
 import { Usernav } from './User/Usernav';
 import { Userhome } from './User/Userhome';
+import { Userviewservice } from './User/Userviewservice';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -88,6 +89,7 @@ root.render(
       </Route>
       <Route path='/user' element={<Usernav/>}>
         <Route index element={<Userhome/>}/>
+        <Route path='userviewservice' element={<Userviewservice/>}/>
       </Route>
 
       <Route path='*' element={<div> no routes</div>}/>
