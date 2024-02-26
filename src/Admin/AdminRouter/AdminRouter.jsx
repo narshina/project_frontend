@@ -114,6 +114,7 @@ const AdminRouter = () => {
 
                    </div>
        <Link to='/admin/viewcomplaint'><div>COMPLAINT</div></Link>
+       <Link to='/admin/viewhistory'><div>HISTORY</div></Link>
           <div>LOG OUT</div>
 
         </div>

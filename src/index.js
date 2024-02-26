@@ -65,6 +65,12 @@ import { Staffhome } from './Staff/Staffhome';
 import { Staffaddservice } from './Staff/Staffaddservice';
 import { Staffviewservice } from './Staff/Staffviewservice';
 import { Staffeditservice } from './Staff/Staffeditservice';
+import { Staffviewapply } from './Staff/Staffviewapply';
+import { Staffviewapplydetail } from './Staff/Staffviewapplydetail';
+import { Rejectreason } from './Staff/Rejectreason';
+import { Staffviewmeet } from './Staff/Staffviewmeet';
+import { Staffviewnot } from './Staff/Staffviewnot';
+import { Viewhistory } from './Admin/Viewhistory';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -101,6 +107,7 @@ root.render(
         <Route path='editmeet'element={<Editmeeting/>}/>
         <Route path='viewcomplaint' element={<Viewcomplaint/>}/>
         <Route path='replycomplaint' element={<Replycomplaint/>}/>
+        <Route path='viewhistory' element={<Viewhistory/>}/>
       </Route>
       <Route path='/president' element={<Presidentnav/>}>
         <Route index element={<Sechome/>}/>
@@ -138,6 +145,11 @@ root.render(
       <Route path='staffaddservice' element={<Staffaddservice/>}/>
       <Route path='staffviewservice' element={<Staffviewservice/>}/>
       <Route path='staffeditservice' element={<Staffeditservice/>}/>
+      <Route path='staffviewapply' element={<Staffviewapply/>}/>
+      <Route path='staffviewapplydetail' element={<Staffviewapplydetail/>}/>
+      <Route path='staffreject' element={<Rejectreason/>}/>
+      <Route path='staffviewmeet' element={<Staffviewmeet/>}/>
+      <Route path='staffviewnot' element={<Staffviewnot/>}/>
       </Route>
 
       <Route path='*' element={<div> no routes</div>}/>

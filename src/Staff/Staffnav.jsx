@@ -28,9 +28,9 @@ export const Staffnav = () => {
                    }
 
                    </div>
-      <div>APLLICATIONS</div>
-      <div>MEETING</div>
-      <div>NOTIFICATION</div>
+               <Link to='/staff/staffviewapply'><div>APLLICATIONS</div></Link>
+    <Link to='/staff/staffviewmeet'><div>MEETING</div></Link>
+    <Link to='/staff/staffviewnot'><div>NOTIFICATION</div></Link>
       <div>LOG OUT</div>
         </div>
     </div>
