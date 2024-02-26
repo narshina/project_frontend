@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 
 export const Wardnav = () => {
     const[meeting,setmeet]=useState(false)
+    const[notificatin,setnotification]=useState(false)
+    const[complaint,setcomplaint]=useState(false)
     let meetdropdown=()=>{
         setmeet(!meeting)
+    }
+    let notificationdropdown=()=>{
+      setnotification(!notificatin)
     }
     let close=()=>{
         setmeet(false)
@@ -17,10 +22,29 @@ export const Wardnav = () => {
         </div>
         <div className='flex nav1 p-5 gap-6 flex-wrap text-white text-[15px]'>
       <div>HOME</div>
-     <div>SERVICES</div>
-     <div>COMPLAINT</div>
-      <div>MEETING</div>
-    <div>NOTIFICATION</div>
+  <Link to='/member/memberviewservice'> <div>SERVICES</div></Link>
+  <div><span onClick={meetdropdown}>
+          MEETING
+          </span>
+          {meeting &&
+          <div className='list-none absolute top-[78px] bg-[#0F3053] p-4 pt-2 w-[115px]'>
+         <Link to='/member/membermeet'>   <li>ADD</li></Link>
+         <Link to='/member/memberviewmeet' >  <li>VIEW</li></Link>
+            </div>
+          }
+          </div>
+          <div><span onClick={notificationdropdown}>
+          NOTIFICATION
+          </span>
+          {notificatin &&
+          <div className='list-none absolute top-[78px] bg-[#0F3053] p-4 pt-2 w-[115px]'>
+         <Link to='/member/membernot'>   <li>ADD</li></Link>
+         <Link to='/member/memberviewnot' >  <li>VIEW</li></Link>
+            </div>
+          }
+          </div>
+
+    <Link to='/member/memberviewcomp'><div>COMPLAINT</div></Link>
         <div>LOG OUT</div>
         </div>
     </div>

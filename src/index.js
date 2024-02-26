@@ -60,6 +60,11 @@ import { Membereditmeet } from './Wardmember/Membereditmeet';
 import { Memberviewsevice } from './Wardmember/Memberviewsevice';
 import { Memberviewcomp } from './Wardmember/Memberviewcomp';
 import { Memberreplycomp } from './Wardmember/Memberreplycomp';
+import { Staffnav } from './Staff/Staffnav';
+import { Staffhome } from './Staff/Staffhome';
+import { Staffaddservice } from './Staff/Staffaddservice';
+import { Staffviewservice } from './Staff/Staffviewservice';
+import { Staffeditservice } from './Staff/Staffeditservice';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -127,6 +132,12 @@ root.render(
         <Route path='memberviewservice' element={<Memberviewsevice/>}/>
         <Route path='memberviewcomp' element={<Memberviewcomp/>}/>
         <Route path='memberreply' element={<Memberreplycomp/>}/>
+      </Route>
+      <Route path='/staff' element={<Staffnav/>}>
+      <Route index element={<Staffhome/>}/>
+      <Route path='staffaddservice' element={<Staffaddservice/>}/>
+      <Route path='staffviewservice' element={<Staffviewservice/>}/>
+      <Route path='staffeditservice' element={<Staffeditservice/>}/>
       </Route>
 
       <Route path='*' element={<div> no routes</div>}/>
