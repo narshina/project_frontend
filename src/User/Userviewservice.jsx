@@ -79,10 +79,15 @@ export const Userviewservice = () => {
                 {/* <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
                     The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
                 </p> */}
+                
                 <h2 class="text-black font-bold">Required documents</h2>
                 <li>Election id</li>
                 <li>Ration card copy</li>
                 <li>SSLC certificate</li>
+                <h3 class="text-base leading-relaxed text-black dark:text-gray-400 font-bold">
+                    fees
+                </h3>
+                <a>25</a>
             </div>
             <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
               <Link to={'/user/userapply'}>

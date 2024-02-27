@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const Viewnot = () => {
   return (
@@ -36,7 +37,7 @@ export const Viewnot = () => {
                     10:11 AM
                 </td>
                 <td class="px-6 py-4 flex justify-between">
-              <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+        <Link to='/admin/editnot'><a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a></Link>
                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
                 </td>
             </tr>

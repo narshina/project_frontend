@@ -71,6 +71,9 @@ import { Rejectreason } from './Staff/Rejectreason';
 import { Staffviewmeet } from './Staff/Staffviewmeet';
 import { Staffviewnot } from './Staff/Staffviewnot';
 import { Viewhistory } from './Admin/Viewhistory';
+import { Editnot } from './Admin/Editnot';
+import { Userpayment } from './User/Userpayment';
+import { Presidentreject } from './President/Presidentreject';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -108,6 +111,7 @@ root.render(
         <Route path='viewcomplaint' element={<Viewcomplaint/>}/>
         <Route path='replycomplaint' element={<Replycomplaint/>}/>
         <Route path='viewhistory' element={<Viewhistory/>}/>
+        <Route path='editnot' element={<Editnot/>}/>
       </Route>
       <Route path='/president' element={<Presidentnav/>}>
         <Route index element={<Sechome/>}/>
@@ -116,6 +120,7 @@ root.render(
         <Route path='secviewaplsndetail' element={<Secviewaplsndetail/>}/>
         <Route path='secviewmeet' element={<Secviewmeet/>}/>
         <Route path='secviewnot' element={<Secviewnot/>}/>
+        <Route path='secreject' element={<Presidentreject/>}/>
       </Route>
       <Route path='/user' element={<Usernav/>}>
         <Route index element={<Userhome/>}/>
@@ -127,6 +132,7 @@ root.render(
         <Route path='userviewmeet' element={<Userviewmeet/>}/>
         <Route path='userviewapplication' element={<Userviewapplicatin/>}/>
         <Route path='applicationdetail' element={<Viewaplcationdetail/>}/>
+        <Route path='userpayment' element={<Userpayment/>}/>
       </Route>
       <Route path='/member' element={<Wardnav/>}>
         <Route index element={<Wardhome/>}/>

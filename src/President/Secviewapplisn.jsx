@@ -11,36 +11,30 @@ export const Secviewapplisn = () => {
                     <thead class="text-xs text-gray-700 uppercase bg-slate-400 dark:bg-gray-700 dark:text-gray-400">
                         <tr className='text-center'>
                             <th scope="col" class="px-6 py-3">
+                                SERVICE
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 NAME
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                WARD NUMBER
+                                PAYMENT STATUS
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                WARD NAME
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                HOUSE NUMBER
-                            </th>
-                            <th scope="col" class="px-6 py-3  ">
-                                Action
+                                View
                             </th>
 
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="odd:bg-white text-center odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                dfghhh 
+                            <th  scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Apllication for ownership certificate
                             </th>
                             <td class="">
-                               3
+                               dghhhh
                             </td>
                             <td class="">
-                                Oravil
-                            </td>
-                            <td class="">
-                                259
+                               pending
                             </td>
                             <td class="">
             <Link to='/president/secviewaplsndetail'><a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">VIEW</a></Link>

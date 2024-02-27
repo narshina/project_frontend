@@ -83,6 +83,10 @@ export const Staffviewservice = () => {
                 <li>Election id</li>
                 <li>Ration card copy</li>
                 <li>SSLC certificate</li>
+                <h3 class="text-base leading-relaxed text-black dark:text-gray-400 font-bold">
+                    Processing time
+                </h3>
+                <a>3 working days</a>
             </div>
             <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
             <Link to={'/staff/staffeditservice'}>

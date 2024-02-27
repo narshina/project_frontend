@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export const Staffviewapplydetail = () => {
@@ -16,6 +16,7 @@ export const Staffviewapplydetail = () => {
            <div><label>information about which office to present</label></div>
            <div><label>document:</label></div>
            <div><label>status:pending</label></div>
+           <div><label>payment status:pending</label></div>
            <div><label>rejected reason:pending</label></div>
           <div className='flex gap-12'><button className='button text-black font-semibold bg-green-500 w-40 h-9 -ml-9 rounded mt-7'>ACCEPT</button>
         <Link to='/staff/staffreject' ><button className='button text-black font-semibold bg-red-600 w-40 h-9 -ml-9 rounded mt-7'>REJECT</button></Link>

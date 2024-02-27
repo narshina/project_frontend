@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 
 export const Memberviewcomp = () => {
   return (
-    
+ <>
+ <div className='font-bold font-serif  bg-[#CCDAF6] pt-5 text-[20px] m-auto text-center '>SERVICE LIST</div>  
 <div className='w-[100%] h-[675px] bg-[#CCDAF6] flex flex-wrap '>
 <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mt-20 m-auto">
     <a href="#">
@@ -78,5 +79,6 @@ export const Memberviewcomp = () => {
     </a></Link>
 </div>
 </div>
+</>
   )
 }
