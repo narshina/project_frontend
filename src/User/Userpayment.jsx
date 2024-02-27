@@ -1,17 +1,17 @@
 import React from 'react'
-import payment from './payment.jpg'
+import payment from './cardg.jpg'
 
 export const Userpayment = () => {
   return (
     <div className='p-4  h-[695px] bg-[#CCDAF6] flex justify-center'>
-    <div className='h-[550px] w-[40%] p-8  mt-2 bg-[#617DB2] m-auto rounded-2xl' >
+    <div className='h-[580px] w-[30%] p-8  mt-2 bg-[#617DB2] m-auto rounded-2xl' >
         <div><img className=' h-44 w-[100%] rounded-xl m-auto' src={payment} alt=''/></div>
       <div> <div className='text-black'>Card holder:</div>
         <input className='h-9 w-[100%] border-black bg-white rounded-xl'/></div>
         <div><div className='text-black'>Card number:</div>
         <input className='h-9 w-[100%] border-black bg-white rounded-xl'/></div>
         <div><div className='text-black'>Expired:</div>
-        <div className='flex  justify-between w-[100%]'>
+        <div className='flex  justify-between gap-2 w-[100%]'>
 
         <select className='h-9  w-48 bg-white rounded-xl text-black'  name="" id="">
         <option value="" selected disabled>MM</option>
@@ -28,7 +28,7 @@ export const Userpayment = () => {
                   <option value="11">11</option>
                   <option value="12">12</option>
            </select>
-           <select className='ps-3  h-9 w-[183px] bg-white rounded-xl text-black'  name="" id="">
+           <select className=' h-9 w-48 bg-white rounded-xl text-black'  name="" id="">
            <option value="" selected disabled>YY</option>
                   <option value="2021">2021</option>
                   <option value="2022">2022</option>
@@ -40,6 +40,8 @@ export const Userpayment = () => {
         </div>
          </div>
         <div><div className='text-black'>Security code:</div>
+        <input className='h-9 w-[100%] border-black bg-white rounded-xl'/></div>
+        <div><div className='text-black'>Amount:</div>
         <input className='h-9 w-[100%] border-black bg-white rounded-xl'/></div>
         <div><button className='h-9 w-[100%] bg-[#0F3053] mt-5 text-white rounded-lg' >pay now</button></div>
     </div>

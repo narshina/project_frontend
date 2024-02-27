@@ -4,3 +4,9 @@
 .borders{
   border: 10px solid #617DB2;
 }
+.ward{
+  background-image: url("bg.jpg");
+   height: 47rem;
+   background-repeat: no-repeat;
+   background-size: 100%;
+}

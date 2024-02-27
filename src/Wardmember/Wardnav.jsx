@@ -4,15 +4,17 @@ import { Link, Outlet } from 'react-router-dom'
 export const Wardnav = () => {
     const[meeting,setmeet]=useState(false)
     const[notificatin,setnotification]=useState(false)
-    const[complaint,setcomplaint]=useState(false)
     let meetdropdown=()=>{
         setmeet(!meeting)
+        setnotification(false)
     }
     let notificationdropdown=()=>{
       setnotification(!notificatin)
+      setmeet(false)
     }
     let close=()=>{
         setmeet(false)
+        setnotification(false)
     }
   return (
     <>
@@ -21,7 +23,7 @@ export const Wardnav = () => {
           <b> ULLIYERI-E-PANCHAYAT PORTAL</b>
         </div>
         <div className='flex nav1 p-5 gap-6 flex-wrap text-white text-[15px]'>
-      <div>HOME</div>
+    <Link to='/member' ><div>HOME</div></Link>
   <Link to='/member/memberviewservice'> <div>SERVICES</div></Link>
   <div><span onClick={meetdropdown}>
           MEETING
@@ -51,7 +53,9 @@ export const Wardnav = () => {
     <div className='sm:pt-20'>
 
     </div>
+    <div onClick={close} className=''> 
     <Outlet/>
+    </div>
     </>
   )
 }

@@ -16,7 +16,7 @@ export const Staffnav = () => {
           <b> ULLIYERI-E-PANCHAYAT PORTAL</b>
         </div>
         <div className='flex nav1 p-5 gap-6 flex-wrap text-white text-[15px]'>
-      <div>HOME</div>
+    <Link to='/president'> <div>HOME</div></Link>
       <div><span  onClick={servicedropdown}>
                   SERVICE
                   </span>

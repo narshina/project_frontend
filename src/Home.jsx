@@ -12,8 +12,8 @@ export default function Home() {
    <div className='main'>
     <div className=' one flex items-center pt-64 w-[510px] text-center text-[40px] pl-100'>
       <img className='icon w-24 ' src={imgg} alt="" />
-      <div className='text-[50px] font-semibold'>
-      ONE PLATFORM, MANY SOLUTIONS</div>
+      <div className='text-[40px] font-serif italic'>
+      GET YOUR SERVICES FROM HERE</div>
       </div>
    </div>
 </div>
