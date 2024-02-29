@@ -1,14 +1,35 @@
 import React from 'react'
 import App from './App'
 import './Home.css';
+import icon from './abc.png'
+import walk from './walking.png'
+import clg from './ulliyeri1.webp'
+import palam from './palam.png'
 
 export default function Home() {
   return (
     <>
     <div className='bg-[#7E9BD5] h-[350px]'>
       <div className='p-40 text-center'><label className='hover:text-white text-[#0F3053]  font-bold text-[40px]'>GET YOUR SERVICES FROM HERE</label><br></br><span className='text-[25px] text-center'>Empowering you with easy access to solutions.</span>
-      <div className='mt-[300px] h-64 w-72 bg-black'>
-        <h5>ABOUT US</h5>
+      <div><button className='bg-[#0F3053] text-white h-9 w-28 rounded-3xl hover:bg-[#77A4FA] mt-5'>contact</button></div>
+      <div className='mt-[300px] h-64 w-[100%]'>
+        <h3 className='font-bold text-[20px] '><u>ABOUT US</u></h3>
+        <label className='text-black text-[18px]'>This website is to provide panchayat services easily to the people.Without coming to the panchayat, the people can fulfil their 
+          needs through this website. The president can convey the information from panchayat to the people. Ward member are able to control the gram sabhas of their wards.Through this ,the problems
+          due to congestion in the panchayat can be avoided.
+        </label>
+      </div>
+      <div className='w-[100%] h-96  flex flex-wrap'>
+        <div className=''>
+          <img  className='h-[380px] w-[350px]' src={walk}></img>
+        </div>
+        
+        <div className=' '>
+        <img className='h-[380px] w-[460px]'  src={clg}></img>
+        </div>
+        <div className=' '>
+        <img className='h-[380px] w-[380px]'  src={palam}></img>
+        </div>
       </div>
       </div>
      
