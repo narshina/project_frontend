@@ -74,15 +74,22 @@ import { Viewhistory } from './Admin/Viewhistory';
 import { Editnot } from './Admin/Editnot';
 import { Userpayment } from './User/Userpayment';
 import { Presidentreject } from './President/Presidentreject';
+import { Forgotpassword } from './Forgotpassword';
+import { Userreg } from './Userreg';
+import { LanguageContext } from './User/LanguageContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+<LanguageContext>
+
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<App/>}>
         <Route index element={<Home/>}/>
         <Route path='/Login' element={<Userlogin/>}/>
+        <Route path='/forgot' element={<Forgotpassword/>}/>
+        <Route path='/userreg' element={<Userreg/>}/>
       </Route>
 
 
@@ -122,6 +129,7 @@ root.render(
         <Route path='secviewnot' element={<Secviewnot/>}/>
         <Route path='secreject' element={<Presidentreject/>}/>
       </Route>
+
       <Route path='/user' element={<Usernav/>}>
         <Route index element={<Userhome/>}/>
         <Route path='userviewservice' element={<Userviewservice/>}/>
@@ -161,6 +169,7 @@ root.render(
       <Route path='*' element={<div> no routes</div>}/>
     </Routes>
     </BrowserRouter>
+    </LanguageContext>
     
   
   </React.StrictMode>

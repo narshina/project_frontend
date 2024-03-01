@@ -5,6 +5,7 @@ import apln from './aplcsn.png'
 import com from './complaint.png'
 import met from './met.png'
 import not from './not.png'
+import { Link } from 'react-router-dom'
 
 export const Userhome = () => {
   return (
@@ -33,7 +34,7 @@ export const Userhome = () => {
         <b>COMPLAINT</b>
       </div>
       <div className=''>
-        <img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={met} alt=''/>
+     <Link to='/user/userviewmeet' ><img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={met} alt=''/></Link>
         <b>MEETING</b>
       </div>
       <div className=''>

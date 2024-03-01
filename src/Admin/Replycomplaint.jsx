@@ -2,8 +2,8 @@ import React from 'react'
 
 export const Replycomplaint = () => {
   return (
-    <div className=' w-screen h-[655px] bg-[#CCDAF6] '>
-      <div className=' flex  flex-wrap h-52 w-[500PX]  m-auto'>
+    <div className=' w-[100%] h-[655px] bg-[#CCDAF6] '>
+      <div className=' flex  flex-wrap h-52 w-[100PX]  m-auto'>
         <h2 className='font-serif font-bold text-[20px] mt-4 m-auto h-0'>REPLY TO COMPLAINT</h2>
         <div className=' h-5 m-auto'>REPLY:
         <input className='h-9 w-72 bg-white'></input></div>

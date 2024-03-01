@@ -14,7 +14,6 @@ function App() {
         <div className='flex navcolor p-5 gap-6 flex-wrap text-white'>
           <div>HOME</div>
           <div>REGISTER</div>
-          <Link to='/login'><div>LOGIN</div></Link>
         </div>
       </div>
       <Outlet />

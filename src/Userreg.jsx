@@ -1,11 +1,11 @@
 import React from 'react'
 
-export const Addwardmember = () => {
+export const Userreg = () => {
   return (
-    <div className=' w-screen sm:h-[650px] bg-[#CCDAF6]  pt-5'>
-      <div className='font-bold font-serif text-[20px] m-auto text-center'>WARD MEMBER</div>
-      <div className="flex flex-wrap justify-center gap-8" >
-        <div className=' h-[360px] w-[450px] '>
+    <div className=' w-screen h-screen bg-[#CCDAF6] pt-24 '>
+      <div className='font-bold font-serif text-[20px] m-auto text-center '>REGISTRATION FORM</div>
+      <div className="flex flex-wrap justify-center gap-8 " >
+        <div className=' h-[400px] w-[450px] '>
 
 
           <div className='text h-9   text-white mt-4 flex'>
@@ -16,7 +16,7 @@ export const Addwardmember = () => {
             <input className='h-9 w-56 bg-white rounded-r-lg'></input></div>
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
-              PHOTO:
+              AGE:
 
             </span>
             {/* <input type="file" className='h-9 w-56 bg-white rounded-r-lg'/> */}
@@ -26,7 +26,7 @@ export const Addwardmember = () => {
             </div>
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
-              AGE:
+              DATE OF BIRTH:
 
             </span>
             <input className='h-9 w-56 bg-white rounded-r-lg'></input></div>
@@ -38,39 +38,22 @@ export const Addwardmember = () => {
             <input className='h-9 w-56 bg-white rounded-r-lg'></input></div>
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
-              EMAIL ID:
+              ID PROOF:
 
             </span>
             <input type='email' className='h-9 w-56 bg-white rounded-r-lg'></input></div>
-          <div className='text h-9   text-white mt-4 flex'>
+            <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               WARD NUMBER:
 
             </span>
-           <select className='h-9 w-56 bg-white rounded-r-lg text-black'  name="" id="">
-            <option value="">1</option>
-            <option value="">2</option>
-            <option value="">3</option>
-           </select>
-           
-           
-           </div>
-           <div className='text h-9   text-white mt-4 flex'>
+            <input type='email' className='h-9 w-56 bg-white rounded-r-lg'></input></div>
+            <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               WARD NAME:
 
             </span>
-           <select className='h-9 w-56 bg-white rounded-r-lg text-black'  name="" id="">
-            <option disabled value="">select</option>
-            <option value="">Kakkanchery</option>
-            <option value="">koyakkad west</option>
-            <option value="">koyakkad</option>
-            <option value="">Oravil</option>
-            <option value="">Ulliyeri North</option>
-           </select>
-           
-           
-           </div>
+            <input type='email' className='h-9 w-56 bg-white rounded-r-lg'></input></div>
 
 
 
@@ -79,7 +62,19 @@ export const Addwardmember = () => {
         <div className=' h-[360px] w-[450px]  '>
         <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
-              HOUSE:
+              EMAIL ID:
+
+            </span>
+            <input className='h-9 w-56 bg-white rounded-r-lg'></input></div>
+            <div className='text h-9   text-white mt-4 flex'>
+            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
+              HOUSE NUMBER:
+
+            </span>
+            <input className='h-9 w-56 bg-white rounded-r-lg'></input></div>
+            <div className='text h-9   text-white mt-4 flex'>
+            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
+              HOUSE NAME:
 
             </span>
             <input className='h-9 w-56 bg-white rounded-r-lg'></input></div>
@@ -89,6 +84,7 @@ export const Addwardmember = () => {
 
             </span>
             <input className='h-9 w-56 bg-white rounded-r-lg'></input></div>
+
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               DISTRICT:
@@ -100,14 +96,9 @@ export const Addwardmember = () => {
               PINCODE:
 
             </span>
-            <input className='h-9 w-56 bg-white rounded-r-lg'></input></div>
+            <input type='email' className='h-9 w-56 bg-white rounded-r-lg'></input></div>
 
-            <div className='text h-9   text-white mt-4 flex'>
-            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
-              PHONE NUMBER:
 
-            </span>
-            <input className='h-9 w-56 bg-white rounded-r-lg'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PASSWORD:
@@ -121,7 +112,7 @@ export const Addwardmember = () => {
         </div>
       </div>
       <div className='text-center'>
-        <button className='button text-white font-semibold bg-[#0F3053] w-48 h-9 rounded mt-7 m-auto'>SUBMIT</button></div>
+        <button className='button text-white font-semibold bg-[#0F3053] w-48 h-9 rounded -mt-52 m-auto'>SUBMIT</button></div>
     </div>
   )
 }
