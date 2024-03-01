@@ -63,7 +63,7 @@ export const Wardnav = () => {
           </div>
 
     <Link to='/member/memberviewcomp'><div>COMPLAINT</div></Link>
-        <div>LOG OUT</div>
+    <Link to='/Login'> <div>LOG OUT</div></Link>
         </div>
 }
     </div>

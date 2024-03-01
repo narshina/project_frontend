@@ -47,7 +47,7 @@ export const Staffnav = () => {
                <Link to='/staff/staffviewapply'><div>APLLICATIONS</div></Link>
     <Link to='/staff/staffviewmeet'><div>MEETING</div></Link>
     <Link to='/staff/staffviewnot'><div>NOTIFICATION</div></Link>
-      <div>LOG OUT</div>
+   <Link to='/Login'> <div>LOG OUT</div></Link>
         </div>
 }
     </div>

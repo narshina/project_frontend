@@ -2,6 +2,7 @@ import React from 'react'
 import App from './App'
 import './Login.css'
 import img from './login.jpg'
+import { Link } from 'react-router-dom'
 
 export const Userlogin = () => {
   return (
@@ -17,7 +18,7 @@ export const Userlogin = () => {
            <input className='username bg-indigo-400 text-neutral-950 rounded w-72  h-9 mt-2 placeholder:text-white p-3' placeholder='Enter username here'></input>
            <div className='pass mt-2'>PASSWORD</div>
            <input className='password bg-indigo-400 text-neutral-950 rounded w-72 h-9  mt-2 placeholder:text-white p-3' placeholder='Enter password here'></input>
-           <div className='for mt-2'>Forgot password?</div>
+        <Link to='/forgot'  > <div className='for mt-2'>   <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Forgot password?</a></div></Link>
             <div><button className='button text-black font-semibold bg-indigo-400 w-72 h-9 rounded mt-2'>LOGIN</button></div>
           </div>
       </div>

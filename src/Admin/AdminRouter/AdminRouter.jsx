@@ -86,6 +86,7 @@ const AdminRouter = () => {
                   {staff &&
                       <div className='list-none absolute top-[78px] bg-[#0F3053] p-4 pt-2 w-[150px] '>
                     <Link to='/admin/addsec'>  <li>ADD CATEGORY</li></Link>
+                    <Link to='/admin/viewcate'><li>VIEW CATEGORY</li></Link>
                     <Link to='/admin/addstaff'>  <li>ADD STAFF</li></Link>
                     <Link to='/admin/viewstaff'>  <li>VIEW STAFF</li></Link>
                         </div> 
@@ -129,7 +130,7 @@ const AdminRouter = () => {
                    </div>
        <Link to='/admin/viewcomplaint'><div>COMPLAINT</div></Link>
        <Link to='/admin/viewhistory'><div>HISTORY</div></Link>
-          <div>LOG OUT</div>
+       <Link to='/Login'  > <div>LOG OUT</div></Link>
 
         </div>
 }

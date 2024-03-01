@@ -77,6 +77,7 @@ import { Presidentreject } from './President/Presidentreject';
 import { Forgotpassword } from './Forgotpassword';
 import { Userreg } from './Userreg';
 import { LanguageContext } from './User/LanguageContext';
+import { Viewcategory } from './Admin/Viewcategory';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -119,6 +120,7 @@ root.render(
         <Route path='replycomplaint' element={<Replycomplaint/>}/>
         <Route path='viewhistory' element={<Viewhistory/>}/>
         <Route path='editnot' element={<Editnot/>}/>
+        <Route path='viewcate' element={<Viewcategory/>}/>
       </Route>
       <Route path='/president' element={<Presidentnav/>}>
         <Route index element={<Sechome/>}/>

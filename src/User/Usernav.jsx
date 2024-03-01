@@ -52,7 +52,7 @@ export const Usernav = () => {
        <Link to='/user/userviewmeet'> <div>MEETING</div></Link>
       <Link to='/user/userviewnot' ><div>NOTIFICATION</div></Link>
        {lang?<div onClick={toggleLang}>ENGLISH</div> : <div onClick={toggleLang}>MALAYALAM</div>} 
-        <div>LOG OUT</div>
+      <Link to='/Login'><div>LOG OUT</div></Link>
         </div>
 }
         </div>
