@@ -130,6 +130,7 @@ const AdminRouter = () => {
                    </div>
        <Link to='/admin/viewcomplaint'><div>COMPLAINT</div></Link>
        <Link to='/admin/viewhistory'><div>HISTORY</div></Link>
+       <Link to='/admin/addnews' ><div>NEWS</div></Link>
        <Link to='/Login'  > <div>LOG OUT</div></Link>
 
         </div>

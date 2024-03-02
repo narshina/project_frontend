@@ -5,6 +5,7 @@ import apln from './aplcsn.png'
 import com from './complaint.png'
 import met from './met.png'
 import not from './not.png'
+import { Link } from 'react-router-dom'
 
 export const Wardhome = () => {
   return (
@@ -21,15 +22,15 @@ export const Wardhome = () => {
     </div>
     <div className='bg-[#617DB2] w-[100%] h-60 flex flex-wrap gap-24 justify-center mt-4'>
       <div className=''>
-        <img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={service} alt=''/>
+      <Link to='/member/memberviewservice'><img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={service} alt=''/></Link>
         <b className=''>SERVICES</b>
       </div>
-      <div className=''>
+      {/* <div className=''>
         <img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={apln} alt=''/>
         <b>MY APPLICATIONS</b>
-      </div>
+      </div> */}
       <div className=''>
-        <img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={com} alt=''/>
+      <Link to='/member/memberviewcomp'> <img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={com} alt=''/></Link>
         <b>COMPLAINT</b>
       </div>
       <div className=''>

@@ -4,26 +4,69 @@ import { Link } from 'react-router-dom'
 
 export const Viewstaffdetail = () => {
   return (
-    <div className='w-screen h-[655px]'>
-      <div className=' flex justify-center w-screen h-80  bg-[#CCDAF6] '>
-        <div className=' bg-[#0F3053] h-[500px] w-[400px] mt-7 rounded-2xl border-4 border-white'>
-          <div className='h-25 w-25 flex  flex-col pt-5 text-center justify-center'>
-          <div><img className='rounded-full m-auto h-28 w-28' src={photo} alt=''/></div>
-          <div><label className='text-white ml-'>Akil</label></div>
-          <div><label className='text-white ml-0rem'>akil@gmail.com</label></div></div>
-          <div className='text-white leading-[30px] flex ml-36 flex-col'>
-            <div><label>Age: 45</label></div>
-           <div><label>Gender:Male</label></div>
-           <div><label>Category:Clerk</label></div>
-           <div><label>House:ghhh</label></div>
-           <div><label>Street:ghhjjjj</label></div>
-           <div><label>District:calicut</label></div>
-           <div><label>Pincode:675888</label></div>
-           <div><label>Phone number:9539246219</label></div>
-       <Link to='/admin/editstaff'> <div><button className='button text-black font-semibold bg-indigo-400 w-40 h-9 -ml-9 rounded mt-7'>EDIT</button></div></Link>
-                </div>
-                </div>
-      </div>
+    <div className='w-[100%] h-[695px] bg-[#CCDAF6] flex justify-center'>
+    <div class="p-5 border text-center bg-white text-gray-500 max-w-sm h-fit  w-fit p-4 rounded-xl mt-24">
+    <img class="w-32 h-32 rounded-full mx-auto" src={photo} alt=""/>
+    <div class="text-sm mt-5">
+        <a href="#"
+            class="font-medium leading-none text-gray-900 hover:text-indigo-600 transition duration-500 ease-in-out">Jane
+            Doe
+        </a>
+        <p>jane@gmail.com</p><br />
+        <div className='p-4'>
+<div className='flex justify-around mb-5 border-b-8 pb-4 '>
+
+        <div className=''>
+        <div className='font-bold'>Age</div>
+        <div className=''>43</div>
+        </div>
+        <div className=''>
+        <div className='font-bold'>Gender</div>
+        <div className=''>male</div>
+        </div>
+        <div className=''>
+        <div className='font-bold'>Category</div>
+        <div className=''>clerk</div>
+        </div>
+        <div className=''>
+        <div className='font-bold'>house</div>
+        <div className=''>jkhfffff</div>
+        </div>
+</div>
+
+<div className='flex justify-around gap-4 mb-5'>
+
+        
+
+        <div className=''>
+        <div className='font-bold'>street</div>
+        <div className=''>hjklll</div>
+        </div>
+        <div className=''>
+        <div className='font-bold'>district</div>
+        <div className=''>kozhikode</div>
+        </div>
+        
+
+        <div className=''>
+        <div className='font-bold'>pincode</div>
+        <div className=''>673323</div>
+        </div>
+        <div className=''>
+        <div className='font-bold'>phone number</div>
+        <div className=''>9867543456</div>
+        </div>
+
+        </div>
+        </div>
+        
     </div>
+    <Link to='/admin/editstaff'>
+<button className='bg-blue-950 p-2 w-20 rounded-2xl text-white hover:bg-black'>Edit</button></Link>
+   
+   
+
+</div>
+</div>
   )
 }

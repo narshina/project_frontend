@@ -1,6 +1,14 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 export const Addsecr = () => {
+
+
+  const fileUpload = useRef('')
+
+  const handleUploadFile = ()=>{
+    fileUpload.current.click()
+  }
+
   return (
     <div className=' w-screen  bg-[#CCDAF6] sm:h-[650px] pt-5'>
       <div className='font-bold font-serif text-[20px] m-auto text-center'>SECRETARY</div>
@@ -14,12 +22,12 @@ export const Addsecr = () => {
 
             </span>
             <input className='h-9 w-56 bg-white rounded-r-lg'></input></div>
-          <div className='text h-9   text-white mt-4 flex'>
-            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
+          <div className='text h-9   text-white mt-4 flex' onClick={handleUploadFile}>
+            <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PHOTO:
 
             </span>
-            {/* <input type="file" className='h-9 w-56 bg-white rounded-r-lg'/> */}
+            <input ref={fileUpload} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg'/>
             <div className="">
               <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg'>upload photo</p>
             </div>

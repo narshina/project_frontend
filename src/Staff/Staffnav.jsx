@@ -32,7 +32,7 @@ export const Staffnav = () => {
       sec &&
     
         <div className='flex nav1 p-5 gap-6 flex-wrap text-white text-[15px]'>
-    <Link to='/president'> <div>HOME</div></Link>
+    <Link to='/staff'> <div>HOME</div></Link>
       <div><span  onClick={servicedropdown}>
                   SERVICE
                   </span>

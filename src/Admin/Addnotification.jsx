@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export const Addnotification = () => {
+  // const[data,setdata]=useState('')
+  // let handlechange=
+
   return (
     <div className='w-[100%] h-[690px] bg-[#CCDAF6] flex justify-center p-9'>
       <div className='h-56 w-96 bg-white p-5 rounded-xl'>

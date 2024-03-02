@@ -5,6 +5,7 @@ import apln from './aplcsn.png'
 import com from './complaint.png'
 import met from './met.png'
 import not from './not.png'
+import { Link } from 'react-router-dom'
 
 export const Sechome = () => {
   return (
@@ -21,23 +22,23 @@ export const Sechome = () => {
   </div>
   <div className='bg-[#617DB2] w-[100%] h-60 flex flex-wrap gap-24 justify-center mt-4'>
     <div className=''>
-      <img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={service} alt=''/>
+   <Link to='/president/secservice'  ><img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={service} alt=''/></Link>
       <b className=''>SERVICES</b>
     </div>
     <div className=''>
-      <img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={apln} alt=''/>
+    <Link to='/president/secviewapllcsn' > <img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={apln} alt=''/></Link>
       <b>APPLICATIONS</b>
     </div>
-    <div className=''>
+    {/* <div className=''>
       <img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={com} alt=''/>
       <b>COMPLAINT</b>
-    </div>
+    </div> */}
     <div className=''>
-   <img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={met} alt=''/>
+  <Link to='/president/secviewmeet'><img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={met} alt=''/></Link>
       <b>MEETING</b>
     </div>
     <div className=''>
-      <img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={not} alt=''/>
+   <Link to='/president/secviewnot'><img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={not} alt=''/></Link>
       <b>NOTIFICATION</b>
     </div>
      </div> 

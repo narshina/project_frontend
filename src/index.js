@@ -78,6 +78,8 @@ import { Forgotpassword } from './Forgotpassword';
 import { Userreg } from './Userreg';
 import { LanguageContext } from './User/LanguageContext';
 import { Viewcategory } from './Admin/Viewcategory';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Addnews } from './Admin/Addnews';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -121,6 +123,7 @@ root.render(
         <Route path='viewhistory' element={<Viewhistory/>}/>
         <Route path='editnot' element={<Editnot/>}/>
         <Route path='viewcate' element={<Viewcategory/>}/>
+        <Route path='addnews' element={<Addnews/>}/>
       </Route>
       <Route path='/president' element={<Presidentnav/>}>
         <Route index element={<Sechome/>}/>

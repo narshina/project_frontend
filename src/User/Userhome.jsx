@@ -22,15 +22,15 @@ export const Userhome = () => {
     </div>
     <div className='bg-[#617DB2] w-[100%] h-60 flex flex-wrap gap-24 justify-center mt-4'>
       <div className=''>
-        <img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={service} alt=''/>
+      <Link to='/user/userviewservice'><img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={service} alt=''/></Link>
         <b className=''>SERVICES</b>
       </div>
       <div className=''>
-        <img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={apln} alt=''/>
+      <Link to='/user/userviewapplication'><img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={apln} alt=''/></Link>
         <b>MY APPLICATIONS</b>
       </div>
       <div className=''>
-        <img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={com} alt=''/>
+      <Link to='/user/postcomplaint'><img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={com} alt=''/></Link>
         <b>COMPLAINT</b>
       </div>
       <div className=''>
@@ -38,7 +38,7 @@ export const Userhome = () => {
         <b>MEETING</b>
       </div>
       <div className=''>
-        <img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={not} alt=''/>
+      <Link to='/user/userviewnot'><img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={not} alt=''/></Link>
         <b>NOTIFICATION</b>
       </div>
        </div> 

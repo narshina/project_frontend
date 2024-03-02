@@ -1,32 +1,107 @@
-import React from 'react'
+import React, { useState } from 'react'
 import photo from './photo.jpg'
 
 export const Userviewdetail = () => {
+  const [id,setid]=useState(false)
+  let toggleId=()=>{
+    setid(!id)
+  }
+  let toggleIdfalse=()=>{
+    setid(false)
+  }
+
   return (
-    <div className=' flex justify-center w-screen h-80 bg-[#CCDAF6] '>
-        <div className=' bg-[#0F3053] h-[620px] w-[400px] mt-7  rounded-2xl border-4 border-white'>
-          <div className='h-25 w-25 flex  flex-col pt-5 text-center justify-center'>
-          <div><img className='rounded-full m-auto h-28 w-28' src={photo} alt=''/>
-          <div><label className='text-white ml-'>Akil</label></div></div>
-          <div className='text-white leading-[30px] flex  flex-col'>
-            <div><label>Age: 45</label></div>
-           <div><label>Date of birth:16/11/2001</label></div>
-           <div><label>Gender:male</label></div>
-           <div><label>Email Id:Akil@gmail.com</label></div>
-           <div><label>Ward number:3</label></div>
-           <div><label>Ward name:Ulliyeri north</label></div>
-           <div><label>House number:259</label></div>
-           <div><label>House name:Kizhakkayil</label></div>
-           <div><label>Street:gdhsh</label></div>
-           <div><label>District:calicut</label></div>
-           <div><label>Pincode:675888</label></div>
-           <div><label>Phone number:9539246219</label></div>
-           <div><label>Status:Pending</label></div>
-     <div className='flex m-auto gap-1'><button className='button text-black font-semibold bg-indigo-400 w-40 h-9  rounded mt-5 border-2 border-white '>ACCEPT</button>
-     <div><button className='button text-black font-semibold bg-indigo-400 w-40 h-9  rounded mt-5 border-2 border-white'>REJECT</button></div></div>
-                </div>
-                </div>
-                </div>
-      </div>
+    <div className='w-[100%]  bg-[#CCDAF6] flex justify-center'>
+    <div class="p-2 border text-center bg-white text-gray-500 max-w-sm h-fit  w-fit  rounded-xl mt-20">
+    <img class="w-32 h-32 rounded-full mx-auto" src={photo} alt=""/>
+    <div class="text-sm mt-5">
+        <a href="#"
+            class="font-medium leading-none text-gray-900 hover:text-indigo-600 transition duration-500 ease-in-out">Jane
+            Doe
+        </a>
+        <p>jane@gmail.com</p><br />
+        <div className='p-4'>
+<div className='flex justify-around mb-5 border-b-8 pb-4 '>
+
+        <div className=''>
+        <div className='font-bold'>Age</div>
+        <div className=''>43</div>
+        </div>
+        <div className=''>
+        <div className='font-bold'>date of birth</div>
+        <div className=''>16/11/2001</div>
+        </div>
+        <div className=''>
+        <div className='font-bold'>gender</div>
+        <div className=''>male</div>
+        </div>
+        <div className=''>
+        <div className='font-bold'>id proof</div>
+        <div onMouseEnter={toggleId} onMouseLeave={toggleIdfalse} className=''><button>view</button></div>
+        </div>
+
+</div>
+{ id &&
+
+<div>
+  <img src={photo} alt="" />
+</div>
+}
+<div className='flex justify-around gap-4 mb-5 border-b-8 pb-4 '>
+
+        
+
+        <div className=''>
+        <div className='font-bold'>ward number</div>
+        <div className=''>4</div>
+        </div>
+        <div className=''>
+        <div className='font-bold'>ward name</div>
+        <div className=''>tyyyyy</div>
+        </div>
+        
+
+        <div className=''>
+        <div className='font-bold'>house number</div>
+        <div className=''>259</div>
+        </div>
+        <div className=''>
+        <div className='font-bold'>house name</div>
+        <div className=''>9867543456</div>
+        </div>
+
+        </div>
+        </div>
+        <div className='flex justify-around gap-4 mb-5'>
+
+        
+
+        <div className=''>
+        <div className='font-bold'>street</div>
+        <div className=''>rrtttt</div>
+        </div>
+        <div className=''>
+        <div className='font-bold'>district</div>
+        <div className=''>tyyyyy</div>
+        </div>
+        
+
+        <div className=''>
+        <div className='font-bold'>pincode</div>
+        <div className=''>5677888</div>
+        </div>
+        
+
+        </div>
+        </div>
+        <button className='bg-blue-950 p-2 w-20 rounded-2xl text-white hover:bg-black'>Edit</button>
+        
+    </div>
+
+
+   
+   
+
+</div>
   )
 }
