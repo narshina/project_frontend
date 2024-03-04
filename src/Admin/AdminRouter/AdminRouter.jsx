@@ -98,6 +98,7 @@ const AdminRouter = () => {
                   </span>
                   {member &&
                       <div className='list-none absolute top-[78px] bg-[#0F3053] p-4 pt-2 w-[90px] '>
+                      <Link to='/admin/addward'><li>WARDS</li></Link>
                       <Link to='/admin/addwardmember'> <li>ADD</li></Link>
                       <Link to='/admin/viewwardmember'> <li>VIEW</li></Link>
                         </div> 

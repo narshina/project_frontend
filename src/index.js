@@ -80,6 +80,10 @@ import { LanguageContext } from './User/LanguageContext';
 import { Viewcategory } from './Admin/Viewcategory';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Addnews } from './Admin/Addnews';
+import { Addward } from './Admin/Addward';
+
+
+import {Toaster} from "react-hot-toast"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -124,6 +128,7 @@ root.render(
         <Route path='editnot' element={<Editnot/>}/>
         <Route path='viewcate' element={<Viewcategory/>}/>
         <Route path='addnews' element={<Addnews/>}/>
+        <Route path='addward' element={<Addward/>}/>
       </Route>
       <Route path='/president' element={<Presidentnav/>}>
         <Route index element={<Sechome/>}/>
@@ -175,6 +180,10 @@ root.render(
     </Routes>
     </BrowserRouter>
     </LanguageContext>
+    <Toaster
+  position="top-left"
+  reverseOrder={false}
+/>
     
   
   </React.StrictMode>
