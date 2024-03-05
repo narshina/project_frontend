@@ -34,12 +34,12 @@ export const Wardhome = () => {
         <b>COMPLAINT</b>
       </div>
       <div className=''>
-     <img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={met} alt=''/>
+    <Link to='/member/meetpresident'><img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={met} alt=''/></Link>
         <b>MEETING</b>
       </div>
       <div className=''>
-        <img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={not} alt=''/>
-        <b>NOTIFICATION</b>
+      <Link to='/member/notpresident' ><img className='mt-8 h-24 w-24 hover:bg-[#99B9F6]' src={not} alt=''/></Link>
+  <b>NOTIFICATION</b>
       </div>
        </div> 
       <div className='bg-[#CCDAF6] w-[100%] h-60  mt-4'>

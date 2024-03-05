@@ -1,8 +1,47 @@
-import React from 'react'
+import React, { useRef,useState } from 'react'
+import {FaEye,FaEyeSlash} from "react-icons/fa"
+import toast from 'react-hot-toast'
 
 export const Userreg = () => {
+  const fileUpload = useRef('')
+
+  const handleUploadFile = ()=>{
+    fileUpload.current.click()
+  }
+
+  const[data,setdata]=useState('')
+  const[showpassword,setshowpassword]=useState('password')
+  let handlechange=(event)=>{
+    setdata({...data,[event.target.name]:event.target.value})
+  }
+  
+  let handlesubmit=(event)=>{
+    event.preventDefault()
+    const requiredFields = ['name','photo','age','gender','idproof','ward number','ward name','email','house number','house name','street','district','pincode','password'];
+
+    for (const field of requiredFields) {
+        if (!data[field]) {
+            return toast.error(`${field} is required`);
+        }
+    }
+    let mobileNumberPattern = /^[6-9]\d{9}$/
+    if(!mobileNumberPattern.test(data.phonenumber)){
+     return toast.error('mobile number not matched')
+    }
+    let passwordPattern =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/
+    console.log(passwordPattern.test(data.password));
+    if(!passwordPattern.test(data.password)){
+      return toast.error('password is not matched')
+    }
+    setdata(data)
+    toast.success("successfully registered")
+    console.log(data);
+
+  }
+
   return (
-    <div className=' w-screen h-screen bg-[#CCDAF6] pt-24 '>
+    <form onSubmit={handlesubmit}>
+    <div className=' w-screen h-screen bg-[#CCDAF6] pt-14'>
       <div className='font-bold font-serif text-[20px] m-auto text-center '>REGISTRATION FORM</div>
       <div className="flex flex-wrap justify-center gap-8 " >
         <div className=' h-[400px] w-[450px] '>
@@ -13,47 +52,63 @@ export const Userreg = () => {
               NAME:
 
             </span>
-            <input className='h-9 w-56 bg-white rounded-r-lg'></input></div>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='name' type='text'></input></div>
+            <div className='text h-9   text-white mt-4 flex' onClick={handleUploadFile}>
+            <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
+              PHOTO:
+
+            </span>
+            <input  onChange={handlechange} ref={fileUpload} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='photo' />
+            <div className="">
+              <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg pl-3'>upload</p>
+            </div>
+            </div>
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               AGE:
 
             </span>
-            {/* <input type="file" className='h-9 w-56 bg-white rounded-r-lg'/> */}
-            <div className="">
-              <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg'>upload photo</p>
-            </div>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='age' type='text'/>
+            
             </div>
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               DATE OF BIRTH:
 
             </span>
-            <input className='h-9 w-56 bg-white rounded-r-lg'></input></div>
-          <div className='text h-9   text-white mt-4 flex'>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='dob' type='date'></input></div>
+            <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               GENDER:
 
             </span>
-            <input className='h-9 w-56 bg-white rounded-r-lg'></input></div>
-          <div className='text h-9   text-white mt-4 flex'>
-            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
+            <select onChange={handlechange} className='placeholder:select h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='gender'>
+              <option value='female'>Female</option>
+              <option value='male'>Male</option>
+              <option value='others'>Others</option>
+              </select></div>
+            <div className='text h-9   text-white mt-4 flex' onClick={handleUploadFile}>
+            <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               ID PROOF:
 
             </span>
-            <input type='email' className='h-9 w-56 bg-white rounded-r-lg'></input></div>
+            <input onChange={handlechange} ref={fileUpload} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='idproof' />
+            <div className="">
+              <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg pl-3'>upload</p>
+            </div>
+            </div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               WARD NUMBER:
 
             </span>
-            <input type='email' className='h-9 w-56 bg-white rounded-r-lg'></input></div>
+            <input onChange={handlechange}  type='text' className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='ward number'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               WARD NAME:
 
             </span>
-            <input type='email' className='h-9 w-56 bg-white rounded-r-lg'></input></div>
+            <input onChange={handlechange} type='text' className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='ward name' ></input></div>
 
 
 
@@ -65,38 +120,38 @@ export const Userreg = () => {
               EMAIL ID:
 
             </span>
-            <input className='h-9 w-56 bg-white rounded-r-lg'></input></div>
+            <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='email' type='email'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               HOUSE NUMBER:
 
             </span>
-            <input className='h-9 w-56 bg-white rounded-r-lg'></input></div>
+            <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='house number' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               HOUSE NAME:
 
             </span>
-            <input className='h-9 w-56 bg-white rounded-r-lg'></input></div>
+            <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='house name' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               STREET:
 
             </span>
-            <input className='h-9 w-56 bg-white rounded-r-lg'></input></div>
+            <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='street' type='text'></input></div>
 
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               DISTRICT:
 
             </span>
-            <input className='h-9 w-56 bg-white rounded-r-lg'></input></div>
+            <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='district' type='text' maxLength={6}></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PINCODE:
 
             </span>
-            <input type='email' className='h-9 w-56 bg-white rounded-r-lg'></input></div>
+            <input onChange={handlechange} type='text' name='pincode' className='h-9 w-56 bg-white rounded-r-lg text-black pl-3'></input></div>
 
 
             <div className='text h-9   text-white mt-4 flex'>
@@ -104,7 +159,20 @@ export const Userreg = () => {
               PASSWORD:
 
             </span>
-            <input className='h-9 w-56 bg-white rounded-r-lg'></input></div>
+            <div className="flex text-black  h-9 w-56 bg-white rounded-r-lg justify-center items-center pl-3">
+            <input onChange={handlechange} className='outline-none' name='password' type={showpassword}></input>
+           { showpassword === 'text' ?  <FaEye onClick={()=> setshowpassword('password') } color='black' className='ms-2'/> :
+           
+           <FaEyeSlash  onClick={()=> setshowpassword('text') } color='black' className='ms-2'/>
+           }
+            </div>
+            </div>
+            <div className='text h-9   text-white mt-4 flex'>
+            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
+              PHONE NUMBER:
+
+            </span>
+            <input onChange={handlechange} type='text' name='phonenumber' className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' maxLength={10}></input></div>
             
             
             
@@ -112,7 +180,8 @@ export const Userreg = () => {
         </div>
       </div>
       <div className='text-center'>
-        <button className='button text-white font-semibold bg-[#0F3053] w-48 h-9 rounded -mt-52 m-auto'>SUBMIT</button></div>
+        <button className='button text-white font-semibold bg-[#0F3053] w-48 h-9 rounded mt-9 m-auto'>SUBMIT</button></div>
     </div>
+    </form>
   )
 }

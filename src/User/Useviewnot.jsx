@@ -3,7 +3,7 @@ import React from 'react'
 export const Useviewnot = () => {
   return (
     <div className=' w-screen h-[655px] bg-[#CCDAF6]  pt-5 content-center' >
-     <div className='ml-[650px] font-serif text-[20px] font-bold'><h2>NOTIFICATION</h2></div>   
+     <div className='text-center font-serif text-[20px] font-bold'><h2>NOTIFICATION</h2></div>   
 
 <div class="relative overflow-x-auto justify-center flex">
     <table class="w-[850PX] text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-5">

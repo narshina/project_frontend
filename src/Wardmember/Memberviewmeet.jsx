@@ -42,9 +42,9 @@ export const Memberviewmeet = () => {
                             <td class="">
                                 Ulliyeri 
                             </td>
-                            <td class="">
+                            <td class="px-6 py-4 flex justify-center gap-3">
                      <Link to='/member/membereditmeet' >   <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a></Link>
-            
+                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
                             </td>
                         </tr>
                         {/* <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
