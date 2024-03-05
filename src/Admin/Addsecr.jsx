@@ -21,43 +21,14 @@ export const Addsecr = () => {
   let handlesubmit=(event)=>{
     event.preventDefault()
 
+    const requiredFields = ['name', 'photo', 'age', 'gender', 'emailid', 'qualification', 'house', 'street', 'district', 'pincode', 'phonenumber', 'password'];
 
-    if(!data.name){
-     return toast.error('name is required')
+    for (const field of requiredFields) {
+        if (!data[field]) {
+            return toast.error(`${field} is required`);
+        }
     }
-    if(!data.photo){
-      return toast.error('photo is required')
-    }
-    if(!data.age){
-      return toast.error('age is required')
-    }
-    if(!data.gender){
-      return toast.error('gender is required')
-    }
-    if(!data.emailid){
-      return toast.error('gender is required')
-    }
-    if(!data.qualification){
-      return toast.error('qualification is required')
-    }
-    if(!data.house){
-      return toast.error('house is required')
-    }
-    if(!data.street){
-      return toast.error('street is required')
-    }
-    if(!data.district){
-      return toast.error('district is required')
-    }
-    if(!data.pincode){
-      return toast.error('pincode is required')
-    }
-    if(!data.phonenumber){
-      return toast.error('phone number is required')
-    }
-    if(!data.password){
-      return toast.error('password is required')
-    }
+    
 
     let mobileNumberPattern = /^[6-9]\d{9}$/
     if(!mobileNumberPattern.test(data.phonenumber)){
@@ -83,7 +54,7 @@ export const Addsecr = () => {
   return (
     <form onSubmit={handlesubmit}>
 
-    <div className=' w-screen  bg-[#CCDAF6] sm:h-[650px] pt-5'>
+    <div className=' w-screen  bg-[#CCDAF6] sm:h-[660px] pt-5'>
       <div  className='font-bold font-serif text-[20px] m-auto text-center'>SECRETARY</div>
       <div className="flex flex-wrap justify-center gap-8" >
         <div className=' h-[360px] w-[450px]  '>
@@ -95,7 +66,7 @@ export const Addsecr = () => {
               NAME:
 
             </span>
-            <input onChange={handlechange} className='h-9 w-56 text-black bg-white rounded-r-lg' name='name' type='text' id=''></input></div>
+            <input onChange={handlechange} className='h-9 w-56 text-black bg-white rounded-r-lg pl-2' name='name' type='text' id=''></input></div>
           <div className='text h-9   text-white mt-4 flex' onClick={handleUploadFile}>
             <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PHOTO:

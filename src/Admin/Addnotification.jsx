@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import toast from 'react-hot-toast'
 
 export const Addnotification = () => {
   const[data,setdata]=useState('')
@@ -7,7 +8,15 @@ export const Addnotification = () => {
   }
   let handlesubmit=(event)=>{
     event.preventDefault()
+    const requiredFields = ['notification'];
+
+for (const field of requiredFields) {
+    if (!data[field]) {
+        return toast.error(`${field} is required`);
+    }
+}
     setdata('')
+    toast.success('submit successfully')
     console.log(data)
   }
 

@@ -8,9 +8,13 @@ export const Addsecretary = () => {
   }
   let handlesubmit=(event)=>{
     event.preventDefault()
+    if(!data.category){
+      return toast.error('category is required')
+    }
     setdata('')
     console.log(data);
   }
+  
   return (
     <div className='w-[100%] h-[690px] bg-[#CCDAF6] flex justify-center p-9'>
       <div className='h-56 w-96 bg-white p-5 rounded-xl'>

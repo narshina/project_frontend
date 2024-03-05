@@ -181,7 +181,7 @@ root.render(
     </BrowserRouter>
     </LanguageContext>
     <Toaster
-  position="top-left"
+  position="top-center"
   reverseOrder={false}
 />
     
