@@ -3,21 +3,28 @@ import {FaEye,FaEyeSlash} from "react-icons/fa"
 import toast from 'react-hot-toast'
 
 export const Userreg = () => {
-  const fileUpload = useRef('')
+  const fileUploadPhoto = useRef(null);
+  const fileUploadIdProof = useRef(null);
 
-  const handleUploadFile = ()=>{
-    fileUpload.current.click()
-  }
+  const handleUploadFile = (type) => {
+    if (type === 'photo') {
+      fileUploadPhoto.current.click();
+    } else if (type === 'idproof') {
+      fileUploadIdProof.current.click();
+    }
+  };
+
 
   const[data,setdata]=useState('')
   const[showpassword,setshowpassword]=useState('password')
   let handlechange=(event)=>{
     setdata({...data,[event.target.name]:event.target.value})
+    console.log(data);
   }
   
   let handlesubmit=(event)=>{
     event.preventDefault()
-    const requiredFields = ['name','photo','age','gender','idproof','ward number','ward name','email','house number','house name','street','district','pincode','password'];
+    const requiredFields = ['name','photo','age','dob','gender','idproof','ward number','ward name','email','house number','house name','street','district','pincode','password'];
 
     for (const field of requiredFields) {
         if (!data[field]) {
@@ -53,13 +60,13 @@ export const Userreg = () => {
 
             </span>
             <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='name' type='text'></input></div>
-            <div className='text h-9   text-white mt-4 flex' onClick={handleUploadFile}>
+            <div className='text h-9   text-white mt-4 flex' onClick={() => handleUploadFile('photo')}>
             <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
-              PHOTO:
+              Photo:
 
             </span>
-            <input  onChange={handlechange} ref={fileUpload} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='photo' />
-            <div className="">
+            <input onChange={handlechange} ref={fileUploadPhoto} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='photo' />
+            <div className="">  
               <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg pl-3'>upload</p>
             </div>
             </div>
@@ -87,12 +94,12 @@ export const Userreg = () => {
               <option value='male'>Male</option>
               <option value='others'>Others</option>
               </select></div>
-            <div className='text h-9   text-white mt-4 flex' onClick={handleUploadFile}>
+            <div className='text h-9   text-white mt-4 flex' onClick={() => handleUploadFile('idproof')}>
             <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               ID PROOF:
 
             </span>
-            <input onChange={handlechange} ref={fileUpload} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='idproof' />
+            <input onChange={handlechange} ref={fileUploadIdProof} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='idproof' />
             <div className="">
               <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg pl-3'>upload</p>
             </div>
@@ -180,7 +187,7 @@ export const Userreg = () => {
         </div>
       </div>
       <div className='text-center'>
-        <button className='button text-white font-semibold bg-[#0F3053] w-48 h-9 rounded mt-9 m-auto'>SUBMIT</button></div>
+        <button className='button text-white font-semibold bg-[#0F3053] w-48 h-9 rounded mt-20  m-auto'>SUBMIT</button></div>
     </div>
     </form>
   )

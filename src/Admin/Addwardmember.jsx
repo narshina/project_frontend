@@ -1,6 +1,7 @@
 import React from 'react'
 
 export const Addwardmember = () => {
+
   return (
     <div className=' w-screen sm:h-[650px] bg-[#CCDAF6]  pt-5'>
       <div className='font-bold font-serif text-[20px] m-auto text-center'>WARD MEMBER</div>

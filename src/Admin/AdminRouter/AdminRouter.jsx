@@ -8,11 +8,15 @@ const AdminRouter = () => {
   const [not,setnot]=useState(false)
   const [meet,setmeet]=useState(false)
   const [nav,setnav]=useState(true)
+  const [news,setnews]=useState(true)
   let Toggle=()=>{
     setnav(!nav)
   }
   let Toggletrue=()=>{
     setnav(true)
+  }
+  let newsdropdown=()=>{
+    setnews(!news)
   }
   let dropdown=()=>{
     setdrop(!drop)
@@ -131,7 +135,17 @@ const AdminRouter = () => {
                    </div>
        <Link to='/admin/viewcomplaint'><div>COMPLAINT</div></Link>
        <Link to='/admin/viewhistory'><div>HISTORY</div></Link>
-       <Link to='/admin/addnews' ><div>NEWS</div></Link>
+       <div><span  onClick={newsdropdown}>
+                  NEWS
+                  </span>
+                  {news &&
+                      <div className='list-none absolute top-[78px] bg-[#0F3053] p-4 pt-2 w-[90px] '>
+                <Link to='/admin/addnews'><li>ADD</li></Link> 
+              <Link to='/admin/viewnews'> <li>VIEW</li></Link>
+                        </div> 
+                   }
+
+                   </div>
        <Link to='/Login'  > <div>LOG OUT</div></Link>
 
         </div>

@@ -86,6 +86,7 @@ import { Addward } from './Admin/Addward';
 import {Toaster} from "react-hot-toast"
 import { Viewmeetfrompres } from './Wardmember/Viewmeetfrompres';
 import { Viewnotpres } from './Wardmember/Viewnotpres';
+import { Viewnews } from './Admin/Viewnews';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -131,6 +132,7 @@ root.render(
         <Route path='viewcate' element={<Viewcategory/>}/>
         <Route path='addnews' element={<Addnews/>}/>
         <Route path='addward' element={<Addward/>}/>
+        <Route path='viewnews' element={<Viewnews/>}/>
       </Route>
       <Route path='/president' element={<Presidentnav/>}>
         <Route index element={<Sechome/>}/>
