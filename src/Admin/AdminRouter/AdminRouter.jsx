@@ -17,12 +17,19 @@ const AdminRouter = () => {
   }
   let newsdropdown=()=>{
     setnews(!news)
+    setmember(false)
+    setStaff(false)
+    setnot(false)
+    setdrop(false)
+    setmeet(false)
   }
   let dropdown=()=>{
     setdrop(!drop)
     setmember(false)
     setStaff(false)
     setnot(false)
+    setnews(false)
+    setmeet(false)
   }
   let staffdropdown=()=>{
     setStaff(!staff)
@@ -55,6 +62,7 @@ const AdminRouter = () => {
     setmember(false)
     setnot(false)
     setmeet(false)
+    setnews(false)
   }
   return (
     <>
