@@ -37,7 +37,7 @@ export const Usernav = () => {
   
         <div className='flex nav1 p-5 gap-6 flex-wrap text-white text-[15px]'>
        <Link to='/user'><div className='hover:text-[#A6C3FB]'>HOME</div></Link>
-       <Link to='/user/userviewservice' ><div>SERVICES</div></Link>
+       <Link to='/user/userviewservice' ><span>SERVICES</span></Link>
       <Link to='/user/userviewapplication' ><div>MY APPLICATIONS</div></Link>
         <div><span onClick={compdropdown}>
           COMPLAINT

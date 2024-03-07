@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Viewhistory = () => {
   return (
-    <div className=' w-screen h-[655px] bg-[#CCDAF6]  pt-5 content-center' >
+    <div className=' w-screen h-[655px] bg-[#CCDAF6]  pt-24 content-center' >
             <div className=' text-center font-serif text-[20px] font-bold'><h2>HISTORY</h2></div>
             
 <form class="max-w-md mx-auto">   

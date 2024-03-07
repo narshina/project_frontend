@@ -10,6 +10,7 @@ import ul4 from './enteulliyeri.webp'
 import ul1 from './field.avif'
 import { Link } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
+import ScrollButton from './ScrollButton';
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
     
 
                 <Carousel className='h-6 ' autoPlay={true} showThumbs={false} showStatus={false} infiniteLoop={true} interval={2000}>
-                <div>
+                <div id='top'>
                     <img src={ul3} className='h-[600px] opacity-40'   />
                     
                 </div>
@@ -34,7 +35,7 @@ export default function Home() {
             </Carousel>
             <div className='absolute sm:left-[20%] sm:top-[15%] sm:p-40 text-center'><label className='  text-[#0F3053] font-serif font-bold text-[40px]'>GET YOUR SERVICES FROM HERE</label><br></br><span className='text-[25px] text-center'>Empowering you with easy access to solutions.</span>
       </div>
-  <div className='flex flex-wrap gap-14'>        
+  <div className='flex flex-wrap justify-around gap-14'>        
 <div className='bg-slate-50 h-96 w-[50%] text-white mt-[600px]'>
 <div className='border-b-4 border-cyan-900 text-black font-bold font-serif text-center p-6 text-[25px]'><h2>NEWS</h2></div>
 <div className='text-blue-700 pl-5'><li>English is a very popular language that is spoken all around the world. To communicate effectively in English, it is important to have strong reading comprehension skills. These skills will allow you to read English language newspapers, vocabulary books, and novels! This blog provides readers with English paragraphs for reading, followed by practice exercises to test their comprehension</li>
@@ -198,6 +199,10 @@ export default function Home() {
     </table>
 </div>
 
+</div>
+<div className='flex justify-end pr-4'>
+    
+<ScrollButton/>
 </div>
 
 

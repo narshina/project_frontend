@@ -131,7 +131,7 @@ const AdminRouter = () => {
 
                    </div>
                    <div><span  onClick={meetdropdown}>
-                  MEETING
+                  MINUTES
                   </span>
                   {meet &&
                       <div className='list-none absolute top-[78px] bg-[#0F3053] p-4 pt-2 w-[90px] '>

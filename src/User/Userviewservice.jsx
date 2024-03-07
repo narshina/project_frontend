@@ -1,7 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { LangContext } from './LanguageContext'
+
+
 
 export const Userviewservice = () => {
+  let value=useContext(LangContext)
+  console.log(value.lang);
+
   const [modal,setmodal]=useState(false)
 
   let openmodal=()=>{
@@ -27,29 +33,31 @@ export const Userviewservice = () => {
 
     <div className='flex sm:gap-4 w-[80%] pt-4 flex-wrap m-auto justify-center'>
 
-<button onClick={openmodal}  className=" block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-  Application for certificate to apply for new ration card
+<button onClick={openmodal}  className=" block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+  {value.lang ? <span>പുതിയ റേഷൻ കാർഡിന് അപേക്ഷിക്കാൻ സർട്ടിഫിക്കറ്റിനുള്ള അപേക്ഷ</span>:<span>Application for certificate to apply for new ration card</span>
+}</button>
+<button onClick={openmodal}  className=" block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+  {value.lang ? <span>തൊഴിലില്ലായ്മ കാണിക്കുന്ന സർട്ടിഫിക്കറ്റിനുള്ള അപേക്ഷ</span>:<span>Application for certificate showing unemployment</span>}
 </button>
-<button onClick={openmodal}  className=" block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-  Application for certificate showing unemployment
+<button onClick={openmodal}  className=" block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+  {value.lang ? <span>ലൈഫ് സർട്ടിഫിക്കറ്റിനുള്ള അപേക്ഷ</span>:<span>Application for life certificate</span>}
 </button>
-<button onClick={openmodal}  className=" block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-  Application for life certificate
+<button onClick={openmodal}  className=" block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+  {value.lang ? <span>റസിഡൻഷ്യൽ സർട്ടിഫിക്കറ്റിനുള്ള അപേക്ഷ</span>:<span> Application for residential certificate</span>}
 </button>
-<button onClick={openmodal}  className=" block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-  Application for residential certificate
+<button onClick={openmodal}  className=" block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+{value.lang ? <span>വിവാഹ സർട്ടിഫിക്കറ്റിനുള്ള അപേക്ഷ</span>:<span>Application for marriage certificate </span>}
+
 </button>
-<button onClick={openmodal}  className=" block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-  Application for marriage certificate
+<button onClick={openmodal}  class="block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 " type="button">
+{value.lang ? <span>പ്രായം തെളിയിക്കുന്ന സർട്ടിഫിക്കറ്റിനുള്ള അപേക്ഷ</span>:<span>application for age proof certificate</span>}
 </button>
-<button onClick={openmodal}  class="block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 " type="button">
-  Application for age proof certificate
+<button onClick={openmodal}  class="block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 " type="button">
+{value.lang ? <span>സ്വഭാവ സർട്ടിഫിക്കറ്റിനുള്ള അപേക്ഷ</span>:<span>Application for character certificate</span>}
 </button>
-<button onClick={openmodal}  class="block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 " type="button">
-  Application for character certificate
-</button>
-<button onClick={openmodal}  class="block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 " type="button">
-  Application for ownership certificate
+<button onClick={openmodal}  class="block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 " type="button">
+{value.lang ? <span>ഉടമസ്ഥാവകാശ സർട്ടിഫിക്കറ്റിനുള്ള അപേക്ഷ</span>:<span>application for ownership certificate</span>}
+
 </button>
     </div>
     </div>
