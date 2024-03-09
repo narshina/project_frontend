@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import payment from './cardg.jpg'
 import toast from 'react-hot-toast'
 
 export const Userpayment = () => {
