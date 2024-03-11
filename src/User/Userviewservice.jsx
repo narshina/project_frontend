@@ -16,7 +16,7 @@ export const Userviewservice = () => {
   return (
     <>
     <div  className='bg-[#CCDAF6] h-screen '>
-  <div className='font-bold font-serif text-[20px] m-auto text-center '>SERVICE LIST</div>
+  <div className='font-bold font-serif text-[20px] m-auto text-center p-10'>SERVICE LIST</div>
   
 <form class="max-w-md mx-auto mt-4">   
     <label for="default-search" class="mb-2 text-sm bg-[#0F3053] font-medium text-gray-900 sr-only dark:text-white">Search</label>

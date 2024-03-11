@@ -87,6 +87,7 @@ import {Toaster} from "react-hot-toast"
 import { Viewmeetfrompres } from './Wardmember/Viewmeetfrompres';
 import { Viewnotpres } from './Wardmember/Viewnotpres';
 import { Viewnews } from './Admin/Viewnews';
+import { Userprofile } from './User/Userprofile';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -155,6 +156,7 @@ root.render(
         <Route path='userviewapplication' element={<Userviewapplicatin/>}/>
         <Route path='applicationdetail' element={<Viewaplcationdetail/>}/>
         <Route path='userpayment' element={<Userpayment/>}/>
+        <Route path='userprofile' element={<Userprofile/>}/>
       </Route>
       <Route path='/member' element={<Wardnav/>}>
         <Route index element={<Wardhome/>}/>

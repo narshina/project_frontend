@@ -39,9 +39,9 @@ export const Usernav = () => {
        <Link to='/user'><div className='hover:text-[#A6C3FB]'>HOME</div></Link>
        <Link to='/user/userviewservice' ><span>SERVICES</span></Link>
       <Link to='/user/userviewapplication' ><div>MY APPLICATIONS</div></Link>
-        <div><span onClick={compdropdown}>
+        <div><button onClick={compdropdown}>
           COMPLAINT
-          </span>
+          </button>
           {comp &&
           <div className='list-none absolute top-[78px] bg-[#0F3053] p-4 pt-2 w-[115px]'>
          <Link to='/user/postcomplaint'>   <li>ADD</li></Link>
@@ -52,6 +52,8 @@ export const Usernav = () => {
        <Link to='/user/userviewmeet'> <div>MEETING</div></Link>
       <Link to='/user/userviewnot' ><div>NOTIFICATION</div></Link>
        {lang?<div onClick={toggleLang}>ENGLISH</div> : <div onClick={toggleLang}>MALAYALAM</div>} 
+       
+      <Link to='/user/userprofile'><span>PROFILE</span></Link>
       <Link to='/Login'><div>LOG OUT</div></Link>
         </div>
 }
