@@ -55,13 +55,13 @@ export const Addstaff = () => {
               NAME:
 
             </span>
-            <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black' name='name' type='text'></input></div>
+            <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2' name='name' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex' onClick={handleUploadFile}>
             <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PHOTO:
 
             </span>
-            <input onChange={handlechange} ref={fileUpload} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='photo' />
+            <input onChange={handlechange} ref={fileUpload} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black pl-2 ' name='photo' />
             <div className="">
               <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg'>upload</p>
             </div>
@@ -71,13 +71,13 @@ export const Addstaff = () => {
               AGE:
 
             </span>
-            <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black ' name='age' type='text'></input></div>
+            <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2' name='age' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               GENDER:
 
             </span>
-            <select onChange={handlechange} className='placeholder:select h-9 w-56 bg-white rounded-r-lg text-black ' name='gender'>
+            <select onChange={handlechange} className='placeholder:select h-9 w-56 bg-white rounded-r-lg text-black pl-2' name='gender'>
               <option value='female'>Female</option>
               <option value='male'>Male</option>
               <option value='others'>Others</option>
@@ -87,13 +87,13 @@ export const Addstaff = () => {
               EMAIL ID:
 
             </span>
-            <input onChange={handlechange} type='email' className='text-black h-9 w-56 bg-white rounded-r-lg' name='email' ></input></div>
+            <input onChange={handlechange} type='email' className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='email' ></input></div>
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               CATEGORY:
 
             </span>
-           <select onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black'  name="category" id="">
+           <select onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2'  name="category" id="">
             <option value="clerk">clerk</option>
             <option value="head clerk">head clerk</option>
             <option value="ud clerk">UD clerk</option>
@@ -111,32 +111,32 @@ export const Addstaff = () => {
               HOUSE:
 
             </span>
-            <input onChange={handlechange} className='text-black  h-9 w-56 bg-white rounded-r-lg' name='houseName' type='text'></input></div>
+            <input onChange={handlechange} className='text-black  h-9 w-56 bg-white rounded-r-lg pl-2' name='houseName' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               STREET:
 
             </span>
-            <input onChange={handlechange}  className='text-black h-9 w-56 bg-white rounded-r-lg' name='street' type='text'></input></div>
+            <input onChange={handlechange}  className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='street' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               DISTRICT:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='district ' type='text' ></input></div>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='district ' type='text' ></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PINCODE:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg 'name='pincode'type='text' maxLength={6}></input></div>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2'name='pincode'type='text' maxLength={6}></input></div>
 
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PHONE NUMBER:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='phoneNumber' type='text' maxLength={10}></input></div>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='phoneNumber' type='text' maxLength={10}></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PASSWORD:

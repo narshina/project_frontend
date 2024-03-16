@@ -22,7 +22,7 @@ for (const field of requiredFields) {
 
   return (
     <div className='w-[100%] h-[690px] bg-[#CCDAF6] flex justify-center p-9'>
-      <div className='h-56 w-96 bg-white p-5 rounded-xl'>
+      <div className='h-56 w-[500px] bg-white p-5 rounded-xl'>
         <div className='font-bold text-[25px] text-black font-serif text-center'><label>NOTIFICATION</label></div>
         <form onSubmit={handlesubmit}>
         <div className='font-medium text-black mt-3'>NOTIFICATION:</div>

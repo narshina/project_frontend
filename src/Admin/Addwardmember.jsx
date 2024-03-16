@@ -20,7 +20,7 @@ export const Addwardmember = () => {
     event.preventDefault()
     let response=await axios.post('http://localhost:4000/User/register',{...data,usertype:'member'})
     console.log(response)
-    const requiredFields = ['name', 'photo', 'age', 'gender', 'email','houseName','street','district','pincode','phoneNumber','password'];
+    const requiredFields = ['name', 'photo', 'age', 'gender', 'email','houseName','street','district','pincode','phoneNumber','password','wardName','wardNumber'];
 
     for (const field of requiredFields) {
       if (!data[field]) {
@@ -55,7 +55,7 @@ export const Addwardmember = () => {
               NAME:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='name' type='text'></input></div>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='name' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex' onClick={handleUploadFile}>
             <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PHOTO:
@@ -63,7 +63,7 @@ export const Addwardmember = () => {
             </span>
             <input onChange={handlechange} ref={fileUpload} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='photo' />
             <div className="">
-              <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg'>upload</p>
+              <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg pl-2'>upload</p>
             </div>
             </div>
           
@@ -72,13 +72,13 @@ export const Addwardmember = () => {
               AGE:
 
             </span>
-            <input onChange={handlechange}  className='text-black h-9 w-56 bg-white rounded-r-lg' name='age' type='text'></input></div>
+            <input onChange={handlechange}  className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='age' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               GENDER:
 
             </span>
-            <select onChange={handlechange} className='placeholder:select h-9 w-56 bg-white rounded-r-lg text-black ' name='gender'>
+            <select onChange={handlechange} className='placeholder:select h-9 w-56 bg-white rounded-r-lg text-black pl-2' name='gender'>
               <option value='female'>Female</option>
               <option value='male'>Male</option>
               <option value='others'>Others</option>
@@ -88,13 +88,13 @@ export const Addwardmember = () => {
               EMAIL ID:
 
             </span>
-            <input onChange={handlechange} type='email' className='text-black h-9 w-56 bg-white rounded-r-lg' name='email' ></input></div>
+            <input onChange={handlechange} type='email' className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='email' ></input></div>
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               WARD NUMBER:
 
             </span>
-           <select onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black'  name="wardNumber" id="">
+           <select onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2'  name="wardNumber" >
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -107,7 +107,7 @@ export const Addwardmember = () => {
               WARD NAME:
 
             </span>
-           <select onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black'  name="wardName" id="">
+           <select onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2'  name="wardName" >
             <option disabled value="">select</option>
             <option value="kakkanchery">Kakkanchery</option>
             <option value="koyakkad west">koyakkad west</option>
@@ -129,32 +129,32 @@ export const Addwardmember = () => {
               HOUSE:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='houseName' type='text'></input></div>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='houseName' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               STREET:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='street' type='text'></input></div>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='street' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               DISTRICT:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='district' type='text'></input></div>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='district' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PINCODE:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='pincode' type='text' maxLength={6}></input></div>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='pincode' type='text' maxLength={6}></input></div>
 
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PHONE NUMBER:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='phoneNumber' type='text' maxLength={10}></input></div>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='phoneNumber' type='text' maxLength={10}></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PASSWORD:
