@@ -8,6 +8,11 @@ export const Userviewmeet = () => {
   // Sample data
   const meetings = [
     { agenda: 'mmfff gggh rrtt', date: '15/34/23', time: '10:00am', venue: 'Ulliyeri' },
+    { agenda: 'mmfff gggh rrtt', date: '15/34/23', time: '10:00am', venue: 'Ulliyeri' },
+    { agenda: 'mmfff gggh rrtt', date: '15/34/23', time: '10:00am', venue: 'Ulliyeri' },
+    { agenda: 'mmfff gggh rrtt', date: '15/34/23', time: '10:00am', venue: 'Ulliyeri' },
+    { agenda: 'mmfff gggh rrtt', date: '15/34/23', time: '10:00am', venue: 'Ulliyeri' },
+    { agenda: 'mmfff gggh rrtt', date: '15/34/23', time: '10:00am', venue: 'Ulliyeri' },
     // Add more meeting objects here
   ];
 

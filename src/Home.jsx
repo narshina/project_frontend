@@ -124,7 +124,7 @@ export default function Home() {
                 1478049
                 </td>
             </tr>
-            <tr className='border-gray-200'>
+            <tr className='border-b border-gray-200 dark:border-gray-700'>
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
                     5
                 </th>
@@ -138,7 +138,7 @@ export default function Home() {
                 1478050
                 </td>
             </tr>
-            <tr className='border-gray-200'>
+            <tr className='border-b border-gray-200 dark:border-gray-700'>
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
                     6
                 </th>
@@ -153,7 +153,7 @@ export default function Home() {
                 </td>
             </tr>
             
-            <tr>
+            <tr className='border-b border-gray-200 dark:border-gray-700'>
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
                     7
                 </th>
@@ -167,7 +167,7 @@ export default function Home() {
                 1478052
                 </td>
             </tr>
-            <tr>
+            <tr className='border-b border-gray-200 dark:border-gray-700'>
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
                     8
                 </th>
@@ -181,7 +181,7 @@ export default function Home() {
                 1478053
                 </td>
             </tr>
-            <tr>
+            <tr className='border-b border-gray-200 dark:border-gray-700'>
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
                     9
                 </th>

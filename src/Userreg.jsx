@@ -1,6 +1,7 @@
 import React, { useRef,useState } from 'react'
 import {FaEye,FaEyeSlash} from "react-icons/fa"
 import toast from 'react-hot-toast'
+import axios from 'axios'
 
 export const Userreg = () => {
   const fileUploadPhoto = useRef(null);
@@ -22,19 +23,21 @@ export const Userreg = () => {
     console.log(data);
   }
   
-  let handlesubmit=(event)=>{
+  let handlesubmit=async (event)=>{
     event.preventDefault()
-    const requiredFields = ['name','photo','age','dob','gender','idproof','ward number','ward name','email','house number','house name','street','district','pincode','password'];
+    let response=await axios.post('http://localhost:4000/User/register',{...data,usertype:'user'})
+    console.log(response)
+    const requiredFields = ['name','photo','age','dob','gender','idproof','wardNumber','wardName','email','houseNumber','houseName','street','district','pincode','phoneNumber','password'];
 
     for (const field of requiredFields) {
         if (!data[field]) {
             return toast.error(`${field} is required`);
         }
     }
-    let mobileNumberPattern = /^[6-9]\d{9}$/
-    if(!mobileNumberPattern.test(data.phonenumber)){
-     return toast.error('mobile number not matched')
-    }
+    // let mobileNumberPattern = /^[6-9]\d{9}$/
+    // if(!mobileNumberPattern.test(data.phonenumber)){
+    //  return toast.error('mobile number not matched')
+    // }
     let passwordPattern =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/
     console.log(passwordPattern.test(data.password));
     if(!passwordPattern.test(data.password)){
@@ -109,13 +112,13 @@ export const Userreg = () => {
               WARD NUMBER:
 
             </span>
-            <input onChange={handlechange}  type='text' className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='ward number'></input></div>
+            <input onChange={handlechange}  type='text' className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='wardNumber'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               WARD NAME:
 
             </span>
-            <input onChange={handlechange} type='text' className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='ward name' ></input></div>
+            <input onChange={handlechange} type='text' className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='wardName' ></input></div>
 
 
 
@@ -133,13 +136,13 @@ export const Userreg = () => {
               HOUSE NUMBER:
 
             </span>
-            <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='house number' type='text'></input></div>
+            <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='houseNumber' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               HOUSE NAME:
 
             </span>
-            <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='house name' type='text'></input></div>
+            <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='houseName' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               STREET:
@@ -179,7 +182,7 @@ export const Userreg = () => {
               PHONE NUMBER:
 
             </span>
-            <input onChange={handlechange} type='text' name='phonenumber' className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' maxLength={10}></input></div>
+            <input onChange={handlechange} type='text' name='phoneNumber' className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' maxLength={10}></input></div>
             
             
             

@@ -1,6 +1,8 @@
+import axios from 'axios'
 import React, { useRef,useState } from 'react'
 import toast from 'react-hot-toast'
 import {FaEye,FaEyeSlash} from "react-icons/fa"
+
 
 export const Addwardmember = () => {
   const fileUpload = useRef('')
@@ -14,15 +16,17 @@ export const Addwardmember = () => {
   let handlechange=(event)=>{
     setdata({...data,[event.target.name]:event.target.value})
   }
-  let handlesubmit=(event)=>{
+  let handlesubmit=async(event)=>{
     event.preventDefault()
-    const requiredFields = ['name', 'photo', 'age', 'gender', 'email','ward number','ward name','house','street','district','pincode','phone number','password'];
+    let response=await axios.post('http://localhost:4000/User/register',{...data,usertype:'member'})
+    console.log(response)
+    const requiredFields = ['name', 'photo', 'age', 'gender', 'email','houseName','street','district','pincode','phoneNumber','password'];
 
     for (const field of requiredFields) {
-        if (!data[field]) {
-            return toast.error(`${field} is required`);
-        }
-    }
+      if (!data[field]) {
+          return toast.error(`${field} is required`);
+      }
+  }
     // let mobileNumberPattern = /^[6-9]\d{9}$/
     // if(!mobileNumberPattern.test(data.phonenumber)){
     //  return toast.error('mobile number not matched')
@@ -90,7 +94,7 @@ export const Addwardmember = () => {
               WARD NUMBER:
 
             </span>
-           <select onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black'  name="ward number" id="">
+           <select onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black'  name="wardNumber" id="">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -103,7 +107,7 @@ export const Addwardmember = () => {
               WARD NAME:
 
             </span>
-           <select onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black'  name="ward name" id="">
+           <select onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black'  name="wardName" id="">
             <option disabled value="">select</option>
             <option value="kakkanchery">Kakkanchery</option>
             <option value="koyakkad west">koyakkad west</option>
@@ -125,7 +129,7 @@ export const Addwardmember = () => {
               HOUSE:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='house' type='text'></input></div>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='houseName' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               STREET:
@@ -150,7 +154,7 @@ export const Addwardmember = () => {
               PHONE NUMBER:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='phone number' type='text' maxLength={10}></input></div>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='phoneNumber' type='text' maxLength={10}></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PASSWORD:

@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import toast from 'react-hot-toast'
 import {FaEye,FaEyeSlash} from "react-icons/fa"
+import axios from 'axios'
 
 export const Addsecr = () => {
 
@@ -18,10 +19,12 @@ export const Addsecr = () => {
     setdata({...data,[event.target.name]:event.target.value})
   }
 
-  let handlesubmit=(event)=>{
+  let handlesubmit=async(event)=>{
     event.preventDefault()
+    let response=await axios.post('http://localhost:4000/User/register',{...data,usertype:'secretary'})
+    console.log(response)
 
-    const requiredFields = ['name', 'photo', 'age', 'gender', 'emailid', 'qualification', 'house', 'street', 'district', 'pincode', 'phonenumber', 'password'];
+    const requiredFields = ['name', 'photo', 'age', 'gender', 'email', 'qualification', 'houseName', 'street', 'district', 'pincode', 'phoneNumber', 'password'];
 
     for (const field of requiredFields) {
         if (!data[field]) {
@@ -30,10 +33,10 @@ export const Addsecr = () => {
     }
     
 
-    let mobileNumberPattern = /^[6-9]\d{9}$/
-    if(!mobileNumberPattern.test(data.phonenumber)){
-     return toast.error('mobile number not matched')
-    }
+    // let mobileNumberPattern = /^[6-9]\d{9}$/
+    // if(!mobileNumberPattern.test(data.phonenumber)){
+    //  return toast.error('mobile number not matched')
+    // }
     let passwordPattern =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/
     console.log(passwordPattern.test(data.password));
     if(!passwordPattern.test(data.password)){
@@ -98,7 +101,7 @@ export const Addsecr = () => {
               EMAIL ID:
 
             </span>
-            <input onChange={handlechange} type='email' className='text-black  h-9 w-56 bg-white rounded-r-lg ' name='emailid' id=''></input></div>
+            <input onChange={handlechange} type='email' className='text-black  h-9 w-56 bg-white rounded-r-lg ' name='email' id=''></input></div>
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               QUALIFICATION:
@@ -115,7 +118,7 @@ export const Addsecr = () => {
               HOUSE:
 
             </span>
-            <input onChange={handlechange} className='text-black  h-9 w-56 bg-white rounded-r-lg' name='house' type='text' id=''></input></div>
+            <input onChange={handlechange} className='text-black  h-9 w-56 bg-white rounded-r-lg' name='houseName' type='text' id=''></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               STREET:
@@ -140,7 +143,7 @@ export const Addsecr = () => {
               PHONE NUMBER:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='phonenumber' type='text' maxLength={10} ></input></div>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='phoneNumber' type='text' maxLength={10} ></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PASSWORD:

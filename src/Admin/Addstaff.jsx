@@ -2,6 +2,7 @@ import React, { useRef,useState } from 'react'
 import { json } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import {FaEye,FaEyeSlash} from "react-icons/fa"
+import axios from 'axios'
 
 export const Addstaff = () => {
   const fileUpload = useRef('')
@@ -15,25 +16,28 @@ export const Addstaff = () => {
   let handlechange=(event)=>{
     setdata({...data,[event.target.name]:event.target.value})
   }
-  let handlesubmit=(event)=>{
+  let handlesubmit=async(event)=>{
     event.preventDefault()
-    const requiredFields = ['name', 'photo', 'age', 'gender', 'emailid', 'qualification', 'house', 'street', 'district', 'pincode', 'phonenumber', 'password'];
+    let response=await axios.post('http://localhost:4000/User/register',{...data,usertype:'staff'})
+    const requiredFields = ['name', 'photo', 'age', 'gender', 'email','category','houseName', 'street','pincode', 'phoneNumber', 'password'];
+    console.log(response)
 
     for (const field of requiredFields) {
         if (!data[field]) {
             return toast.error(`${field} is required`);
         }
     }
-    let mobileNumberPattern = /^[6-9]\d{9}$/
-    if(!mobileNumberPattern.test(data.phonenumber)){
-     return toast.error('mobile number not matched')
-    }
+    // let mobileNumberPattern = /^[6-9]\d{9}$/
+    // if(!mobileNumberPattern.test(data.phonenumber)){
+    //  return toast.error('mobile number not matched')
+    // }
     let passwordPattern =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/
     console.log(passwordPattern.test(data.password));
     if(!passwordPattern.test(data.password)){
       return toast.error('password is not matched')
     }
     setdata(data)
+    toast.success('submit successfully')
     console.log(data);
 
   }
@@ -89,7 +93,7 @@ export const Addstaff = () => {
               CATEGORY:
 
             </span>
-           <select onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black'  name="" id="">
+           <select onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black'  name="category" id="">
             <option value="clerk">clerk</option>
             <option value="head clerk">head clerk</option>
             <option value="ud clerk">UD clerk</option>
@@ -107,7 +111,7 @@ export const Addstaff = () => {
               HOUSE:
 
             </span>
-            <input onChange={handlechange} className='text-black  h-9 w-56 bg-white rounded-r-lg' name='house' type='text'></input></div>
+            <input onChange={handlechange} className='text-black  h-9 w-56 bg-white rounded-r-lg' name='houseName' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               STREET:
@@ -132,7 +136,7 @@ export const Addstaff = () => {
               PHONE NUMBER:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='phonenumber' type='text' maxLength={10}></input></div>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='phoneNumber' type='text' maxLength={10}></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PASSWORD:

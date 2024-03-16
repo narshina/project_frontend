@@ -2,20 +2,23 @@ import React, { useState } from 'react'
 import App from './App'
 import './Login.css'
 import img from './login.jpg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {FaEye,FaEyeSlash} from "react-icons/fa"
 import toast from 'react-hot-toast'
+import axios from 'axios'
 
 export const Userlogin = () => {
+
+  const navigate=useNavigate()
   const[data,setdata]=useState('')
   const[showpassword,setshowpassword]=useState('password')
   let handlechange=(event)=>{
     setdata({...data,[event.target.name]:event.target.value})
     console.log(data);
   }
-  let handlesubmit=(event)=>{
+  let handlesubmit=async (event)=>{
     event.preventDefault()
-    const requiredFields = ['username','password'];
+    const requiredFields = ['email','password'];
 
     for (const field of requiredFields) {
         if (!data[field]) {
@@ -27,9 +30,30 @@ export const Userlogin = () => {
     if(!passwordPattern.test(data.password)){
       return toast.error('password is not matched')
     }
-    setdata(data)
-    toast.success("Login successfully")
-    console.log(data)
+    let response=await axios.post('http://localhost:4000/User/login',data)
+    console.log(response);
+    if(response.data){
+      localStorage.setItem('id',response.data._id)
+      if(response.data.usertype=='staff'){
+navigate('/staff')
+      }
+      else if(response.data.usertype=='president'){
+navigate('/admin')
+      }
+      else if(response.data.usertype=='secretary'){
+        navigate('/president')
+      }
+      else if(response.data.usertype=='user'){
+        navigate('/user')
+      }
+      else if(response.data.usertype=='memeber'){
+        navigate('/member')
+      }
+
+    }
+    else{
+      toast.error('invalid credentials')
+    }
   }
 
   return (
@@ -42,7 +66,7 @@ export const Userlogin = () => {
           <div className='content ml-64 mt-32 w-96 h-72'>
            <div className='log font-bold text-[25px] ml-12'>Login Here</div>
            <div className='user mt-6'>USERNAME</div>
-           <input onChange={handlechange} className='username bg-indigo-400 text-neutral-950 rounded w-72  h-9 mt-2 placeholder:text-white p-3' placeholder='Enter your email id here' name='username' type='email'></input>
+           <input onChange={handlechange} className='username bg-indigo-400 text-neutral-950 rounded w-72  h-9 mt-2 placeholder:text-white p-3' placeholder='Enter your email id here' name='email' type='email'></input>
            <div className='pass  mt-2'>PASSWORD</div>
            <div className='flex items-center w-72 pr-4 bg-indigo-400  rounded'>
 
