@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
 
@@ -6,9 +7,11 @@ export const Staffaddservice = () => {
   let handlechange=(event)=>{
     setdata({...data,[event.target.name]:event.target.value})
   }
-  let handlesubmit=(event)=>{
+  let handlesubmit=async(event)=>{
     event.preventDefault('')
-    const requiredFields = ['service','processing time','requirement','fees'];
+    let response=await axios.post('http://localhost:4000/Staff/addservice',data)
+    console.log(response)
+    const requiredFields = ['service','processingTime','requirement','fees'];
 
 for (const field of requiredFields) {
     if (!data[field]) {
@@ -32,27 +35,27 @@ for (const field of requiredFields) {
               SERVICE:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='service' type='text' id=''></input></div>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='service' type='text' id=''></input></div>
           
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PROCESSING TIME:
 
             </span>
-            <input onChange={handlechange} className='text-black  h-9 w-56 bg-white rounded-r-lg ' name='processing time' type='text' id=''></input></div>
+            <input onChange={handlechange} className='text-black  h-9 w-56 bg-white rounded-r-lg pl-2' name='processingTime' type='text' id=''></input></div>
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               REQUIREMENTS:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='requirement' type='text' id=''></input></div>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='requirement' type='text' id=''></input></div>
           
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               FEES:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='fees' type='text' id=''></input></div>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='fees' type='text' id=''></input></div>
             <div className='text-center'>
 
     <button type='submit' className='button text-white font-semibold bg-[#0F3053] w-48 h-9 rounded mt-5 m-auto'>SUBMIT</button>

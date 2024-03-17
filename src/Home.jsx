@@ -33,7 +33,7 @@ export default function Home() {
                 </div>
                 
             </Carousel>
-            <div className='absolute sm:left-[20%] sm:top-[15%] sm:p-40 text-center'><label className='  text-[#0F3053] font-serif font-bold text-[40px]'>GET YOUR SERVICES FROM HERE</label><br></br><span className='text-[25px] text-center'>Empowering you with easy access to solutions.</span>
+            <div className='absolute sm:left-[20%] sm:top-[15%] sm:p-40 text-center'><label className='  text-black font-serif font-bold text-[40px]'>GET YOUR SERVICES FROM HERE</label><br></br><span className='text-[25px] text-center'>Empowering you with easy access to solutions.</span>
       </div>
   <div className='flex flex-wrap justify-around gap-14'>        
 <div className='bg-slate-50 h-96 w-[50%] text-white mt-[600px]'>
