@@ -88,6 +88,7 @@ import { Viewmeetfrompres } from './Wardmember/Viewmeetfrompres';
 import { Viewnotpres } from './Wardmember/Viewnotpres';
 import { Viewnews } from './Admin/Viewnews';
 import { Userprofile } from './User/Userprofile';
+import { Usereditprofile } from './User/Usereditprofile';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -157,6 +158,7 @@ root.render(
         <Route path='applicationdetail' element={<Viewaplcationdetail/>}/>
         <Route path='userpayment' element={<Userpayment/>}/>
         <Route path='userprofile' element={<Userprofile/>}/>
+        <Route path='usereditprofile' element={<Usereditprofile/>}/>
       </Route>
       <Route path='/member' element={<Wardnav/>}>
         <Route index element={<Wardhome/>}/>

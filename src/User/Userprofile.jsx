@@ -1,41 +1,126 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import photo from './photo.jpg'
+import { Link } from 'react-router-dom'
 
 export const Userprofile = () => {
+const [idd,setid]=useState(false)
+  let toggleId=()=>{
+    setid(!idd)
+  }
+  let toggleIdfalse=()=>{
+    setid(false)
+  }
+
+
+    let id=localStorage.getItem('id')
+    console.log(id);
+  const[userdata,setuserdata]=useState('')
+
+  useEffect(()=>{
+      let fetchdata=async ()=>{
+      let response=await axios.get(`http://localhost:4000/User/viewprofile/${id}`)
+      console.log(response);
+      setuserdata(response.data)
+      
+    }
+    fetchdata()
+  }
+  ,[]
+  )
+
+
   return (
-<div class="flex items-center h-screen w-full justify-center bg-[#CCDAF6]">
+<div className='w-[100%]  bg-[#CCDAF6] flex justify-center h-[660px]'>
+    <div class="p-2 border text-center bg-white text-gray-500 max-w-sm h-fit  w-fit  rounded-xl mt-20">
+    <img class="w-32 h-32 rounded-full mx-auto" src={photo} alt=""/>
+    <div class="text-sm mt-5">
+        <a href="#"
+            class="font-medium leading-none text-gray-900 hover:text-indigo-600 transition duration-500 ease-in-out">
+        {userdata.name}
+        </a>
+        <p>{userdata.email}</p><br />
+        <div className='p-4'>
+<div className='flex justify-around mb-5 border-b-8 pb-4 '>
 
-<div class="max-w-xs">
-    <div class="bg-white shadow-xl rounded-lg py-3">
-        <div class="photo-wrapper p-2">
-            {/* <img class="w-32 h-32 rounded-full mx-auto" src="https://www.gravatar.com/avatar/2acfb745ecf9d4dccb3364752d17f65f?s=260&d=mp" alt="John Doe"></img> */}
+        <div className=''>
+        <div className='font-bold'>Age</div>
+        <div className=''>{userdata.age}</div>
         </div>
-        <div class="p-2">
-            <h3 class="text-center text-xl text-gray-900 font-medium leading-8">Joh Doe</h3>
-            <div class="text-center text-gray-400 text-xs font-semibold">
-                <p>Web Developer</p>
-            </div>
-            <table class="text-xs my-3">
-                <tbody><tr>
-                    <td class="px-2 py-2 text-gray-500 font-semibold">Address</td>
-                    <td class="px-2 py-2">Chatakpur-3, Dhangadhi Kailali</td>
-                </tr>
-                <tr>
-                    <td class="px-2 py-2 text-gray-500 font-semibold">Phone</td>
-                    <td class="px-2 py-2">+977 9955221114</td>
-                </tr>
-                <tr>
-                    <td class="px-2 py-2 text-gray-500 font-semibold">Email</td>
-                    <td class="px-2 py-2">john@exmaple.com</td>
-                </tr>
-            </tbody></table>
-
-            <div class="text-center my-3">
-                <a class="text-xs text-indigo-500 italic hover:underline hover:text-indigo-600 font-medium" href="#">View Profile</a>
-            </div>
-
+        <div className=''>
+        <div className='font-bold'>date of birth</div>
+        <div className=''>{userdata.dob}</div>
         </div>
-    </div>
+        <div className=''>
+        <div className='font-bold'>gender</div>
+        <div className=''>{userdata.gender}</div>
+        </div>
+        <div className=''>
+        <div className='font-bold'>id proof</div>
+        <div onMouseEnter={toggleId} onMouseLeave={toggleIdfalse} className=''><button>view</button></div>
+        </div>
+
 </div>
+{ idd &&
+
+<div>
+  <img src={photo} alt="" />
+</div>
+}
+<div className='flex justify-around gap-4 mb-5 border-b-8 pb-4 '>
+
+        
+
+        <div className=''>
+        <div className='font-bold'>ward number</div>
+        <div className=''>{userdata.wardNumber}</div>
+        </div>
+        <div className=''>
+        <div className='font-bold'>ward name</div>
+        <div className=''>{userdata.wardName}</div>
+        </div>
+        
+
+        <div className=''>
+        <div className='font-bold'>house number</div>
+        <div className=''>{userdata.houseNumber}</div>
+        </div>
+        <div className=''>
+        <div className='font-bold'>house name</div>
+        <div className=''>{userdata.houseName}</div>
+        </div>
+
+        </div>
+        </div>
+        <div className='flex justify-around gap-4 mb-5'>
+
+        
+
+        <div className=''>
+        <div className='font-bold'>street</div>
+        <div className=''>{userdata.street}</div>
+        </div>
+        <div className=''>
+        <div className='font-bold'>district</div>
+        <div className=''>{userdata.district}</div>
+        </div>
+        
+
+        <div className=''>
+        <div className='font-bold'>pincode</div>
+        <div className=''>{userdata.pincode}</div>
+        </div>
+        
+
+        </div>
+        </div>
+     <Link to='/user/usereditprofile'> <button className='bg-blue-950 p-2 w-20 rounded-2xl text-white hover:bg-black'>Edit</button>
+      </Link>  
+    </div>
+
+
+   
+   
 
 </div>
   )

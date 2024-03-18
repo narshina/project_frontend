@@ -11,7 +11,8 @@ export const Addmeeting = () => {
   }
   let handlesubmit=async(event)=>{
     event.preventDefault()
-    let response=await axios.post('http://localhost:4000/President/addmeeting',data)
+    let id=localStorage.getItem('id')
+    let response=await axios.post('http://localhost:4000/President/addmeeting',{...data,userid:id})
     console.log(response)
     const requiredFields = ['agenda','date','time','venue'];
 

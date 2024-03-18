@@ -46,7 +46,7 @@ navigate('/admin')
       else if(response.data.usertype=='user'){
         navigate('/user')
       }
-      else if(response.data.usertype=='memeber'){
+      else if(response.data.usertype=='member'){
         navigate('/member')
       }
 

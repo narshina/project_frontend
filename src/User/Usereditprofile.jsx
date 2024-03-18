@@ -1,57 +1,47 @@
-import React, { useEffect, useRef,useState } from 'react'
+import axios from 'axios';
+import React, { useRef, useState } from 'react'
+import toast from 'react-hot-toast';
 import {FaEye,FaEyeSlash} from "react-icons/fa"
-import toast from 'react-hot-toast'
-import axios from 'axios'
-
-export const Userreg = () => {
-  let id=localStorage.getItem('id')
-  const[userdata,setuserdata]=useState()
-  useEffect(()=>{
-    let fetchdata=async ()=>{
-      let response=await axios.get(`http://localhost:4000/User/viewprofile/${id}`)
-      console.log(response.data);
-      setuserdata(response.data)
-    }
-    fetchdata()
-  }
-  ,[]
-  )
 
 
-  const fileUploadPhoto = useRef(null);
-  const fileUploadIdProof = useRef(null);
+export const Usereditprofile = () => {
 
-  const handleUploadFile = (type) => {
-    if (type === 'photo') {
-      fileUploadPhoto.current.click();
-    } else if (type === 'idproof') {
-      fileUploadIdProof.current.click();
-    }
-  };
+    let id=localStorage.getItem('id')
+    const[userdata,setuserdata]=useState('')
+    const[refresh,setrefresh]=useState(false)
 
+    const fileUploadPhoto = useRef(null);
+    const fileUploadIdProof = useRef(null);
+  
+    const handleUploadFile = (type) => {
+      if (type === 'photo') {
+        fileUploadPhoto.current.click();
+      } else if (type === 'idproof') {
+        fileUploadIdProof.current.click();
+      }
+    };
 
-  const[data,setdata]=useState('')
+    const[data,setdata]=useState('')
   const[showpassword,setshowpassword]=useState('password')
   let handlechange=(event)=>{
     setdata({...data,[event.target.name]:event.target.value})
     console.log(data);
   }
-  
-  let handlesubmit=async (event)=>{
+  let handlesubmit=async(event)=>{
     event.preventDefault()
-    let response=await axios.post('http://localhost:4000/User/register',{...data,usertype:'user'})
-    console.log(response)
-    const requiredFields = ['name','photo','age','dob','gender','idproof','wardNumber','wardName','email','houseNumber','houseName','street','district','pincode','phoneNumber','password'];
+    setrefresh(!refresh)
+    let response=await axios.put(`http://localhost:4000/User/editprofile/${id}`,data)
+    console.log(response);
+    setdata('')
 
+
+
+    const requiredFields = ['name','photo','age','dob','gender','idproof','wardNumber','wardName','email','houseNumber','houseName','street','district','pincode','phoneNumber','password'];
     for (const field of requiredFields) {
         if (!data[field]) {
             return toast.error(`${field} is required`);
         }
     }
-    // let mobileNumberPattern = /^[6-9]\d{9}$/
-    // if(!mobileNumberPattern.test(data.phonenumber)){
-    //  return toast.error('mobile number not matched')
-    // }
     let passwordPattern =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/
     console.log(passwordPattern.test(data.password));
     if(!passwordPattern.test(data.password)){
@@ -61,12 +51,15 @@ export const Userreg = () => {
     toast.success("successfully registered")
     console.log(data);
 
+    
   }
+
+  
 
   return (
     <form onSubmit={handlesubmit}>
     <div className=' w-screen h-screen bg-[#CCDAF6] pt-14'>
-      <div className='font-bold font-serif text-[20px] m-auto text-center '>REGISTRATION FORM</div>
+      <div className='font-bold font-serif text-[20px] m-auto text-center '>EDIT PROFILE</div>
       <div className="flex flex-wrap justify-center gap-8 " >
         <div className=' h-[400px] w-[450px] '>
 
@@ -207,5 +200,7 @@ export const Userreg = () => {
         <button className='button text-white font-semibold bg-[#0F3053] w-48 h-9 rounded mt-20  m-auto'>SUBMIT</button></div>
     </div>
     </form>
+  
+
   )
 }

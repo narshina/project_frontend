@@ -9,8 +9,10 @@ export const Addnotification = () => {
   }
   let handlesubmit=async(event)=>{
     event.preventDefault()
-    let response=await axios.post('http://localhost:4000/President/addnotification',data)
+    let id=localStorage.getItem('id')
+    let response=await axios.post('http://localhost:4000/President/addnotification',{...data,userid:id})
     console.log(response)
+    
     const requiredFields = ['notification'];
 
 for (const field of requiredFields) {

@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
 
@@ -6,11 +7,14 @@ export const Addnews = () => {
   let handlechange=(event)=>{
     setdata({...data,[event.target.name]:event.target.value})
   }
-  let handlesubmit=(event)=>{
+  let handlesubmit=async(event)=>{
     event.preventDefault()
-    const requiredFields = ['news','date','time'];
+    let id=localStorage.getItem('id')
+    let response=await axios.post('http://localhost:4000/President/addnews',{...data,userid:id})
+    console.log(response)
 
-for (const field of requiredFields) {
+    const requiredFields = ['news','date','time'];
+    for (const field of requiredFields) {
     if (!data[field]) {
         return toast.error(`${field} is required`);
     }
