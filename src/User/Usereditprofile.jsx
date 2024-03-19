@@ -1,14 +1,26 @@
 import axios from 'axios';
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import toast from 'react-hot-toast';
 import {FaEye,FaEyeSlash} from "react-icons/fa"
 
 
 export const Usereditprofile = () => {
+    
 
     let id=localStorage.getItem('id')
     const[userdata,setuserdata]=useState('')
     const[refresh,setrefresh]=useState(false)
+    useEffect(()=>{
+      let fetchdata=async()=>{
+        let response=await axios.get(`http://localhost:4000/User/viewprofile/${id}`)
+        console.log(response.data)
+        setuserdata(response.data)
+
+      }
+      fetchdata()
+    }
+    ,[]
+    )
 
     const fileUploadPhoto = useRef(null);
     const fileUploadIdProof = useRef(null);
@@ -69,7 +81,7 @@ export const Usereditprofile = () => {
               NAME:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='name' type='text'></input></div>
+            <input onChange={handlechange} placeholder={userdata.name} className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='name' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex' onClick={() => handleUploadFile('photo')}>
             <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               Photo:
@@ -162,13 +174,13 @@ export const Usereditprofile = () => {
               DISTRICT:
 
             </span>
-            <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='district' type='text' maxLength={6}></input></div>
+            <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='district' type='text' ></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PINCODE:
 
             </span>
-            <input onChange={handlechange} type='text' name='pincode' className='h-9 w-56 bg-white rounded-r-lg text-black pl-3'></input></div>
+            <input onChange={handlechange} type='text' name='pincode' className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' maxLength={6}></input></div>
 
 
             <div className='text h-9   text-white mt-4 flex'>

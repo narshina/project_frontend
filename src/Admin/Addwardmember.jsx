@@ -1,10 +1,24 @@
 import axios from 'axios'
-import React, { useRef,useState } from 'react'
+import React, { useEffect, useRef,useState } from 'react'
 import toast from 'react-hot-toast'
 import {FaEye,FaEyeSlash} from "react-icons/fa"
 
 
 export const Addwardmember = () => {
+  const [ward,setward]=useState('')
+  const [refresh,setrefresh]=useState(false)
+  useEffect(()=>{
+    let fetchdata=async ()=>{
+      let response=await axios.get('http://localhost:4000/President/viewward',data)
+      console.log(response.data);
+      setward(response.data)
+
+    }
+    fetchdata()
+  }
+  ,[refresh]
+  )
+
   const fileUpload = useRef('')
 
   const handleUploadFile = ()=>{
@@ -89,15 +103,16 @@ export const Addwardmember = () => {
 
             </span>
             <input onChange={handlechange} type='email' className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='email' ></input></div>
+            
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               WARD NUMBER:
 
             </span>
            <select onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2'  name="wardNumber" >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+            {ward.map((item)=>(
+              <option value={item._id}>{item.wardnumber}</option>
+            ))}
            </select>
            
            
@@ -108,12 +123,9 @@ export const Addwardmember = () => {
 
             </span>
            <select onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2'  name="wardName" >
-            <option disabled value="">select</option>
-            <option value="kakkanchery">Kakkanchery</option>
-            <option value="koyakkad west">koyakkad west</option>
-            <option value="koyakkad">koyakkad</option>
-            <option value="oravil">Oravil</option>
-            <option value="ulliyeri north">Ulliyeri North</option>
+            {ward.map((item)=>(
+              <option value={item._id}>{item.wardname}</option>
+            ))}
            </select>
            
            
