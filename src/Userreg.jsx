@@ -36,10 +36,38 @@ export const Userreg = () => {
     setdata({...data,[event.target.name]:event.target.value})
     console.log(data);
   }
+
+  let handlefile=(event)=>{
+    console.log(event.target.files);
+    setdata({...data,[event.target.name]:event.target.files[0]})
+    console.log(data);
+  }
   
   let handlesubmit=async (event)=>{
     event.preventDefault()
-    let response=await axios.post('http://localhost:4000/User/register',{...data,usertype:'user'})
+    let formData = new FormData();
+    formData.append('name', data.name);
+    formData.append('photo', data.photo);
+    formData.append('age', data.age);
+    formData.append('dob', data.dob);
+    formData.append('gender', data.gender);
+    formData.append('idproof', data.idproof);
+    formData.append('wardNumber', data.wardNumber);
+    formData.append('wardName', data.wardName);
+    formData.append('email', data.email);
+    formData.append('houseNumber', data.houseNumber);
+    formData.append('houseName', data.houseName);
+    formData.append('street', data.street);
+    formData.append('district', data.district);
+    formData.append('pincode', data.pincode);
+    formData.append('phoneNumber', data.phoneNumber);
+    formData.append('password', data.password);
+    formData.append('usertype', 'user');
+    let response=await axios.post('http://localhost:4000/User/register',formData,{
+      headers: {
+        'Content-Type': 'multipart/form-data'  // Set the content type for FormData
+      }
+    })
     console.log(response)
     const requiredFields = ['name','photo','age','dob','gender','idproof','wardNumber','wardName','email','houseNumber','houseName','street','district','pincode','phoneNumber','password'];
 
@@ -82,7 +110,7 @@ export const Userreg = () => {
               Photo:
 
             </span>
-            <input onChange={handlechange} ref={fileUploadPhoto} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='photo' />
+            <input onChange={handlefile} ref={fileUploadPhoto} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='photo' />
             <div className="">  
               <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg pl-3'>upload</p>
             </div>
@@ -116,7 +144,7 @@ export const Userreg = () => {
               ID PROOF:
 
             </span>
-            <input onChange={handlechange} ref={fileUploadIdProof} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='idproof' />
+            <input onChange={handlefile} ref={fileUploadIdProof} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='idproof' />
             <div className="">
               <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg pl-3'>upload</p>
             </div>

@@ -1,24 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import photo from './photo.jpg'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 export const Viewsecdetail = () => {
+  let id=localStorage.getItem('id')
+  const[userdata,setuserdata]=useState('')
+  const[refresh,setrefresh]=useState(false)
+  useEffect(()=>{
+    let fetchdata=async ()=>{
+      let response=await axios.get(`http://localhost:4000/President/vsecretary`)
+      console.log(response)
+      setuserdata(response.data)
+    }
+    fetchdata()
+  },[refresh]
+  )
+
+
   return (
     <div className='w-[100%] h-[695px] bg-[#CCDAF6] flex justify-center'>
     <div class="p-5 border text-center bg-white text-gray-500 max-w-sm h-fit  w-fit p-4 rounded-xl mt-24">
     <img class="w-32 h-32 rounded-full mx-auto" src={photo} alt=""/>
     <div class="text-sm mt-5">
         <a href="#"
-            class="font-medium leading-none text-gray-900 hover:text-indigo-600 transition duration-500 ease-in-out">Jane
-            Doe
+            class="font-medium leading-none text-gray-900 hover:text-indigo-600 transition duration-500 ease-in-out">{userdata.name}
         </a>
-        <p>jane@gmail.com</p><br />
+        <p>{userdata.email}</p><br />
         <div className='p-4'>
 <div className='flex justify-around mb-5 border-b-8 pb-4 '>
 
         <div className=''>
-        <div className='font-bold'>Age</div>
-        <div className=''>43</div>
+        <div className='font-bold'></div>
+        <div className=''>{userdata.age}</div>
         </div>
         <div className=''>
         <div className='font-bold'>Gender</div>

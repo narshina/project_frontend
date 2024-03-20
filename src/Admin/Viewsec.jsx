@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import photo from './photo.jpg'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 export const Viewsec = () => {
+    let id=localStorage.getItem('id')
+    const[data,setdata]=useState([''])
+
+    useEffect(()=>{
+        let fetchdata=async ()=>{
+            let response=await axios.get('http://localhost:4000/President/viewsecs')
+            console.log(response.data);
+            setdata(response.data)
+        }
+        fetchdata()
+    },[])
+
+
   return (
 
     <div className=' w-screen h-[655px] bg-[#CCDAF6]  pt-5 content-center' >
@@ -21,22 +35,25 @@ export const Viewsec = () => {
                 <th scope="col" class="px-6 py-3">
                     EMAIL ID
                 </th>
-                <th scope="col" class="px-6 py-3 text-center col-span-2">
+                <th scope="col" colSpan='3' class="px-6 py-3 text-center col-span-2">
                     Action
                 </th>
                 
             </tr>
         </thead>
         <tbody>
+            {data.map((item,index)=>
             <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     Akil
                 </th>
+                <td class="px-6 py-4">{index}</td>
+
                 <td class="px-6 py-4">
                     <img className='h-9 w-9' src={photo} alt=''/>
                 </td>
                 <td class="px-6 py-4">
-                    akil@gmail.com
+                    
                 </td>
                 <td class="px-6 py-4 flex justify-between">
                 <Link  to='/admin/viewsecdetail'> <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a></Link>
@@ -44,7 +61,7 @@ export const Viewsec = () => {
                 </td>
             </tr>
             
-            
+            )}
         </tbody>
     </table>
 </div>

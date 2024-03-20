@@ -33,7 +33,7 @@ const [idd,setid]=useState(false)
   return (
 <div className='w-[100%]  bg-[#CCDAF6] flex justify-center h-[660px]'>
     <div class="p-2 border text-center bg-white text-gray-500 max-w-sm h-fit  w-fit  rounded-xl mt-20">
-    <img class="w-32 h-32 rounded-full mx-auto" src={photo} alt=""/>
+    <img class="w-32 h-32 rounded-full mx-auto" src={`http://localhost:4000/uploads/${userdata.photo}`} alt=""/>
     <div class="text-sm mt-5">
         <a href="#"
             class="font-medium leading-none text-gray-900 hover:text-indigo-600 transition duration-500 ease-in-out">
