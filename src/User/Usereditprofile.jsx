@@ -97,7 +97,7 @@ export const Usereditprofile = () => {
               AGE:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='age' type='text'/>
+            <input onChange={handlechange} placeholder={userdata.age} className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='age' type='text'/>
             
             </div>
           <div className='text h-9   text-white mt-4 flex'>
@@ -105,13 +105,13 @@ export const Usereditprofile = () => {
               DATE OF BIRTH:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='dob' type='date'></input></div>
+            <input onChange={handlechange} placeholder={userdata.dob} className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='dob' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               GENDER:
 
             </span>
-            <select onChange={handlechange} className='placeholder:select h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='gender'>
+            <select onChange={handlechange}  className='placeholder:select h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='gender'>
               <option value='female'>Female</option>
               <option value='male'>Male</option>
               <option value='others'>Others</option>
@@ -131,13 +131,13 @@ export const Usereditprofile = () => {
               WARD NUMBER:
 
             </span>
-            <input onChange={handlechange}  type='text' className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='wardNumber'></input></div>
+            <input onChange={handlechange} placeholder={userdata.wardNumber} type='text' className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='wardNumber'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               WARD NAME:
 
             </span>
-            <input onChange={handlechange} type='text' className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='wardName' ></input></div>
+            <input onChange={handlechange} placeholder={userdata.wardName} type='text' className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='wardName' ></input></div>
 
 
 
@@ -149,41 +149,41 @@ export const Usereditprofile = () => {
               EMAIL ID:
 
             </span>
-            <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='email' type='email'></input></div>
+            <input onChange={handlechange} placeholder={userdata.email} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='email' type='email'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               HOUSE NUMBER:
 
             </span>
-            <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='houseNumber' type='text'></input></div>
+            <input onChange={handlechange} placeholder={userdata.houseNumber} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='houseNumber' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               HOUSE NAME:
 
             </span>
-            <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='houseName' type='text'></input></div>
+            <input onChange={handlechange} placeholder={userdata.houseName} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='houseName' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               STREET:
 
             </span>
-            <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='street' type='text'></input></div>
+            <input onChange={handlechange} placeholder={userdata.street} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='street' type='text'></input></div>
 
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               DISTRICT:
 
             </span>
-            <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='district' type='text' ></input></div>
+            <input onChange={handlechange} placeholder={userdata.district} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='district' type='text' ></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PINCODE:
 
             </span>
-            <input onChange={handlechange} type='text' name='pincode' className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' maxLength={6}></input></div>
+            <input onChange={handlechange} placeholder={userdata.pincode} type='text' name='pincode' className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' maxLength={6}></input></div>
 
 
-            <div className='text h-9   text-white mt-4 flex'>
+            {/* <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PASSWORD:
 
@@ -195,13 +195,13 @@ export const Usereditprofile = () => {
            <FaEyeSlash  onClick={()=> setshowpassword('text') } color='black' className='ms-2'/>
            }
             </div>
-            </div>
+            </div> */}
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PHONE NUMBER:
 
             </span>
-            <input onChange={handlechange} type='text' name='phoneNumber' className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' maxLength={10}></input></div>
+            <input onChange={handlechange} placeholder={userdata.phoneNumber}  type='text' name='phoneNumber' className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' maxLength={10}></input></div>
             
             
             

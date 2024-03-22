@@ -5,7 +5,7 @@ import {FaEye,FaEyeSlash} from "react-icons/fa"
 
 
 export const Addwardmember = () => {
-  const [ward,setward]=useState('')
+  const [ward,setward]=useState([''])
   const [refresh,setrefresh]=useState(false)
   useEffect(()=>{
     let fetchdata=async ()=>{
@@ -19,21 +19,57 @@ export const Addwardmember = () => {
   ,[refresh]
   )
 
-  const fileUpload = useRef('')
+  const fileUploadPhoto = useRef(null);
+  
 
-  const handleUploadFile = ()=>{
-    fileUpload.current.click()
+   const handleUploadFile = (type) => {
+    if (type === 'photo') {
+      fileUploadPhoto.current.click();
+    }
   }
+  
 
   const[data,setdata]=useState('')
   const[showpassword,setshowpassword]=useState('password')
   let handlechange=(event)=>{
     setdata({...data,[event.target.name]:event.target.value})
   }
+  let handlefile=(event)=>{
+    console.log(event.target.files);
+    setdata({...data,[event.target.name]:event.target.files[0]})
+    console.log(data);
+  }
+
   let handlesubmit=async(event)=>{
     event.preventDefault()
-    let response=await axios.post('http://localhost:4000/User/register',{...data,usertype:'member'})
-    console.log(response)
+    let formData = new FormData();
+    formData.append('name', data.name);
+    formData.append('photo', data.photo);
+    formData.append('age', data.age);
+    formData.append('gender', data.gender);
+    formData.append('email', data.email);
+    formData.append('houseName', data.houseName);
+    formData.append('street', data.street);
+    formData.append('district', data.district);
+    formData.append('pincode', data.pincode);
+    formData.append('phoneNumber', data.phoneNumber);
+    formData.append('password', data.password);
+    formData.append('wardName', data.wardName);
+    formData.append('wardNumber', data.wardNumber);
+    formData.append('usertype', 'member');
+console.log(formData,'formdata');
+try {
+  let response = await axios.post('http://localhost:4000/User/register', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data' // Set the content type for FormData
+    }
+  });
+  console.log(response.data);
+  toast.success('submit successfully');
+} catch (error) {
+  console.error('Error:', error);
+  toast.error('Failed to submit');
+}
     const requiredFields = ['name', 'photo', 'age', 'gender', 'email','houseName','street','district','pincode','phoneNumber','password','wardName','wardNumber'];
 
     for (const field of requiredFields) {
@@ -75,7 +111,9 @@ export const Addwardmember = () => {
               PHOTO:
 
             </span>
-            <input onChange={handlechange} ref={fileUpload} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='photo' />
+
+            <input type='file'></input>
+            <input onChange={handlefile} ref={fileUploadPhoto} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='photo' />
             <div className="">
               <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg pl-2'>upload</p>
             </div>

@@ -111,7 +111,7 @@ root.render(
         <Route path='addscre' element={<Addsecr/>}/>
         <Route path='viewsecr' element={<Viewsec/>}/>
         <Route path='viewsecdetail' element={<Viewsecdetail/>}/>
-        <Route path='editsec' element={<Editsecretary/>}/>
+        <Route path='editsec/:id' element={<Editsecretary/>}/>
         <Route path='addstaff' element={<Addstaff/>}/>
         <Route path='viewstaff' element={<Viewstaff/>}/>
         <Route path='viewstaffdetail' element={<Viewstaffdetail/>}/>

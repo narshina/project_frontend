@@ -22,6 +22,7 @@ export const Addsecr = () => {
 
   let handlechange=(event)=>{
     setdata({...data,[event.target.name]:event.target.value})
+    console.log(data);
   }
   let handlefile=(event)=>{
     console.log(event.target.files);
@@ -32,7 +33,6 @@ export const Addsecr = () => {
 
   let handlesubmit=async(event)=>{
     event.preventDefault()
-    console.log(data,'insubnit');
     let formData = new FormData();
     formData.append('name', data.name);
     formData.append('photo', data.photo);
@@ -56,7 +56,6 @@ try {
     }
   });
   console.log(response.data);
-  toast.success('submit successfully');
 } catch (error) {
   console.error('Error:', error);
   toast.error('Failed to submit');
