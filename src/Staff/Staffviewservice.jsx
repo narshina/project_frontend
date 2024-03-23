@@ -1,8 +1,22 @@
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export const Staffviewservice = () => {
+   let id=localStorage.getItem('id')
+   const[userdata,setuserdata]=useState([''])
+   const[refresh,setrefresh]=useState(false)
+   useEffect(()=>{
+    let fetchData=async ()=>{
+    let response=await axios.get(`http://localhost:4000/Staff/vservice`)
+    console.log(response)
+    setuserdata(response.data)
+    }
+    fetchData()
+   },[refresh])
+   
     const[modal,setmodal]=useState(false)
+    
 
     let openmodal=()=>{
         setmodal(!modal)
@@ -11,7 +25,7 @@ export const Staffviewservice = () => {
     <>
     <div  className='bg-[#CCDAF6] h-screen '>
   <div className='font-bold font-serif text-[20px] m-auto text-center '>SERVICE LIST</div>
-  
+
 <form class="max-w-md mx-auto mt-4">   
     <label for="default-search" class="mb-2 text-sm bg-[#0F3053] font-medium text-gray-900 sr-only dark:text-white">Search</label>
     <div class="relative">
@@ -26,31 +40,14 @@ export const Staffviewservice = () => {
 </form>
 
     <div className='flex sm:gap-4 w-[80%] pt-4 flex-wrap m-auto justify-center'>
+  
+{userdata.map((item)=>(
 
-<button onClick={openmodal}  className=" block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-  Application for certificate to apply for new ration card
-</button>
-<button onClick={openmodal}  className=" block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-  Application for certificate showing unemployment
-</button>
-<button onClick={openmodal}  className=" block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-  Application for life certificate
-</button>
-<button onClick={openmodal}  className=" block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-  Application for residential certificate
-</button>
-<button onClick={openmodal}  className=" block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-  Application for marriage certificate
-</button>
-<button onClick={openmodal}  class="block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 " type="button">
-  Application for age proof certificate
-</button>
-<button onClick={openmodal}  class="block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 " type="button">
-  Application for character certificate
-</button>
-<button onClick={openmodal}  class="block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 " type="button">
-  Application for ownership certificate
-</button>
+  <Link to={`/staff/Addfield/${id}`}><button   className=" block text-white bg-[#0F3053] hover:bg-[#77A4FA] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+{item.service}
+</button></Link>
+  ))}
+
     </div>
     </div>
 

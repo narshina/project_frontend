@@ -1,22 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import photo from './photo.jpg';
 import ReactPaginate from 'react-paginate';
+import axios from 'axios';
 
 export const Viewstaff = () => {
+  const [data,setData]=useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage] = useState(5); // Change this value according to your preference
+  useEffect(()=>{
+    const fetchData=async()=>{
+      try{
+        const response=await axios.get('http://localhost:4000/President/vmember');
+        setData(response.data)
+      }
+      catch(error){
+        console.error('Error fetching data:',error)
+      }
+    }
+    fetchData()
+  },[])
 
-  // Sample data
-  const staffData = [
-    { name: 'Akil', email: 'akil@gmail.com', photo: photo },
-    // Add more staff objects here
-  ];
+  // const staffData = [
+  //   { name: 'Akil', email: 'akil@gmail.com', photo: photo },
+  // ];
 
   // Calculate index of the first and last item to be displayed
   const indexOfLastItem = (currentPage + 1) * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = staffData.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
 
   // Function to handle page change
   const handlePageChange = ({ selected }) => {
@@ -24,7 +36,7 @@ export const Viewstaff = () => {
   };
 
   return (
-    <div className='w-screen h-[655px] bg-[#CCDAF6] pt-5 content-center'>
+    <div className='w-screen h-[655px] bg-[#CCDAF6] pt-5 '>
       <div className='text-center font-serif text-[20px] font-bold'><h2>STAFF MANAGEMENT</h2></div>
 
       <div className="relative overflow-x-auto justify-center flex">
@@ -47,7 +59,8 @@ export const Viewstaff = () => {
           </thead>
           <tbody>
             {currentItems.map((staff, index) => (
-              <tr key={index} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                <tr key={index} className={`${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'} text-center ${index % 2 === 0 ? 'dark:bg-gray-900' : 'dark:bg-gray-800'} border-b dark:border-gray-700`}>
+
                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                   {staff.name}
                 </th>
@@ -70,7 +83,7 @@ export const Viewstaff = () => {
       {/* Pagination */}
       <div className="flex justify-center mt-5">
         <ReactPaginate
-          pageCount={Math.ceil(staffData.length / itemsPerPage)}
+          pageCount={Math.ceil(data.length / itemsPerPage)}
           pageRangeDisplayed={5}
           marginPagesDisplayed={2}
           onPageChange={handlePageChange}

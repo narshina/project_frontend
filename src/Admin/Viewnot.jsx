@@ -1,36 +1,38 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { Link } from 'react-router-dom';
 
 export const Viewnot = () => {
-  // Sample notification data
-  const notifications = [
-    { notification: 'Notification 1', date: '30/11/2023', time: '10:11 AM' },
-    { notification: 'Notification 2', date: '30/11/2023', time: '10:12 AM' },
-    { notification: 'Notification 3', date: '30/11/2023', time: '10:13 AM' },
-    { notification: 'Notification 4', date: '30/11/2023', time: '10:14 AM' },
-    { notification: 'Notification 5', date: '30/11/2023', time: '10:15 AM' },
-    { notification: 'Notification 6', date: '30/11/2023', time: '10:16 AM' },
-    { notification: 'Notification 7', date: '30/11/2023', time: '10:17 AM' },
-    { notification: 'Notification 8', date: '30/11/2023', time: '10:18 AM' },
-    { notification: 'Notification 9', date: '30/11/2023', time: '10:19 AM' },
-    { notification: 'Notification 10', date: '30/11/2023', time: '10:20 AM' }
-  ];
+  const [data,setdata]=useState([])
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage] = useState(5);
 
+  useEffect(()=>{
+    const fetchData=async()=>{
+      try{
+        const response=await axios.get('http://localhost:4000/President/vnotification')
+        setdata(response.data)
+      }
+      catch(error){
+        console.log('Error fetching data',data)
+      }
+    }
+    fetchData()
+  },[])
+
   // Logic to get current items based on current page
   const indexOfLastItem = (currentPage + 1) * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentNotifications = notifications.slice(indexOfFirstItem, indexOfLastItem);
+  const currentNotifications = data.slice(indexOfFirstItem, indexOfLastItem);
 
   // Change page
   const handlePageChange = ({ selected }) => setCurrentPage(selected);
 
   return (
-    <div className='w-screen h-[655px] bg-[#CCDAF6] pt-5 content-center'>
+    <div className='w-screen h-[655px] bg-[#CCDAF6] pt-5 '>
       <div className='text-center font-serif text-[20px] font-bold'><h2>MANAGE NOTIFICATION</h2></div>
 
       <div className="relative overflow-x-auto justify-center flex">
@@ -62,7 +64,7 @@ export const Viewnot = () => {
       {/* Pagination */}
       <div className="flex justify-center mt-5">
         <ReactPaginate
-          pageCount={Math.ceil(notifications.length / itemsPerPage)}
+          pageCount={Math.ceil(data.length / itemsPerPage)}
           pageRangeDisplayed={5}
           marginPagesDisplayed={2}
           onPageChange={handlePageChange}

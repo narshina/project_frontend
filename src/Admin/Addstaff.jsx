@@ -1,4 +1,4 @@
-import React, { useRef,useState } from 'react'
+import React, { useEffect, useRef,useState } from 'react'
 import { json } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import {FaEye,FaEyeSlash} from "react-icons/fa"
@@ -6,20 +6,61 @@ import axios from 'axios'
 
 export const Addstaff = () => {
   const fileUpload = useRef('')
+  const fileUploadPhoto=useRef(null)
 
-  const handleUploadFile = ()=>{
-    fileUpload.current.click()
+  const handleUploadFile = (type)=>{
+    // if(type== 'photo'){
+    fileUploadPhoto.current.click()
+   
   }
+  
 
   const[data,setdata]=useState('')
   const[showpassword,setshowpassword]=useState('password')
   let handlechange=(event)=>{
     setdata({...data,[event.target.name]:event.target.value})
   }
+  const[category,setcategory]=useState([''])
+  const[refresh,setrefresh]=useState(false)
+  useEffect(()=>{
+    let fetchData=async()=>{
+      let response=await axios.get('http://localhost:4000/President/vcategory',data)
+      console.log(response.data);
+      setcategory(response.data)
+    }
+    fetchData()
+  },[refresh])
+
+  let handlefile=(event)=>{
+    setdata({...data,[event.target.name]:event.target.files[0]})
+  }
+
   let handlesubmit=async(event)=>{
     event.preventDefault()
-    let response=await axios.post('http://localhost:4000/User/register',{...data,usertype:'staff'})
-    const requiredFields = ['name', 'photo', 'age', 'gender', 'email','category','houseName', 'street','pincode', 'phoneNumber', 'password'];
+    let formData = new FormData();
+    formData.append('name', data.name);
+    formData.append('photo', data.photo);
+    formData.append('age', data.age);
+    formData.append('gender', data.gender);
+    formData.append('email', data.email);
+    formData.append('category', data.category);
+    formData.append('houseName', data.houseName);
+    formData.append('street', data.street);
+    formData.append('district', data.district);
+    formData.append('pincode', data.pincode);
+    formData.append('phoneNumber', data.phoneNumber);
+    formData.append('password', data.password);
+    formData.append('usertype', 'staff');
+    console.log(formData,'formdata');
+
+    let response=await axios.post('http://localhost:4000/User/register',formData,{
+      headers: {
+        'Content-Type': 'multipart/form-data' // Set the content type for FormData
+      }
+    })
+   console.log(response)
+
+    const requiredFields = ['name', 'photo', 'age', 'gender', 'email','category','houseName', 'street','pincode', 'phoneNumber', 'password','district'];
     console.log(response)
 
     for (const field of requiredFields) {
@@ -57,14 +98,15 @@ export const Addstaff = () => {
             </span>
             <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2' name='name' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex' onClick={handleUploadFile}>
-            <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
-              PHOTO:
+              <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
+                PHOTO:
 
-            </span>
-            <input onChange={handlechange} ref={fileUpload} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black pl-2 ' name='photo' />
-            <div className="">
-              <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg'>upload</p>
-            </div>
+              </span>
+              {/* <img src={URL.createObjectURL(data.photo)} className='w-12 h-12 object-cover'  alt="" /> */}
+              <input onChange={handlefile} ref={fileUploadPhoto} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black pl-2 ' name='photo' />
+              <div className="">
+                <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg'>upload</p>
+              </div>
             </div>
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
@@ -94,9 +136,9 @@ export const Addstaff = () => {
 
             </span>
            <select onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2'  name="category" id="">
-            <option value="clerk">clerk</option>
-            <option value="head clerk">head clerk</option>
-            <option value="ud clerk">UD clerk</option>
+            {category.map((item)=>(
+              <option value={item._id}>{item.category}</option>
+            ))}
            </select>
            
            
@@ -153,6 +195,7 @@ export const Addstaff = () => {
             
 
         </div>
+ 
       </div>
       <div className='text-center'>
         <button type='submit' className='button text-white font-semibold bg-[#0F3053] w-48 h-9 rounded -mt-10 m-auto'>SUBMIT</button></div>

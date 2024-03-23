@@ -24,7 +24,7 @@ export const Viewwardmember = () => {
     };
 
     return (
-        <div className='w-screen h-[655px] bg-[#CCDAF6] pt-5 content-center'>
+        <div className='w-screen h-[655px] bg-[#CCDAF6] pt-5 '>
             <div className='text-center font-serif text-[20px] font-bold'><h2>WARD MEMBER MANAGEMENT</h2></div>
 
             <div className="relative overflow-x-auto justify-center flex">

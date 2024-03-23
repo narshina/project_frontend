@@ -89,6 +89,7 @@ import { Viewnotpres } from './Wardmember/Viewnotpres';
 import { Viewnews } from './Admin/Viewnews';
 import { Userprofile } from './User/Userprofile';
 import { Usereditprofile } from './User/Usereditprofile';
+import { Field } from './Staff/Field';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -184,6 +185,7 @@ root.render(
       <Route path='staffreject' element={<Rejectreason/>}/>
       <Route path='staffviewmeet' element={<Staffviewmeet/>}/>
       <Route path='staffviewnot' element={<Staffviewnot/>}/>
+      <Route path='Addfield/:id' element={<Field/>}/>
       </Route>
 
       <Route path='*' element={<div> no routes</div>}/>

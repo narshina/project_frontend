@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
 
@@ -6,12 +7,22 @@ export const Addsecretary = () => {
   let handlechange=(event)=>{
     setdata({...data,[event.target.name]:event.target.value})
   }
-  let handlesubmit=(event)=>{
+  
+
+
+  let handlesubmit=async(event)=>{
     event.preventDefault()
-    if(!data.category){
-      return toast.error('category is required')
+    let id=localStorage.getItem('id')
+    let response=await axios.post('http://localhost:4000/President/addcategory',{...data,userid:id})
+    console.log(response);
+    const requiredFields=['category']
+    for( const field of requiredFields){
+      if(!data[field]){
+        return toast.error(`${field} is required`)
+      }
     }
     setdata('')
+    toast.success('submit successfully')
     console.log(data);
   }
   
