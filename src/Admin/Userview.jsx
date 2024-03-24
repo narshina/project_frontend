@@ -1,22 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import photo from './photo.jpg';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export const Userview = () => {
+  const [data,setdata]=useState([])
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 5; // Number of items to display per page
+  useEffect(()=>{
+    const fetchData=async()=>{
+      try{
+        const response =await axios.get('http://localhost:4000/President/vuser')
+        setdata(response.data)
+      }
+      catch(error){
+        console.error('Error fetching data',error)
+      }
+    }
+    fetchData()
+  },[])
 
-  // Sample data
-  const users = [
-    { name: 'Akil', email: 'akil@gmail.com', status: 'pending', photo: photo },
-    // Add more user objects here
-  ];
+  
 
   // Calculate index of the first and last item to be displayed
   const indexOfLastItem = (currentPage + 1) * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentUsers = users.slice(indexOfFirstItem, indexOfLastItem);
+  const currentUsers = data.slice(indexOfFirstItem, indexOfLastItem);
 
   // Handle page change
   const handlePageChange = ({ selected }) => {
@@ -24,7 +34,7 @@ export const Userview = () => {
   };
 
   return (
-    <div className='w-screen h-[655px] bg-[#CCDAF6] pt-5 content-center'>
+    <div className='w-screen h-[655px] bg-[#CCDAF6] pt-5'>
       <div className='text-center font-serif text-[20px] font-bold'><h2>USER MANAGEMENT</h2></div>
 
       <div className="relative overflow-x-auto justify-center flex">
@@ -55,7 +65,7 @@ export const Userview = () => {
                   {user.name}
                 </th>
                 <td className="px-6 py-4">
-                  <img className='h-9 w-9' src={user.photo} alt='' />
+                  <img className='h-9 w-9' src={`http://localhost:4000/uploads/${data.photo}`} alt='' />
                 </td>
                 <td className="px-6 py-4">
                   {user.email}
@@ -75,7 +85,7 @@ export const Userview = () => {
       {/* Pagination */}
       <div className="flex justify-center mt-5">
         <ReactPaginate
-          pageCount={Math.ceil(users.length / itemsPerPage)}
+          pageCount={Math.ceil(data.length / itemsPerPage)}
           pageRangeDisplayed={5}
           marginPagesDisplayed={2}
           onPageChange={handlePageChange}
@@ -85,4 +95,4 @@ export const Userview = () => {
       </div>
     </div>
   )
-            }
+  }

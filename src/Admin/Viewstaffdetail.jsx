@@ -3,6 +3,7 @@ import photo from './photo.jpg'
 import { Link } from 'react-router-dom'
 
 export const Viewstaffdetail = () => {
+
   return (
     <div className='w-[100%] h-[695px] bg-[#CCDAF6] flex justify-center'>
     <div class="p-5 border text-center bg-white text-gray-500 max-w-sm h-fit  w-fit p-4 rounded-xl mt-24">

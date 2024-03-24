@@ -1,20 +1,30 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 
 export const Secviewmeet = () => {
-    // Sample data
-    const meetings = [
-        { agenda: 'mmfff gggh rrtt', date: '15/34/23', time: '10:00am', venue: 'Ulliyeri' },
-        // Add more meeting data as needed
-    ];
+    const[data,setData]=useState([])
 
     // Pagination state
     const [currentPage, setCurrentPage] = useState(0);
     const itemsPerPage = 5; // Number of items per page
 
+    useEffect(()=>{
+        const fetchData=async ()=>{
+            try{
+                const response=await axios.get('http://localhost:4000/User/viewmeeting');
+                setData(response.data)
+            }
+            catch(error){
+                console.error('Error fetching data',error)
+            }
+        }
+        fetchData()
+    },[])
+
     // Logic to get current items based on current page
     const offset = currentPage * itemsPerPage;
-    const currentItems = meetings.slice(offset, offset + itemsPerPage);
+    const currentItems = data.slice(offset, offset + itemsPerPage);
 
     // Change page
     const handlePageChange = ({ selected }) => {
@@ -22,7 +32,7 @@ export const Secviewmeet = () => {
     };
 
     return (
-        <div className='w-screen h-[655px] bg-[#CCDAF6] pt-5 content-center'>
+        <div className='w-screen h-[655px] bg-[#CCDAF6] pt-5 '>
             <div className='text-center font-serif text-[20px] font-bold'><h2>MEETINGS</h2></div>
 
             <div className="relative overflow-x-auto justify-center flex">
@@ -51,7 +61,7 @@ export const Secviewmeet = () => {
             {/* Pagination */}
             <div className="flex justify-center mt-5">
                 <ReactPaginate
-                    pageCount={Math.ceil(meetings.length / itemsPerPage)}
+                    pageCount={Math.ceil(data.length / itemsPerPage)}
                     pageRangeDisplayed={5}
                     marginPagesDisplayed={2}
                     onPageChange={handlePageChange}

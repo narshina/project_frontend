@@ -11,7 +11,7 @@ export const Viewstaff = () => {
   useEffect(()=>{
     const fetchData=async()=>{
       try{
-        const response=await axios.get('http://localhost:4000/President/vmember');
+        const response=await axios.get('http://localhost:4000/President/vstaff');
         setData(response.data)
       }
       catch(error){
@@ -65,7 +65,7 @@ export const Viewstaff = () => {
                   {staff.name}
                 </th>
                 <td className="px-6 py-4">
-                  <img className='h-9 w-9' src={staff.photo} alt=''/>
+                  <img className='h-9 w-9' src={`http://localhost:4000/uploads/${data.photo}`} alt=''/>
                 </td>
                 <td className="px-6 py-4">
                   {staff.email}

@@ -32,7 +32,12 @@ export const Usereditprofile = () => {
         fileUploadIdProof.current.click();
       }
     };
-
+    let handlefile=(event)=>{
+      console.log(event.target.files);
+      setdata({...data,[event.target.name]:event.target.files[0]})
+      console.log(data);
+    }
+  
     const[data,setdata]=useState('')
   const[showpassword,setshowpassword]=useState('password')
   let handlechange=(event)=>{
@@ -41,26 +46,40 @@ export const Usereditprofile = () => {
   }
   let handlesubmit=async(event)=>{
     event.preventDefault()
+    const formData=new FormData()
+    for(const key in data){
+      if(data[key]){
+        formData.append(key,data[key])
+      }
+    }
+    console.log(formData,'formdata')
     setrefresh(!refresh)
-    let response=await axios.put(`http://localhost:4000/User/editprofile/${id}`,data)
-    console.log(response);
-    setdata('')
+    try{
+    let response=await axios.put(`http://localhost:4000/User/editprofile/${id}`,formData,{
+      headers: {
+        'Content-Type': 'multipart/form-data' // Set the content type for FormData
+      }
+    })
+    console.log(response.data);
+    setuserdata(response.data)
+  }catch(error){
+    console.error('Error',error)
+  }
 
 
-
-    const requiredFields = ['name','photo','age','dob','gender','idproof','wardNumber','wardName','email','houseNumber','houseName','street','district','pincode','phoneNumber','password'];
-    for (const field of requiredFields) {
-        if (!data[field]) {
-            return toast.error(`${field} is required`);
-        }
-    }
-    let passwordPattern =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/
-    console.log(passwordPattern.test(data.password));
-    if(!passwordPattern.test(data.password)){
-      return toast.error('password is not matched')
-    }
+    // const requiredFields = ['name','photo','age','dob','gender','idproof','wardNumber','wardName','email','houseNumber','houseName','street','district','pincode','phoneNumber','password'];
+    // for (const field of requiredFields) {
+    //     if (!data[field]) {
+    //         return toast.error(`${field} is required`);
+    //     }
+    // }
+    // let passwordPattern =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/
+    // console.log(passwordPattern.test(data.password));
+    // if(!passwordPattern.test(data.password)){
+    //   return toast.error('password is not matched')
+    // }
     setdata(data)
-    toast.success("successfully registered")
+    toast.success("Profile edited successfully")
     console.log(data);
 
     

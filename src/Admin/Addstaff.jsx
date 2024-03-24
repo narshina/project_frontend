@@ -33,6 +33,7 @@ export const Addstaff = () => {
 
   let handlefile=(event)=>{
     setdata({...data,[event.target.name]:event.target.files[0]})
+    console.log(data)
   }
 
   let handlesubmit=async(event)=>{
@@ -165,7 +166,7 @@ export const Addstaff = () => {
               DISTRICT:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='district ' type='text' ></input></div>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='district' type='text' ></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PINCODE:
