@@ -65,7 +65,7 @@ export const Viewstaff = () => {
                   {staff.name}
                 </th>
                 <td className="px-6 py-4">
-                  <img className='h-9 w-9' src={`http://localhost:4000/uploads/${data.photo}`} alt=''/>
+                  <img className='h-9 w-9' src={`http://localhost:4000/uploads/${staff.photo}`} alt=''/>
                 </td>
                 <td className="px-6 py-4">
                   {staff.email}

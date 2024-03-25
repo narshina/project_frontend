@@ -33,6 +33,7 @@ export const Addwardmember = () => {
   const[showpassword,setshowpassword]=useState('password')
   let handlechange=(event)=>{
     setdata({...data,[event.target.name]:event.target.value})
+    console.log(data);
   }
   let handlefile=(event)=>{
     console.log(event.target.files);
@@ -112,8 +113,8 @@ try {
 
             </span>
 
-            <input type='file'></input>
-            <input onChange={handlefile} ref={fileUploadPhoto} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='photo' />
+            
+            <input onChange={handlefile} type="file"  name='photo' />
             <div className="">
               <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg pl-2'>upload</p>
             </div>
@@ -149,7 +150,7 @@ try {
             </span>
            <select onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2'  name="wardNumber" >
             {ward.map((item)=>(
-              <option value={item._id}>{item.wardnumber}</option>
+              <option value={item.wardNumber}>{item.wardnumber}</option>
             ))}
            </select>
            
@@ -162,7 +163,7 @@ try {
             </span>
            <select onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2'  name="wardName" >
             {ward.map((item)=>(
-              <option value={item._id}>{item.wardname}</option>
+              <option value={item.wardName}>{item.wardname}</option>
             ))}
            </select>
            

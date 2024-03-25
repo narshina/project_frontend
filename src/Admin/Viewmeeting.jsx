@@ -1,34 +1,35 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { Link } from 'react-router-dom';
 
 export const Viewmeeting = () => {
-    // Sample meeting data
-    const meetings = [
-        { agenda: 'Meeting 1', date: '15/34/23', time: '10:00am', venue: 'Ulliyeri' },
-        { agenda: 'Meeting 1', date: '15/34/23', time: '10:00am', venue: 'Ulliyeri' },
-        { agenda: 'Meeting 1', date: '15/34/23', time: '10:00am', venue: 'Ulliyeri' },
-        { agenda: 'Meeting 1', date: '15/34/23', time: '10:00am', venue: 'Ulliyeri' },
-        { agenda: 'Meeting 1', date: '15/34/23', time: '10:00am', venue: 'Ulliyeri' },
-        { agenda: 'Meeting 1', date: '15/34/23', time: '10:00am', venue: 'Ulliyeri' },
-
-        // Add more meetings as needed
-    ];
-
-    // Pagination state
+   
+    const[data,setdata]=useState([])
     const [currentPage, setCurrentPage] = useState(0);
     const [itemsPerPage] = useState(5); // Change this value as needed
-
+    useEffect(()=>{
+        const fetchData =async()=>{
+            try{
+                const response=await axios.get('http://localhost:4000/President/vmeet')
+                setdata(response.data)
+            }
+            catch(error){
+                console.error('Error fetching data',error)
+            }
+        }
+        fetchData()
+    },[])
     // Logic to get current items based on current page
     const indexOfLastItem = (currentPage + 1) * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentMeetings = meetings.slice(indexOfFirstItem, indexOfLastItem);
+    const currentMeetings = data.slice(indexOfFirstItem, indexOfLastItem);
 
     // Change page
     const handlePageChange = ({ selected }) => setCurrentPage(selected);
 
     return (
-        <div className='w-screen h-[655px] bg-[#CCDAF6] pt-5 content-center'>
+        <div className='w-screen h-[655px] bg-[#CCDAF6] pt-5 '>
             <div className='text-center font-serif text-[20px] font-bold'><h2>MEETINGS</h2></div>
 
             <div className="relative overflow-x-auto justify-center flex">
@@ -72,7 +73,7 @@ export const Viewmeeting = () => {
             {/* Pagination */}
             <div className="flex justify-center mt-5">
                 <ReactPaginate
-                    pageCount={Math.ceil(meetings.length / itemsPerPage)}
+                    pageCount={Math.ceil(data.length / itemsPerPage)}
                     pageRangeDisplayed={5}
                     marginPagesDisplayed={2}
                     onPageChange={handlePageChange}

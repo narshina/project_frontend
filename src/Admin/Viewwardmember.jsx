@@ -1,22 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import photo from './photo.jpg';
 import { Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
+import axios from 'axios';
 
 export const Viewwardmember = () => {
+    const[data,setdata]=useState([])
     const [currentPage, setCurrentPage] = useState(0);
     const [itemsPerPage] = useState(5); // Change this value according to your preference
 
-    // Sample data
-    const wardMembers = [
-        { name: 'Akil', wardNumber: '1', wardName: 'Ulliyeri North' },
-        // Add more ward member objects here
-    ];
+    useEffect(()=> {
+        const fetchData = async () =>{
+            try{
+                const response=await axios.get('http://localhost:4000/President/vmember')
+                setdata(response.data)
 
+            }
+            catch(error){
+              console.error('Error fetching data',error)
+            }
+        }
+        fetchData()
+    },[])
+
+    
     // Calculate index of the first and last item to be displayed
     const indexOfLastItem = (currentPage + 1) * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = wardMembers.slice(indexOfFirstItem, indexOfLastItem);
+    const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
 
     // Function to handle page change
     const handlePageChange = ({ selected }) => {
@@ -76,7 +87,7 @@ export const Viewwardmember = () => {
             {/* Pagination */}
             <div className="flex justify-center mt-5">
                 <ReactPaginate
-                    pageCount={Math.ceil(wardMembers.length / itemsPerPage)}
+                    pageCount={Math.ceil(data.length / itemsPerPage)}
                     pageRangeDisplayed={5}
                     marginPagesDisplayed={2}
                     onPageChange={handlePageChange}

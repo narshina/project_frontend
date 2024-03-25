@@ -65,7 +65,7 @@ export const Userview = () => {
                   {user.name}
                 </th>
                 <td className="px-6 py-4">
-                  <img className='h-9 w-9' src={`http://localhost:4000/uploads/${data.photo}`} alt='' />
+                  <img className='h-9 w-9' src={`http://localhost:4000/uploads/${user.photo}`} alt='' />
                 </td>
                 <td className="px-6 py-4">
                   {user.email}
@@ -74,7 +74,7 @@ export const Userview = () => {
                   {user.status}
                 </td>
                 <td className="px-6 py-4 flex justify-between">
-                  <Link to='/admin/userviewdetail'><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a></Link>
+                  <Link to={`/admin/userviewdetail/${user._id}`}><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a></Link>
                 </td>
               </tr>
             ))}

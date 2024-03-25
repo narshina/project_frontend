@@ -9,7 +9,7 @@ export const Useviewnot = () => {
   useEffect(()=>{
     const fetchData=async()=>{
       try{
-        const response=await axios.get('http://localhost:4000/User/viewnotification')
+        const response=await axios.get('http://localhost:4000/User/viewnotificaion')
         setdata(response.data)
       }
       catch(error){

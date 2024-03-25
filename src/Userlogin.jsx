@@ -44,7 +44,9 @@ navigate('/admin')
         navigate('/president')
       }
       else if(response.data.usertype=='user'){
-        navigate('/user')
+        if(response.data.status=='accept'){
+          navigate('/user')
+        }
       }
       else if(response.data.usertype=='member'){
         navigate('/member')
