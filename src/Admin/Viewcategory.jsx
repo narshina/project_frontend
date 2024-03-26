@@ -46,9 +46,9 @@ console.log(data);
         </thead>
         <tbody>
             {currentItems.map((category,index)=>(
-             <tr key={index} className={`${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'} text-center ${index % 2 === 0 ? 'dark:bg-gray-900' : 'dark:bg-gray-800'} border-b dark:border-gray-700`}>
+             <tr key={index} className={`${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'} text-center ${index % 2 === 0 ? 'dark:bg-gray-900' : 'dark:bg-gray-800'} border-b dark:border-gray-700 hover:bg-slate-200`}>
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            <label class="font-medium text-black dark:text-blue-500 hover:underline">{category.category}</label>
+            <label class="font-medium text-black dark:text-blue-500 ">{category.category}</label>
             
                 </th>
                

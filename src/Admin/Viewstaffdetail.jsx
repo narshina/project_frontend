@@ -74,7 +74,7 @@ export const Viewstaffdetail = () => {
         </div>
         
     </div>
-    <Link to='/admin/editstaff'>
+    <Link to={`/admin/editstaff/${data._id}`}>
 <button className='bg-blue-950 p-2 w-20 rounded-2xl text-white hover:bg-black'>Edit</button></Link>
    
    

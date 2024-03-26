@@ -35,7 +35,7 @@ for (const field of requiredFields) {
   return (
     <form onSubmit={handlesubmit}>
     <div className=' w-screen  bg-[#CCDAF6] sm:h-[660px] pt-5'>
-    <div className='font-bold font-serif text-[20px] m-auto text-center'>MINUTES</div>
+    <div className='font-bold font-serif text-[20px] m-auto text-center'>MEETING</div>
     <div className="flex flex-wrap justify-center gap-8" >
         <div className=' h-[360px] w-[450px]  '>
 

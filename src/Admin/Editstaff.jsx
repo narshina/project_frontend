@@ -1,35 +1,74 @@
-import React, { useRef,useState } from 'react'
+import axios from 'axios'
+import React, { useEffect, useRef,useState } from 'react'
 import toast from 'react-hot-toast'
 import {FaEye,FaEyeSlash} from "react-icons/fa"
+import { useParams } from 'react-router-dom'
 
 export const Editstaff = () => {
-  
-  const fileUpload = useRef('')
 
-  const handleUploadFile = ()=>{
-    fileUpload.current.click()
+  let{id}=useParams()
+  // const[userdata,setuserdata]=useState('')
+  // const[refresh,setrefresh]=useState(false)
+  // useEffect(()=>{
+  //   let fetchData=async()=>{
+  //   let response=await axios.get(`http://localhost:4000/User/viewprofile/${id}`)
+  //   console.log(response.data);
+  //   setdata(response.data)
+  //   }
+  //   fetchData()
+  // },[])
+
+
+
+  
+  // const fileUpload = useRef('')
+
+  // const handleUploadFile = ()=>{
+  //   fileUpload.current.click()
+  // }
+  const fileUploadPhoto = useRef(null);
+  const handleUploadFile = (type) => {
+    if (type === 'photo') {
+      fileUploadPhoto.current.click();
+    }
   }
+  let handlefile=(event)=>{
+    console.log(event.target.files);
+    setdata({...data,[event.target.name]:event.target.files[0]})
+    console.log(data);
+  }
+  
 
   const[data,setdata]=useState('')
+  const[refresh,setrefresh]=useState(false)
   const[showpassword,setshowpassword]=useState('password')
   let handlechange=(event)=>{
     setdata({...data,[event.target.name]:event.target.value})
   }
-  let handlesubmit=(event)=>{
+  let handlesubmit=async(event)=>{
     event.preventDefault()
-    const requiredFields = ['name', 'photo', 'age', 'gender', 'emailid', 'house', 'street', 'district', 'pincode', 'phone number', 'password'];
-
-    for (const field of requiredFields) {
-        if (!data[field]) {
-            return toast.error(`${field} is required`);
-        }
-    }
+    const formData =new FormData()
     
-    let passwordPattern =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/
-    console.log(passwordPattern.test(data.password));
-    if(!passwordPattern.test(data.password)){
-      return toast.error('password is not matched')
+    for(const key in data){
+      if(data[key]){
+        formData.append(key,data[key])
+      }
     }
+    console.log(formData,'formdata');
+    setrefresh(!refresh)
+    try{
+    let response=await axios.put(`http://localhost:4000/User/editprofile/${id}`,formData,{
+      headers: {
+        'Content-Type': 'multipart/form-data' // Set the content type for FormData
+      }
+    })
+    console.log(response.data);
+    data(response.data)
+  }catch(error){
+    console.error('Error',error);
+  }
+    
+    
     setdata(data)
     toast.success("submit successfully")
     console.log(data);
@@ -50,13 +89,13 @@ export const Editstaff = () => {
             NAME:
 
           </span>
-          <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='name' type='text'></input></div>
+          <input onChange={handlechange}  className='text-black h-9 w-56 bg-white rounded-r-lg' name='name' type='text'></input></div>
           <div className='text h-9   text-white mt-4 flex' onClick={handleUploadFile}>
             <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PHOTO:
 
             </span>
-            <input onChange={handlechange} ref={fileUpload} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='photo' />
+            <input onChange={handlechange} ref={fileUploadPhoto} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='photo' />
             <div className="">
               <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg'>upload</p>
             </div>

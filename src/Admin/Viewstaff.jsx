@@ -59,7 +59,7 @@ export const Viewstaff = () => {
           </thead>
           <tbody>
             {currentItems.map((staff, index) => (
-                <tr key={index} className={`${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'} text-center ${index % 2 === 0 ? 'dark:bg-gray-900' : 'dark:bg-gray-800'} border-b dark:border-gray-700`}>
+                <tr key={index} className={`${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}  ${index % 2 === 0 ? 'dark:bg-gray-900' : 'dark:bg-gray-800'} border-b dark:border-gray-700 hover:bg-slate-200`}>
 
                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                   {staff.name}

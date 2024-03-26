@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
 
@@ -6,8 +7,11 @@ export const Membermeet = () => {
   let handlechange=(event)=>{
     setdata({...data,[event.target.name]:event.target.value})
   }
-  let handlesubmit=(event)=>{
+    let handlesubmit=async(event)=>{
     event.preventDefault()
+    let id=localStorage.getItem('id')
+    let response=await axios.post('http://localhost:4000/President/addmeeting',{...data,userid:id})
+    console.log(response)
     const requiredFields = ['agenda','date','time','venue'];
 
 for (const field of requiredFields) {
@@ -33,27 +37,27 @@ for (const field of requiredFields) {
               AGENDA:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='agenda' type='text'></input></div>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='agenda' type='text'></input></div>
           
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               DATE:
 
             </span>
-            <input onChange={handlechange} className= ' h-9 w-56 bg-white rounded-r-lg text-black' name='date' type='date' min={currentDate}></input></div>
+            <input onChange={handlechange} className= ' h-9 w-56 bg-white rounded-r-lg text-black pl-2' name='date' type='date' min={currentDate}></input></div>
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               TIME:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='time' type='time'></input></div>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='time' type='time'></input></div>
           
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               VENUE:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='venue' type='text'></input></div>
+            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='venue' type='text'></input></div>
             <div className='text-center'>
 
     <button type='submit' className='button text-white font-semibold bg-[#0F3053] w-48 h-9 rounded mt-5 m-auto'>SUBMIT</button>
