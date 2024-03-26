@@ -138,7 +138,7 @@ export const Addstaff = () => {
             </span>
            <select onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2'  name="category" id="">
             {category.map((item)=>(
-              <option value={item._id}>{item.category}</option>
+              <option value={item.category}>{item.category}</option>
             ))}
            </select>
            

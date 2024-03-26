@@ -71,7 +71,7 @@ export const Viewstaff = () => {
                   {staff.email}
                 </td>
                 <td className="px-6 py-4 flex justify-between">
-                  <Link to='/admin/viewstaffdetail'><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a></Link>
+                  <Link to={`/admin/viewstaffdetail/${staff._id}`}><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a></Link>
                   <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
                 </td>
               </tr>

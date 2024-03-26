@@ -32,11 +32,7 @@ export const Usereditprofile = () => {
         fileUploadIdProof.current.click();
       }
     };
-    let handlefile=(event)=>{
-      console.log(event.target.files);
-      setdata({...data,[event.target.name]:event.target.files[0]})
-      console.log(data);
-    }
+    
   
     const[data,setdata]=useState('')
   const[showpassword,setshowpassword]=useState('password')

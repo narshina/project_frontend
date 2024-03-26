@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
+import { Link } from 'react-router-dom'
 
 export const Staffaddservice = () => {
   const[data,setdata]=useState('')
@@ -58,7 +59,7 @@ for (const field of requiredFields) {
             <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='fees' type='text' id=''></input></div>
             <div className='text-center'>
 
-    <button type='submit' className='button text-white font-semibold bg-[#0F3053] w-48 h-9 rounded mt-5 m-auto'>SUBMIT</button>
+  <button type='submit' className='button text-white font-semibold bg-[#0F3053] w-48 h-9 rounded mt-5 m-auto'>SUBMIT</button>
     </div>
     </div>
     </div>

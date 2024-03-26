@@ -3,6 +3,7 @@ import toast from 'react-hot-toast'
 import {FaEye,FaEyeSlash} from "react-icons/fa"
 
 export const Editstaff = () => {
+  
   const fileUpload = useRef('')
 
   const handleUploadFile = ()=>{

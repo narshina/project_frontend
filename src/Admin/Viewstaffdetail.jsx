@@ -1,37 +1,49 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import photo from './photo.jpg'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import axios from 'axios'
 
 export const Viewstaffdetail = () => {
 
+  let{id}=useParams()
+  const[data,setdata]=useState('')
+  const[refresh,setrefresh]=useState(false)
+  useEffect(()=>{
+    let fetchData=async()=>{
+    let response=await axios.get(`http://localhost:4000/User/viewprofile/${id}`)
+    console.log(response.data);
+    setdata(response.data)
+    }
+    fetchData()
+  },[])
+
   return (
     <div className='w-[100%] h-[695px] bg-[#CCDAF6] flex justify-center'>
-    <div class="p-5 border text-center bg-white text-gray-500 max-w-sm h-fit  w-fit p-4 rounded-xl mt-24">
-    <img class="w-32 h-32 rounded-full mx-auto" src={photo} alt=""/>
+    <div class="p-5 border text-center bg-white text-gray-500 max-w-sm h-fit  w-fit  rounded-xl mt-24">
+    <img class="w-32 h-32 rounded-full mx-auto" src={`http://localhost:4000/uploads/${data.photo}`} alt=""/>
     <div class="text-sm mt-5">
         <a href="#"
-            class="font-medium leading-none text-gray-900 hover:text-indigo-600 transition duration-500 ease-in-out">Jane
-            Doe
+            class="font-medium leading-none text-gray-900 hover:text-indigo-600 transition duration-500 ease-in-out">{data.name}
         </a>
-        <p>jane@gmail.com</p><br />
+        <p>{data.email}</p><br />
         <div className='p-4'>
 <div className='flex justify-around mb-5 border-b-8 pb-4 '>
 
         <div className=''>
         <div className='font-bold'>Age</div>
-        <div className=''>43</div>
+        <div className=''>{data.age}</div>
         </div>
         <div className=''>
         <div className='font-bold'>Gender</div>
-        <div className=''>male</div>
+        <div className=''>{data.gender}</div>
         </div>
         <div className=''>
         <div className='font-bold'>Category</div>
-        <div className=''>clerk</div>
+        <div className=''>{data.category}</div>
         </div>
         <div className=''>
         <div className='font-bold'>house</div>
-        <div className=''>jkhfffff</div>
+        <div className=''>{data.houseName}</div>
         </div>
 </div>
 
@@ -41,21 +53,21 @@ export const Viewstaffdetail = () => {
 
         <div className=''>
         <div className='font-bold'>street</div>
-        <div className=''>hjklll</div>
+        <div className=''>{data.street}</div>
         </div>
         <div className=''>
         <div className='font-bold'>district</div>
-        <div className=''>kozhikode</div>
+        <div className=''>{data.district}</div>
         </div>
         
 
         <div className=''>
         <div className='font-bold'>pincode</div>
-        <div className=''>673323</div>
+        <div className=''>{data.pincode}</div>
         </div>
         <div className=''>
         <div className='font-bold'>phone number</div>
-        <div className=''>9867543456</div>
+        <div className=''>{data.phoneNumber}</div>
         </div>
 
         </div>

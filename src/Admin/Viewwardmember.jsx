@@ -66,7 +66,7 @@ export const Viewwardmember = () => {
                                     {wardMember.name}
                                 </th>
                                 <td className="px-6 py-4">
-                                    <img className='h-9 w-9' src={photo} alt='' />
+                                    <img className='h-9 w-9'  src={`http://localhost:4000/uploads/${wardMember.photo}`} alt='' />
                                 </td>
                                 <td className="px-6 py-4">
                                     {wardMember.wardNumber}

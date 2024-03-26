@@ -1,15 +1,24 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
+import { useParams } from 'react-router-dom'
 
 export const Editmeeting = () => {
+
+  let {id}=useParams()
   const[data,setData]=useState('')
+  const[refresh,setrefresh]=useState(false)
 
      
   let handlechange=(event)=>{
     setData({...data,[event.target.name]:event.target.value})
   }
-  let handlesubmit=(event)=>{
+  let handlesubmit=async(event)=>{
     event.preventDefault()
+    setrefresh(!refresh)
+    let response=await axios.put(`http://localhost:4000/President/editmeet/${id}`,data)
+    console.log(response)
+    setData('')
     const requiredFields = ['agenda','date','time','venue'];
 
 for (const field of requiredFields) {

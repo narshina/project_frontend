@@ -115,7 +115,7 @@ root.render(
         <Route path='editsec/:id' element={<Editsecretary/>}/>
         <Route path='addstaff' element={<Addstaff/>}/>
         <Route path='viewstaff' element={<Viewstaff/>}/>
-        <Route path='viewstaffdetail' element={<Viewstaffdetail/>}/>
+        <Route path='viewstaffdetail/:id' element={<Viewstaffdetail/>}/>
         <Route path='editstaff' element={<Editstaff/>}/>
         <Route path='addwardmember' element={<Addwardmember/>}/>
         <Route path='viewwardmember' element={<Viewwardmember/>}/>
@@ -127,11 +127,11 @@ root.render(
         <Route path='viewnot'element={<Viewnot/>}/>
         <Route path='addmeet' element={<Addmeeting/>}/>
         <Route path='viewmeet'element={<Viewmeeting/>}/>
-        <Route path='editmeet'element={<Editmeeting/>}/>
+        <Route path='editmeet/:id'element={<Editmeeting/>}/>
         <Route path='viewcomplaint' element={<Viewcomplaint/>}/>
         <Route path='replycomplaint' element={<Replycomplaint/>}/>
         <Route path='viewhistory' element={<Viewhistory/>}/>
-        <Route path='editnot' element={<Editnot/>}/>
+        <Route path='editnot/:id' element={<Editnot/>}/>
         <Route path='viewcate' element={<Viewcategory/>}/>
         <Route path='addnews' element={<Addnews/>}/>
         <Route path='addward' element={<Addward/>}/>

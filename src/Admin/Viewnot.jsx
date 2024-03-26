@@ -52,7 +52,7 @@ export const Viewnot = () => {
                 <td className="px-6 py-4">{notification.date}</td>
                 <td className="px-6 py-4">{notification.time}</td>
                 <td className="px-6 py-4 flex justify-between">
-                  <Link to='/admin/editnot'><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a></Link>
+                  <Link to={`/admin/editnot/${notification._id}`}><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a></Link>
                   <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
                 </td>
               </tr>
