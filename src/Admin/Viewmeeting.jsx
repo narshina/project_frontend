@@ -6,12 +6,13 @@ import { Link } from 'react-router-dom';
 export const Viewmeeting = () => {
    
     const[data,setdata]=useState([])
+    let id=localStorage.getItem('id')
     const [currentPage, setCurrentPage] = useState(0);
     const [itemsPerPage] = useState(5); // Change this value as needed
     useEffect(()=>{
         const fetchData =async()=>{
             try{
-                const response=await axios.get('http://localhost:4000/President/vmeet')
+                const response=await axios.get(`http://localhost:4000/Member/vmeeting/${id}`)
                 setdata(response.data)
             }
             catch(error){

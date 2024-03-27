@@ -4,7 +4,7 @@ import ReactPaginate from 'react-paginate';
 import { Link, useParams } from 'react-router-dom'
 
 export const Memberviewmeet = () => {
-    let {id}=localStorage.getItem('id')
+    let id=localStorage.getItem('id')
     const[data,setdata]=useState([])
     const [currentPage, setCurrentPage] = useState(0);
     const [itemsPerPage] = useState(5); // Change this value as needed
@@ -13,6 +13,7 @@ export const Memberviewmeet = () => {
             try{
                 const response=await axios.get(`http://localhost:4000/Member/vmeeting/${id}`)
                 setdata(response.data)
+                console.log(response.data)
             }
             catch(error){
                 console.error('Error fetching data',error)
