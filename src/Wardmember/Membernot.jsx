@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
 
@@ -6,9 +7,11 @@ export const Membernot = () => {
   let handlechange=(event)=>{
     setdata({...data,[event.target.name]:event.target.value})
   }
-  let handlesubmit=(event)=>{
-    event.preventDefault('')
+  let handlesubmit=async(event)=>{
     event.preventDefault()
+    let id=localStorage.getItem('id')
+    let response=await axios.post('http://localhost:4000/President/addnotification',{...data,userid:id})
+    console.log(response)
     const requiredFields = ['notification'];
 
 for (const field of requiredFields) {

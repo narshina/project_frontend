@@ -90,6 +90,7 @@ import { Viewnews } from './Admin/Viewnews';
 import { Userprofile } from './User/Userprofile';
 import { Usereditprofile } from './User/Usereditprofile';
 import { Field } from './Staff/Field';
+import { Viewservicedetail } from './User/Viewservicedetail';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -119,7 +120,7 @@ root.render(
         <Route path='editstaff/:id' element={<Editstaff/>}/>
         <Route path='addwardmember' element={<Addwardmember/>}/>
         <Route path='viewwardmember' element={<Viewwardmember/>}/>
-        <Route path='viewmemberdetail' element={<Viewmemberdetail/>}/>
+        <Route path='viewmemberdetail/:id' element={<Viewmemberdetail/>}/>
         <Route path='editmember' element={<Editmember/>}/>
         <Route path='userview' element={<Userview/>}/>
         <Route path='userviewdetail/:id' element={<Userviewdetail/>}/>
@@ -150,7 +151,7 @@ root.render(
       <Route path='/user' element={<Usernav/>}>
         <Route index element={<Userhome/>}/>
         <Route path='userviewservice' element={<Userviewservice/>}/>
-        <Route path='userapply' element={<Userapplication/>}/>
+        <Route path='userapply/:id' element={<Userapplication/>}/>
         <Route path='postcomplaint' element={<Postcomplaint/>}/>
         <Route path='viewreply' element={<Userviewreply/>}/>
         <Route path='userviewnot' element={<Useviewnot/>}/>
@@ -159,6 +160,7 @@ root.render(
         <Route path='applicationdetail' element={<Viewaplcationdetail/>}/>
         <Route path='userpayment' element={<Userpayment/>}/>
         <Route path='userprofile' element={<Userprofile/>}/>
+        <Route path='viewservicedetail/:id' element={<Viewservicedetail/>}/>
         <Route path='usereditprofile' element={<Usereditprofile/>}/>
       </Route>
       <Route path='/member' element={<Wardnav/>}>

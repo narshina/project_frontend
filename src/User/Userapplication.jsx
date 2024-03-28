@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { LangContext } from './LanguageContext'
 
 export const Userapplication = () => {
+  
   const[data,setdata]=useState('')
   let handlechange=(event)=>{
     setdata({...data,[event.target.name]:event.target.value})

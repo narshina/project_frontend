@@ -56,12 +56,12 @@ export const Viewmeeting = () => {
                     </thead>
                     <tbody>
                         {currentMeetings.map((meeting, index) => (
-                            <tr key={index} className="odd:bg-white text-center odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{meeting.agenda}</td>
+                            <tr key={index} className="odd:bg-white text-center odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-slate-200">
+                                <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white ">{meeting.agenda}</td>
                                 <td>{meeting.date}</td>
                                 <td>{meeting.time}</td>
                                 <td>{meeting.venue}</td>
-                                <td className="px-6 py-4 flex justify-between">
+                                <td className="px-6 py-4 flex justify-center gap-6">
                                     <Link to={`/admin/editmeet/${meeting._id}`}><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a></Link>
                                     <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
                                 </td>

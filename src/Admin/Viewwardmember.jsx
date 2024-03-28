@@ -75,7 +75,7 @@ export const Viewwardmember = () => {
                                     {wardMember.wardName}
                                 </td>
                                 <td className="px-6 py-4 flex justify-between">
-                                    <Link to='/admin/viewmemberdetail'><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a></Link>
+                                    <Link to={`/admin/viewmemberdetail/${wardMember._id}`}><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a></Link>
                                     <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
                                 </td>
                             </tr>

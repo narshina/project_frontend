@@ -1,8 +1,10 @@
 import React, { useRef,useState } from 'react'
 import toast from 'react-hot-toast'
 import {FaEye,FaEyeSlash} from "react-icons/fa"
+import { useParams } from 'react-router-dom'
 
 export const Editmember = () => {
+  // let {id}=useParams()  
   const fileUpload = useRef('')
 
   const handleUploadFile = ()=>{
