@@ -61,7 +61,7 @@ export const Memberviewmeet = () => {
                                 <td>{meeting.time}</td>
                                 <td>{meeting.venue}</td>
                                 <td className="px-6 py-4 flex justify-between">
-                                    <Link to='admin/editmeet'><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a></Link>
+                                    <Link to='member/editmeet'><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a></Link>
                                     <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
                                 </td>
                             </tr>

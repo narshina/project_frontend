@@ -63,7 +63,7 @@ export const Editstaff = () => {
       }
     })
     console.log(response.data);
-    data(response.data)
+    setdata(response.data)
   }catch(error){
     console.error('Error',error);
   }
@@ -90,12 +90,12 @@ export const Editstaff = () => {
 
           </span>
           <input onChange={handlechange}  className='text-black h-9 w-56 bg-white rounded-r-lg' name='name' type='text'></input></div>
-          <div className='text h-9   text-white mt-4 flex' onClick={handleUploadFile}>
+          <div className='text h-9   text-white mt-4 flex' onClick={() => handleUploadFile('photo')}>
             <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PHOTO:
 
             </span>
-            <input onChange={handlechange} ref={fileUploadPhoto} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='photo' />
+            <input onChange={handlefile} ref={fileUploadPhoto} className='hidden' type="file" name='photo' />
             <div className="">
               <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg'>upload</p>
             </div>
