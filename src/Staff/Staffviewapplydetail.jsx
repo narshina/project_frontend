@@ -1,7 +1,19 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 
 export const Staffviewapplydetail = () => {
+  let{id}=useParams()
+  const[data,setdata]=useState('')
+  useEffect(()=>{
+    let fetchData=async()=>{
+      let response=await axios.get(`http://localhost:4000/Staff/applydetail/${id}`)
+      console.log(response.data);
+      setdata(response.data)
+    }
+    fetchData()
+  },[])
+
   return (
     <div className='w-screen h-[655px]'>
       <div className=' flex justify-center w-screen h-[655px]  bg-[#CCDAF6] '>

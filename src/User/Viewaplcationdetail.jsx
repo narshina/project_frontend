@@ -1,6 +1,9 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 export const Viewaplcationdetail = () => {
+  
   return (
     <div className='w-screen h-[655px]'>
       <div className=' flex justify-center w-screen h-[655px]  bg-[#CCDAF6] '>

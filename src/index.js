@@ -183,7 +183,7 @@ root.render(
       <Route path='staffviewservice' element={<Staffviewservice/>}/>
       <Route path='staffeditservice' element={<Staffeditservice/>}/>
       <Route path='staffviewapply' element={<Staffviewapply/>}/>
-      <Route path='staffviewapplydetail' element={<Staffviewapplydetail/>}/>
+      <Route path='staffviewapplydetail/:id' element={<Staffviewapplydetail/>}/>
       <Route path='staffreject' element={<Rejectreason/>}/>
       <Route path='staffviewmeet' element={<Staffviewmeet/>}/>
       <Route path='staffviewnot' element={<Staffviewnot/>}/>
