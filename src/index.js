@@ -91,6 +91,7 @@ import { Userprofile } from './User/Userprofile';
 import { Usereditprofile } from './User/Usereditprofile';
 import { Field } from './Staff/Field';
 import { Viewservicedetail } from './User/Viewservicedetail';
+import { Vservicedetail } from './Wardmember/Vservicedetail';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -176,6 +177,7 @@ root.render(
         <Route path='memberreply' element={<Memberreplycomp/>}/>
         <Route path='meetpresident' element={<Viewmeetfrompres/>}/>
         <Route path='notpresident' element={<Viewnotpres/>}/>
+        <Route path='vservicedetail/:id' element={<Vservicedetail/>}/>
       </Route>
       <Route path='/staff' element={<Staffnav/>}>
       <Route index element={<Staffhome/>}/>

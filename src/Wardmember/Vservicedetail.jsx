@@ -1,9 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import ReactPaginate from 'react-paginate';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-export const Viewservicedetail = () => {
+export const Vservicedetail = () => {
     let {id}=useParams()
     const [data, setData] = useState([]);
   
@@ -19,8 +18,6 @@ export const Viewservicedetail = () => {
     };
     fetchData();
   }, []);
-
-  
   return (
     <div className='w-screen h-[655px] bg-[#CCDAF6]  '>
       <div className='text-center font-serif text-[20px] font-bold pt-6 '><h2>SERVICE DETAIL</h2></div>
@@ -44,12 +41,7 @@ export const Viewservicedetail = () => {
                 <td>:{data.fees}</td>
                 </tr> 
           </table>  
-        <div className='text-center mt-3'>
-   <Link to={`/user/userapply/${data._id}`}> <button><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline m-auto ">APPLY</a></button></Link></div>
    </div>
 </div>
-
-
-      
   )
 }
