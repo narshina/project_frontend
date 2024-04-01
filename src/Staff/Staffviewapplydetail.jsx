@@ -4,7 +4,9 @@ import { Link, useParams } from 'react-router-dom'
 
 export const Staffviewapplydetail = () => {
   let { id } = useParams()
+  const[reason,setreason]=useState(false)
   const [data, setData] = useState({})
+  const[refresh,setrefresh]=useState(false)
   
   useEffect(() => {
     const fetchData = async () => {
@@ -19,6 +21,17 @@ export const Staffviewapplydetail = () => {
     fetchData()
   }, [id])
 
+  let handlesubmit=async (statuss)=>{
+    setrefresh(!refresh)
+    let response=await axios.put(`http://localhost:4000/Staff/manageapplication/${id}`,{status:statuss})
+    console.log(response)
+    setData('')
+  }
+  let reasondrop=()=>{
+    setreason(!reason)
+  }
+
+
   return (
     <div className='w-screen h-[655px]'>
     <div className='flex justify-center w-screen h-[655px] bg-[#CCDAF6]'>
@@ -31,10 +44,10 @@ export const Staffviewapplydetail = () => {
           </div>
         ))}
         <div className='flex gap-12'>
-          <button className='href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline text-[20px]'>ACCEPT</button>
-          <Link to='/staff/staffreject'>
-            <button className='href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline text-[20px]'>REJECT</button>
-          </Link>
+          <button onClick={()=>{handlesubmit('accept')}} className='href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline text-[20px]'>ACCEPT</button>
+          
+            <button onClick={reasondrop} className='href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline text-[20px]'>REJECT</button>
+        
         </div>
     <div><h2 className='text-black font-bold underline'>USER DETAILS</h2></div>
     <div>Name:{data?.users?.name}</div>

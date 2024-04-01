@@ -47,7 +47,7 @@ export const Staffviewapply = () => {
                     
                 <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">{application?.service?.service}</a>
                 </th>
-               <td>pending</td>
+               <td>{application?.application?.status}</td>
                <Link to={`/staff/staffviewapplydetail/${application.application?._id}`}> <td className='px-6 py-4'>View</td></Link> 
             </tr>
                     ))}
