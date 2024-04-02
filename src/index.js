@@ -143,7 +143,7 @@ root.render(
         <Route index element={<Sechome/>}/>
         <Route path='secservice' element={<Secservices/>}/>
         <Route path='secviewapllcsn' element={<Secviewapplisn/>}/>
-        <Route path='secviewaplsndetail' element={<Secviewaplsndetail/>}/>
+        <Route path='secviewaplsndetail/:id' element={<Secviewaplsndetail/>}/>
         <Route path='secviewmeet' element={<Secviewmeet/>}/>
         <Route path='secviewnot' element={<Secviewnot/>}/>
         <Route path='secreject' element={<Presidentreject/>}/>
