@@ -158,7 +158,7 @@ root.render(
         <Route path='userviewnot' element={<Useviewnot/>}/>
         <Route path='userviewmeet' element={<Userviewmeet/>}/>
         <Route path='userviewapplication' element={<Userviewapplicatin/>}/>
-        <Route path='applicationdetail' element={<Viewaplcationdetail/>}/>
+        <Route path='applicationdetail/:id' element={<Viewaplcationdetail/>}/>
         <Route path='userpayment' element={<Userpayment/>}/>
         <Route path='userprofile' element={<Userprofile/>}/>
         <Route path='viewservicedetail/:id' element={<Viewservicedetail/>}/>

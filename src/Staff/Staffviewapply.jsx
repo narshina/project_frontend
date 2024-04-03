@@ -1,15 +1,16 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate';
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 export const Staffviewapply = () => {
+    let id=localStorage.getItem('id')
     const[data,setData]=useState([''])
     const [currentPage, setCurrentPage] = useState(0);
     const itemsPerPage = 5;
     useEffect(()=>{
         let fetchData=async ()=>{
-        let response=await axios.get(`http://localhost:4000/Staff/vapply`)
+        let response=await axios.get(`http://localhost:4000/Staff/vapply/${id}`)
         console.log(response)
         setData(response.data)
         }

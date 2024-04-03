@@ -10,7 +10,7 @@ export const Userviewapplicatin = () => {
   const [itemsPerPage] = useState(5); 
   useEffect(()=>{
     let fetchData=async()=>{
-      let response=await axios.get(`http://localhost:4000/Staff/vapplyuser/:id`)
+      let response=await axios.get(`http://localhost:4000/Staff/vapplyuser/${id}`)
       console.log(response)
       setdata(response.data)
     }
@@ -49,7 +49,7 @@ export const Userviewapplicatin = () => {
             {currentItems.map((application, index) => (
               <tr key={index} className="odd:bg-white odd:dark:bg-gray-900 text-justify even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                 <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  <Link to='/user/applicationdetail'><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">{application?.service?.service}</a></Link>
+                  <Link to={`/user/applicationdetail/${application?.application?._id}`}><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">{application?.service?.service}</a></Link>
                 </td>
                 <td>{application?.application?.status}</td>
               </tr>
