@@ -32,6 +32,11 @@ export const Usereditprofile = () => {
         fileUploadIdProof.current.click();
       }
     };
+    let handlefile=(event)=>{
+      console.log(event.target.files);
+      setdata({...data,[event.target.name]:event.target.files[0]})
+      console.log(data);
+    }
     
   
     const[data,setdata]=useState('')
@@ -48,6 +53,7 @@ export const Usereditprofile = () => {
         formData.append(key,data[key])
       }
     }
+    
     console.log(formData,'formdata')
     setrefresh(!refresh)
     try{
@@ -102,7 +108,7 @@ export const Usereditprofile = () => {
               Photo:
 
             </span>
-            <input onChange={handlechange} ref={fileUploadPhoto} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='photo' />
+            <input onChange={handlefile} ref={fileUploadPhoto} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='photo' />
             <div className="">  
               <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg pl-3'>upload</p>
             </div>
@@ -136,7 +142,7 @@ export const Usereditprofile = () => {
               ID PROOF:
 
             </span>
-            <input onChange={handlechange} ref={fileUploadIdProof} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='idproof' />
+            <input onChange={handlefile} ref={fileUploadIdProof} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='idproof' />
             <div className="">
               <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg pl-3'>upload</p>
             </div>

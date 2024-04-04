@@ -37,6 +37,7 @@ export const Userapplication = () => {
     }
     formData.append('userId', userId);
     formData.append('serviceId', id);
+    formData.append('status', 'pending');
     try {
 
       let response = await axios.post('http://localhost:4000/User/submitform', formData, {

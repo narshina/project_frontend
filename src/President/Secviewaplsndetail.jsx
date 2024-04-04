@@ -41,6 +41,7 @@ export const Secviewaplsndetail = () => {
     setrefresh(!refresh)
     let formData = new FormData();
     formData.append('finalDocument', data.certificate);
+    formData.append('ResultDate',new Date);
     formData.append('status', statuss);
     if(reasons.reason){
       

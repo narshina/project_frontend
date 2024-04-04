@@ -43,6 +43,8 @@ for (const field of requiredFields) {
 
             </span>
             <input onChange={handlechange} className=' pl-3 h-9 w-56 bg-white text-black rounded-r-lg' name='agenda' type='text' id=''></input></div>
+
+            
           
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
