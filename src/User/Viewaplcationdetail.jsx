@@ -26,11 +26,18 @@ export const Viewaplcationdetail = () => {
       <div className='text-black leading-[30px] mt-4 '>
         <div className='text-[20px] underline'><b>{data?.services?.service}</b></div>
         {Object.keys(data.application ?? {}).map((key) => (
-          <div key={key}>
-            
-            <label>{key}: {data.application[key]}</label>
-          </div>
-        ))}
+    <div key={key}>
+        {key === 'finalDocument' ? (
+            <a download={true} href={`http://localhost:4000/download/${data.application[key]}`}>
+                Download {data.application[key]}
+            </a>
+        ) : (
+            <label>
+                {key}: {data.application[key]}
+            </label>
+        )}
+    </div>
+))}
         
       </div>
     </div>

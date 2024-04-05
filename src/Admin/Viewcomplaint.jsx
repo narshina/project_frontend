@@ -63,7 +63,7 @@ export const Viewcomplaint = () => {
                         <td>{item?.complaint?.date}</td>
                         
                         <td className="px-6 py-4 flex  justify-center">
-                            <Link to='/admin/replycomplaint'><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Reply</a></Link>
+                            <Link to={`/admin/replycomplaint/${item.complaint?._id}`}><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Reply</a></Link>
                            
                         </td>
                     </tr>

@@ -60,7 +60,7 @@ export const Memberviewcomp = () => {
                         <td>{item?.complaint?.date}</td>
                         
                         <td className="px-6 py-4 flex ">
-                            <Link to='/member/memberreply'><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Reply</a></Link>
+                            <Link to={`/member/memberreply/${item.complaint?._id}`}><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Reply</a></Link>
                            
                         </td>
                     </tr>

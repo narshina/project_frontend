@@ -1,20 +1,33 @@
-import React, { useState } from 'react';
+import axios  from 'axios';
+import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 
 export const Viewhistory = () => {
-    // Sample history data
-    const historyData = [
-        { name: 'mmfff gggh rrtt', wardNumber: 4, service: 'AGE PROOF CERTIFICATE', date: '11/11/23' },
-        // Add more history items as needed
-    ];
+    
+    const[data,setData]=useState([''])
 
-    // Pagination state
+    
     const [currentPage, setCurrentPage] = useState(0);
+    const[search,setSearch]=useState('')
     const itemsPerPage = 5; // Number of items per page
+
+    useEffect(()=>{
+        const fetchData=async ()=>{
+            try{
+                const response=await axios.get('http://localhost:4000/Staff/vhistory');
+                console.log(response.data);
+                setData(response.data)
+            }
+            catch(error){
+                console.error('Error fetching data',error)
+            }
+        }
+        fetchData()
+    },[])
 
     // Logic to get current items based on current page
     const offset = currentPage * itemsPerPage;
-    const currentItems = historyData.slice(offset, offset + itemsPerPage);
+    const currentItems = data.slice(offset, offset + itemsPerPage);
 
     // Change page
     const handlePageChange = ({ selected }) => {
@@ -33,9 +46,12 @@ export const Viewhistory = () => {
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
             </svg>
         </div>
-        <input type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Mockups, Logos..." required />
+        <input onChange={(e)=>setSearch(e.target.value)}  type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Mockups, Logos..." required />
         <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
     </div>
+    {
+        JSON.stringify(search)
+    }
 </form>
 
             {/* History table */}
@@ -52,10 +68,11 @@ export const Viewhistory = () => {
                     <tbody>
                         {currentItems.map((item, index) => (
                             <tr key={index} className="odd:bg-white text-center odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{item.name}</td>
-                                <td className="px-6 py-4">{item.wardNumber}</td>
-                                <td className="px-6 py-4">{item.service}</td>
-                                <td className="px-6 py-4">{item.date}</td>
+                                <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{item?.user?.name}</td>
+                                <td className="px-6 py-4">{item?.user?.wardName}</td>
+                                <td className="px-6 py-4">{item?.service?.service}</td>
+                                <td className="px-6 py-4">{(new Date(item?.application?.applicationDate)).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</td>
+
                             </tr>
                         ))}
                     </tbody>
@@ -65,7 +82,7 @@ export const Viewhistory = () => {
             {/* Pagination */}
             <div className="flex justify-center mt-5">
                 <ReactPaginate
-                    pageCount={Math.ceil(historyData.length / itemsPerPage)}
+                    pageCount={Math.ceil(data.length / itemsPerPage)}
                     pageRangeDisplayed={5}
                     marginPagesDisplayed={2}
                     onPageChange={handlePageChange}

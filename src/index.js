@@ -105,6 +105,7 @@ root.render(
         <Route path='/Login' element={<Userlogin/>}/>
         <Route path='/forgot' element={<Forgotpassword/>}/>
         <Route path='/userreg' element={<Userreg/>}/>
+        <Route path='/viewnews' element={<Viewnews/>}/>
       </Route>
 
 
@@ -131,7 +132,7 @@ root.render(
         <Route path='viewmeet'element={<Viewmeeting/>}/>
         <Route path='editmeet/:id'element={<Editmeeting/>}/>
         <Route path='viewcomplaint' element={<Viewcomplaint/>}/>
-        <Route path='replycomplaint' element={<Replycomplaint/>}/>
+        <Route path='replycomplaint/:id' element={<Replycomplaint/>}/>
         <Route path='viewhistory' element={<Viewhistory/>}/>
         <Route path='editnot/:id' element={<Editnot/>}/>
         <Route path='viewcate' element={<Viewcategory/>}/>
@@ -174,7 +175,7 @@ root.render(
         <Route path='membereditmeet' element={<Membereditmeet/>}/>
         <Route path='memberviewservice' element={<Memberviewsevice/>}/>
         <Route path='memberviewcomp' element={<Memberviewcomp/>}/>
-        <Route path='memberreply' element={<Memberreplycomp/>}/>
+        <Route path='memberreply/:id' element={<Memberreplycomp/>}/>
         <Route path='meetpresident' element={<Viewmeetfrompres/>}/>
         <Route path='notpresident' element={<Viewnotpres/>}/>
         <Route path='vservicedetail/:id' element={<Vservicedetail/>}/>
