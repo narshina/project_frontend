@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate';
 
 export const Viewmeetfrompres = () => {
+
     const [data, setData] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
     const [itemsPerPage] = useState(5);
@@ -10,7 +11,7 @@ export const Viewmeetfrompres = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get('http://localhost:4000/User/viewmeeting');
+          const response = await axios.get('http://localhost:4000/President/presmeet');
           setData(response.data);
         } catch (error) {
           console.error('Error fetching data:', error);
@@ -35,9 +36,7 @@ export const Viewmeetfrompres = () => {
       <table className="w-[80%] text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400 mt-5">
         <thead className="text-xs text-gray-700 uppercase bg-slate-400 dark:bg-gray-700 dark:text-gray-400">
           <tr className='text-center'>
-            <th scope="col" className="px-6 py-3">
-              Host
-            </th>
+           
             <th scope="col" className="px-6 py-3">
               AGENDA
             </th>
@@ -56,9 +55,8 @@ export const Viewmeetfrompres = () => {
           {currentItems.map((meeting, index) => (
             <tr key={index} className={`${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'} text-center ${index % 2 === 0 ? 'dark:bg-gray-900' : 'dark:bg-gray-800'} border-b dark:border-gray-700`}>
               <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                 {meeting.user.name}
+              {meeting.agenda}
               </th>
-              <td className="">{meeting.agenda}</td>
               <td className="">{meeting.date}</td>
               <td className="">{meeting.time}</td>
               <td className="">{meeting.venue}</td>

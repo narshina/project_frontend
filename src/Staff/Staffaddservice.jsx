@@ -12,7 +12,7 @@ export const Staffaddservice = () => {
     event.preventDefault('')
     let response=await axios.post('http://localhost:4000/Staff/addservice',data)
     console.log(response)
-    const requiredFields = ['service','processingTime','requirement','fees'];
+    const requiredFields = ['service','processingTime','requirement'];
 
 for (const field of requiredFields) {
     if (!data[field]) {
@@ -51,12 +51,7 @@ for (const field of requiredFields) {
             </span>
             <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='requirement' type='text' id=''></input></div>
           
-          <div className='text h-9   text-white mt-4 flex'>
-            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
-              FEES:
-
-            </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='fees' type='text' id=''></input></div>
+          
             <div className='text-center'>
 
   <button type='submit' className='button text-white font-semibold bg-[#0F3053] w-48 h-9 rounded mt-5 m-auto'>SUBMIT</button>

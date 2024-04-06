@@ -38,11 +38,7 @@ export const Viewservicedetail = () => {
         <tr>
             <td>Requirements</td>
             <td>:{data.requirement}</td>
-            </tr>
-            <tr>
-                <td>Fees</td>
-                <td>:{data.fees}</td>
-                </tr> 
+            </tr> 
           </table>  
         <div className='text-center mt-3'>
    <Link to={`/user/userapply/${data._id}`}> <button><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline m-auto ">APPLY</a></button></Link></div>

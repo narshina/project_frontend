@@ -123,7 +123,7 @@ root.render(
         <Route path='addwardmember' element={<Addwardmember/>}/>
         <Route path='viewwardmember' element={<Viewwardmember/>}/>
         <Route path='viewmemberdetail/:id' element={<Viewmemberdetail/>}/>
-        <Route path='editmember' element={<Editmember/>}/>
+        <Route path='editmember/:id' element={<Editmember/>}/>
         <Route path='userview' element={<Userview/>}/>
         <Route path='userviewdetail/:id' element={<Userviewdetail/>}/>
         <Route path='addnot' element={<Addnotification/>}/>

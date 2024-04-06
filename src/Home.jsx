@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import App from './App'
 import './Home.css';
 import icon from './abc.png'
@@ -11,8 +11,24 @@ import ul1 from './field.avif'
 import { Link } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import ScrollButton from './ScrollButton';
+import axios from 'axios';
 
 export default function Home() {
+    const[userdata,setuserdata]=useState([''])
+  
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:4000/User/vnews');
+                const sortedData = response.data.sort((a, b) => new Date(b.date) - new Date(a.date));
+                setuserdata(sortedData);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData();
+    }, []);
+
   return (
 
     <>
@@ -36,11 +52,12 @@ export default function Home() {
             <div className='absolute sm:left-[20%] sm:top-[15%] sm:p-40 text-center'><label className='  text-black font-serif font-bold text-[40px]'>GET YOUR SERVICES FROM HERE</label><br></br><span className='text-[25px] text-center'>Empowering you with easy access to solutions.</span>
       </div>
   <div className='flex flex-wrap justify-around gap-14'>        
-<div className='bg-slate-50 h-96 w-[50%] text-white mt-[600px]'>
-<div className='border-b-4 border-cyan-900 text-black font-bold font-serif text-center p-6 text-[25px]'><h2>NEWS</h2></div>
-<div className='text-blue-700 pl-5'><li>English is a very popular language that is spoken all around the world. To communicate effectively in English, it is important to have strong reading comprehension skills. These skills will allow you to read English language newspapers, vocabulary books, and novels! This blog provides readers with English paragraphs for reading, followed by practice exercises to test their comprehension</li>
+<div className='bg-slate-50 h-96 w-[50%] overflow-y-scroll text-white mt-[600px]'>
+<div className='border-b-4 border-cyan-900   text-black font-bold font-serif text-center p-6 text-[25px]'><h2>NEWS</h2></div>
+{userdata.map((item)=>(
+<div className='text-blue-700 pl-5'><li>{item.news}</li>
 </div>
-<div className='text-blue-700 pl-5'><li>English is a very popular language that is spoken all around the world. To communicate effectively in English, it is important to have strong reading comprehension skills. These skills will allow you to read English language newspapers, vocabulary books, and novels! This blog provides readers with English paragraphs for reading, followed by practice exercises to test their comprehension</li></div>
+))}
 </div>
 <div className=' h-96 w-[500px] text-white mt-[600px] '>
   <img className='h-[300px] w-[450px] mt-6  ' src={ul4} alt=''></img>

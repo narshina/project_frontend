@@ -100,12 +100,12 @@ export const Editsecretary = () => {
 
               </span>
               <input onChange={handlechange} placeholder={userdata.name} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='name' type='text'></input></div>
-            <div className='text h-9   text-white mt-4 flex' onClick={handleUploadFile}>
+            <div className='text h-9   text-white mt-4 flex' onClick={() => handleUploadFile('photo')}>
               <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
                 PHOTO:
 
               </span>
-              <input onChange={handlefile}  type="file" className=' h-9 w-56 bg-white rounded-r-lg ' name='photo' />
+              <input onChange={handlefile} ref={fileUploadPhoto} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg ' name='photo' />
               <div className="">
                 <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg pl-2'>upload photo</p>
               </div>

@@ -52,12 +52,7 @@ for (const field of requiredFields) {
             </span>
             <input onChange={handlechange} className=' text-black h-9 w-56 bg-white rounded-r-lg' name='requirement' type='text' id=''></input></div>
           
-          <div className='text h-9   text-white mt-4 flex'>
-            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
-              FEES:
-
-            </span>
-            <input onChange={handlechange} className='text-black  h-9 w-56 bg-white rounded-r-lg' name='fees' type='text' id=''></input></div>
+          
             <div className='text-center'>
             {/* <input
         onChange={handlechange}

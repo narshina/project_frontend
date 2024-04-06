@@ -72,7 +72,7 @@ export const Viewmemberdetail = () => {
         </div>
         
     </div>
-    <Link to='/admin/editmember'>
+    <Link to={`/admin/editmember/${data._id}`}>
 <button className='bg-blue-950 p-2 w-20 rounded-2xl text-white hover:bg-black'>Edit</button></Link>
    
    
