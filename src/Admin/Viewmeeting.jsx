@@ -8,6 +8,7 @@ export const Viewmeeting = () => {
     const[data,setdata]=useState([])
     let id=localStorage.getItem('id')
     const [currentPage, setCurrentPage] = useState(0);
+    const[refresh,setrefresh]=useState(false)
     const [itemsPerPage] = useState(5); // Change this value as needed
     useEffect(()=>{
         const fetchData =async()=>{
@@ -20,7 +21,12 @@ export const Viewmeeting = () => {
             }
         }
         fetchData()
-    },[])
+    },[refresh])
+    let handledelete=(id)=>{
+        let response=axios.delete(`http://localhost:4000/User/deletemeeting/${id}`)
+        console.log(response)
+        setrefresh(!refresh)
+    }
     // Logic to get current items based on current page
     const indexOfLastItem = (currentPage + 1) * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -63,7 +69,7 @@ export const Viewmeeting = () => {
                                 <td>{meeting.venue}</td>
                                 <td className="px-6 py-4 flex justify-center gap-6">
                                     <Link to={`/admin/editmeet/${meeting._id}`}><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a></Link>
-                                    <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                               <button onClick={()=>handledelete(meeting._id)}> <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a></button>
                                 </td>
                             </tr>
                         ))}

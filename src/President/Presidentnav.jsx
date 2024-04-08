@@ -30,6 +30,7 @@ export const Presidentnav = () => {
      <Link to='/president/secviewapllcsn'> <div>APLLICATIONS</div></Link>
       <Link to='/president/secviewmeet'> <div>MEETING</div></Link>
       <Link to='/president/secviewnot' ><div>NOTIFICATION</div></Link>
+      <Link to='/president/secvhistory' ><div>HISTORY</div></Link>
       <Link to='/Login' ><div>LOG OUT</div></Link>
         </div>
 }

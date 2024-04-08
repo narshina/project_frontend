@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 export const Viewnot = () => {
   let id=localStorage.getItem('id')
   const [data,setdata]=useState([])
+  const[refresh,setrefresh]=useState(false)
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(0);
@@ -22,7 +23,13 @@ export const Viewnot = () => {
       }
     }
     fetchData()
-  },[])
+  },[refresh])
+
+  let handledelete=(id)=>{
+    let response=axios.delete(`http://localhost:4000/User/deletenot/${id}`)
+    console.log(response)
+    setrefresh(!refresh)
+  }
 
   // Logic to get current items based on current page
   const indexOfLastItem = (currentPage + 1) * itemsPerPage;
@@ -57,7 +64,7 @@ export const Viewnot = () => {
 
                 <td className="px-6 py-4 flex justify-between">
                   <Link to={`/admin/editnot/${notification._id}`}><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a></Link>
-                  <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+               <button onClick={()=>handledelete(notification._id)}><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a></button>
                 </td>
               </tr>
             ))}

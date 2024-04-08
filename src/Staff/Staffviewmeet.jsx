@@ -11,7 +11,7 @@ export const Staffviewmeet = () => {
    useEffect(()=>{
     const fetchData=async()=>{
         try{
-            const response=await axios.get('http://localhost:4000/User/viewmeeting')
+            const response=await axios.get('http://localhost:4000/President/presmeet')
             setdata(response.data)
         }
         catch(error){

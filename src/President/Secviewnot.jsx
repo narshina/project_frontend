@@ -12,7 +12,7 @@ export const Secviewnot = () => {
     useEffect(()=>{
         const fetchData =async ()=>{
             try{
-                const response=await axios.get('http://localhost:4000/President/vnotification')
+                const response=await axios.get('http://localhost:4000/President/presnot')
                 setData(response.data)
             }
             catch(error){
@@ -36,20 +36,19 @@ export const Secviewnot = () => {
             <div className='ml-[650px] font-serif text-[20px] font-bold'><h2>NOTIFICATION</h2></div>
 
             <div className="relative overflow-x-auto justify-center flex">
-                <table className="w-[850PX] text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-5">
+                <table className="w-[850PX] text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400 mt-5">
                     <thead className="text-xs text-gray-700 uppercase bg-slate-400 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" className="px-6 py-3">NOTIFICATION</th>
                             <th scope="col" className="px-6 py-3">DATE</th>
-                            <th scope="col" className="px-6 py-3">TIME</th>
                         </tr>
                     </thead>
                     <tbody>
                         {currentItems.map((notification, index) => (
                             <tr key={index} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                                 <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{notification.notification}</td>
-                                <td className="px-6 py-4">{notification.date}</td>
-                                <td className="px-6 py-4">{notification.time}</td>
+                                <td className="px-6 py-4">  {(new Date(notification.date)).toLocaleString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}
+</td>
                             </tr>
                         ))}
                     </tbody>
