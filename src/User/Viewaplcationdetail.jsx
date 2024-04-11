@@ -32,33 +32,39 @@ export const Viewaplcationdetail = () => {
     };
 
     return (
-        <div className='w-screen h-[655px]'>
+        <div className='w-screen h-[655px] text-[20px]'>
             <div className='flex justify-center w-screen h-[655px] bg-[#CCDAF6]'>
-                <div className='text-black leading-[30px] mt-4 '>
-                    <div className='text-[20px] underline'><b>{data?.services?.service}</b></div>
-                    {Object.keys(data.application ?? {}).map((key) => {
-                        // Check if the key is _id, serviceId, or userId and skip displaying them
-                        if (key === '_id' || key === 'serviceId' || key === 'userId') {
-                            return null;
-                        }
-                        // Display other keys and their values
-                        return (
-                            <div key={key}>
-                                {key === 'finalDocument' ? (
-                                    <a download={true} href={`http://localhost:4000/download/${data.application[key]}`}>
-                                        <div className='text-center'> <button className='bg-[#0F3053] text-white w-28 rounded-xl h-10'>Download</button> </div>
-                                    </a>
-                                ) : (
-                                    <label>
-                                        {key === 'applicationDate' ? 'Date: ' + formatDate(data.application[key]) : `${key}: ${data.application[key]}`}
-
-                                    </label>
-        
-                                )}
-                            </div>
-                        );
-                    })}
-                </div>
+                <table className='text-black leading-[30px] mt-4 m-auto'>
+                    <div className='text-center  underline mx-auto '><b>{data?.services?.service}</b></div>
+                    <tbody>
+                        {/* <tr>
+                            <td><b>{data?.services?.service}</b></td>
+                        </tr> */}
+                        {Object.keys(data.application ?? {}).map((key) => {
+                            // Check if the key is _id, serviceId, or userId and skip displaying them
+                            if (key === '_id' || key === 'serviceId' || key === 'userId') {
+                                return null;
+                            }
+                            // Display other keys and their values
+                            return (
+                                <tr key={key}>
+                                    {key === 'finalDocument' ? (
+                                        <td>
+                                            <a download={true} href={`http://localhost:4000/download/${data.application[key]}`}>
+                                                <button><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Download</a></button>
+                                            </a>
+                                        </td>
+                                    ) : (
+                                        <React.Fragment>
+                                            <td>{key === 'applicationDate' ? 'Date: ' + formatDate(data.application[key]) : key}</td>
+                                            <td>{key !== 'applicationDate' && data.application[key]}</td>
+                                        </React.Fragment>
+                                    )}
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
             </div>
         </div>
     );

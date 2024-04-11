@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useParams } from 'react-router-dom';
 import photo from './photo.jpg';
 import ReactPaginate from 'react-paginate';
 import axios from 'axios';
 
 export const Viewstaff = () => {
+  let {id}=useParams()
+  console.log('id')
   const [data,setData]=useState([]);
+  const[refresh,setrefresh]=useState(false)
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage] = useState(5); // Change this value according to your preference
   useEffect(()=>{
@@ -19,7 +22,15 @@ export const Viewstaff = () => {
       }
     }
     fetchData()
-  },[])
+  },[refresh])
+  let handledelete=(id)=>{
+    
+    let response=axios.delete(`http://localhost:4000/User/deleteuser/${id}`)
+    console.log(response)
+    setrefresh(!refresh)
+
+    
+}
 
   // const staffData = [
   //   { name: 'Akil', email: 'akil@gmail.com', photo: photo },
@@ -72,7 +83,7 @@ export const Viewstaff = () => {
                 </td>
                 <td className="px-6 py-4 flex justify-between">
                   <Link to={`/admin/viewstaffdetail/${staff._id}`}><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a></Link>
-                  <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                <button onClick={()=>handledelete(staff._id)}><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a></button>
                 </td>
               </tr>
             ))}

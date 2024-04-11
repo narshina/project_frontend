@@ -39,13 +39,13 @@ export const Viewnews = () => {
 
     return (
         <div className='w-screen h-[655px] bg-[#CCDAF6] pt-5 '>
-            <div className='text-center font-serif text-[20px] font-bold'><h2>NEWS</h2></div>
+            <div className='text-center font-serif text-[20px] font-bold'><h2>ANNOUNCEMENT</h2></div>
 
             <div className="relative overflow-x-auto justify-center flex">
                 <table className="w-[80%] text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400 mt-5">
                     <thead className="text-xs text-gray-700 uppercase bg-slate-400 dark:bg-gray-700 dark:text-gray-400">
                         <tr className='text-center'>
-                            <th scope="col" className="px-6 py-3">NEWS</th>
+                            <th scope="col" className="px-6 py-3">ANNOUNCEMENT</th>
                             <th scope="col" className="px-6 py-3">DATE</th>
     
                             <th scope="col" className="px-6 py-3">Action</th>

@@ -20,14 +20,15 @@ export const Viewhistory = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get('http://localhost:4000/Staff/vhistory');
-                setData(response.data);
+                const sortedData = response.data.sort((a, b) => new Date(b.application.applicationDate) - new Date(a.application.applicationDate));
+                setData(sortedData);
             } catch (error) {
                 console.error('Error fetching data', error);
             }
         };
         fetchData();
     }, []);
-
+    
     // Logic to get current items based on current page and search input
     const offset = currentPage * itemsPerPage;
     const filteredData = data.filter(item => {

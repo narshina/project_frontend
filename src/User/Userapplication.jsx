@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { LangContext } from './LanguageContext'
 import axios from 'axios'
 import { type } from '@testing-library/user-event/dist/type'
-
+import "./index.css"
 export const Userapplication = () => {
   const fileUpload = useRef(null)
   const handleUploadFile = (type) => {
@@ -73,7 +73,7 @@ export const Userapplication = () => {
 
           <div class="relative z-0 w-full mb-5 h-fit group ">
             <input onChange={handlechange} type="text" name={value.lang ? item?.field?.fieldMalayalam : item?.field?.fieldEnglish} id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-            <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">{value.lang ? <span className=''>{item?.field?.fieldMalayalam}</span> : <span>{item?.field?.fieldEnglish}</span>}</label>
+            <label for="floating_email" class="font-medium absolute text-lg text-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] start-0 rtl:translate-x-1/4 rtl:left-auto text-blue-600 dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 scale-75 -translate-y-6">{value.lang ? <span className=''>{item?.field?.fieldMalayalam}</span> : <span>{item?.field?.fieldEnglish}</span>}</label>
           </div>
         ))}
         <div><div onClick={handleUploadFile}>required documents</div>
@@ -84,6 +84,15 @@ export const Userapplication = () => {
         <div className='text-center'>
           <button type="submit" class="text-white m-auto bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button></div>
       </form>
+
+
+      <div className="">
+
+      {/* <div class="input_container">
+      <label for="password_field" className="input_label">Card holder full name</label>
+      <input id="password_field" className="input_field" type="text" name="input-name" title="Inpit title" placeholder="Enter your full name"/>
+    </div> */}
+      </div>
     </div>
   )
 }

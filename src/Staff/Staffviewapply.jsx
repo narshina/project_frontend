@@ -8,14 +8,27 @@ export const Staffviewapply = () => {
     const[data,setData]=useState([''])
     const [currentPage, setCurrentPage] = useState(0);
     const itemsPerPage = 5;
-    useEffect(()=>{
-        let fetchData=async ()=>{
-        let response=await axios.get(`http://localhost:4000/Staff/vapply/${id}`)
-        console.log(response)
-        setData(response.data)
-        }
-        fetchData()
-       },[])
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                let response = await axios.get(`http://localhost:4000/Staff/vapply/${id}`);
+                // Sort the data based on both application date and processing time
+                const sortedData = response.data.sort((a, b) => {
+                    const dateComparison = new Date(b.application.applicationDate) - new Date(a.application.applicationDate);
+                    if (dateComparison !== 0) {
+                        return dateComparison; // Sort by application date first
+                    }
+                    // If application dates are equal, sort by processing time
+                    return a.service.processingTime - b.service.processingTime;
+                });
+                setData(sortedData);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData();
+    }, []);
+    
        const offset = currentPage * itemsPerPage;
        const currentItems = data.slice(offset, offset + itemsPerPage);
         const handlePageChange = ({ selected }) => {
@@ -36,6 +49,9 @@ export const Staffviewapply = () => {
                     Status
                 </th>
                 <th scope="col" class="px-6 py-3">
+                    Application date
+                </th>
+                <th scope="col" class="px-6 py-3">
                     Action
                 </th>
             </tr>
@@ -49,6 +65,8 @@ export const Staffviewapply = () => {
                 <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">{application?.service?.service}</a>
                 </th>
                <td>{application?.application?.status}</td>
+               <td>{(new Date(application?.application?.applicationDate)).toLocaleString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</td>
+
                <Link to={`/staff/staffviewapplydetail/${application.application?._id}`}> <td className='px-6 py-4'>View</td></Link> 
             </tr>
                     ))}

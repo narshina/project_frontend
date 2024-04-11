@@ -57,13 +57,13 @@ console.log(data);
           <tbody>
             {currentItems.map((meeting, index) => (
               <tr key={index} className={`${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'} text-center ${index % 2 === 0 ? 'dark:bg-gray-900' : 'dark:bg-gray-800'} border-b dark:border-gray-700`}>
-                {/* <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                   {meeting.user.name}
-                </th> */}
-                <td className="">{meeting.agenda}</td>
+                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                   {meeting.agenda}
+                </th>
                 <td className="">{meeting.date}</td>
                 <td className="">{meeting.time}</td>
                 <td className="">{meeting.venue}</td>
+               
               </tr>
             ))}
           </tbody>

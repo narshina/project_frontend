@@ -53,9 +53,10 @@ export default function Home() {
       </div>
   <div className='flex flex-wrap justify-around gap-14'>        
 <div className='bg-slate-50 h-96 w-[50%] overflow-y-scroll text-white mt-[600px]'>
-<div className='border-b-4 border-cyan-900   text-black font-bold font-serif text-center p-6 text-[25px]'><h2>NEWS</h2></div>
+<div className='border-b-4 border-cyan-900   text-black font-bold font-serif text-center p-6 text-[25px]'><h2>ANNOUNCEMENT</h2></div>
 {userdata.map((item)=>(
-<div className='text-blue-700 pl-5'><li>{item.news}</li>
+<div className='text-blue-700 pl-5'><li>{item.news}, {(new Date(item.date)).toLocaleString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}
+</li>
 </div>
 ))}
 </div>

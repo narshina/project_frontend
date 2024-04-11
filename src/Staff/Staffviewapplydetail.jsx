@@ -36,6 +36,12 @@ export const Staffviewapplydetail = () => {
   let reasondrop=()=>{
     setreason(!reason)
   }
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    // Format the date as needed (for example: YYYY-MM-DD)
+    const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+    return formattedDate;
+};
 
 
   return (
@@ -43,14 +49,33 @@ export const Staffviewapplydetail = () => {
     <div className='flex justify-center w-screen h-[655px] bg-[#CCDAF6]'>
       <div className='text-black leading-[30px] mt-4 '>
         <div className='text-[20px] underline'><b>{data?.services?.service}</b></div>
-        {Object.keys(data.application ?? {}).map((key) => (
-          <div key={key}>
-            
-            <label>{key}: {data.application[key]}</label>
-          </div>
-        ))}
+        {Object.keys(data.application ?? {}).map((key) => {
+                        // Check if the key is _id, serviceId, or userId and skip displaying them
+                        if (key === '_id' || key === 'serviceId' || key === 'userId') {
+                            return null;
+                        }
+                        // Display other keys and their values
+                        return (
+                            <div key={key}>
+                                {key === 'document' ? (
+                                   <div>
+                                   <label>Document Name: </label>
+                                   <a download={true} href={`http://localhost:4000/download/${data.application[key]}`}>
+                                       <button>{data.application[key]}</button>
+                                   </a>
+                               </div>
+                                ) : (
+                                    <label>
+                                        {key === 'applicationDate' ? 'Date: ' + formatDate(data.application[key]) : `${key}: ${data.application[key]}`}
+
+                                    </label>
+        
+                                )}
+                            </div>
+                        );
+                    })}
         <div className='flex gap-12'>
-          <div onClick={()=>{handlesubmit('accepted by staff')}} className='href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline text-[20px]'>ACCEPT</div>
+          <div onClick={()=>{handlesubmit('verified by staff')}} className='href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline text-[20px]'>ACCEPT</div>
           
             <div><span onClick={reasondrop} className='href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline text-[20px]'>REJECT </span>
             {reason &&

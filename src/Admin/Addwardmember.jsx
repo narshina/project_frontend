@@ -66,7 +66,6 @@ try {
     }
   });
   console.log(response.data);
-  toast.success('submit successfully');
 } catch (error) {
   console.error('Error:', error);
   toast.error('Failed to submit');

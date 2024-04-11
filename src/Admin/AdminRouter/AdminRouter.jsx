@@ -36,18 +36,24 @@ const AdminRouter = () => {
     setmember(false)
     setdrop(false)
     setnot(false)
+    setnews(false)
+    setmeet(false)
   }
   let memberdropdown=()=>{
     setmember(!member)
     setdrop(false)
     setStaff(false)
     setnot(false)
+    setmeet(false)
+    setnews(false)
   }
   let notdropdown=()=>{
     setnot(!not)
     setmember(false)
     setStaff(false)
     setdrop(false)
+    setmeet(false)
+    setnews(false)
   }
   let meetdropdown=()=>{
     setmeet(!meet)
@@ -55,6 +61,7 @@ const AdminRouter = () => {
     setStaff(false)
     setdrop(false)
     setnot(false)
+    setnews(false)
   }
   let close=()=>{
     setdrop(false)
@@ -81,51 +88,51 @@ const AdminRouter = () => {
     nav &&
         <div className='flex nav1 p-5 gap-6 flex-wrap text-white text-[15px]'>
        <Link to='/admin'>   <div>HOME</div></Link>
-          <div><span  onClick={dropdown}>
+          <div className='z-10'><span  onClick={dropdown}>
                   SECRETARY
                   </span>
                   {drop &&
                       <div className='list-none absolute top-[78px] bg-[#0F3053] p-4 pt-2 w-[90px] '>
-                      <Link to='/admin/addscre'> <li>ADD</li></Link>
-                      <Link to='/admin/viewsecdetail'> <li>VIEW</li></Link>
+                      <Link to='/admin/addscre'> <li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>ADD</li></Link>
+                      <Link to='/admin/viewsecdetail'> <li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>VIEW</li></Link>
                         </div> 
                    }
 
                    </div>
-                   <div><span  onClick={staffdropdown}>
+                   <div className='z-10'><span  onClick={staffdropdown}>
                   STAFF
                   </span>
                   {staff &&
                       <div className='list-none absolute top-[78px] bg-[#0F3053] p-4 pt-2 w-[150px] '>
-                    <Link to='/admin/addsec'>  <li>ADD CATEGORY</li></Link>
-                    <Link to='/admin/viewcate'><li>VIEW CATEGORY</li></Link>
-                    <Link to='/admin/addstaff'>  <li>ADD STAFF</li></Link>
-                    <Link to='/admin/viewstaff'>  <li>VIEW STAFF</li></Link>
+                    <Link to='/admin/addsec'>  <li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>ADD CATEGORY</li></Link>
+                    <Link to='/admin/viewcate'><li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>VIEW CATEGORY</li></Link>
+                    <Link to='/admin/addstaff'>  <li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>ADD STAFF</li></Link>
+                    <Link to='/admin/viewstaff'>  <li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>VIEW STAFF</li></Link>
                         </div> 
                    }
 
                    </div>
-                   <div><span  onClick={memberdropdown}>
+                   <div className='z-10'><span  onClick={memberdropdown}>
                   WARD MEMBER
                   </span>
                   {member &&
-                      <div className='list-none absolute top-[78px] bg-[#0F3053] p-4 pt-2 w-[90px] '>
-                      <Link to='/admin/addward'><li>WARDS</li></Link>
-                      <Link to='/admin/addwardmember'> <li>ADD</li></Link>
-                      <Link to='/admin/viewwardmember'> <li>VIEW</li></Link>
+                      <div className='list-none absolute top-[78px] bg-[#0F3053] p-4 pt-2 w-[180px] '>
+                      <Link to='/admin/addward'><li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>ADD WARD</li></Link>
+                      <Link to='/admin/addwardmember'> <li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>ADD WARD MEMBER</li></Link>
+                      <Link to='/admin/viewwardmember'> <li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>VIEW WARD MEMBER</li></Link>
                         </div> 
                    }
 
                    </div>
         <Link to='/admin/userview'>   <div>USERS</div></Link>
         
-        <div><span  onClick={notdropdown}>
+        <div className='z-10'><span  onClick={notdropdown}>
                   NOTIFICATION
                   </span>
                   {not &&
                       <div className='list-none absolute top-[78px] bg-[#0F3053] p-4 pt-2 w-[90px] '>
-                <Link to='/admin/addnot'><li>ADD</li></Link> 
-                <Link to='/admin/viewnot' ><li>VIEW</li></Link>
+                <Link to='/admin/addnot'><li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>ADD</li></Link> 
+                <Link to='/admin/viewnot' ><li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>VIEW</li></Link>
                         </div> 
                    }
 
@@ -135,8 +142,8 @@ const AdminRouter = () => {
                   </span>
                   {meet &&
                       <div className='list-none absolute top-[78px] bg-[#0F3053] p-4 pt-2 w-[90px] '>
-                <Link to='/admin/addmeet'><li>ADD</li></Link> 
-              <Link to='/admin/viewmeet'> <li>VIEW</li></Link>
+                <Link to='/admin/addmeet'><li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>ADD</li></Link> 
+              <Link to='/admin/viewmeet'> <li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>VIEW</li></Link>
                         </div> 
                    }
 
@@ -144,12 +151,12 @@ const AdminRouter = () => {
        <Link to='/admin/viewcomplaint'><div>COMPLAINT</div></Link>
        <Link to='/admin/viewhistory'><div>HISTORY</div></Link>
        <div><span  onClick={newsdropdown}>
-                  NEWS
+                  ANNOUNCEMENT
                   </span>
                   {news &&
                       <div className='list-none absolute top-[78px] bg-[#0F3053] p-4 pt-2 w-[90px] '>
-                <Link to='/admin/addnews'><li>ADD</li></Link> 
-              <Link to='/admin/viewnews'> <li>VIEW</li></Link>
+                <Link to='/admin/addnews'><li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>ADD</li></Link> 
+              <Link to='/admin/viewnews'> <li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>VIEW</li></Link>
                         </div> 
                    }
 
