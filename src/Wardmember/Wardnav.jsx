@@ -1,7 +1,31 @@
-import React, { useState } from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, Outlet,useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 export const Wardnav = () => {
+  let navigate=useNavigate()
+  useEffect(()=>{
+    let auth=async ()=>{
+
+      let id=localStorage.getItem('id')
+      let email=localStorage.getItem('email')
+      let response=await axios.post('http://localhost:4000/User/loginaccess',{_id:id,email:email})
+      console.log(response);
+      if(response==null){
+        navigate('/login')
+      }
+      else if(response?.data?.usertype !=='member'){
+        navigate('/login')
+      }
+ 
+    }
+    auth()
+  },[])
+  let logout=()=>{
+    localStorage.removeItem('id')
+    localStorage.removeItem('email')
+    navigate('/login')
+}
     const[meeting,setmeet]=useState(false)
     const[notificatin,setnotification]=useState(false)
     const[member,SetMember]=useState(true)
@@ -46,8 +70,8 @@ export const Wardnav = () => {
           </span>
           {meeting &&
           <div className='list-none absolute top-[78px] bg-[#0F3053] p-4 pt-2 w-[115px]'>
-         <Link to='/member/membermeet'>   <li>ADD</li></Link>
-         <Link to='/member/memberviewmeet' >  <li>VIEW</li></Link>
+         <Link to='/member/membermeet'>   <li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>ADD</li></Link>
+         <Link to='/member/memberviewmeet' >  <li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>VIEW</li></Link>
             </div>
           }
           </div>
@@ -56,14 +80,14 @@ export const Wardnav = () => {
           </span>
           {notificatin &&
           <div className='list-none absolute top-[78px] bg-[#0F3053] p-4 pt-2 w-[115px]'>
-         <Link to='/member/membernot'>   <li>ADD</li></Link>
-         <Link to='/member/memberviewnot' >  <li>VIEW</li></Link>
+         <Link to='/member/membernot'>   <li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>ADD</li></Link>
+         <Link to='/member/memberviewnot' >  <li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>VIEW</li></Link>
             </div>
           }
           </div>
 
     <Link to='/member/memberviewcomp'><div>COMPLAINT</div></Link>
-    <Link to='/Login'> <div>LOG OUT</div></Link>
+   <div onClick={logout}>LOG OUT</div>
         </div>
 }
     </div>

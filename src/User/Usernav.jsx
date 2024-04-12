@@ -1,8 +1,32 @@
-import React, { useContext, useState } from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
+import { Link, Outlet,useNavigate } from 'react-router-dom'
 import { LangContext } from './LanguageContext'
+import axios from 'axios'
 
 export const Usernav = () => {
+  let navigate=useNavigate()
+  useEffect(()=>{
+    let auth=async ()=>{
+
+      let id=localStorage.getItem('id')
+      let email=localStorage.getItem('email')
+      let response=await axios.post('http://localhost:4000/User/loginaccess',{_id:id,email:email})
+      console.log(response);
+      if(response==null){
+        navigate('/login')
+      }
+      else if(response?.data?.usertype !=='user'){
+        navigate('/login')
+      }
+ 
+    }
+    auth()
+  },[])
+  let logout=()=>{
+    localStorage.removeItem('id')
+    localStorage.removeItem('email')
+    navigate('/login')
+}
   const [comp,setcomp]=useState(false)
   const [user,setuser]=useState(true)
   let Toggle=()=>{
@@ -54,7 +78,7 @@ export const Usernav = () => {
        {lang?<div onClick={toggleLang}>ENGLISH</div> : <div onClick={toggleLang}>MALAYALAM</div>} 
        
       <Link to='/user/userprofile'><span>PROFILE</span></Link>
-      <Link to='/Login'><div>LOG OUT</div></Link>
+      <div onClick={logout}>LOG OUT</div>
         </div>
 }
         </div>

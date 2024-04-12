@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 export const Memberviewnot = () => {
     let id=localStorage.getItem('id')
     const[data,setdata]=useState([])
+    const[refresh,setrefresh]=useState(false)
     const [currentPage, setCurrentPage] = useState(0);
     const [itemsPerPage] = useState(5); // Change this value as needed
     useEffect(()=>{
@@ -20,7 +21,12 @@ export const Memberviewnot = () => {
             }
         }
         fetchData()
-    },[])
+    },[refresh])
+    let handledelete=(id)=>{
+        let response=axios.delete(`http://localhost:4000/User/deletenot/${id}`)
+        console.log(response)
+        setrefresh(!refresh)
+      }
     // Logic to get current items based on current page
     const indexOfLastItem = (currentPage + 1) * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -42,9 +48,6 @@ export const Memberviewnot = () => {
                 <th scope="col" class="px-6 py-3">
                     DATE
                 </th>
-                <th scope="col" class="px-6 py-3">
-                    TIME
-                </th>
                 <th scope="col" class="px-6 py-3 text-center col-span-2">
                     ACTION
                 </th>
@@ -58,14 +61,12 @@ export const Memberviewnot = () => {
                     {item.notification}
                 </th>
                 <td class="px-6 py-4">
-                {item.date}
-                </td>
-                <td class="px-6 py-4">
-                {item.time}
+                {(new Date(item.date)).toLocaleString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}
+
                 </td>
                 <td class="px-6 py-4 flex justify-between">
-          <Link to='/member/membereditnot'><a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a></Link>
-                   <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+          <Link to={`/member/membereditnot/${item._id}`}><a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a></Link>
+             <button onClick={()=>handledelete(item._id)}>     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a></button> 
                 </td>
             </tr>
         ))}

@@ -4,6 +4,7 @@ import toast from 'react-hot-toast'
 
 export const Membermeet = () => {
   const[data,setdata]=useState('')
+  const[refresh,setrefresh]=useState(false)
   let handlechange=(event)=>{
     setdata({...data,[event.target.name]:event.target.value})
   }
@@ -12,6 +13,7 @@ export const Membermeet = () => {
     let id=localStorage.getItem('id')
     let response=await axios.post('http://localhost:4000/President/addmeeting',{...data,userid:id})
     console.log(response)
+    setrefresh(!refresh)
     const requiredFields = ['agenda','date','time','venue'];
 
 for (const field of requiredFields) {

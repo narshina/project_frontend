@@ -1,7 +1,35 @@
-import React, { useState } from 'react'
-import { Outlet, Link} from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Outlet, Link,useNavigate} from 'react-router-dom'
+import axios from 'axios'
 
 const AdminRouter = () => {
+  let navigate=useNavigate()
+  useEffect(()=>{
+    let auth=async ()=>{
+
+      let id=localStorage.getItem('id')
+      let email=localStorage.getItem('email')
+      let response=await axios.post('http://localhost:4000/User/loginaccess',{_id:id,email:email})
+      console.log(response);
+      if(response==null){
+        navigate('/login')
+      }
+      else if(response?.data?.usertype !=='president'){
+        navigate('/login')
+      }
+ 
+    }
+    auth()
+  },[])
+
+
+  let logout=()=>{
+    localStorage.removeItem('id')
+    localStorage.removeItem('email')
+    navigate('/login')
+}
+
+
   const [drop,setdrop]=useState(false)
   const [staff,setStaff]=useState(false)
   const [member,setmember]=useState(false)
@@ -161,7 +189,7 @@ const AdminRouter = () => {
                    }
 
                    </div>
-       <Link to='/Login'  > <div>LOG OUT</div></Link>
+        <div onClick={logout}>LOG OUT</div>
 
         </div>
 }

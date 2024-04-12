@@ -6,6 +6,7 @@ import { Link, useParams } from 'react-router-dom'
 export const Memberviewmeet = () => {
     let id=localStorage.getItem('id')
     const[data,setdata]=useState([])
+    const[refresh,setrefresh]=useState(false)
     const [currentPage, setCurrentPage] = useState(0);
     const [itemsPerPage] = useState(5); // Change this value as needed
     useEffect(()=>{
@@ -20,7 +21,12 @@ export const Memberviewmeet = () => {
             }
         }
         fetchData()
-    },[])
+    },[refresh])
+    let handledelete=(id)=>{
+        let response=axios.delete(`http://localhost:4000/User/deletemeeting/${id}`)
+        console.log(response)
+        setrefresh(!refresh)
+    }
     // Logic to get current items based on current page
     const indexOfLastItem = (currentPage + 1) * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -60,9 +66,9 @@ export const Memberviewmeet = () => {
                                 <td>{meeting.date}</td>
                                 <td>{meeting.time}</td>
                                 <td>{meeting.venue}</td>
-                                <td className="px-6 py-4 flex justify-between">
-                                    <Link to='/member/membereditmeet'><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a></Link>
-                                    <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                                <td className="px-6 py-4 flex justify-center gap-5">
+                                    <Link to={`/member/membereditmeet/${meeting._id}`}><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a></Link>
+                                <button onClick={()=>handledelete(meeting._id)}>   <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a></button> 
                                 </td>
                             </tr>
                         ))}

@@ -1,14 +1,21 @@
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
 
 export const Memberedirnot = () => {
+  let {id}=useParams()
   const[data,setdata]=useState('')
+  const[refresh,setrefresh]=useState(false)
   let handlechange=(event)=>{
     setdata({...data,[event.target.name]:event.target.value})
   }
-  let handlesubmit=(event)=>{
-    event.preventDefault('')
+  let handlesubmit=async(event)=>{
     event.preventDefault()
+    setrefresh(!refresh)
+    let response=await axios.put(`http://localhost:4000/President/editnot/${id}`,data)
+    console.log(response);
+    setdata('')
     const requiredFields = ['notification'];
 
 for (const field of requiredFields) {

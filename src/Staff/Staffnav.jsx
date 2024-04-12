@@ -1,7 +1,31 @@
-import React, { useState } from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, Outlet,useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 export const Staffnav = () => {
+  let navigate=useNavigate()
+  useEffect(()=>{
+    let auth=async ()=>{
+
+      let id=localStorage.getItem('id')
+      let email=localStorage.getItem('email')
+      let response=await axios.post('http://localhost:4000/User/loginaccess',{_id:id,email:email})
+      console.log(response);
+      if(response==null){
+        navigate('/login')
+      }
+      else if(response?.data?.usertype !=='staff'){
+        navigate('/login')
+      }
+ 
+    }
+    auth()
+  },[])
+  let logout=()=>{
+    localStorage.removeItem('id')
+    localStorage.removeItem('email')
+    navigate('/login')
+}
     const[service,setservise]=useState(false)
     const[sec,setSec]=useState(true)
     let Toggle=()=>{
@@ -38,8 +62,8 @@ export const Staffnav = () => {
                   </span>
                   {service &&
                       <div className='list-none absolute top-[78px] bg-[#0F3053] p-4 pt-2 w-[90px] '>
-                <Link to='/staff/staffaddservice' ><li>ADD</li></Link>
-                <Link to='/staff/staffviewservice' ><li>VIEW</li></Link>
+                <Link to='/staff/staffaddservice' ><li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>ADD</li></Link>
+                <Link to='/staff/staffviewservice' ><li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>VIEW</li></Link>
                         </div> 
                    }
 
@@ -47,7 +71,7 @@ export const Staffnav = () => {
                <Link to='/staff/staffviewapply'><div>APLLICATIONS</div></Link>
     <Link to='/staff/staffviewmeet'><div>MEETING</div></Link>
     <Link to='/staff/staffviewnot'><div>NOTIFICATION</div></Link>
-   <Link to='/Login'> <div>LOG OUT</div></Link>
+   <div onClick={logout}>LOG OUT</div>
         </div>
 }
     </div>

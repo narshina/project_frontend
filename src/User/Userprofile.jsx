@@ -64,7 +64,7 @@ const [idd,setid]=useState(false)
 { idd &&
 
 <div>
-  <img src={photo} alt="" />
+  <img src={`http://localhost:4000/uploads/${userdata.idproof}`} alt="" />
 </div>
 }
 <div className='flex justify-around gap-4 mb-5 border-b-8 pb-4 '>

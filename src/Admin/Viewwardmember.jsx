@@ -6,6 +6,7 @@ import axios from 'axios';
 
 export const Viewwardmember = () => {
     const[data,setdata]=useState([])
+    const[refresh,setrefresh]=useState(false)
     const [currentPage, setCurrentPage] = useState(0);
     const [itemsPerPage] = useState(5); // Change this value according to your preference
 
@@ -21,7 +22,15 @@ export const Viewwardmember = () => {
             }
         }
         fetchData()
-    },[])
+    },[refresh])
+    let handledelete=(id)=>{
+    
+        let response=axios.delete(`http://localhost:4000/User/deleteuser/${id}`)
+        console.log(response)
+        setrefresh(!refresh)
+    
+        
+    }
 
     
     // Calculate index of the first and last item to be displayed
@@ -76,7 +85,7 @@ export const Viewwardmember = () => {
                                 </td>
                                 <td className="px-6 py-4 flex justify-between">
                                     <Link to={`/admin/viewmemberdetail/${wardMember._id}`}><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a></Link>
-                                    <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                                <button onClick={()=>handledelete(wardMember._id)}><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a></button>
                                 </td>
                             </tr>
                         ))}

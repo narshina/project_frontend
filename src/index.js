@@ -173,10 +173,10 @@ root.render(
         <Route index element={<Wardhome/>}/>
         <Route path='membernot'element={<Membernot/>}/>
         <Route path='memberviewnot' element={<Memberviewnot/>}/>
-        <Route path='membereditnot' element={<Memberedirnot/>}/>
+        <Route path='membereditnot/:id' element={<Memberedirnot/>}/>
         <Route path='membermeet' element={<Membermeet/>}/>
         <Route path='memberviewmeet' element={<Memberviewmeet/>}/>
-        <Route path='membereditmeet' element={<Membereditmeet/>}/>
+        <Route path='membereditmeet/:id' element={<Membereditmeet/>}/>
         <Route path='memberviewservice' element={<Memberviewsevice/>}/>
         <Route path='memberviewcomp' element={<Memberviewcomp/>}/>
         <Route path='memberreply/:id' element={<Memberreplycomp/>}/>

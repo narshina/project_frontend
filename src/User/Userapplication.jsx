@@ -68,12 +68,12 @@ export const Userapplication = () => {
 
       </div>
 
-      <form onSubmit={handleSubmit} class=" w-[70%] m-auto ">
+      <form onSubmit={handleSubmit} class=" w-[50%] m-auto ">
         {fetchData.map((item) => (
 
-          <div class="relative z-0 w-full mb-5 h-fit group ">
-            <input onChange={handlechange} type="text" name={value.lang ? item?.field?.fieldMalayalam : item?.field?.fieldEnglish} id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-black appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-            <label for="floating_email" class="font-medium absolute text-lg text-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] start-0 rtl:translate-x-1/4 rtl:left-auto text-blue-600 dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 scale-75 -translate-y-6">{value.lang ? <span className=''>{item?.field?.fieldMalayalam}</span> : <span>{item?.field?.fieldEnglish}</span>}</label>
+          <div class="relative z-0  mb-5 h-fit group ">
+            <label for="floating_email" class="w-48">{value.lang ? <span className=''>{item?.field?.fieldMalayalam}</span> : <span>{item?.field?.fieldEnglish}</span>}</label><br />
+            <input onChange={handlechange} type="text" name={value.lang ? item?.field?.fieldMalayalam : item?.field?.fieldEnglish} id="floating_email" class="input_field w-[600px]" placeholder=" " required />
           </div>
         ))}
         <div><div onClick={handleUploadFile}>required documents</div>
@@ -86,13 +86,13 @@ export const Userapplication = () => {
       </form>
 
 
-      <div className="">
+      {/* <div className="">
 
-      {/* <div class="input_container">
+      <div class="input_container">
       <label for="password_field" className="input_label">Card holder full name</label>
       <input id="password_field" className="input_field" type="text" name="input-name" title="Inpit title" placeholder="Enter your full name"/>
-    </div> */}
-      </div>
+    </div>
+      </div> */}
     </div>
   )
 }
