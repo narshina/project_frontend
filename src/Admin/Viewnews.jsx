@@ -10,18 +10,19 @@ export const Viewnews = () => {
     // Pagination state
     const [currentPage, setCurrentPage] = useState(0);
     const itemsPerPage = 5; // Number of items per page
-    useEffect(()=>{
-        const fetchdata=async ()=>{
-            try{
-                const response=await axios.get('http://localhost:4000/President/vnews')
-                setdata(response.data)
+    useEffect(() => {
+        const fetchdata = async () => {
+            try {
+                const response = await axios.get('http://localhost:4000/President/vnews');
+                // Sort the data based on the date in descending order
+                const sortedData = response.data.sort((a, b) => new Date(b.date) - new Date(a.date));
+                setdata(sortedData);
+            } catch (error) {
+                console.error('Error fetching data', error);
             }
-            catch(error){
-                console.error('Error fetching data',error)
-            }
-        }
-        fetchdata()
-    },[refresh])
+        };
+        fetchdata();
+    }, [refresh]);
     let handledelete=(id)=>{
         let response=axios.delete(`http://localhost:4000/User/deletenews/${id}`)
         console.log(response)

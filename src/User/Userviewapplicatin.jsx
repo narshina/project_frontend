@@ -12,7 +12,11 @@ export const Userviewapplicatin = () => {
     let fetchData=async()=>{
       let response=await axios.get(`http://localhost:4000/Staff/vapplyuser/${id}`)
       console.log(response)
-      setdata(response.data)
+      // Sort the data by application date before setting it to state
+      const sortedData = response.data.sort((a, b) => {
+        return new Date(b.application.applicationDate) - new Date(a.application.applicationDate);
+      });
+      setdata(sortedData);
     }
     fetchData()
   },[])
@@ -40,6 +44,9 @@ export const Userviewapplicatin = () => {
               <th scope="col" className="px-6 py-3">
                 Applications
               </th>
+              <th scope="col" className="px-6 py-3">
+                Application Date
+              </th>
               <th scope="col" className="py-3">
                 Status
               </th>
@@ -51,6 +58,7 @@ export const Userviewapplicatin = () => {
                 <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                   <Link to={`/user/applicationdetail/${application?.application?._id}`}><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">{application?.service?.service}</a></Link>
                 </td>
+              <td> {(new Date(application?.application?.applicationDate)).toLocaleString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}</td>
                 <td>{application?.application?.status}</td>
               </tr>
             ))}

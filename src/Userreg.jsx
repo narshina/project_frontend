@@ -4,20 +4,7 @@ import toast from 'react-hot-toast'
 import axios from 'axios'
 
 export const Userreg = () => {
-  let id=localStorage.getItem('id')
-  const[userdata,setuserdata]=useState()
-  // useEffect(()=>{
-  //   let fetchdata=async ()=>{
-  //     let response=await axios.get(`http://localhost:4000/User/viewprofile/${id}`)
-  //     console.log(response.data);
-  //     setuserdata(response.data)
-  //   }
-  //   fetchdata()
-  // }
-  // ,[]
-  // )
-
-
+  
   const fileUploadPhoto = useRef(null);
   const fileUploadIdProof = useRef(null);
 
@@ -120,7 +107,7 @@ export const Userreg = () => {
               AGE:
 
             </span>
-            <input required onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='age' type='text'/>
+            <input required onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='age' type='number' />
             
             </div>
           <div className='text h-9   text-white mt-4 flex'>
@@ -128,7 +115,7 @@ export const Userreg = () => {
               DATE OF BIRTH:
 
             </span>
-            <input required onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='dob' type='text'></input></div>
+            <input required onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='dob' type='text' pattern="\d{2}/\d{2}/\d{4}" title="Please enter a date in the format MM/DD/YYYY"></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               GENDER:
@@ -154,13 +141,13 @@ export const Userreg = () => {
               WARD NUMBER:
 
             </span>
-            <input required onChange={handlechange}  type='text' className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='wardNumber'></input></div>
+            <input required onChange={handlechange}  type='number' className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='wardNumber' maxLength={2}></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               WARD NAME:
 
             </span>
-            <input required onChange={handlechange} type='text' className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='wardName' ></input></div>
+            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed" type='text' className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='wardName' ></input></div>
 
 
 
@@ -178,13 +165,13 @@ export const Userreg = () => {
               HOUSE NUMBER:
 
             </span>
-            <input required onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='houseNumber' type='text'></input></div>
+            <input required onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='houseNumber' type='number' pattern='{3}'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               HOUSE NAME:
 
             </span>
-            <input required onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='houseName' type='text'></input></div>
+            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='houseName' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               STREET:
@@ -197,14 +184,13 @@ export const Userreg = () => {
               DISTRICT:
 
             </span>
-            <input required onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='district' type='text'></input></div>
+            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='district' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PINCODE:
 
             </span>
-            <input required onChange={handlechange} type='text' name='pincode' className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' maxLength={6}></input></div>
-
+            <input required onChange={handlechange} type='text' name='pincode' className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' pattern="[0-9]{6}" title="Please enter a valid 6-digit PIN code"></input></div>
 
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
@@ -212,7 +198,7 @@ export const Userreg = () => {
 
             </span>
             <div className="flex text-black  h-9 w-56 bg-white rounded-r-lg justify-center items-center pl-3">
-            <input required onChange={handlechange} className='outline-none' pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$" name='password' type={showpassword} title='password must contain '></input>
+            <input required onChange={handlechange} className='outline-none' pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$" name='password' type={showpassword} title='Password must contain at least one lowercase letter, one uppercase letter, one digit, one special character, and be 8 to 30 characters long.'></input>
            { showpassword === 'text' ?  <FaEye onClick={()=> setshowpassword('password') } color='black' className='ms-2'/> :
            
            <FaEyeSlash  onClick={()=> setshowpassword('text') } color='black' className='ms-2'/>
@@ -224,7 +210,7 @@ export const Userreg = () => {
               PHONE NUMBER:
 
             </span>
-            <input required onChange={handlechange} type='text' name='phoneNumber' pattern="[0-9]{10}" title="Please enter a valid phone number (e.g., 123-456-7890)" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' maxLength={10}></input></div>
+            <input required onChange={handlechange} type='text' name='phoneNumber' pattern="[0-9]{10}" title="Please enter a valid phone number" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' maxLength={10}></input></div>
             
             
             

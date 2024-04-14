@@ -65,7 +65,7 @@ export default function Home() {
 </div>
 </div>
 <div className='text-center mt-4'>
- <div><label className='text-black font-serif font-semibold text-[25px]'>MEMBERS</label></div>   
+ <div><label className='text-black font-serif font-semibold text-[25px]'>WARD NAMES</label></div>   
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">

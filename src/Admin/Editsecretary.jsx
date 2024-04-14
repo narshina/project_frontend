@@ -67,20 +67,20 @@ export const Editsecretary = () => {
     console.error('Error',error);
   }
 
-    const requiredFields = ['name', 'photo', 'age', 'gender', 'email', 'qualification', 'houseName', 'street', 'district', 'pincode', 'phoneNumber'];
+    // const requiredFields = ['name', 'photo', 'age', 'gender', 'email', 'qualification', 'houseName', 'street', 'district', 'pincode', 'phoneNumber'];
+    // console.log(data);
+
+    // for (const field of requiredFields) {
+    //   if (!data[field]) {
+    //     return toast.error(`${field} is required`);
+    //   }
+    // }
+
+
     console.log(data);
 
-    for (const field of requiredFields) {
-      if (!data[field]) {
-        return toast.error(`${field} is required`);
-      }
-    }
 
-
-    console.log(data);
-
-
-    toast.success('submit successfully')
+    toast.success('edited successfully')
     // setdata('')
     console.log(data);
   }

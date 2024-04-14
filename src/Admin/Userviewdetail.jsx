@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import photo from './photo.jpg'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 export const Userviewdetail = () => {
   let {id}=useParams()
   const[data,setdata]=useState('')
   const[refresh,setrefresh]=useState(false)
+  const navigate=useNavigate()
   useEffect(()=>{
     let fetchData=async()=>{
       let response=await axios.get(`http://localhost:4000/User/viewprofile/${id}`)

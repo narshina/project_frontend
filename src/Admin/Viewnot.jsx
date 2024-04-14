@@ -12,19 +12,20 @@ export const Viewnot = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage] = useState(5);
 
-  useEffect(()=>{
-    const fetchData=async()=>{
-      try{
-        const response=await axios.get(`http://localhost:4000/Member/vnot/${id}`)
-        setdata(response.data)
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:4000/Member/vnot/${id}`);
+        // Sort the data based on the date in descending order
+        const sortedData = response.data.sort((a, b) => new Date(b.date) - new Date(a.date));
+        setdata(sortedData);
+      } catch (error) {
+        console.log('Error fetching data', error);
       }
-      catch(error){
-        console.log('Error fetching data',data)
-      }
-    }
-    fetchData()
-  },[refresh])
-
+    };
+    fetchData();
+  }, [refresh]);
+  
   let handledelete=(id)=>{
     let response=axios.delete(`http://localhost:4000/User/deletenot/${id}`)
     console.log(response)

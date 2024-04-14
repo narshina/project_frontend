@@ -30,6 +30,19 @@ export const Secviewmeet = () => {
     const handlePageChange = ({ selected }) => {
         setCurrentPage(selected);
     };
+    const convertToAMPMFormat = (timeString) => {
+        const [hours, minutes] = timeString.split(':');
+        let formattedTime = '';
+      
+        // Convert hours to 12-hour format
+        let hour = parseInt(hours, 10);
+        const suffix = hour >= 12 ? 'PM' : 'AM';
+        hour = hour % 12 || 12; // Ensure hour is not 0 for 12 AM
+      
+        formattedTime = `${hour}:${minutes} ${suffix}`;
+      
+        return formattedTime;
+      };
 
     return (
         <div className='w-screen h-[655px] bg-[#CCDAF6] pt-5 '>
@@ -50,7 +63,7 @@ export const Secviewmeet = () => {
                             <tr key={index} className="odd:bg-white text-center odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                                 <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{meeting.agenda}</td>
                                 <td className="px-6 py-4">{meeting.date}</td>
-                                <td className="px-6 py-4">{meeting.time}</td>
+                                <td className="px-6 py-4">{convertToAMPMFormat(meeting.time)}</td>
                                 <td className="px-6 py-4">{meeting.venue}</td>
                             </tr>
                         ))}

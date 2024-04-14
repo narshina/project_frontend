@@ -63,13 +63,13 @@ export const Usernav = () => {
        <Link to='/user'><div className='hover:text-[#A6C3FB]'>HOME</div></Link>
        <Link to='/user/userviewservice' ><span>SERVICES</span></Link>
       <Link to='/user/userviewapplication' ><div>MY APPLICATIONS</div></Link>
-        <div><button onClick={compdropdown}>
+        <div className='z-10'><button onClick={compdropdown}>
           COMPLAINT
           </button>
           {comp &&
           <div className='list-none absolute top-[78px] bg-[#0F3053] p-4 pt-2 w-[115px]'>
-         <Link to='/user/postcomplaint'>   <li>ADD</li></Link>
-         <Link to='/user/viewreply' >  <li>VIEW REPLY</li></Link>
+         <Link to='/user/postcomplaint'>   <li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>ADD</li></Link>
+         <Link to='/user/viewreply' >  <li className='border-b-2 border-gray-400 hover:text-blue-950 hover:bg-white'>VIEW REPLY</li></Link>
             </div>
           }
           </div>

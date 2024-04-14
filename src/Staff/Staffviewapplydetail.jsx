@@ -36,6 +36,9 @@ export const Staffviewapplydetail = () => {
   let reasondrop=()=>{
     setreason(!reason)
   }
+  let close=()=>{
+    seteasons(false)
+  }
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     // Format the date as needed (for example: YYYY-MM-DD)

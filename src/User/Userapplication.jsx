@@ -86,13 +86,7 @@ export const Userapplication = () => {
       </form>
 
 
-      {/* <div className="">
-
-      <div class="input_container">
-      <label for="password_field" className="input_label">Card holder full name</label>
-      <input id="password_field" className="input_field" type="text" name="input-name" title="Inpit title" placeholder="Enter your full name"/>
-    </div>
-      </div> */}
+     
     </div>
   )
 }

@@ -19,7 +19,7 @@ export const Vhist = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get('http://localhost:4000/Staff/vhistory');
-                const sortedData = response.data.sort((a, b) => new Date(b.application.applicationDate) - new Date(a.application.applicationDate));
+                const sortedData = response.data.sort((a, b) => new Date(b.application.ResultDate) - new Date(a.application.ResultDate));
                 setData(sortedData);
             } catch (error) {
                 console.error('Error fetching data', error);
@@ -38,7 +38,7 @@ export const Vhist = () => {
             item.user.name.toLowerCase().includes(search.toLowerCase()) ||
             item.user.wardName.toLowerCase().includes(search.toLowerCase()) ||
             item.service.service.toLowerCase().includes(search.toLowerCase()) ||
-            formatDate(item.application.applicationDate) === formattedSearch // Ensure the format matches
+            formatDate(item.application.ResultDate) === formattedSearch // Ensure the format matches
         );
     });
     
@@ -127,7 +127,7 @@ export const Vhist = () => {
                                 <td className="px-6 py-4">{item?.user?.wardNumber}</td>
                                 <td className="px-6 py-4">{item?.service?.service}</td>
                                 <td className="px-6 py-4">
-                                    {formatDate(item?.application?.applicationDate)}
+                                    {formatDate(item?.application?.ResultDate)}
                                 </td>
                             </tr>
                         ))}

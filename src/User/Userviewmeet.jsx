@@ -29,6 +29,21 @@ console.log(data);
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
 
+  const convertToAMPMFormat = (timeString) => {
+    const [hours, minutes] = timeString.split(':');
+    let formattedTime = '';
+  
+    // Convert hours to 12-hour format
+    let hour = parseInt(hours, 10);
+    const suffix = hour >= 12 ? 'PM' : 'AM';
+    hour = hour % 12 || 12; // Ensure hour is not 0 for 12 AM
+  
+    formattedTime = `${hour}:${minutes} ${suffix}`;
+  
+    return formattedTime;
+  };
+  
+
   return (
     <div className='w-screen h-[655px] bg-[#CCDAF6]  '>
       <div className='text-center font-serif text-[20px] font-bold '><h2>MEETINGS</h2></div>
@@ -61,7 +76,7 @@ console.log(data);
                    {meeting.agenda}
                 </th>
                 <td className="">{meeting.date}</td>
-                <td className="">{meeting.time}</td>
+                <td>{convertToAMPMFormat(meeting.time)}</td>
                 <td className="">{meeting.venue}</td>
                
               </tr>

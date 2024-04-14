@@ -74,11 +74,11 @@ try {
     // if(!mobileNumberPattern.test(data.phonenumber)){
     //  return toast.error('mobile number not matched')
     // }
-    let passwordPattern =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/
-    console.log(passwordPattern.test(data.password));
-    if(!passwordPattern.test(data.password)){
-      return toast.error('password is not matched')
-    }
+    // let passwordPattern =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/
+    // console.log(passwordPattern.test(data.password));
+    // if(!passwordPattern.test(data.password)){
+    //   return toast.error('password is not matched')
+    // }
 
     console.log(data);
 
@@ -106,13 +106,13 @@ try {
               NAME:
 
             </span>
-            <input onChange={handlechange} className='h-9 w-56 text-black bg-white rounded-r-lg pl-2' name='name' type='text' id=''></input></div>
+            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed"  className='h-9 w-56 text-black bg-white rounded-r-lg pl-2' name='name' type='text' id=''></input></div>
           <div className='text h-9   text-white mt-4 flex' onClick={() => handleUploadFile('photo')}>
             <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PHOTO:
 
             </span>
-            <input onChange={handlefile} ref={fileUploadPhoto} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg ' name='photo' />
+            <input required onChange={handlefile} ref={fileUploadPhoto} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg ' name='photo' />
             <div className="">
               <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg'>upload photo</p>
             </div>
@@ -122,13 +122,13 @@ try {
               AGE:
 
             </span>
-            <input onChange={handlechange} className='text-black  h-9 w-56 bg-white rounded-r-lg ' name='age' type='text' id=''></input></div>
+            <input required onChange={handlechange} className='text-black  h-9 w-56 bg-white rounded-r-lg ' name='age' type='number' id=''></input></div>
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               GENDER:
 
             </span>
-            <select onChange={handlechange} className='placeholder:select h-9 w-56 bg-white rounded-r-lg text-black ' name='gender'>
+            <select required onChange={handlechange} className='placeholder:select h-9 w-56 bg-white rounded-r-lg text-black ' name='gender'>
               <option value='female'>Female</option>
               <option value='male'>Male</option>
               <option value='others'>Others</option>
@@ -138,13 +138,13 @@ try {
               EMAIL ID:
 
             </span>
-            <input onChange={handlechange} type='email' className='text-black  h-9 w-56 bg-white rounded-r-lg ' name='email' id=''></input></div>
+            <input required onChange={handlechange} type='email' className='text-black  h-9 w-56 bg-white rounded-r-lg ' name='email' id=''></input></div>
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               QUALIFICATION:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='qualification'></input></div>
+            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed"  className='text-black h-9 w-56 bg-white rounded-r-lg' name='qualification'></input></div>
 
 
 
@@ -155,25 +155,25 @@ try {
               HOUSE:
 
             </span>
-            <input onChange={handlechange} className='text-black  h-9 w-56 bg-white rounded-r-lg' name='houseName' type='text' id=''></input></div>
+            <input required onChange={handlechange}  pattern="[A-Za-z]+" title="Only alphabets are allowed" className='text-black  h-9 w-56 bg-white rounded-r-lg' name='houseName' type='text' id=''></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               STREET:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='street' type='text' id=''></input></div>
+            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed"  className='text-black h-9 w-56 bg-white rounded-r-lg' name='street' type='text' id=''></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               DISTRICT:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='district' type='text' id=''></input></div>
+            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed"  className='text-black h-9 w-56 bg-white rounded-r-lg' name='district' type='text' id=''></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PINCODE:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='pincode' type='text' id='' maxLength={6} ></input></div>
+            <input required onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg' name='pincode' type='text' id='' maxLength={6} pattern="[0-9]{6}" title="Please enter a valid 6-digit PIN code" ></input></div>
 
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
@@ -187,7 +187,7 @@ try {
 
             </span>
             <div className="flex text-black  h-9 w-56 bg-white rounded-r-lg justify-center items-center">
-            <input onChange={handlechange} className='outline-none' name='password' type={showpassword}></input>
+            <input onChange={handlechange} className='outline-none' name='password' type={showpassword} pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$" title='Password must contain at least one lowercase letter, one uppercase letter, one digit, one special character, and be 8 to 30 characters long.'></input>
            { showpassword === 'text' ?  <FaEye onClick={()=> setshowpassword('password') } color='black' className='ms-2'/> :
            
            <FaEyeSlash  onClick={()=> setshowpassword('text') } color='black' className='ms-2'/>
