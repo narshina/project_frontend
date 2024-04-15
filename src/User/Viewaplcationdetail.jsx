@@ -50,8 +50,8 @@ export const Viewaplcationdetail = () => {
                                 <tr key={key}>
                                     {key === 'finalDocument' ? (
                                         <td>
-                                            <a download={true} href={`http://localhost:4000/download/${data.application[key]}`}>
-                                                <button><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Download</a></button>
+                                            <a  href={`http://localhost:4000/download/${data.application[key]}`}>
+                                                <button className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Download</button>
                                             </a>
                                         </td>
                                     ) : (

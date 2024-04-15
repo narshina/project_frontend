@@ -73,11 +73,11 @@ export const Addstaff = () => {
     // if(!mobileNumberPattern.test(data.phonenumber)){
     //  return toast.error('mobile number not matched')
     // }
-    let passwordPattern =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/
-    console.log(passwordPattern.test(data.password));
-    if(!passwordPattern.test(data.password)){
-      return toast.error('password is not matched')
-    }
+    // let passwordPattern =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/
+    // console.log(passwordPattern.test(data.password));
+    // if(!passwordPattern.test(data.password)){
+    //   return toast.error('password is not matched')
+    // }
     setdata(data)
     toast.success('submit successfully')
     console.log(data);
@@ -97,14 +97,14 @@ export const Addstaff = () => {
               NAME:
 
             </span>
-            <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2' name='name' type='text'></input></div>
+            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed"  className='h-9 w-56 bg-white rounded-r-lg text-black pl-2' name='name' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex' onClick={handleUploadFile}>
               <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
                 PHOTO:
 
               </span>
               {/* <img src={URL.createObjectURL(data.photo)} className='w-12 h-12 object-cover'  alt="" /> */}
-              <input onChange={handlefile} ref={fileUploadPhoto} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black pl-2 ' name='photo' />
+              <input required onChange={handlefile} ref={fileUploadPhoto} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black pl-2 ' name='photo' />
               <div className="">
                 <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg'>upload</p>
               </div>
@@ -114,13 +114,13 @@ export const Addstaff = () => {
               AGE:
 
             </span>
-            <input onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2' name='age' type='text'></input></div>
+            <input required onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2' name='age' type='number'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               GENDER:
 
             </span>
-            <select onChange={handlechange} className='placeholder:select h-9 w-56 bg-white rounded-r-lg text-black pl-2' name='gender'>
+            <select required onChange={handlechange} className='placeholder:select h-9 w-56 bg-white rounded-r-lg text-black pl-2' name='gender'>
               <option value='female'>Female</option>
               <option value='male'>Male</option>
               <option value='others'>Others</option>
@@ -130,13 +130,13 @@ export const Addstaff = () => {
               EMAIL ID:
 
             </span>
-            <input onChange={handlechange} type='email' className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='email' ></input></div>
+            <input required onChange={handlechange} type='email' className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='email' ></input></div>
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               CATEGORY:
 
             </span>
-           <select onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2'  name="category" id="">
+           <select required onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2'  name="category" id="">
             {category.map((item)=>(
               <option value={item.category}>{item.category}</option>
             ))}
@@ -154,39 +154,39 @@ export const Addstaff = () => {
               HOUSE:
 
             </span>
-            <input onChange={handlechange} className='text-black  h-9 w-56 bg-white rounded-r-lg pl-2' name='houseName' type='text'></input></div>
+            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed"  className='text-black  h-9 w-56 bg-white rounded-r-lg pl-2' name='houseName' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               STREET:
 
             </span>
-            <input onChange={handlechange}  className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='street' type='text'></input></div>
+            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed"   className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='street' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               DISTRICT:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='district' type='text' ></input></div>
+            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed"  className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='district' type='text' ></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PINCODE:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2'name='pincode'type='text' maxLength={6}></input></div>
+            <input required onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2'name='pincode'type='text' maxLength={6} pattern="[0-9]{6}" title="Please enter a valid 6-digit PIN code"></input></div>
 
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PHONE NUMBER:
 
             </span>
-            <input onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='phoneNumber' type='text' maxLength={10}></input></div>
+            <input required onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='phoneNumber' type='text' maxLength={10}pattern="[0-9]{10}" title="Please enter a valid phone number"  ></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PASSWORD:
 
             </span>
             <div className="flex text-black  h-9 w-56 bg-white rounded-r-lg justify-center items-center">
-            <input onChange={handlechange} className='outline-none' name='password' type={showpassword}></input>
+            <input required onChange={handlechange} className='outline-none' name='password' type={showpassword} pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$" title='Password must contain at least one lowercase letter, one uppercase letter, one digit, one special character, and be 8 to 30 characters long.'></input>
            { showpassword === 'text' ?  <FaEye onClick={()=> setshowpassword('password') } color='black' className='ms-2'/> :
            
            <FaEyeSlash  onClick={()=> setshowpassword('text') } color='black' className='ms-2'/>

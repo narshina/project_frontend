@@ -29,19 +29,19 @@ export const Viewservicedetail = () => {
 <div class="  w-[540px] bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700 m-auto mt-9">
    
    
-   <h3 className='text-center font-bold '>{data.service}</h3>
+   <h3 className='text-center font-bold '>{data?.service}</h3>
    <table className='m-auto mt-3'>
      <tr>
         <td>Processing time</td>
-        <td>:{data.processingTime}</td>
+        <td>:{data?.processingTime}</td>
         </tr>
         <tr>
             <td>Requirements</td>
-            <td>:{data.requirement}</td>
+            <td>:{data?.requirement}</td>
             </tr> 
           </table>  
         <div className='text-center mt-3'>
-   <Link to={`/user/userapply/${data._id}`}> <button><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline m-auto ">APPLY</a></button></Link></div>
+   <Link to={`/user/userapply/${data?._id}`}> <button><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline m-auto ">APPLY</a></button></Link></div>
    </div>
 </div>
 

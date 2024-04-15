@@ -14,11 +14,14 @@ export const Editmember = () => {
 
   const[data,setdata]=useState('')
   const[refresh,setrefresh]=useState(false)
+  const[ward,setward]=useState([''])
   useEffect(()=>{
     let fetchdata=async()=>{
       let response=await axios.get(`http://localhost:4000/User/viewprofile/${id}`)
+      let response1=await axios.get('http://localhost:4000/President/viewward')
       console.log(response.data)
       setdata(response.data)
+      setward(response1.data)
     }
     fetchdata()
   },[])
@@ -137,9 +140,9 @@ const[usedata,setuserdata]=useState('')
 
             </span>
            <select onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black'  name="ward number" id="">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+            {ward.map((item)=>(
+              <option value={item.wardNumber}>{item.wardnumber}</option>
+            ))}
            </select>
            
            
@@ -157,12 +160,9 @@ const[usedata,setuserdata]=useState('')
 
             </span>
            <select onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black'  name="ward name" id="">
-            <option disabled value="">select</option>
-            <option value="kakkanchery">Kakkanchery</option>
-            <option value="koyakkad west">koyakkad west</option>
-            <option value="koyakkad">koyakkad</option>
-            <option value="oravil">Oravil</option>
-            <option value="ulliyeri north">Ulliyeri North</option>
+            {ward.map((item)=>(
+              <option value={item.wardName}>{item.wardname}</option>
+            ))}
            </select>
            
            
@@ -172,7 +172,7 @@ const[usedata,setuserdata]=useState('')
               HOUSE:
 
             </span>
-            <input onChange={handlechange} placeholder={data.houseName} className='pl-3 text-black h-9 w-56 bg-white rounded-r-lg' name='house' type='text'></input></div>
+            <input onChange={handlechange} placeholder={data.houseName} className='pl-3 text-black h-9 w-56 bg-white rounded-r-lg' name='houseName' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               STREET:

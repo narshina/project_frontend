@@ -2,6 +2,7 @@ import React, { useEffect, useRef,useState } from 'react'
 import {FaEye,FaEyeSlash} from "react-icons/fa"
 import toast from 'react-hot-toast'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 export const Userreg = () => {
   
@@ -16,7 +17,7 @@ export const Userreg = () => {
     }
   };
 
-
+  const navigate=useNavigate()
   const[data,setdata]=useState('')
   const[showpassword,setshowpassword]=useState('password')
   let handlechange=(event)=>{
@@ -55,9 +56,10 @@ export const Userreg = () => {
         'Content-Type': 'multipart/form-data'  // Set the content type for FormData
       }
     })
+
     console.log(response)
     const requiredFields = ['name','photo','age','dob','gender','idproof','wardNumber','wardName','email','houseNumber','houseName','street','district','pincode','phoneNumber','password'];
-
+    navigate('/Login')
     for (const field of requiredFields) {
         if (!data[field]) {
             return toast.error(`${field} is required`);

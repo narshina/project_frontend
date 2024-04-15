@@ -15,13 +15,17 @@ import axios from 'axios';
 
 export default function Home() {
     const[userdata,setuserdata]=useState([''])
+    const[ward,setward]=useState([''])
   
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get('http://localhost:4000/User/vnews');
+                const response1 = await axios.get('http://localhost:4000/President/viewward');
                 const sortedData = response.data.sort((a, b) => new Date(b.date) - new Date(a.date));
                 setuserdata(sortedData);
+                setward(response1.data)
+                
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -86,133 +90,23 @@ export default function Home() {
             </tr>
         </thead>
         <tbody>
-            <tr class="border-b border-gray-200 dark:border-gray-700">
+            {ward.map((wards,index)=>(
+             <tr key={index} className={`${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}  ${index % 2 === 0 ? 'dark:bg-gray-900' : 'dark:bg-gray-800'} border-b dark:border-gray-700 hover:bg-slate-200`}>
+
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    1
+                    {index}
                 </th>
                 <td class="px-6 py-4">
-                    Kakkanchary
+                    {wards.wardname}
                 </td>
                 <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
-                    1
+                    {wards.wardnumber}
                 </td>
                 <td class="px-6 py-4">
-                1478046
+                   {wards.lgd}
                 </td>
             </tr>
-            <tr class="border-b border-gray-200 dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    2
-                </th>
-                <td class="px-6 py-4">
-                    koyakkad west
-                </td>
-                <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
-                    2
-                </td>
-                <td class="px-6 py-4">
-                1478047
-                </td>
-            </tr>
-            <tr class="border-b border-gray-200 dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    3
-                </th>
-                <td class="px-6 py-4">
-                    Theruvath kadav
-                </td>
-                <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
-                    3
-                </td>
-                <td class="px-6 py-4">
-                1478048
-                </td>
-            </tr>
-            <tr class="border-b border-gray-200 dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    4
-                </th>
-                <td class="px-6 py-4">
-                    ulliyeri west
-                </td>
-                <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
-                    4
-                </td>
-                <td class="px-6 py-4">
-                1478049
-                </td>
-            </tr>
-            <tr className='border-b border-gray-200 dark:border-gray-700'>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    5
-                </th>
-                <td class="px-6 py-4">
-                    Oravil
-                </td>
-                <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
-                    5
-                </td>
-                <td class="px-6 py-4">
-                1478050
-                </td>
-            </tr>
-            <tr className='border-b border-gray-200 dark:border-gray-700'>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    6
-                </th>
-                <td class="px-6 py-4">
-                    Ulliyeri north
-                </td>
-                <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
-                    6
-                </td>
-                <td class="px-6 py-4">
-                1478051
-                </td>
-            </tr>
-            
-            <tr className='border-b border-gray-200 dark:border-gray-700'>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    7
-                </th>
-                <td class="px-6 py-4">
-                    mamboyil
-                </td>
-                <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
-                    7
-                </td>
-                <td class="px-6 py-4">
-                1478052
-                </td>
-            </tr>
-            <tr className='border-b border-gray-200 dark:border-gray-700'>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    8
-                </th>
-                <td class="px-6 py-4">
-                    Ulliyeri south
-                </td>
-                <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
-                    8
-                </td>
-                <td class="px-6 py-4">
-                1478053
-                </td>
-            </tr>
-            <tr className='border-b border-gray-200 dark:border-gray-700'>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    9
-                </th>
-                <td class="px-6 py-4">
-                    Mundoth
-                </td>
-                <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
-                    9
-                </td>
-                <td class="px-6 py-4">
-                1478054
-                </td>
-            </tr>
+            ))}
         </tbody>
     </table>
 </div>

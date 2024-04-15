@@ -21,19 +21,19 @@ export const Viewmemberdetail = () => {
     <img class="w-32 h-32 rounded-full mx-auto" src={`http://localhost:4000/uploads/${data.photo}`} alt=""/>
     <div class="text-sm mt-5">
         <a href="#"
-            class="font-medium leading-none text-gray-900 hover:text-indigo-600 transition duration-500 ease-in-out">{data.name}
+            class="font-medium leading-none text-black hover:text-indigo-600 transition duration-500 ease-in-out">{data.name}
         </a>
-        <p>{data.email}</p><br />
+        <p className='text-black'>{data.email}</p><br />
         <div className='p-4'>
 <div className='flex justify-around mb-5 border-b-8 pb-4 '>
 
         <div className=''>
         <div className='font-bold'>Age</div>
-        <div className=''>{data.age}</div>
+        <div className='text-black'>{data.age}</div>
         </div>
         <div className=''>
         <div className='font-bold'>ward number</div>
-        <div className=''>{data.wardNumber}</div>
+        <div className='text-black'>{data.wardNumber}</div>
         </div>
         <div className=''>
         <div className='font-bold'>ward name</div>
@@ -41,7 +41,7 @@ export const Viewmemberdetail = () => {
         </div>
         <div className=''>
         <div className='font-bold'>house</div>
-        <div className=''>{data.houseName}</div>
+        <div className='text-black'>{data.houseName}</div>
         </div>
 </div>
 
@@ -51,21 +51,21 @@ export const Viewmemberdetail = () => {
 
         <div className=''>
         <div className='font-bold'>street</div>
-        <div className=''>{data.street}</div>
+        <div className='text-black'>{data.street}</div>
         </div>
         <div className=''>
         <div className='font-bold'>district</div>
-        <div className=''>{data.district}</div>
+        <div className='text-black'>{data.district}</div>
         </div>
         
 
         <div className=''>
         <div className='font-bold'>pincode</div>
-        <div className=''>{data.pincode}</div>
+        <div className='text-black'>{data.pincode}</div>
         </div>
         <div className=''>
         <div className='font-bold'>phone number</div>
-        <div className=''>{data.phoneNumber}</div>
+        <div className='text-black'>{data.phoneNumber}</div>
         </div>
 
         </div>

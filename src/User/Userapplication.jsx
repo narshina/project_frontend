@@ -1,17 +1,18 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { LangContext } from './LanguageContext'
 import axios from 'axios'
 import { type } from '@testing-library/user-event/dist/type'
 import "./index.css"
 export const Userapplication = () => {
-  const fileUpload = useRef(null)
-  const handleUploadFile = (type) => {
-    fileUpload.current.click()
-  }
+  // const fileUpload = useRef(null)
+  // const handleUploadFile = (type) => {
+  //   fileUpload.current.click()
+  // }
   let { id } = useParams()
   let userId = localStorage.getItem('id')
   const [fetchData, setFetchData] = useState([''])
+  const navigate=useNavigate()
   useEffect(() => {
     let fetchData = async () => {
       let response = await axios.get(`http://localhost:4000/Staff/vform/${id}`)
@@ -46,6 +47,7 @@ export const Userapplication = () => {
         }
       });
       console.log(response.data);
+      navigate('/user/userviewapplication')
     } catch (error) {
       console.error(error);
     }
@@ -73,11 +75,11 @@ export const Userapplication = () => {
 
           <div class="relative z-0  mb-5 h-fit group ">
             <label for="floating_email" class="w-48">{value.lang ? <span className=''>{item?.field?.fieldMalayalam}</span> : <span>{item?.field?.fieldEnglish}</span>}</label><br />
-            <input onChange={handlechange} type="text" name={value.lang ? item?.field?.fieldMalayalam : item?.field?.fieldEnglish} id="floating_email" class="input_field w-[600px]" placeholder=" " required />
+            <input required onChange={handlechange} type="text" name={value.lang ? item?.field?.fieldMalayalam : item?.field?.fieldEnglish} id="floating_email" class="input_field w-[600px]" placeholder=" " required />
           </div>
         ))}
-        <div><div onClick={handleUploadFile}>required documents</div>
-          <input onChange={handlefile}  name='photo' type='file'></input>
+        <div><div>required documents</div>
+          <input required onChange={handlefile}  name='photo' type='file'></input>
         </div>
 
 
