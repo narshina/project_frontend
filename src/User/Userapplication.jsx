@@ -75,12 +75,15 @@ export const Userapplication = () => {
 
           <div class="relative z-0  mb-5 h-fit group ">
             <label for="floating_email" class="w-48">{value.lang ? <span className=''>{item?.field?.fieldMalayalam}</span> : <span>{item?.field?.fieldEnglish}</span>}</label><br />
-            <input required onChange={handlechange} type="text" name={value.lang ? item?.field?.fieldMalayalam : item?.field?.fieldEnglish} id="floating_email" class="input_field w-[600px]" placeholder=" " required />
+            <input required onChange={handlechange} type="text" name={item?.field?.fieldEnglish} id="floating_email" class="input_field w-[600px]" placeholder=" " />
+            
           </div>
+          
         ))}
-        <div><div>required documents</div>
+        <div><div>{fetchData[0]?.service?.requirement}</div>
           <input required onChange={handlefile}  name='photo' type='file'></input>
         </div>
+        
 
 
         <div className='text-center'>

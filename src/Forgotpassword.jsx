@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
 import {FaEye,FaEyeSlash} from "react-icons/fa"
@@ -10,8 +11,11 @@ export const Forgotpassword = () => {
     setdata({...data,[event.target.name]:event.target.value})
     console.log(data);
   }
-  let handlesubmit=(event)=>{
-    event.preventDefault()
+  let handlesubmit= async(event)=>{
+    try {
+      
+      event.preventDefault()
+ 
     const requiredFields = ['email','password','confirm-password'];
 
     for (const field of requiredFields) {
@@ -25,8 +29,16 @@ export const Forgotpassword = () => {
       return toast.error('password is not matched')
     }
     setdata(data)
+
+
+    let response=await axios.post('http://localhost:4000/forgot-password',data)
+    console.log(response);
+
     toast.success("Reset password successfully")
-    console.log(data)
+
+  } catch (error) {
+      toast.error(error.response.data.message || error.message || 'error')
+  }
   }
   return (
     

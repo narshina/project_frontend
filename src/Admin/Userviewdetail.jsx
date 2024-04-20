@@ -18,6 +18,7 @@ export const Userviewdetail = () => {
   },[])
 
   let handlesubmit=async (statuss)=>{
+    navigate('/admin/userview')
     setrefresh(!refresh)
     let response=await axios.put(`http://localhost:4000/President/manageUser/${id}`,{status:statuss})
     console.log(response)
@@ -102,7 +103,7 @@ export const Userviewdetail = () => {
         <div className=''>{data.street}</div>
         </div>
         <div className=''>
-        <div className='font-bold'>district</div>
+        <div className='font-bold'>post office</div>
         <div className=''>{data.district}</div>
         </div>
         

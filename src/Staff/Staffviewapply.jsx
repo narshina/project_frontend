@@ -12,6 +12,7 @@ export const Staffviewapply = () => {
         const fetchData = async () => {
             try {
                 let response = await axios.get(`http://localhost:4000/Staff/vapply/${id}`);
+                console.log(response,'====================');
                 // Sort the data based on both application date and processing time
                 const sortedData = response.data.sort((a, b) => {
                     const dateComparison = new Date(b.application.applicationDate) - new Date(a.application.applicationDate);
@@ -34,11 +35,13 @@ export const Staffviewapply = () => {
         const handlePageChange = ({ selected }) => {
         setCurrentPage(selected);
     };
+    console.log(data,'--------------------');
   return (
     <div className=' w-screen h-[655px] bg-[#CCDAF6]  pt-5 ' >
      <div className='ml-[650px] font-serif text-[20px] font-bold'><h2> APPLICATIONS</h2></div>   
 
 <div class="relative overflow-x-auto justify-center flex">
+    {data ?
     <table class="w-[850PX] text-sm  rtl:text-right text-gray-500 dark:text-gray-400 mt-5">
         <thead class="text-xs text-gray-700 uppercase bg-slate-400 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -72,6 +75,12 @@ export const Staffviewapply = () => {
                     ))}
         </tbody>
     </table>
+:
+<div>
+    no data
+</div>
+}
+
 </div>
 <div className="flex justify-center mt-5">
                 <ReactPaginate

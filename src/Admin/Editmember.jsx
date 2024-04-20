@@ -181,7 +181,7 @@ const[usedata,setuserdata]=useState('')
             <input onChange={handlechange} placeholder={data.street} className='pl-3 text-black h-9 w-56 bg-white rounded-r-lg' name='street' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
-              DISTRICT:
+              POST OFFICE:
 
             </span>
             <input onChange={handlechange} placeholder={data.district} className='pl-3 text-black h-9 w-56 bg-white rounded-r-lg' name='district' type='text'></input></div>

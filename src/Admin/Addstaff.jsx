@@ -1,5 +1,5 @@
 import React, { useEffect, useRef,useState } from 'react'
-import { json } from 'react-router-dom'
+import { json, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import {FaEye,FaEyeSlash} from "react-icons/fa"
 import axios from 'axios'
@@ -14,7 +14,7 @@ export const Addstaff = () => {
    
   }
   
-
+  const navigate=useNavigate()
   const[data,setdata]=useState('')
   const[showpassword,setshowpassword]=useState('password')
   let handlechange=(event)=>{
@@ -59,6 +59,7 @@ export const Addstaff = () => {
         'Content-Type': 'multipart/form-data' // Set the content type for FormData
       }
     })
+    navigate('/admin/viewstaff')
    console.log(response)
 
     const requiredFields = ['name', 'photo', 'age', 'gender', 'email','category','houseName', 'street','pincode', 'phoneNumber', 'password','district'];

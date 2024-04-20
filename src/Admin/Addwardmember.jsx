@@ -2,9 +2,11 @@ import axios from 'axios'
 import React, { useEffect, useRef,useState } from 'react'
 import toast from 'react-hot-toast'
 import {FaEye,FaEyeSlash} from "react-icons/fa"
+import { useNavigate } from 'react-router-dom'
 
 
 export const Addwardmember = () => {
+  const navigate=useNavigate()
   const [ward,setward]=useState([''])
   const [refresh,setrefresh]=useState(false)
   useEffect(()=>{
@@ -65,6 +67,7 @@ try {
       'Content-Type': 'multipart/form-data' // Set the content type for FormData
     }
   });
+  navigate('/admin/viewwardmember')
   console.log(response.data);
 } catch (error) {
   console.error('Error:', error);
@@ -188,7 +191,7 @@ try {
             <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed"  className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='street' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
-              DISTRICT:
+              POST OFFICE:
 
             </span>
             <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed"  className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='district' type='text'></input></div>

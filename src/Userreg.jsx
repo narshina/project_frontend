@@ -8,12 +8,16 @@ export const Userreg = () => {
   
   const fileUploadPhoto = useRef(null);
   const fileUploadIdProof = useRef(null);
+  const fileUploadpancard = useRef(null);
 
   const handleUploadFile = (type) => {
     if (type === 'photo') {
       fileUploadPhoto.current.click();
     } else if (type === 'idproof') {
       fileUploadIdProof.current.click();
+    }
+    else if (type === 'pancard') {
+      fileUploadpancard.current.click();
     }
   };
 
@@ -48,8 +52,13 @@ export const Userreg = () => {
     formData.append('street', data.street);
     formData.append('district', data.district);
     formData.append('pincode', data.pincode);
+    formData.append('currenthouse',data.currenthouse);
+    formData.append('currentstreet',data.currentstreet);
+    formData.append('currentpost',data.currentpost);
+    formData.append('currentpin',data.currentpin);
     formData.append('phoneNumber', data.phoneNumber);
     formData.append('password', data.password);
+    formData.append('pancard',data.pancard);
     formData.append('usertype', 'user');
     let response=await axios.post('http://localhost:4000/User/register',formData,{
       headers: {
@@ -82,10 +91,10 @@ export const Userreg = () => {
 
   return (
     <form onSubmit={handlesubmit}>
-    <div className=' w-screen h-screen bg-[#CCDAF6] pt-14'>
+    <div className=' w-screen h-screen bg-[#CCDAF6] pt-8'>
       <div className='font-bold font-serif text-[20px] m-auto text-center '>REGISTRATION FORM</div>
       <div className="flex flex-wrap justify-center gap-8 " >
-        <div className=' h-[400px] w-[450px] '>
+        <div className=' h-[550px] w-[450px] '>
 
 
           <div className='text h-9   text-white mt-4 flex'>
@@ -93,7 +102,7 @@ export const Userreg = () => {
               NAME:
 
             </span>
-            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed" className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='name' type='text'></input></div>
+            <input required onChange={handlechange} pattern="^[a-zA-Z ]*$" title="Only alphabets are allowed" className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='name' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex' onClick={() => handleUploadFile('photo')}>
             <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               Photo:
@@ -150,13 +159,7 @@ export const Userreg = () => {
 
             </span>
             <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed" type='text' className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='wardName' ></input></div>
-
-
-
-
-        </div>
-        <div className=' h-[360px] w-[450px]  '>
-        <div className='text h-9   text-white mt-4 flex'>
+            <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               EMAIL ID:
 
@@ -164,10 +167,39 @@ export const Userreg = () => {
             <input required onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='email' type='email'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
+              PHONE NUMBER:
+
+            </span>
+            <input required onChange={handlechange} type='text' name='phoneNumber' pattern="[0-9]{10}" title="Please enter a valid phone number" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' maxLength={10}></input></div>
+
+            <div className='text h-9   text-white mt-4 flex' onClick={() => handleUploadFile('pancard')}>
+            <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
+              PANCARD:
+
+            </span>
+            <input required onChange={handlefile} ref={fileUploadpancard} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='pancard' />
+            <div className="">
+              <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg pl-3'>upload</p>
+            </div>
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+        <div className=' h-[360px] w-[450px]  '>
+       
+            <div className='text h-9   text-white mt-4 flex'>
+            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               HOUSE NUMBER:
 
             </span>
             <input required onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='houseNumber' type='number' pattern='{3}'></input></div>
+            <div className='text-[20px]'>Permenant Address</div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               HOUSE NAME:
@@ -183,7 +215,7 @@ export const Userreg = () => {
 
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
-              DISTRICT:
+              POST OFFICE:
 
             </span>
             <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='district' type='text'></input></div>
@@ -193,6 +225,31 @@ export const Userreg = () => {
 
             </span>
             <input required onChange={handlechange} type='text' name='pincode' className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' pattern="[0-9]{6}" title="Please enter a valid 6-digit PIN code"></input></div>
+            <div className='text-[20px]'>Communication Address</div>
+            <div className='text h-9   text-white mt-4 flex'>
+            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
+              HOUSE NAME:
+
+            </span>
+            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='currenthouse' type='text'></input></div>
+            <div className='text h-9   text-white mt-4 flex'>
+            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
+              STREET:
+
+            </span>
+            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='currentstreet' type='text'></input></div>
+            <div className='text h-9   text-white mt-4 flex'>
+            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
+              POST OFFICE:
+
+            </span>
+            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='currentpost' type='text'></input></div>
+            <div className='text h-9   text-white mt-4 flex'>
+            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
+              PINCODE:
+
+            </span>
+            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='currentpin' type='text'></input></div>
 
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
@@ -207,12 +264,8 @@ export const Userreg = () => {
            }
             </div>
             </div>
-            <div className='text h-9   text-white mt-4 flex'>
-            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
-              PHONE NUMBER:
-
-            </span>
-            <input required onChange={handlechange} type='text' name='phoneNumber' pattern="[0-9]{10}" title="Please enter a valid phone number" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' maxLength={10}></input></div>
+            
+            
             
             
             

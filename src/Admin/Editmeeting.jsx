@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export const Editmeeting = () => {
   let { id } = useParams();
+  const navigate=useNavigate()
   const [data, setData] = useState('');
   const [refresh, setRefresh] = useState(false);
 
@@ -14,6 +15,7 @@ export const Editmeeting = () => {
 
   let handlesubmit = async (event) => {
     event.preventDefault();
+    navigate('/admin/viewmeet')
     setRefresh(!refresh);
     try {
       const response = await axios.put(`http://localhost:4000/President/editmeet/${id}`, data);
@@ -27,7 +29,7 @@ export const Editmeeting = () => {
         }
       }
 
-      toast.success('Submit successful');
+      toast.success('Submit successfully');
       console.log(data);
     } catch (error) {
       console.error('Error submitting form:', error);

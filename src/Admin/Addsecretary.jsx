@@ -27,7 +27,7 @@ export const Addsecretary = () => {
       // Clearing the form fields
       setdata('');
 
-      toast.success('Submit successful');
+      toast.success('Submit successfully');
       console.log(data);
     } catch (error) {
       console.error('Error submitting form:', error);

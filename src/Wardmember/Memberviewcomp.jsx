@@ -57,7 +57,8 @@ export const Memberviewcomp = () => {
                         <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{item?.user?.name}</td>
                         <td>{item?.user?.wardName}</td>
                         <td>{item?.complaint?.complaint}</td>
-                        <td>{item?.complaint?.date}</td>
+                        <td>{(new Date(item?.complaint?.date)).toLocaleString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}</td>
+                        {/* <td>{item?.complaint?.date}</td> */}
                         
                         <td className="">
                             <Link to={`/member/memberreply/${item.complaint?._id}`}><a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Reply</a></Link>

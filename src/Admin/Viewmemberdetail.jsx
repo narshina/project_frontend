@@ -54,7 +54,7 @@ export const Viewmemberdetail = () => {
         <div className='text-black'>{data.street}</div>
         </div>
         <div className=''>
-        <div className='font-bold'>district</div>
+        <div className='font-bold'>post office</div>
         <div className='text-black'>{data.district}</div>
         </div>
         

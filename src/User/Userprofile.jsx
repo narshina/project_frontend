@@ -101,7 +101,7 @@ const [idd,setid]=useState(false)
         <div className=''>{userdata.street}</div>
         </div>
         <div className=''>
-        <div className='font-bold'>district</div>
+        <div className='font-bold'>post office</div>
         <div className=''>{userdata.district}</div>
         </div>
         
