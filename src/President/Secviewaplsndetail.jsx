@@ -12,6 +12,7 @@ export const Secviewaplsndetail = () => {
   const [upload, setUpload] = useState(false);
   const [reasons, setReasons] = useState('');
   const fileUpload = useRef(null);
+  const navigate=useNavigate()
 
   const handleUploadFile = (type) => {
     if (type === 'document') {
@@ -40,6 +41,7 @@ export const Secviewaplsndetail = () => {
   }, [id]);
 
   const handlesubmit = async (statuss) => {
+    
     console.log(data.certificate,'---------------------------------');
     if (!data.certificate) {
       // If no file is selected, prevent form submission
@@ -60,6 +62,8 @@ export const Secviewaplsndetail = () => {
     });
     console.log(response);
     setData('');
+    window.location.href='/president/secviewapllcsn'
+    navigate('/president/secviewapllcsn')
   };
 
   const handlereason = async (statuss) => {

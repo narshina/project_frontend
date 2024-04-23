@@ -4,6 +4,7 @@ import { LangContext } from './LanguageContext'
 import axios from 'axios'
 import { type } from '@testing-library/user-event/dist/type'
 import "./index.css"
+import toast from 'react-hot-toast'
 export const Userapplication = () => {
   // const fileUpload = useRef(null)
   // const handleUploadFile = (type) => {
@@ -15,12 +16,23 @@ export const Userapplication = () => {
   const navigate=useNavigate()
   useEffect(() => {
     let fetchData = async () => {
-      let response = await axios.get(`http://localhost:4000/Staff/vform/${id}`)
-      console.log(response.data);
-      setFetchData(response.data)
-    }
-    fetchData()
-  }, [])
+      try {
+        let response = await axios.get(`http://localhost:4000/Staff/vform/${id}`);
+        if (!response.data || response.data.length === 0) {
+          console.log('Data not found');
+          toast.error('not ready to apply')
+          navigate('/user/userviewservice');
+          return;
+        }
+        console.log(response.data);
+        setFetchData(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        // Handle error if needed
+      }
+    };
+    fetchData();
+  }, [id, navigate]);
 
   const [data, setdata] = useState('')
   let handlechange = (event) => {
@@ -66,12 +78,12 @@ export const Userapplication = () => {
 
       <div className='text-center'>
 
-        <h2 className='text-[30px] font-bold'>{fetchData[0].service?.service}</h2>
+        <h2 className='text-[30px] font-bold'>{fetchData[0].service ? <span>{fetchData[0].service?.service}</span> : <span>No services</span>}</h2>
 
       </div>
 
       <form onSubmit={handleSubmit} class=" w-[50%] m-auto ">
-        {fetchData.map((item) => (
+        {fetchData?.map((item) => (
 
           <div class="relative z-0  mb-5 h-fit group ">
             <label for="floating_email" class="w-48">{value.lang ? <span className=''>{item?.field?.fieldMalayalam}</span> : <span>{item?.field?.fieldEnglish}</span>}</label><br />

@@ -52,8 +52,8 @@ export const Staffviewapplydetail = () => {
       }
       return (
         <tr key={key}>
-          <td>{key}</td>
-          <td>
+          <td className='py-2 px-4 border'>{key}</td>
+          <td className='py-2 px-4 border'>
             {key === 'document' ? (
               <a download={true} href={`http://localhost:4000/download/${data.application[key]}`}>
                 <button>{data.application[key]}</button>
@@ -68,11 +68,11 @@ export const Staffviewapplydetail = () => {
   };
 
   return (
-    <div className='w-screen h-[655px]'>
-      <div className='flex justify-center w-screen h-[655px] bg-[#CCDAF6]'>
+    <div className='w-screen '>
+      <div className='flex justify-center w-screen  bg-[#CCDAF6]'>
         <div className='text-black leading-[30px] mt-4 '>
           <div className='text-[20px] underline'><b>{data?.services?.service}</b></div>
-          <table>
+          <table className='border-collapse w-full mt-4'>
             <tbody>
               {renderTableData()}
             </tbody>
@@ -92,13 +92,64 @@ export const Staffviewapplydetail = () => {
             </div>
           </div>
           <div><h2 className='text-black font-bold underline'>USER DETAILS</h2></div>
-          <div>Name:{data?.users?.name}</div>
-          <div>Age:{data?.users?.age}</div>
-          <div>Date of Birth:{data?.users?.dob}</div>
-          <div>House name:{data?.users?.houseName}</div>
-          <div>Ward Number:{data?.users?.wardNumber}</div>
-          <div>Ward Name:{data?.users?.wardName}</div>
-          <div>Phone Number:{data?.users?.phoneNumber}</div>
+          <table className='border-collapse w-full'>
+            <tbody>
+              <tr>
+                <td className='py-2 px-4 border'>Name</td>
+                <td className='py-2 px-4 border'>{data?.users?.name}</td>
+              </tr>
+              <tr>
+                <td className='py-2 px-4 border'>Photo</td>
+                <td   className='py-2 px-4 border'>
+                  <a target='_blank' href={`http://localhost:4000/uploads/${data.users?.photo}`}><img  className='h-16 w-16' src={`http://localhost:4000/uploads/${data.users?.photo}`} alt=''/>
+                  </a>
+               
+                </td>
+              </tr>
+              <tr>
+                <td className='py-2 px-4 border'>Age</td>
+                <td className='py-2 px-4 border'>{data?.users?.age}</td>
+              </tr>
+              <tr>
+                <td className='py-2 px-4 border'>Date of Birth</td>
+                <td className='py-2 px-4 border'>{data?.users?.dob}</td>
+              </tr>
+              <tr>
+                <td className='py-2 px-4 border'>Gender</td>
+                <td className='py-2 px-4 border'>{data?.users?.gender}</td>
+              </tr>
+              <tr>
+                <td className='py-2 px-4 border'>ID Proof</td>
+                <td className='py-2 px-4 border'>{data?.users?.idproof}</td>
+              </tr>
+              <tr>
+                <td className='py-2 px-4 border'>Ward Number</td>
+                <td className='py-2 px-4 border'>{data?.users?.wardNumber}</td>
+              </tr>
+              <tr>
+                <td className='py-2 px-4 border'>Ward Name</td>
+                <td className='py-2 px-4 border'>{data?.users?.wardName}</td>
+              </tr>
+              <tr>
+                <td className='py-2 px-4 border'>Phone Number</td>
+                <td className='py-2 px-4 border'>{data?.users?.phoneNumber}</td>
+              </tr>
+              <tr>
+                <td className='py-2 px-4 border'>email id</td>
+                <td className='py-2 px-4 border'>{data?.users?.email}</td>
+              </tr>
+              <tr>Permenant Address</tr>
+              <tr>
+                <td className='py-2 px-4 border'>House name</td>
+                <td className='py-2 px-4 border'>{data?.users?.houseName}</td>
+              </tr>
+              <tr>
+                <td className='py-2 px-4 border'>Street</td>
+                <td className='py-2 px-4 border'>{data?.users?.street}</td>
+              </tr>
+              
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

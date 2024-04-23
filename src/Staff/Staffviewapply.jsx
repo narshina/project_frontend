@@ -1,17 +1,21 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate';
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 export const Staffviewapply = () => {
     let id=localStorage.getItem('id')
-    const[data,setData]=useState([''])
+    const[data,setData]=useState([])
     const [currentPage, setCurrentPage] = useState(0);
     const itemsPerPage = 5;
     useEffect(() => {
         const fetchData = async () => {
             try {
                 let response = await axios.get(`http://localhost:4000/Staff/vapply/${id}`);
+                if(data==[]){
+                    navigate('/staff/staffviewservice')
+                    console.log('asasaasouhjn');
+                }
                 console.log(response,'====================');
                 // Sort the data based on both application date and processing time
                 const sortedData = response.data.sort((a, b) => {
@@ -36,6 +40,8 @@ export const Staffviewapply = () => {
         setCurrentPage(selected);
     };
     console.log(data,'--------------------');
+    let navigate=useNavigate()
+   
   return (
     <div className=' w-screen h-[655px] bg-[#CCDAF6]  pt-5 ' >
      <div className='ml-[650px] font-serif text-[20px] font-bold'><h2> APPLICATIONS</h2></div>   

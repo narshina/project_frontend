@@ -205,7 +205,7 @@ export const Userreg = () => {
               HOUSE NAME:
 
             </span>
-            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='houseName' type='text'></input></div>
+            <input required onChange={handlechange} pattern="^[a-zA-Z ]*$" title="Only alphabets are allowed" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='houseName' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               STREET:
@@ -249,7 +249,7 @@ export const Userreg = () => {
               PINCODE:
 
             </span>
-            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='currentpin' type='text'></input></div>
+            <input required onChange={handlechange} pattern="[0-9]{6}" title="please enter a valid Pincode" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='currentpin' type='text' maxLength={6}></input></div>
 
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>

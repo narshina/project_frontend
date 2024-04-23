@@ -56,9 +56,11 @@ try {
     }
   });
   console.log(response.data);
+  toast.success('submit successfully')
+
 } catch (error) {
   console.error('Error:', error);
-  toast.error('Failed to submit');
+  toast.error('secretary already added');
 }
 
     const requiredFields = ['name', 'photo', 'age', 'gender', 'email', 'qualification', 'houseName', 'street', 'district', 'pincode', 'phoneNumber', 'password'];
@@ -83,7 +85,6 @@ try {
     console.log(data);
 
 
-    toast.success('submit successfully')
     // setdata('')
     console.log(data);
   }

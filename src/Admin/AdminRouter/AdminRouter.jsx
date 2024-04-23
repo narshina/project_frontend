@@ -36,7 +36,7 @@ const AdminRouter = () => {
   const [not,setnot]=useState(false)
   const [meet,setmeet]=useState(false)
   const [nav,setnav]=useState(true)
-  const [news,setnews]=useState(true)
+  const [news,setnews]=useState(false)
   let Toggle=()=>{
     setnav(!nav)
   }

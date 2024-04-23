@@ -31,7 +31,7 @@ const [idd,setid]=useState(false)
 
 
   return (
-<div className='w-[100%]  bg-[#CCDAF6] flex justify-center h-[660px]'>
+<div className='w-[100%]  bg-[#CCDAF6] flex justify-center '>
     <div class="p-2 border text-center bg-white text-gray-500 max-w-sm h-fit  w-fit  rounded-xl mt-20">
     <img class="w-32 h-32 rounded-full mx-auto" src={`http://localhost:4000/uploads/${userdata.photo}`} alt=""/>
     <div class="text-sm mt-5">
@@ -72,6 +72,57 @@ const [idd,setid]=useState(false)
         
 
         <div className=''>
+        <div className='font-bold'>house name</div>
+        <div className=''>{userdata.houseName}</div>
+        </div>
+        <div className=''>
+        <div className='font-bold'>street</div>
+        <div className=''>{userdata.street}</div>
+        </div>
+        
+
+        <div className=''>
+        <div className='font-bold'>post office</div>
+        <div className=''>{userdata.district}</div>
+        </div>
+        <div className=''>
+        <div className='font-bold'>pincode</div>
+        <div className=''>{userdata.pincode}</div>
+        </div>
+
+        </div>
+        </div>
+        <div className='flex justify-around gap-4 mb-5 border-b-8 pb-4'>
+
+        
+
+        <div className=''>
+        <div className='font-bold'>house</div>
+        <div className=''>{userdata.currenthouse}</div>
+        </div>
+        <div className=''>
+        <div className='font-bold'>street</div>
+        <div className=''>{userdata.currentstreet}</div>
+        </div>
+        
+
+        <div className=''>
+        <div className='font-bold'>post office</div>
+        <div className=''>{userdata.currentpost}</div>
+        </div>
+
+        <div className=''>
+        <div className='font-bold'>pincode</div>
+        <div className=''>{userdata.currentpin}</div>
+        </div>
+        
+
+        </div>
+        <div className='flex justify-around gap-4 mb-5 border-b-8 pb-4'>
+
+        
+
+        <div className=''>
         <div className='font-bold'>ward number</div>
         <div className=''>{userdata.wardNumber}</div>
         </div>
@@ -85,30 +136,10 @@ const [idd,setid]=useState(false)
         <div className='font-bold'>house number</div>
         <div className=''>{userdata.houseNumber}</div>
         </div>
-        <div className=''>
-        <div className='font-bold'>house name</div>
-        <div className=''>{userdata.houseName}</div>
-        </div>
-
-        </div>
-        </div>
-        <div className='flex justify-around gap-4 mb-5'>
-
-        
 
         <div className=''>
-        <div className='font-bold'>street</div>
-        <div className=''>{userdata.street}</div>
-        </div>
-        <div className=''>
-        <div className='font-bold'>post office</div>
-        <div className=''>{userdata.district}</div>
-        </div>
-        
-
-        <div className=''>
-        <div className='font-bold'>pincode</div>
-        <div className=''>{userdata.pincode}</div>
+        <div className='font-bold'>phone number</div>
+        <div className=''>{userdata.phoneNumber}</div>
         </div>
         
 
