@@ -24,12 +24,16 @@ export const Usereditprofile = () => {
 
     const fileUploadPhoto = useRef(null);
     const fileUploadIdProof = useRef(null);
+    const fileUploadpancard =useRef(null)
   
     const handleUploadFile = (type) => {
       if (type === 'photo') {
         fileUploadPhoto.current.click();
       } else if (type === 'idproof') {
         fileUploadIdProof.current.click();
+      }
+      else if (type === 'pancard'){
+        fileUploadpancard.current.click();
       }
     };
     let handlefile=(event)=>{
@@ -204,26 +208,23 @@ export const Usereditprofile = () => {
             <input onChange={handlechange} placeholder={userdata.pincode} type='text' name='pincode' className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' maxLength={6}></input></div>
 
 
-            {/* <div className='text h-9   text-white mt-4 flex'>
-            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
-              PASSWORD:
-
-            </span>
-            <div className="flex text-black  h-9 w-56 bg-white rounded-r-lg justify-center items-center pl-3">
-            <input onChange={handlechange} className='outline-none' name='password' type={showpassword}></input>
-           { showpassword === 'text' ?  <FaEye onClick={()=> setshowpassword('password') } color='black' className='ms-2'/> :
            
-           <FaEyeSlash  onClick={()=> setshowpassword('text') } color='black' className='ms-2'/>
-           }
-            </div>
-            </div> */}
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PHONE NUMBER:
 
             </span>
             <input onChange={handlechange} placeholder={userdata.phoneNumber}  type='text' name='phoneNumber' className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' maxLength={10}></input></div>
-            
+            <div className='text h-9   text-white mt-4 flex' onClick={() => handleUploadFile('pancard')}>
+            <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
+              PANCARD:
+
+            </span>
+            <input onChange={handlefile} ref={fileUploadpancard} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='pancard' />
+            <div className="">
+              <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg pl-3'>upload</p>
+            </div>
+            </div>
             
             
 

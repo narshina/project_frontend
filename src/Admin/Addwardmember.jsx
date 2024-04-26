@@ -69,9 +69,10 @@ try {
   });
   navigate('/admin/viewwardmember')
   console.log(response.data);
+  toast.success('submit successfully')
 } catch (error) {
   console.error('Error:', error);
-  toast.error('Failed to submit');
+  toast.error(error.response.data || error.message || 'error');
 }
     const requiredFields = ['name', 'photo', 'age', 'gender', 'email','houseName','street','district','pincode','phoneNumber','password','wardName','wardNumber'];
 
@@ -90,7 +91,6 @@ try {
       return toast.error('password is not matched')
     }
     setdata(data)
-    toast.success('submit successfully')
     console.log(data);
 
   }

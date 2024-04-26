@@ -40,7 +40,7 @@ export const Secviewaplsndetail = () => {
     fetchData();
   }, [id]);
 
-  const handlesubmit = async (statuss) => {
+  const handlesubmit =  (statuss) => {
     
     console.log(data.certificate,'---------------------------------');
     if (!data.certificate) {
@@ -55,21 +55,21 @@ export const Secviewaplsndetail = () => {
     if (reasons.reason) {
       formData.append('reason', reasons.reason);
     }
-    let response = await axios.put(`http://localhost:4000/Staff/manageapplicationpresident/${id}`, formData, {
+    let response =  axios.put(`http://localhost:4000/Staff/manageapplicationpresident/${id}`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data' // Set the content type for FormData
       }
     });
+    navigate('/president/secviewapllcsn')
     console.log(response);
     setData('');
-    window.location.href='/president/secviewapllcsn'
-    navigate('/president/secviewapllcsn')
   };
 
-  const handlereason = async (statuss) => {
-    let response = await axios.put(`http://localhost:4000/Staff/reject/${id}`, { reason: reasons.reason, status: statuss });
+  const handlereason =  (statuss) => {
+    let response =  axios.put(`http://localhost:4000/Staff/reject/${id}`, { reason: reasons.reason, status: statuss });
     console.log(response);
-    setData('');
+    navigate('/president/secviewapllcsn')
+
   };
 
   const reasondrop = () => {

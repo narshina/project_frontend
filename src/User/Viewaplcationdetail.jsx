@@ -56,8 +56,8 @@ export const Viewaplcationdetail = () => {
                                         </td>
                                     ) : (
                                         <React.Fragment>
-                                            <td>{key === 'applicationDate' ? 'Date: ' + formatDate(data.application[key]) : key}</td>
-                                            <td>{key !== 'applicationDate' && data.application[key]}</td>
+                                            <td className='py-2 px-2 border'>{key === 'applicationDate' ? 'Date: ' + formatDate(data.application[key]) : key}</td>
+                                            <td className='py-2 px-2 border'>{key !== 'applicationDate' && data.application[key]}</td>
                                         </React.Fragment>
                                     )}
                                 </tr>

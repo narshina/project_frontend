@@ -193,12 +193,7 @@ export const Userreg = () => {
         </div>
         <div className=' h-[360px] w-[450px]  '>
        
-            <div className='text h-9   text-white mt-4 flex'>
-            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
-              HOUSE NUMBER:
-
-            </span>
-            <input required onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='houseNumber' type='number' pattern='{3}'></input></div>
+            
             <div className='text-[20px]'>Permenant Address</div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
@@ -250,6 +245,12 @@ export const Userreg = () => {
 
             </span>
             <input required onChange={handlechange} pattern="[0-9]{6}" title="please enter a valid Pincode" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='currentpin' type='text' maxLength={6}></input></div>
+            <div className='text h-9   text-white mt-4 flex'>
+            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
+              HOUSE NUMBER:
+
+            </span>
+            <input required onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='houseNumber' type='number' pattern='{3}'></input></div>
 
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
