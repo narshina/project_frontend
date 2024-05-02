@@ -34,8 +34,8 @@ export const Viewcomplaint = () => {
     <div className='text-center font-serif text-[20px] font-bold'><h2>COMPLAINT</h2></div>
 
     <div className="relative overflow-x-auto justify-center flex">
-        <table className="w-[80%] text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400 mt-5">
-            <thead className="text-xs text-gray-700 uppercase bg-slate-400 dark:bg-gray-700 dark:text-gray-400">
+        <table className="w-[80%]  text-center rtl:text-right dark:text-gray-400 mt-5">
+            <thead className=" text-gray-700 uppercase bg-slate-300 dark:bg-gray-700 dark:text-gray-400">
                 <tr className='text-center'>
                     <th scope="col" className="px-6 py-3">
                         NAME

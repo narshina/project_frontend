@@ -108,18 +108,16 @@ try {
               NAME:
 
             </span>
-            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed"  className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='name' type='text'></input></div>
-            <div className='text h-9   text-white mt-4 flex' onClick={() => handleUploadFile('photo')}>
+            <input required onChange={handlechange} pattern="^[a-zA-Z ]*$" title="Only alphabets are allowed"  className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='name' type='text'></input></div>
+            <div className='text h-9   text-white mt-4 flex'>
             <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PHOTO:
 
             </span>
 
             
-            <input required onChange={handlefile} ref={fileUploadPhoto} className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' type="file"  name='photo' />
-            <div className="">
-              <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg pl-2'>upload</p>
-            </div>
+            <input required onChange={handlefile}  className=' h-9 w-56 bg-white rounded-r-lg text-black ' type="file"  name='photo' />
+            
             </div>
           
           <div className='text h-9   text-white mt-4 flex'>
@@ -127,7 +125,7 @@ try {
               AGE:
 
             </span>
-            <input required onChange={handlechange}  className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='age' type='number'></input></div>
+            <input required onChange={handlechange}  className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='age' type='number' maxLength={3}></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               GENDER:

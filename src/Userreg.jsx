@@ -103,15 +103,13 @@ export const Userreg = () => {
 
             </span>
             <input required onChange={handlechange} pattern="^[a-zA-Z ]*$" title="Only alphabets are allowed" className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='name' type='text'></input></div>
-            <div className='text h-9   text-white mt-4 flex' onClick={() => handleUploadFile('photo')}>
+            <div className='text h-9   text-white mt-4 flex' >
             <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               Photo:
 
             </span>
-            <input required onChange={handlefile} ref={fileUploadPhoto} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='photo' />
-            <div className="">  
-              <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg pl-3'>upload</p>
-            </div>
+            <input required onChange={handlefile}  type="file" className=' h-9 w-56 bg-white rounded-r-lg text-black ' name='photo' />
+            
             </div>
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
@@ -137,15 +135,13 @@ export const Userreg = () => {
               <option value='male'>Male</option>
               <option value='others'>Others</option>
               </select></div>
-            <div className='text h-9   text-white mt-4 flex' onClick={() => handleUploadFile('idproof')}>
+            <div className='text h-9   text-white mt-4 flex' >
             <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               ID PROOF:
 
             </span>
-            <input required onChange={handlefile} ref={fileUploadIdProof} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='idproof' />
-            <div className="">
-              <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg pl-3'>upload</p>
-            </div>
+            <input required onChange={handlefile} type="file" className=' h-9 w-56 bg-white rounded-r-lg text-black ' name='idproof' />
+            
             </div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
@@ -158,7 +154,13 @@ export const Userreg = () => {
               WARD NAME:
 
             </span>
-            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed" type='text' className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='wardName' ></input></div>
+            <input required onChange={handlechange} pattern="^[a-zA-Z ]*$" title="Only alphabets are allowed" type='text' className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='wardName' ></input></div>
+            <div className='text h-9   text-white mt-4 flex'>
+            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
+              HOUSE NUMBER:
+
+            </span>
+            <input required onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='houseNumber' type='number' pattern='{3}'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               EMAIL ID:
@@ -172,16 +174,7 @@ export const Userreg = () => {
             </span>
             <input required onChange={handlechange} type='text' name='phoneNumber' pattern="[0-9]{10}" title="Please enter a valid phone number" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' maxLength={10}></input></div>
 
-            <div className='text h-9   text-white mt-4 flex' onClick={() => handleUploadFile('pancard')}>
-            <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
-              PANCARD:
-
-            </span>
-            <input required onChange={handlefile} ref={fileUploadpancard} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='pancard' />
-            <div className="">
-              <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg pl-3'>upload</p>
-            </div>
-            </div>
+           
 
 
 
@@ -220,7 +213,7 @@ export const Userreg = () => {
 
             </span>
             <input required onChange={handlechange} type='text' name='pincode' className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' pattern="[0-9]{6}" title="Please enter a valid 6-digit PIN code"></input></div>
-            <div className='text-[20px]'>Communication Address</div>
+            <div className='text-[20px]'>Current Address</div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               HOUSE NAME:
@@ -245,12 +238,15 @@ export const Userreg = () => {
 
             </span>
             <input required onChange={handlechange} pattern="[0-9]{6}" title="please enter a valid Pincode" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='currentpin' type='text' maxLength={6}></input></div>
-            <div className='text h-9   text-white mt-4 flex'>
-            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
-              HOUSE NUMBER:
+            <div className='text h-9   text-white mt-4 flex' >
+            <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
+              PANCARD:
 
             </span>
-            <input required onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='houseNumber' type='number' pattern='{3}'></input></div>
+            <input required onChange={handlefile}  type="file" className=' h-9 w-56 bg-white rounded-r-lg text-black ' name='pancard' />
+            
+            </div>
+            
 
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>

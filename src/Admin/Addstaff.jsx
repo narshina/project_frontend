@@ -98,17 +98,15 @@ export const Addstaff = () => {
               NAME:
 
             </span>
-            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed"  className='h-9 w-56 bg-white rounded-r-lg text-black pl-2' name='name' type='text'></input></div>
-            <div className='text h-9   text-white mt-4 flex' onClick={handleUploadFile}>
+            <input required onChange={handlechange} pattern="^[a-zA-Z ]*$" title="Only alphabets are allowed"  className='h-9 w-56 bg-white rounded-r-lg text-black pl-2' name='name' type='text'></input></div>
+            <div className='text h-9   text-white mt-4 flex' >
               <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
                 PHOTO:
 
               </span>
               {/* <img src={URL.createObjectURL(data.photo)} className='w-12 h-12 object-cover'  alt="" /> */}
-              <input required onChange={handlefile} ref={fileUploadPhoto} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black pl-2 ' name='photo' />
-              <div className="">
-                <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg'>upload</p>
-              </div>
+              <input required onChange={handlefile}  type="file" className=' h-9 w-56 bg-white rounded-r-lg text-black pl-2 ' name='photo' />
+              
             </div>
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
@@ -155,19 +153,19 @@ export const Addstaff = () => {
               HOUSE:
 
             </span>
-            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed"  className='text-black  h-9 w-56 bg-white rounded-r-lg pl-2' name='houseName' type='text'></input></div>
+            <input required onChange={handlechange}   className='text-black  h-9 w-56 bg-white rounded-r-lg pl-2' name='houseName' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               STREET:
 
             </span>
-            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed"   className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='street' type='text'></input></div>
+            <input required onChange={handlechange}   className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='street' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               DISTRICT:
 
             </span>
-            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed"  className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='district' type='text' ></input></div>
+            <input required onChange={handlechange}   className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='district' type='text' ></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PINCODE:
@@ -180,7 +178,7 @@ export const Addstaff = () => {
               PHONE NUMBER:
 
             </span>
-            <input required onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='phoneNumber' type='text' maxLength={10}pattern="[0-9]{10}" title="Please enter a valid phone number"  ></input></div>
+            <input required onChange={handlechange} className='text-black h-9 w-56 bg-white rounded-r-lg pl-2' name='phoneNumber' type='text' maxLength={10} pattern="[0-9]{10}" title="Please enter a valid phone number"  ></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PASSWORD:

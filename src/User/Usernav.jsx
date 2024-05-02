@@ -28,6 +28,7 @@ export const Usernav = () => {
     navigate('/login')
 }
   const [comp,setcomp]=useState(false)
+  const [not,setnot]=useState(false)
   const [user,setuser]=useState(true)
   let Toggle=()=>{
     setuser(!user)
@@ -41,8 +42,12 @@ export const Usernav = () => {
   let compdropdown=()=>{
     setcomp(!false)
   }
+  let notdrop=()=>{
+    setnot(!false)
+  }
   let close=()=>{
     setcomp(false)
+    setnot(false)
   }
   return (
     <>
@@ -74,7 +79,9 @@ export const Usernav = () => {
           }
           </div>
        <Link to='/user/userviewmeet'> <div>MEETING</div></Link>
-      <Link to='/user/userviewnot' ><div>NOTIFICATION</div></Link>
+       <Link to='/user/userviewnot'> <div>NOTIFICATION</div></Link>
+
+      
        {lang?<div onClick={toggleLang}>ENGLISH</div> : <div onClick={toggleLang}>MALAYALAM</div>} 
        
       <Link to='/user/userprofile'><span>PROFILE</span></Link>

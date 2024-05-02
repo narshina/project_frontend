@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 
 export const Useviewnot = () => {
+  let id =localStorage.getItem('id')
   const [data, setdata] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage] = useState(5); // Change this value according to your preference
@@ -10,7 +11,7 @@ export const Useviewnot = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/User/viewnotificaion');
+        const response = await axios.get(`http://localhost:4000/User/viewnotuser/${id}`);
         // Sort the data by date before setting it to state
         const sortedData = response.data.sort((a, b) => new Date(b.date) - new Date(a.date));
         setdata(sortedData);
@@ -36,12 +37,10 @@ export const Useviewnot = () => {
       <div className='text-center font-serif text-[20px] font-bold'><h2>NOTIFICATIONS</h2></div>
 
       <div className="relative overflow-x-auto justify-center flex">
-        <table className="w-[850PX] text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400 mt-5">
-          <thead className="text-xs text-gray-700 uppercase bg-slate-400 dark:bg-gray-700 dark:text-gray-400">
+        <table className="w-[850PX] text-sm text-center rtl:text-right  dark:text-gray-400 mt-5">
+          <thead className="text-xs text-gray-700 uppercase bg-slate-300 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-              <th scope="col" className="px-6 py-3">
-                HOST
-              </th>
+              
               <th scope="col" className="px-6 py-3">
                 NOTIFICATION
               </th>
@@ -51,13 +50,12 @@ export const Useviewnot = () => {
             </tr>
           </thead>
           <tbody>
-            {currentItems.map((not, index) => (
+            {currentItems.map((nott, index) => (
               <tr key={index} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  {not.user.usertype}
+                {nott.notification}
                 </th>
-                <td>{not.notification}</td>
-                <td className=""> {(new Date(not.date)).toLocaleString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}</td>
+                <td className=""> {(new Date(nott.date)).toLocaleString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}</td>
               </tr>
             ))}
           </tbody>

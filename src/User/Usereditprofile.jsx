@@ -95,10 +95,10 @@ export const Usereditprofile = () => {
 
   return (
     <form onSubmit={handlesubmit}>
-    <div className=' w-screen h-screen bg-[#CCDAF6] pt-14'>
+    <div className=' w-screen h-screen bg-[#CCDAF6] pt-8'>
       <div className='font-bold font-serif text-[20px] m-auto text-center '>EDIT PROFILE</div>
       <div className="flex flex-wrap justify-center gap-8 " >
-        <div className=' h-[400px] w-[450px] '>
+        <div className=' h-[500px] w-[450px] '>
 
 
           <div className='text h-9   text-white mt-4 flex'>
@@ -107,15 +107,13 @@ export const Usereditprofile = () => {
 
             </span>
             <input onChange={handlechange} placeholder={userdata.name} className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='name' type='text'></input></div>
-            <div className='text h-9   text-white mt-4 flex' onClick={() => handleUploadFile('photo')}>
+            <div className='text h-9   text-white mt-4 flex' >
             <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               Photo:
 
             </span>
-            <input onChange={handlefile} ref={fileUploadPhoto} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='photo' />
-            <div className="">  
-              <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg pl-3'>upload</p>
-            </div>
+            <input onChange={handlefile}  type="file" className=' h-9 w-56 bg-white rounded-r-lg text-black ' name='photo' />
+            
             </div>
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
@@ -141,15 +139,13 @@ export const Usereditprofile = () => {
               <option value='male'>Male</option>
               <option value='others'>Others</option>
               </select></div>
-            <div className='text h-9   text-white mt-4 flex' onClick={() => handleUploadFile('idproof')}>
+            <div className='text h-9   text-white mt-4 flex'>
             <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               ID PROOF:
 
             </span>
-            <input onChange={handlefile} ref={fileUploadIdProof} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='idproof' />
-            <div className="">
-              <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg pl-3'>upload</p>
-            </div>
+            <input onChange={handlefile}  type="file" className=' h-9 w-56 bg-white rounded-r-lg text-black ' name='idproof' />
+            
             </div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
@@ -163,13 +159,7 @@ export const Usereditprofile = () => {
 
             </span>
             <input onChange={handlechange} placeholder={userdata.wardName} type='text' className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='wardName' ></input></div>
-
-
-
-
-        </div>
-        <div className=' h-[360px] w-[450px]  '>
-        <div className='text h-9   text-white mt-4 flex'>
+            <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               EMAIL ID:
 
@@ -181,6 +171,23 @@ export const Usereditprofile = () => {
 
             </span>
             <input onChange={handlechange} placeholder={userdata.houseNumber} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='houseNumber' type='text'></input></div>
+            <div className='text h-9   text-white mt-4 flex' >
+            <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
+              PANCARD:
+
+            </span>
+            <input onChange={handlefile}  type="file" className=' h-9 w-56 bg-white rounded-r-lg text-black ' name='pancard' />
+            
+            </div>
+            
+
+
+
+
+        </div>
+        <div className=' h-[360px] w-[450px]  '>
+        
+            <div className='text-[20px]'>Permanent Address</div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               HOUSE NAME:
@@ -208,30 +215,44 @@ export const Usereditprofile = () => {
             <input onChange={handlechange} placeholder={userdata.pincode} type='text' name='pincode' className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' maxLength={6}></input></div>
 
 
+            <div className='text-[20px]'>Current Address</div>
+            <div className='text h-9   text-white mt-4 flex'>
+            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
+              HOUSE NAME:
+
+            </span>
+            <input onChange={handlechange} placeholder={userdata.currenthouse} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='currenthouse' type='text'></input></div>
            
+            <div className='text h-9   text-white mt-4 flex'>
+            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
+              STREET:
+
+            </span>
+            <input onChange={handlechange} placeholder={userdata.currentstreet} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='currentstreet' type='text'></input></div>
+            
+            <div className='text h-9   text-white mt-4 flex'>
+            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
+              POST OFFICE:
+
+            </span>
+            <input onChange={handlechange} placeholder={userdata.currentpost} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='currentpost' type='text'></input></div>
+            <div className='text h-9   text-white mt-4 flex'>
+            <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
+              PINCODE:
+
+            </span>
+            <input onChange={handlechange} placeholder={userdata.currentpin} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='currentpin' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PHONE NUMBER:
 
             </span>
             <input onChange={handlechange} placeholder={userdata.phoneNumber}  type='text' name='phoneNumber' className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' maxLength={10}></input></div>
-            <div className='text h-9   text-white mt-4 flex' onClick={() => handleUploadFile('pancard')}>
-            <span  className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
-              PANCARD:
-
-            </span>
-            <input onChange={handlefile} ref={fileUploadpancard} type="file" className='hidden h-9 w-56 bg-white rounded-r-lg text-black ' name='pancard' />
-            <div className="">
-              <p className=' text-slate-500 h-9 w-56 bg-white rounded-r-lg pl-3'>upload</p>
-            </div>
-            </div>
-            
-            
 
         </div>
       </div>
       <div className='text-center'>
-        <button className='button text-white font-semibold bg-[#0F3053] w-48 h-9 rounded mt-20  m-auto'>SUBMIT</button></div>
+        <button className='button text-white font-semibold bg-[#0F3053] w-48 h-9 rounded mt-24  m-auto'>SUBMIT</button></div>
     </div>
     </form>
   

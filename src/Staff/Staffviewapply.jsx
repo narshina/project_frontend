@@ -19,7 +19,7 @@ export const Staffviewapply = () => {
                 console.log(response,'====================');
                 // Sort the data based on both application date and processing time
                 const sortedData = response.data.sort((a, b) => {
-                    const dateComparison = new Date(b.application.applicationDate) - new Date(a.application.applicationDate);
+                    const dateComparison = new Date(a.application.applicationDate) - new Date(b.application.applicationDate);
                     if (dateComparison !== 0) {
                         return dateComparison; // Sort by application date first
                     }
@@ -48,8 +48,8 @@ export const Staffviewapply = () => {
 
 <div class="relative overflow-x-auto justify-center flex">
     {data ?
-    <table class="w-[850PX] text-sm  rtl:text-right text-gray-500 dark:text-gray-400 mt-5">
-        <thead class="text-xs text-gray-700 uppercase bg-slate-400 dark:bg-gray-700 dark:text-gray-400">
+    <table class="w-[850PX]   rtl:text-right dark:text-gray-400 mt-5">
+        <thead class=" text-gray-700 uppercase bg-slate-300 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
                     Apllications
@@ -74,7 +74,7 @@ export const Staffviewapply = () => {
                 <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">{application?.service?.service}</a>
                 </th>
                <td>{application?.application?.status}</td>
-               <td>{(new Date(application?.application?.applicationDate)).toLocaleString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</td>
+               <td>{(new Date(application?.application?.applicationDate)).toLocaleString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}</td>
 
                <Link to={`/staff/staffviewapplydetail/${application.application?._id}`}> <td className='px-6 py-4'>View</td></Link> 
             </tr>

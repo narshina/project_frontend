@@ -26,28 +26,35 @@ export const Userviewdetail = () => {
   }
 
   const [idd,setid]=useState(false)
+  const [iddd,setid1]=useState(false)
   let toggleId=()=>{
     setid(!idd)
   }
   let toggleIdfalse=()=>{
     setid(false)
   }
+  let toggleID1=()=>{
+    setid1(!iddd)
+  }
+  let toggleID1false=()=>{
+    setid1(false)
+  }
 
   return (
-    <div className='w-[100%]  bg-[#CCDAF6] flex justify-center h-[660px]'>
-    <div class="p-2 border text-center bg-white text-gray-500 max-w-sm h-fit  w-fit  rounded-xl mt-20">
+    <div className='w-[100%]  bg-[#CCDAF6] flex justify-center '>
+    <div class="p-2 border text-center bg-white   h-fit  w-[500px]  rounded-xl mt-5">
     <img class="w-32 h-32 rounded-full mx-auto" src={`http://localhost:4000/uploads/${data.photo}`} alt=""/>
-    <div class="text-sm mt-5">
+    <div class="text-base mt-5">
         <a href="#"
-            class="font-medium leading-none text-gray-900 hover:text-indigo-600 transition duration-500 ease-in-out">{data.name}
+            class="font-medium leading-none text-gray-900 hover:text-indigo-600 transition duration-500 ease-in-out text-[15px]">{data.name}
         </a>
-        <p>{data.email}</p><br />
+        <div className='tex-black font-bold text-[15px]'>{data.email}</div><br />
         <div className='p-4'>
 <div className='flex justify-around mb-5 border-b-8 pb-4 '>
 
         <div className=''>
         <div className='font-bold'>Age</div>
-        <div className=''>{data.age}</div>
+        <div className='text-black'>{data.age}</div>
         </div>
         <div className=''>
         <div className='font-bold'>date of birth</div>
@@ -59,17 +66,81 @@ export const Userviewdetail = () => {
         </div>
         <div className=''>
         <div className='font-bold'>id proof</div>
-        <div onMouseEnter={toggleId} onMouseLeave={toggleIdfalse} className=''><button>view</button></div>
+       <a href={`http://localhost:4000/uploads/${data.idproof}`}  target='_blank'><div onMouseEnter={toggleId} onMouseLeave={toggleIdfalse} className=''><button>view</button></div></a> 
+        </div>
+        <div>
+        <div className='font-bold'>Pancard</div>
+        <a href={`http://localhost:4000/uploads/${data.pancard}`} target='_blank'>
+        <div onMouseEnter={toggleID1} onMouseLeave={toggleID1false}  className=''><button>view</button></div></a>
         </div>
 
 </div>
 { idd &&
 
 <div>
-  <img src={`http://localhost:4000/uploads/${data.photo}`} alt="" />
+  <img src={`http://localhost:4000/uploads/${data.idproof}`} alt="" />
 </div>
 }
+{
+  iddd &&
+  <div>
+      <img src={`http://localhost:4000/uploads/${data.pancard}`} alt="" />
+  </div>
+}
+
+<div>Permenant Address</div>
 <div className='flex justify-around gap-4 mb-5 border-b-8 pb-4 '>
+
+        
+
+        <div className=''>
+        <div className='font-bold'>house name</div>
+        <div className=''>{data.houseName}</div>
+        </div>
+        <div className=''>
+        <div className='font-bold'>street</div>
+        <div className=''>{data.street}</div>
+        </div>
+        
+
+        <div className=''>
+        <div className='font-bold'>post office</div>
+        <div className=''>{data.district}</div>
+        </div>
+        <div className=''>
+        <div className='font-bold'>pincode</div>
+        <div className=''>{data.pincode}</div>
+        </div>
+
+        </div>
+        </div>
+        <div>Current Address</div>
+        <div className='flex justify-around gap-4 mb-5 border-b-8 pb-4'>
+
+        
+
+        <div className=''>
+        <div className='font-bold'>house</div>
+        <div className=''>{data.currenthouse}</div>
+        </div>
+        <div className=''>
+        <div className='font-bold'>street</div>
+        <div className=''>{data.currentstreet}</div>
+        </div>
+        
+
+        <div className=''>
+        <div className='font-bold'>post office</div>
+        <div className=''>{data.currentpost}</div>
+        </div>
+        <div className=''>
+        <div className='font-bold'>pincode</div>
+        <div className=''>{data.currentpin}</div>
+        </div>
+        
+
+        </div>
+        <div className='flex justify-around gap-4 mb-5'>
 
         
 
@@ -86,31 +157,6 @@ export const Userviewdetail = () => {
         <div className=''>
         <div className='font-bold'>house number</div>
         <div className=''>{data.houseNumber}</div>
-        </div>
-        <div className=''>
-        <div className='font-bold'>house name</div>
-        <div className=''>{data.houseName}</div>
-        </div>
-
-        </div>
-        </div>
-        <div className='flex justify-around gap-4 mb-5'>
-
-        
-
-        <div className=''>
-        <div className='font-bold'>street</div>
-        <div className=''>{data.street}</div>
-        </div>
-        <div className=''>
-        <div className='font-bold'>post office</div>
-        <div className=''>{data.district}</div>
-        </div>
-        
-
-        <div className=''>
-        <div className='font-bold'>pincode</div>
-        <div className=''>{data.pincode}</div>
         </div>
         <div className=''>
         <div className='font-bold'>phone number</div>

@@ -93,8 +93,8 @@ export const Secviewaplsndetail = () => {
               {Object.keys(data.application ?? {}).map((key) => (
                 (key !== '_id' && key !== 'serviceId' && key !== 'userId') && (
                   <tr key={key}>
-                    <td className='py-2 px-4 border'>{key}</td>
-                    <td className='py-2 px-4 border'>{key === 'document' ? <button onClick={downloadDocument}>{data.application[key]}</button> : data.application[key]}</td>
+                    <td className='py-2 px-4 border text-[20px]'>{key}</td>
+                    <td className='py-2 px-4 border text-[20px]'>{key === 'document' ? <button onClick={downloadDocument}>{data.application[key]}</button> : data.application[key]}</td>
                   </tr>
                 )
               ))}
@@ -105,11 +105,11 @@ export const Secviewaplsndetail = () => {
           <table className='border-collapse w-full'>
             <tbody>
               <tr>
-                <td className='py-2 px-4 border'>Name</td>
-                <td className='py-2 px-4 border'>{data?.users?.name}</td>
+                <td className='py-2 px-4 border text-[20px]'>Name</td>
+                <td className='py-2 px-4 border text-[20px]'>{data?.users?.name}</td>
               </tr>
               <tr>
-                <td className='py-2 px-4 border'>Photo</td>
+                <td className='py-2 px-4 border text-[20px]'>Photo</td>
                 <td   className='py-2 px-4 border'>
                   <a target='_blank' href={`http://localhost:4000/uploads/${data.users?.photo}`}><img  className='h-16 w-16' src={`http://localhost:4000/uploads/${data.users?.photo}`} alt=''/>
                   </a>
@@ -117,56 +117,91 @@ export const Secviewaplsndetail = () => {
                 </td>
               </tr>
               <tr>
-                <td className='py-2 px-4 border'>Age</td>
-                <td className='py-2 px-4 border'>{data?.users?.age}</td>
+                <td className='py-2 px-4 border text-[20px]'>Age</td>
+                <td className='py-2 px-4 border text-[20px]'>{data?.users?.age}</td>
               </tr>
               <tr>
-                <td className='py-2 px-4 border'>Date of Birth</td>
-                <td className='py-2 px-4 border'>{data?.users?.dob}</td>
+                <td className='py-2 px-4 border text-[20px]'>Date of Birth</td>
+                <td className='py-2 px-4 border text-[20px]'>{data?.users?.dob}</td>
               </tr>
               <tr>
-                <td className='py-2 px-4 border'>Gender</td>
-                <td className='py-2 px-4 border'>{data?.users?.gender}</td>
+                <td className='py-2 px-4 border text-[20px]'>Gender</td>
+                <td className='py-2 px-4 border text-[20px]'>{data?.users?.gender}</td>
               </tr>
               <tr>
-                <td className='py-2 px-4 border'>ID Proof</td>
-                <td className='py-2 px-4 border'>{data?.users?.idproof}</td>
+                <td className='py-2 px-4 border text-[20px]'>ID Proof</td>
+                <td className='py-2 px-4 border text-[20px]'><a href={`http://localhost:4000/uploads/${data?.users?.idproof}`} target='_blank'>{data?.users?.idproof}</a></td>
               </tr>
               <tr>
-                <td className='py-2 px-4 border'>Ward Number</td>
-                <td className='py-2 px-4 border'>{data?.users?.wardNumber}</td>
+                <td className='py-2 px-4 border text-[20px]'>Pancard</td>
+                <td className='py-2 px-4 border text-[20px]'><a href={`http://localhost:4000/uploads/${data?.users?.pancard}`} target='_blank'>{data?.users?.pancard}</a></td>
               </tr>
               <tr>
-                <td className='py-2 px-4 border'>Ward Name</td>
-                <td className='py-2 px-4 border'>{data?.users?.wardName}</td>
+                <td className='py-2 px-4 border text-[20px]'>Ward Number</td>
+                <td className='py-2 px-4 border text-[20px]'>{data?.users?.wardNumber}</td>
               </tr>
               <tr>
-                <td className='py-2 px-4 border'>Phone Number</td>
-                <td className='py-2 px-4 border'>{data?.users?.phoneNumber}</td>
+                <td className='py-2 px-4 border text-[20px]'>Ward Name</td>
+                <td className='py-2 px-4 border text-[20px]'>{data?.users?.wardName}</td>
               </tr>
               <tr>
-                <td className='py-2 px-4 border'>email id</td>
-                <td className='py-2 px-4 border'>{data?.users?.email}</td>
+                <td className='py-2 px-4 border text-[20px]'>House number</td>
+                <td className='py-2 px-4 border text-[20px]'>{data?.users?.houseNumber}</td>
+              </tr>
+              <tr>
+                <td className='py-2 px-4 border text-[20px]'>Phone Number</td>
+                <td className='py-2 px-4 border text-[20px]'>{data?.users?.phoneNumber}</td>
+              </tr>
+              <tr>
+                <td className='py-2 px-4 border text-[20px]'>email id</td>
+                <td className='py-2 px-4 border text-[20px]'>{data?.users?.email}</td>
               </tr>
               <tr>Permenant Address</tr>
               <tr>
-                <td className='py-2 px-4 border'>House name</td>
-                <td className='py-2 px-4 border'>{data?.users?.houseName}</td>
+                <td className='py-2 px-4 border text-[20px]'>House name</td>
+                <td className='py-2 px-4 border text-[20px]'>{data?.users?.houseName}</td>
               </tr>
               <tr>
-                <td className='py-2 px-4 border'>Street</td>
-                <td className='py-2 px-4 border'>{data?.users?.street}</td>
+                <td className='py-2 px-4 border text-[20px]'>Street</td>
+                <td className='py-2 px-4 border text-[20px]'>{data?.users?.street}</td>
+              </tr>
+              <tr>
+                <td className='py-2 px-4 border text-[20px]'>Post office</td>
+                <td className='py-2 px-4 border text-[20px]'>{data?.users?.district}</td>
+              </tr>
+              <tr>
+                <td className='py-2 px-4 border text-[20px]'>Pincode</td>
+                <td className='py-2 px-4 border text-[20px]'>{data?.users?.pincode}</td>
+              </tr>
+              <tr>Current Address</tr>
+              <tr>
+                <td className='py-2 px-4 border text-[20px]'>House</td>
+                <td className='py-2 px-4 border text-[20px]'>{data?.users?.currenthouse}</td>
+              </tr>
+              <tr>
+                <td className='py-2 px-4 border text-[20px]'>Street</td>
+                <td className='py-2 px-4 border text-[20px]'>{data?.users?.currentstreet}</td>
+              </tr>
+              <tr>
+                <td className='py-2 px-4 border text-[20px]'>Post office</td>
+                <td className='py-2 px-4 border text-[20px]'>{data?.users?.currentpost}</td>
+              </tr>
+              <tr>
+                <td className='py-2 px-4 border text-[20px]'>Pincode</td>
+                <td className='py-2 px-4 border text-[20px]'>{data?.users?.currentpin}</td>
               </tr>
               
             </tbody>
           </table>
             
           <div className='flex gap-12 mt-4'>
+          {reason  ? <span></span> :
           <form onSubmit={(e) => { e.preventDefault(); handlesubmit('accepted by secretary') }}>
               <button type="submit" className='href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline text-[20px]'>ACCEPT</button>
               <input ref={fileUpload} onChange={handlefile} name='certificate' type='file' ></input>
               {/* <button type="button" onClick={() => handleUploadFile('document')} className='href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline text-[20px]'>UPLOAD</button> */}
               </form>
+              }
             <div>
               <span onClick={reasondrop} className='font-medium text-blue-600 dark:text-blue-500 hover:underline text-[20px]'>REJECT</span>
               {reason &&

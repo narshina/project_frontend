@@ -43,31 +43,31 @@ export const Viewsecdetail = () => {
 
   return (
     <div className='w-[100%] h-[695px] bg-[#CCDAF6] flex justify-center'>
-    <div class="p-5 border text-center bg-white text-gray-500 max-w-sm h-fit  w-fit  rounded-xl mt-24">
+    <div class="p-5 border text-center bg-white   h-fit  w-[450px]  rounded-xl mt-24">
     <img class="w-32 h-32 rounded-full mx-auto" src={`http://localhost:4000/uploads/${userdata?.photo}`}  alt=""/>
     <div class="text-sm mt-5">
         <a href="#"
-            class="font-medium leading-none text-gray-900 hover:text-indigo-600 transition duration-500 ease-in-out">{userdata.name}
+            class="font-medium leading-none text-gray-900 hover:text-indigo-600 transition duration-500 ease-in-out text-[18px]">{userdata.name}
         </a>
-        <p>{userdata.email}</p><br />
+        <p className='text-[18px]'>{userdata.email}</p><br />
         <div className='p-4'>
 <div className='flex justify-around mb-5 border-b-8 pb-4 '>
 
         <div className=''>
-        <div className='font-bold'>Age</div>
-        <div className='text-black'>{userdata.age}</div>
+        <div className='font-bold text-[17px]'>Age</div>
+        <div className='text-black text-[17px]'>{userdata.age}</div>
         </div>
         <div className=''>
-        <div className='font-bold'>Gender</div>
-        <div className='text-black'>{userdata.gender}</div>
+        <div className='font-bold text-[17px]'>Gender</div>
+        <div className='text-black text-[17px]'>{userdata.gender}</div>
         </div>
         <div className=''>
-        <div className='font-bold'>Qualification</div>
-        <div className='text-black'>{userdata.qualification}</div>
+        <div className='font-bold text-[17px]'>Qualification</div>
+        <div className='text-black text-[17px]'>{userdata.qualification}</div>
         </div>
         <div className=''>
-        <div className='font-bold'>house</div>
-        <div className='text-black'>{userdata.houseName}</div>
+        <div className='font-bold text-[17px]'>house</div>
+        <div className='text-black text-[17px]'>{userdata.houseName}</div>
         </div>
 </div>
 
@@ -76,22 +76,22 @@ export const Viewsecdetail = () => {
         
 
         <div className=''>
-        <div className='font-bold'>street</div>
-        <div className='text-black'>{userdata.street}</div>
+        <div className='font-bold text-[17px]'>street</div>
+        <div className='text-black text-[17px]'>{userdata.street}</div>
         </div>
         <div className=''>
-        <div className='font-bold'>district</div>
-        <div className='text-black'>{userdata.district}</div>
+        <div className='font-bold text-[17px]'>district</div>
+        <div className='text-black text-[17px]'>{userdata.district}</div>
         </div>
         
 
         <div className=''>
-        <div className='font-bold'>pincode</div>
-        <div className='text-black'>{userdata.pincode}</div>
+        <div className='font-bold text-[17px]'>pincode</div>
+        <div className='text-black text-[17px]'>{userdata.pincode}</div>
         </div>
         <div className=''>
-        <div className='font-bold'>phone number</div>
-        <div className='text-black'>{userdata.phoneNumber}</div>
+        <div className='font-bold text-[17px]'>phone number</div>
+        <div className='text-black text-[17px]'>{userdata.phoneNumber}</div>
         </div>
 
         </div>

@@ -43,10 +43,10 @@ export const Viewnews = () => {
             <div className='text-center font-serif text-[20px] font-bold'><h2>ANNOUNCEMENT</h2></div>
 
             <div className="relative overflow-x-auto justify-center flex">
-                <table className="w-[80%] text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400 mt-5">
-                    <thead className="text-xs text-gray-700 uppercase bg-slate-400 dark:bg-gray-700 dark:text-gray-400">
+                <table className="w-[80%]  text-center rtl:text-right  dark:text-gray-400 mt-5">
+                    <thead className=" text-gray-700 uppercase bg-slate-300 dark:bg-gray-700 dark:text-gray-400">
                         <tr className='text-center'>
-                            <th scope="col" className="px-6 py-3">ANNOUNCEMENT</th>
+                            <th scope="col" className="px-4  py-3">ANNOUNCEMENT</th>
                             <th scope="col" className="px-6 py-3">DATE</th>
     
                             <th scope="col" className="px-6 py-3">Action</th>
@@ -55,7 +55,7 @@ export const Viewnews = () => {
                     <tbody>
                         {currentItems.map((item, index) => (
                             <tr key={index} className="odd:bg-white text-center odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white w-2 ">{item.news}</td>
+                                <td className="px-6 py-9  w-[800px] font-medium text-gray-900  dark:text-white  ">{item.news}</td>
                                 <td className="px-6 py-4">  {(new Date(item.date)).toLocaleString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}
 </td>
                                 <td className="px-6 py-4">

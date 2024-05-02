@@ -86,7 +86,7 @@ export const Userapplication = () => {
         {fetchData?.map((item) => (
 
           <div class="relative z-0  mb-5 h-fit group ">
-            <label for="floating_email" class="w-48">{value.lang ? <span className=''>{item?.field?.fieldMalayalam}</span> : <span>{item?.field?.fieldEnglish}</span>}</label><br />
+            <label for="floating_email" class="w-48 text-[20px]">{value.lang ? <span className=''>{item?.field?.fieldMalayalam}</span> : <span>{item?.field?.fieldEnglish}</span>}</label><br />
             <input required onChange={handlechange} type="text" name={item?.field?.fieldEnglish} id="floating_email" class="input_field w-[600px]" placeholder=" " />
             
           </div>

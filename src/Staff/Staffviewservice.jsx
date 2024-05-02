@@ -42,7 +42,7 @@ export const Staffviewservice = () => {
                         .filter(item => item.service.toLowerCase().includes(searchTerm.toLowerCase()))
                         .map(item => (
                             <Link to={`/staff/Addfield/${item._id}`} key={item._id}>
-                                <div className=" block text-white bg-[#0F3053] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  h-24 w-72text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 pt-10">
+                                <div className=" block text-white bg-[#0F3053] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5  h-24 w-72text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 pt-10">
                                     {item.service}
                                {/* <Link to='/staff/staffeditservice'><div className='text-center'><button className='hover:underline hover:text-blue-500' >Edit</button></div></Link> */}
                                 </div>

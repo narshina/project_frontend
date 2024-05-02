@@ -69,11 +69,11 @@ navigate('/admin')
           <div className='content ml-64 mt-32 w-96 h-72'>
            <div className='log font-bold text-[25px] ml-12'>Login Here</div>
            <div className='user mt-6'>USERNAME</div>
-           <input onChange={handlechange} className='username bg-indigo-400 text-neutral-950 rounded w-72  h-9 mt-2 placeholder:text-white p-3' placeholder='Enter your email id here' name='email' type='email'></input>
+           <input onChange={handlechange} className='username bg-indigo-400 text-white rounded w-72 text-[19px]  h-14 mt-2 placeholder:text-white p-3' placeholder='Enter your email id here' name='email' type='email'></input>
            <div className='pass  mt-2'>PASSWORD</div>
            <div className='flex items-center w-72 pr-4 bg-indigo-400  rounded'>
 
-           <input onChange={handlechange} className='password bg-indigo-400 text-neutral-950 rounded w-72 h-9  mt-2 placeholder:text-white p-3 outline-none' placeholder='Enter password here' name='password' type={showpassword}></input>
+           <input onChange={handlechange} className='password bg-indigo-400 text-white rounded text-[19px] w-72 h-14  mt-2 placeholder:text-white p-3 outline-none' placeholder='Enter password here' name='password' type={showpassword}></input>
           
            { showpassword === 'text' ? <span> <FaEye onClick={()=> setshowpassword('password') } color='black' className='ms-2'/> </span>:
            

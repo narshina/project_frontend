@@ -68,7 +68,7 @@ export const Staffnav = () => {
                    }
 
                    </div>
-               <Link to='/staff/staffviewapply'><div>APLLICATIONS</div></Link>
+               <Link to='/staff/staffviewapply'><div>APPLICATIONS</div></Link>
     <Link to='/staff/staffviewmeet'><div>MEETING</div></Link>
     <Link to='/staff/staffviewnot'><div>NOTIFICATION</div></Link>
    <div onClick={logout}>LOG OUT</div>

@@ -38,8 +38,8 @@ export const Userviewreply = () => {
      <div className='text-center font-serif text-[20px] font-bold'><h2>REPLY TO COMPLAINT</h2></div>   
 
 <div class="relative overflow-x-auto justify-center flex">
-    <table class="w-[850PX] text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-5">
-        <thead class="text-xs text-gray-700 uppercase bg-slate-400 dark:bg-gray-700 dark:text-gray-400">
+    <table class="w-[850PX] text-sm text-left rtl:text-right  dark:text-gray-400 mt-5">
+        <thead class="text-xs text-gray-700 uppercase bg-slate-300 dark:bg-gray-700 dark:text-gray-400">
             <tr className='text-center h-10'>
                 <th scope="col" class="p-4 py-3">
                     COMPLAINT

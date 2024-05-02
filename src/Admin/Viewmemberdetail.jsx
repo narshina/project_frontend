@@ -17,7 +17,7 @@ export const Viewmemberdetail = () => {
   },[])
   return (
     <div className='w-[100%] h-[695px] bg-[#CCDAF6] flex justify-center'>
-    <div class="p-5 border text-center bg-white text-gray-500 max-w-sm h-fit  w-fit rounded-xl mt-24">
+    <div class="p-5 border text-center bg-white  max-w-sm h-fit  w-fit rounded-xl mt-24">
     <img class="w-32 h-32 rounded-full mx-auto" src={`http://localhost:4000/uploads/${data.photo}`} alt=""/>
     <div class="text-sm mt-5">
         <a href="#"
