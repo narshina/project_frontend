@@ -80,7 +80,7 @@ navigate('/admin')
            <FaEyeSlash  onClick={()=> setshowpassword('text') } color='black' className='ms-2'/>
           }
           </div>
-        <Link to='/forgot'  > <div className='for mt-2'>   <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Forgot password?</a></div></Link>
+        <Link to='/otpverify'  > <div className='for mt-2'>   <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Forgot password?</a></div></Link>
             <div><button type='submit' className='button text-black font-semibold bg-indigo-400 w-72 h-9 rounded mt-2'>LOGIN</button></div>
           </div>
       </div>

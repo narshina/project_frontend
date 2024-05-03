@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 export const Userreg = () => {
   
+  
   const fileUploadPhoto = useRef(null);
   const fileUploadIdProof = useRef(null);
   const fileUploadpancard = useRef(null);

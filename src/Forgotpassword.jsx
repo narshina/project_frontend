@@ -2,8 +2,10 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
 import {FaEye,FaEyeSlash} from "react-icons/fa"
+import { useParams } from 'react-router-dom'
 
 export const Forgotpassword = () => {
+  let {email}=useParams()
   const[data,setdata]=useState('')
   const[showpassword,setshowpassword]=useState('password')
   const[showconfirmpassword,setshowconfirmoassword]=useState('confirm-password')
@@ -13,31 +15,34 @@ export const Forgotpassword = () => {
   }
   let handlesubmit= async(event)=>{
     try {
-      
       event.preventDefault()
- 
-    const requiredFields = ['email','password','confirm-password'];
+      if(data.password !=data.confirmPassword){
+       return toast.error('not match')
+      }
+      
+    
+    // const requiredFields = ['email','password','confirm-password'];
 
-    for (const field of requiredFields) {
-        if (!data[field]) {
-            return toast.error(`${field} is required`);
-        }
-    }
-    let passwordPattern =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/
-    console.log(passwordPattern.test(data.password));
-    if(!passwordPattern.test(data.password)){
-      return toast.error('password is not matched')
-    }
+    // for (const field of requiredFields) {
+    //     if (!data[field]) {
+    //         return toast.error(`${field} is required`);
+    //     }
+    // }
+    // let passwordPattern =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/
+    // console.log(passwordPattern.test(data.password));
+    // if(!passwordPattern.test(data.password)){
+    //   return toast.error('password is not matched')
+    // }
     setdata(data)
 
 
-    let response=await axios.post('http://localhost:4000/forgot-password',data)
+    let response=await axios.post(`http://localhost:4000/forgot-password/${email}`,data)
     console.log(response);
 
     toast.success("Reset password successfully")
 
   } catch (error) {
-      toast.error(error.response.data.message || error.message || 'error')
+      
   }
   }
   return (
@@ -50,13 +55,14 @@ export const Forgotpassword = () => {
                 Change Password
             </h2>
             <form onSubmit={handlesubmit} class="mt-4 space-y-4 lg:mt-5 md:space-y-5" action="#">
-                <div>
+                {/* <div>
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
                     <input onChange={handlechange} type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required=""></input>
-                </div>
+                </div> */}
                 <div className='relative'>
                     <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">New Password</label>
-                    <input onChange={handlechange} type='password' name="password" id="password" class="bg-gray-50 border outline-none border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""></input>
+                    <input onChange={handlechange} type='password' name="password" id="password" class="bg-gray-50 border outline-none border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$'
+                    title='Password must contain at least one lowercase letter, one uppercase letter, one digit, one special character, and be 8 to 30 characters long.'></input>
                 
                     <div class="absolute inset-y-0 right-0 pr-3 top-6 flex items-center text-sm leading-5">
            { showpassword === 'text' ?  
@@ -68,7 +74,8 @@ export const Forgotpassword = () => {
                 </div>
                 <div className='relative'>
                     <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">New Password</label>
-                    <input onChange={handlechange} type='confirm-password' name="confirm-password" id="confirm-password" class="bg-gray-50 border outline-none border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""></input>
+                    <input onChange={handlechange} type='password' name="confirmPassword" id="confirm-password" class="bg-gray-50 border outline-none border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$' 
+                    title='Password must contain at least one lowercase letter, one uppercase letter, one digit, one special character, and be 8 to 30 characters long.'></input>
                 
                     <div class="absolute inset-y-0 right-0 pr-3 top-6 flex items-center text-sm leading-5">
            { showconfirmpassword === 'text' ?  

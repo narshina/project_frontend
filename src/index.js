@@ -94,6 +94,7 @@ import { Viewservicedetail } from './User/Viewservicedetail';
 import { Vservicedetail } from './Wardmember/Vservicedetail';
 import { Secviewservice } from './President/Secviewservice';
 import { Vhist } from './President/Vhist';
+import { EmailOTP } from './otp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -105,7 +106,8 @@ root.render(
       <Route path='/' element={<App/>}>
         <Route index element={<Home/>}/>
         <Route path='/Login' element={<Userlogin/>}/>
-        <Route path='/forgot' element={<Forgotpassword/>}/>
+        <Route path='/otpverify' element={<EmailOTP/>}/>
+        <Route path='/forgot/:email' element={<Forgotpassword/>}/>
         <Route path='/userreg' element={<Userreg/>}/>
         <Route path='/viewnews' element={<Viewnews/>}/>
       </Route>
