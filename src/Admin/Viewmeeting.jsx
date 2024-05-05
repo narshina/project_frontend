@@ -11,18 +11,19 @@ export const Viewmeeting = () => {
     const[refresh,setrefresh]=useState(false)
     
     const [itemsPerPage] = useState(5); // Change this value as needed
-    useEffect(()=>{
-        const fetchData =async()=>{
-            try{
-                const response=await axios.get(`http://localhost:4000/Member/vmeeting/${id}`)
-                setdata(response.data)
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:4000/Member/vmeeting/${id}`);
+                const sortedData = response.data.sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort by date in descending order
+                setdata(sortedData);
+            } catch (error) {
+                console.error('Error fetching data', error);
             }
-            catch(error){
-                console.error('Error fetching data',error)
-            }
-        }
-        fetchData()
-    },[refresh])
+        };
+        fetchData();
+    }, [refresh]);
+    
     let handledelete=(id)=>{
         let response=axios.delete(`http://localhost:4000/User/deletemeeting/${id}`)
         console.log(response)

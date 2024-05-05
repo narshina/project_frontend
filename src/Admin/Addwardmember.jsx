@@ -72,7 +72,8 @@ try {
   toast.success('submit successfully')
 } catch (error) {
   console.error('Error:', error);
-  toast.error(error.response.data || error.message || 'error');
+  toast.error(error.response.data.message || error.message)
+
 }
     const requiredFields = ['name', 'photo', 'age', 'gender', 'email','houseName','street','district','pincode','phoneNumber','password','wardName','wardNumber'];
 

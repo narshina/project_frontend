@@ -53,7 +53,8 @@ export const Addstaff = () => {
     formData.append('password', data.password);
     formData.append('usertype', 'staff');
     console.log(formData,'formdata');
-
+    
+    try{
     let response=await axios.post('http://localhost:4000/User/register',formData,{
       headers: {
         'Content-Type': 'multipart/form-data' // Set the content type for FormData
@@ -62,28 +63,24 @@ export const Addstaff = () => {
     navigate('/admin/viewstaff')
    console.log(response)
 
-    const requiredFields = ['name', 'photo', 'age', 'gender', 'email','category','houseName', 'street','pincode', 'phoneNumber', 'password','district'];
-    console.log(response)
+    // const requiredFields = ['name', 'photo', 'age', 'gender', 'email','category','houseName', 'street','pincode', 'phoneNumber', 'password','district'];
+    // console.log(response)
 
-    for (const field of requiredFields) {
-        if (!data[field]) {
-            return toast.error(`${field} is required`);
-        }
-    }
-    // let mobileNumberPattern = /^[6-9]\d{9}$/
-    // if(!mobileNumberPattern.test(data.phonenumber)){
-    //  return toast.error('mobile number not matched')
-    // }
-    // let passwordPattern =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/
-    // console.log(passwordPattern.test(data.password));
-    // if(!passwordPattern.test(data.password)){
-    //   return toast.error('password is not matched')
+    // for (const field of requiredFields) {
+    //     if (!data[field]) {
+    //         return toast.error(`${field} is required`);
+    //     }
     // }
     setdata(data)
     toast.success('submit successfully')
     console.log(data);
+  }catch(error){
+    console.error('Error:',error);
+    toast.error(error.response.data.message || error.message)
+  }
 
   }
+
 
   return (
     <form onSubmit={handlesubmit}>

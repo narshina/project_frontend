@@ -37,7 +37,11 @@ export const Userreg = () => {
   }
   
   let handlesubmit=async (event)=>{
+    
     event.preventDefault()
+    
+
+
     let formData = new FormData();
     formData.append('name', data.name);
     formData.append('photo', data.photo);
@@ -61,6 +65,8 @@ export const Userreg = () => {
     formData.append('password', data.password);
     formData.append('pancard',data.pancard);
     formData.append('usertype', 'user');
+
+    try{
     let response=await axios.post('http://localhost:4000/User/register',formData,{
       headers: {
         'Content-Type': 'multipart/form-data'  // Set the content type for FormData
@@ -87,6 +93,10 @@ export const Userreg = () => {
     setdata(data)
     toast.success("successfully registered")
     console.log(data);
+    }catch(error){
+      console.error('Error:',error)
+      toast.error(error.response.data.message || error.message)
+    }
 
   }
 

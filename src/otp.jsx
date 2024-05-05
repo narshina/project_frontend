@@ -36,22 +36,24 @@ export const EmailOTP = () => {
   return (
     <div className='w-full h-[690px] bg-[#CCDAF6] '>
       <div className='text-center pt-10 font-bold text-[20px]'>Email OTP Verification</div>
-      <div className='flex fle-wrap justify-center mt-4'>
-      <input className='rounded-md h-9 w-52'
+      <div className='m-auto w-fit mt-4'>
+      <input className='rounded-md h-10 w-64 border-black '
         type="email"
         placeholder="Enter your email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <button className='bg-[#0F3053] text-white rounded-md' onClick={sendOTP}>Send OTP</button>
       <br></br>
-      <input className='rounded-md h-9 w-52'
+      <button className='bg-[#0F3053] text-white rounded-md h-10 w-64 mt-3' onClick={sendOTP}>Send OTP</button>
+      <br></br>
+      <input className='rounded-md h-10 w-64 mt-5 border-black'
         type="text"
         placeholder="Enter OTP"
         value={otp}
         onChange={(e) => setOtp(e.target.value)}
       />
-      <button className='bg-[#0F3053] text-white rounded-md' onClick={verifyOTP}>Verify OTP</button>
+      <br></br>
+      <button className='bg-[#0F3053] text-white rounded-md h-10 w-64 mt-3' onClick={verifyOTP}>Verify OTP</button>
       <p>{message}</p>
       </div>
       </div>

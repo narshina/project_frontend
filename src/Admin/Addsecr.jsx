@@ -60,7 +60,7 @@ try {
 
 } catch (error) {
   console.error('Error:', error);
-  toast.error('secretary already added');
+  toast.error(error.response.data.message || error.message)
 }
 
     // const requiredFields = ['name', 'photo', 'age', 'gender', 'email', 'qualification', 'houseName', 'street', 'district', 'pincode', 'phoneNumber', 'password'];
@@ -121,7 +121,7 @@ try {
               AGE:
 
             </span>
-            <input required onChange={handlechange} className='text-black pl-2  h-9 w-56 bg-white rounded-r-lg ' name='age' type='number' id=''></input></div>
+            <input required onChange={handlechange} className='text-black pl-2  h-9 w-56 bg-white rounded-r-lg ' name='age'  type='number'  id=''></input></div>
           <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               GENDER:
