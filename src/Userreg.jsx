@@ -159,7 +159,7 @@ export const Userreg = () => {
               WARD NUMBER:
 
             </span>
-            <input required onChange={handlechange}  type='number' className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='wardNumber' maxLength={2}></input></div>
+            <input required onChange={handlechange}  type='text' className='text-black h-9 w-56 bg-white rounded-r-lg pl-3' name='wardNumber' maxLength={2} minLength={1} pattern="[0-9]*"></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               WARD NAME:
@@ -204,7 +204,7 @@ export const Userreg = () => {
               HOUSE NAME:
 
             </span>
-            <input required onChange={handlechange} pattern="^[a-zA-Z ]*$" title="Only alphabets are allowed" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='houseName' type='text'></input></div>
+            <input required onChange={handlechange}  className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='houseName' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               STREET:
@@ -217,7 +217,7 @@ export const Userreg = () => {
               POST OFFICE:
 
             </span>
-            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='district' type='text'></input></div>
+            <input required onChange={handlechange}  className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='district' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PINCODE:
@@ -230,19 +230,19 @@ export const Userreg = () => {
               HOUSE NAME:
 
             </span>
-            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='currenthouse' type='text'></input></div>
+            <input required onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='currenthouse' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               STREET:
 
             </span>
-            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='currentstreet' type='text'></input></div>
+            <input required onChange={handlechange}  className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='currentstreet' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               POST OFFICE:
 
             </span>
-            <input required onChange={handlechange} pattern="[A-Za-z]+" title="Only alphabets are allowed" className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='currentpost' type='text'></input></div>
+            <input required onChange={handlechange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-3' name='currentpost' type='text'></input></div>
             <div className='text h-9   text-white mt-4 flex'>
             <span className='bg-[#0F3053] w-56  rounded-l-lg pl-5'>
               PINCODE:

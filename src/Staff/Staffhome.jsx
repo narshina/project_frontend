@@ -6,9 +6,20 @@ import com from './complaint.png'
 import met from './met.png'
 import not from './not.png'
 import icon from './icon.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+
+
 
 export const Staffhome = () => {
+  let navigate=useNavigate()
+
+  let logout=()=>{
+    localStorage.removeItem('id')
+    localStorage.removeItem('email')
+    navigate('/login')
+  }
+
+
   return (
     <div className='bg-[#CCDAF6] h-[660px]'>
     <div className='flex justify-center'>
@@ -19,7 +30,9 @@ export const Staffhome = () => {
   <a className='font-serif font-bold text-[20px] mt-3'>Our services are available here</a><br></br>
   <a className='mt-11'>ULLIYERI-E-PANCHAYAT PORTAL intend to provide panchayat services to peoples which are easily accesible.
       This project endeavors to modernize Panchayat services, promoting accessibility and efficiency in rural governance through technology. The goal is to empower communities, enhance communication, and foster transparent decision-making. </a>
+      <div onClick={logout} className='bg-[#0F3053] text-white w-24 m-auto h-10 rounded-md'>Log out</div>
   </div>
+  
   </div>
   <div className='bg-[#617DB2] w-[100%] h-60 flex flex-wrap gap-24 justify-center mt-28'>
     <div className=''>

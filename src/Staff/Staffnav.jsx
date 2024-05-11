@@ -21,11 +21,7 @@ export const Staffnav = () => {
     }
     auth()
   },[])
-  let logout=()=>{
-    localStorage.removeItem('id')
-    localStorage.removeItem('email')
-    navigate('/login')
-}
+  
     const[service,setservise]=useState(false)
     const[sec,setSec]=useState(true)
     let Toggle=()=>{
@@ -71,7 +67,7 @@ export const Staffnav = () => {
                <Link to='/staff/staffviewapply'><div>APPLICATIONS</div></Link>
     <Link to='/staff/staffviewmeet'><div>MEETING</div></Link>
     <Link to='/staff/staffviewnot'><div>NOTIFICATION</div></Link>
-   <div onClick={logout}>LOG OUT</div>
+   {/* <div onClick={logout}>LOG OUT</div> */}
         </div>
 }
     </div>

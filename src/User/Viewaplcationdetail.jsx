@@ -49,12 +49,24 @@ export const Viewaplcationdetail = () => {
                             return (
                                 <tr key={key}>
                                     {key === 'finalDocument' ? (
-                                        <td>
+                                        <td className=''>
                                             <a  href={`http://localhost:4000/download/${data.application[key]}`}>
                                                 <button className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Download</button>
                                             </a>
                                         </td>
-                                    ) : (
+                                    ) : key === 'document' ? (
+                                        
+                                        <td className=''>
+                                        <a target='_blank' href={`http://localhost:4000/download/${data.application[key]}`}>
+                                            <span className="">{data.application[key]}</span>
+                                        </a>
+                                    </td>
+                                        
+                                    )
+                                    
+                                    :
+                                    
+                                    (
                                         <React.Fragment>
                                             <td className='py-2 px-2 border'>{key === 'applicationDate' ? 'Date: ' + formatDate(data.application[key]) : key}</td>
                                             <td className='py-2 px-2 border'>{key !== 'applicationDate' && data.application[key]}</td>
