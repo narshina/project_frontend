@@ -13,7 +13,7 @@ export const Viewnews = () => {
     useEffect(() => {
         const fetchdata = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/President/vnews');
+                const response = await axios.get('https://project-backend-2i9b.onrender.com/President/vnews');
                 // Sort the data based on the date in descending order
                 const sortedData = response.data.sort((a, b) => new Date(b.date) - new Date(a.date));
                 setdata(sortedData);
@@ -24,7 +24,7 @@ export const Viewnews = () => {
         fetchdata();
     }, [refresh]);
     let handledelete=(id)=>{
-        let response=axios.delete(`http://localhost:4000/User/deletenews/${id}`)
+        let response=axios.delete(`https://project-backend-2i9b.onrender.com/User/deletenews/${id}`)
         console.log(response)
         setrefresh(!refresh)
     }

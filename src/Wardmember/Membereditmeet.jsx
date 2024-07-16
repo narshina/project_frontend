@@ -13,7 +13,7 @@ export const Membereditmeet = () => {
   let handlesubmit=async(event)=>{
     event.preventDefault()
     setrefresh(!refresh)
-    let response=await axios.put(`http://localhost:4000/President/editmeet/${id}`,data)
+    let response=await axios.put(`https://project-backend-2i9b.onrender.com/President/editmeet/${id}`,data)
     console.log(response)
     setdata('')
     const requiredFields = ['agenda','date','time','venue'];

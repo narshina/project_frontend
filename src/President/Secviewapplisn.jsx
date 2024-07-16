@@ -9,7 +9,7 @@ export const Secviewapplisn = () => {
     const itemsPerPage = 5; 
     useEffect(()=>{
         let fetchData=async()=>{
-            let response=await axios.get(`http://localhost:4000/Staff/vapplyPresident`)
+            let response=await axios.get(`https://project-backend-2i9b.onrender.com/Staff/vapplyPresident`)
             console.log(response)
             setdata(response.data)
         }

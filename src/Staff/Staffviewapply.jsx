@@ -11,7 +11,7 @@ export const Staffviewapply = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                let response = await axios.get(`http://localhost:4000/Staff/vapply/${id}`);
+                let response = await axios.get(`https://project-backend-2i9b.onrender.com/Staff/vapply/${id}`);
                 if(data==[]){
                     navigate('/staff/staffviewservice')
                     console.log('asasaasouhjn');

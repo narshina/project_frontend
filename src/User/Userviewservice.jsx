@@ -10,7 +10,7 @@ export const Userviewservice = () => {
    useEffect(() => {
       const fetchData = async () => {
          try {
-            const response = await axios.get(`http://localhost:4000/Staff/vservice`);
+            const response = await axios.get(`https://project-backend-2i9b.onrender.com/Staff/vservice`);
             setUserdata(response.data);
          } catch (error) {
             console.error('Error fetching data:', error);

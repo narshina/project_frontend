@@ -10,7 +10,7 @@ export const Userviewdetail = () => {
   const navigate=useNavigate()
   useEffect(()=>{
     let fetchData=async()=>{
-      let response=await axios.get(`http://localhost:4000/User/viewprofile/${id}`)
+      let response=await axios.get(`https://project-backend-2i9b.onrender.com/User/viewprofile/${id}`)
       console.log(response.data)
       setdata(response.data)
     }
@@ -20,7 +20,7 @@ export const Userviewdetail = () => {
   let handlesubmit=async (statuss)=>{
     navigate('/admin/userview')
     setrefresh(!refresh)
-    let response=await axios.put(`http://localhost:4000/President/manageUser/${id}`,{status:statuss})
+    let response=await axios.put(`https://project-backend-2i9b.onrender.com/President/manageUser/${id}`,{status:statuss})
     console.log(response)
     setdata('')
   }
@@ -43,7 +43,7 @@ export const Userviewdetail = () => {
   return (
     <div className='w-[100%]  bg-[#CCDAF6] flex justify-center '>
     <div class="p-2 border text-center bg-white   h-fit  w-[500px]  rounded-xl mt-5">
-    <img class="w-32 h-32 rounded-full mx-auto" src={`http://localhost:4000/uploads/${data.photo}`} alt=""/>
+    <img class="w-32 h-32 rounded-full mx-auto" src={`https://project-backend-2i9b.onrender.com/uploads/${data.photo}`} alt=""/>
     <div class="text-base mt-5">
         <a href="#"
             class="font-medium leading-none text-gray-900 hover:text-indigo-600 transition duration-500 ease-in-out text-[15px]">{data.name}
@@ -66,11 +66,11 @@ export const Userviewdetail = () => {
         </div>
         <div className=''>
         <div className='font-bold'>id proof</div>
-       <a href={`http://localhost:4000/uploads/${data.idproof}`}  target='_blank'><div onMouseEnter={toggleId} onMouseLeave={toggleIdfalse} className=''><button>view</button></div></a> 
+       <a href={`https://project-backend-2i9b.onrender.com/uploads/${data.idproof}`}  target='_blank'><div onMouseEnter={toggleId} onMouseLeave={toggleIdfalse} className=''><button>view</button></div></a> 
         </div>
         <div>
         <div className='font-bold'>Pancard</div>
-        <a href={`http://localhost:4000/uploads/${data.pancard}`} target='_blank'>
+        <a href={`https://project-backend-2i9b.onrender.com/uploads/${data.pancard}`} target='_blank'>
         <div onMouseEnter={toggleID1} onMouseLeave={toggleID1false}  className=''><button>view</button></div></a>
         </div>
 
@@ -78,13 +78,13 @@ export const Userviewdetail = () => {
 { idd &&
 
 <div>
-  <img src={`http://localhost:4000/uploads/${data.idproof}`} alt="" />
+  <img src={`https://project-backend-2i9b.onrender.com/uploads/${data.idproof}`} alt="" />
 </div>
 }
 {
   iddd &&
   <div>
-      <img src={`http://localhost:4000/uploads/${data.pancard}`} alt="" />
+      <img src={`https://project-backend-2i9b.onrender.com/uploads/${data.pancard}`} alt="" />
   </div>
 }
 

@@ -12,7 +12,7 @@ export const Secviewmeet = () => {
     useEffect(()=>{
         const fetchData=async ()=>{
             try{
-                const response=await axios.get('http://localhost:4000/President/presmeet');
+                const response=await axios.get('https://project-backend-2i9b.onrender.com/President/presmeet');
                 setData(response.data)
             }
             catch(error){

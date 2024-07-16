@@ -10,7 +10,7 @@ export const Staffviewnot = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/President/presnot');
+        const response = await axios.get('https://project-backend-2i9b.onrender.com/President/presnot');
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data', error);

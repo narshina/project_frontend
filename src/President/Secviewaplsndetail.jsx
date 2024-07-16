@@ -31,7 +31,7 @@ export const Secviewaplsndetail = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/Staff/applydetail/${id}`);
+        const response = await axios.get(`https://project-backend-2i9b.onrender.com/Staff/applydetail/${id}`);
         setData(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -55,7 +55,7 @@ export const Secviewaplsndetail = () => {
     if (reasons.reason) {
       formData.append('reason', reasons.reason);
     }
-    let response =  axios.put(`http://localhost:4000/Staff/manageapplicationpresident/${id}`, formData, {
+    let response =  axios.put(`https://project-backend-2i9b.onrender.com/Staff/manageapplicationpresident/${id}`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data' // Set the content type for FormData
       }
@@ -66,7 +66,7 @@ export const Secviewaplsndetail = () => {
   };
 
   const handlereason =  (statuss) => {
-    let response =  axios.put(`http://localhost:4000/Staff/reject/${id}`, { reason: reasons.reason, status: statuss });
+    let response =  axios.put(`https://project-backend-2i9b.onrender.com/Staff/reject/${id}`, { reason: reasons.reason, status: statuss });
     console.log(response);
     navigate('/president/secviewapllcsn')
 
@@ -80,7 +80,7 @@ export const Secviewaplsndetail = () => {
   }
 
   const downloadDocument = () => {
-    window.open(`http://localhost:4000/download/${data.application.document}`, '_blank');
+    window.open(`https://project-backend-2i9b.onrender.com/download/${data.application.document}`, '_blank');
   };
 
   return (
@@ -111,7 +111,7 @@ export const Secviewaplsndetail = () => {
               <tr>
                 <td className='py-2 px-4 border text-[20px]'>Photo</td>
                 <td   className='py-2 px-4 border'>
-                  <a target='_blank' href={`http://localhost:4000/uploads/${data.users?.photo}`}><img  className='h-16 w-16' src={`http://localhost:4000/uploads/${data.users?.photo}`} alt=''/>
+                  <a target='_blank' href={`https://project-backend-2i9b.onrender.com/uploads/${data.users?.photo}`}><img  className='h-16 w-16' src={`https://project-backend-2i9b.onrender.com/uploads/${data.users?.photo}`} alt=''/>
                   </a>
                
                 </td>
@@ -130,11 +130,11 @@ export const Secviewaplsndetail = () => {
               </tr>
               <tr>
                 <td className='py-2 px-4 border text-[20px]'>ID Proof</td>
-                <td className='py-2 px-4 border text-[20px]'><a href={`http://localhost:4000/uploads/${data?.users?.idproof}`} target='_blank'>{data?.users?.idproof}</a></td>
+                <td className='py-2 px-4 border text-[20px]'><a href={`https://project-backend-2i9b.onrender.com/uploads/${data?.users?.idproof}`} target='_blank'>{data?.users?.idproof}</a></td>
               </tr>
               <tr>
                 <td className='py-2 px-4 border text-[20px]'>Pancard</td>
-                <td className='py-2 px-4 border text-[20px]'><a href={`http://localhost:4000/uploads/${data?.users?.pancard}`} target='_blank'>{data?.users?.pancard}</a></td>
+                <td className='py-2 px-4 border text-[20px]'><a href={`https://project-backend-2i9b.onrender.com/uploads/${data?.users?.pancard}`} target='_blank'>{data?.users?.pancard}</a></td>
               </tr>
               <tr>
                 <td className='py-2 px-4 border text-[20px]'>Ward Number</td>

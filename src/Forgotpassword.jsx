@@ -36,7 +36,7 @@ export const Forgotpassword = () => {
     setdata(data)
 
 
-    let response=await axios.post(`http://localhost:4000/forgot-password/${email}`,data)
+    let response=await axios.post(`https://project-backend-2i9b.onrender.com/forgot-password/${email}`,data)
     console.log(response);
 
     toast.success("Reset password successfully")

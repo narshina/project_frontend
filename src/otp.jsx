@@ -12,7 +12,7 @@ export const EmailOTP = () => {
 
   const sendOTP = async () => {
     try {
-      const response = await axios.post('http://localhost:4000/User/sendOTP', { email });
+      const response = await axios.post('https://project-backend-2i9b.onrender.com/User/sendOTP', { email });
       setMessage(response.data.message);
       console.log(response.data.otp,'--------------------');
       setVerifyotp(response.data.otp)

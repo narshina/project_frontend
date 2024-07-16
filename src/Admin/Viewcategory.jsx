@@ -10,7 +10,7 @@ export const Viewcategory = () => {
   useEffect(()=>{
     const fetchData=async()=>{
         try{
-            const response=await axios.get('http://localhost:4000/President/vcategory');
+            const response=await axios.get('https://project-backend-2i9b.onrender.com/President/vcategory');
             setdata(response.data);
         }
         catch(error){

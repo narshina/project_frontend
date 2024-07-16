@@ -17,8 +17,8 @@ export const Editmember = () => {
   const[ward,setward]=useState([''])
   useEffect(()=>{
     let fetchdata=async()=>{
-      let response=await axios.get(`http://localhost:4000/User/viewprofile/${id}`)
-      let response1=await axios.get('http://localhost:4000/President/viewward')
+      let response=await axios.get(`https://project-backend-2i9b.onrender.com/User/viewprofile/${id}`)
+      let response1=await axios.get('https://project-backend-2i9b.onrender.com/President/viewward')
       console.log(response.data)
       setdata(response.data)
       setward(response1.data)
@@ -53,7 +53,7 @@ const[usedata,setuserdata]=useState('')
     console.log(formData,'formdata');
     setrefresh(!refresh)
     try{
-      let response=await axios.put(`http://localhost:4000/User/editprofile/${id}`,formData,{
+      let response=await axios.put(`https://project-backend-2i9b.onrender.com/User/editprofile/${id}`,formData,{
         headers: {
           'Content-Type': 'multipart/form-data' // Set the content type for FormData
         }

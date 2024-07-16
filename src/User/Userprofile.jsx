@@ -26,7 +26,7 @@ const [iddd,setid1]=useState(false)
 
   useEffect(()=>{
       let fetchdata=async ()=>{
-      let response=await axios.get(`http://localhost:4000/User/viewprofile/${id}`)
+      let response=await axios.get(`https://project-backend-2i9b.onrender.com/User/viewprofile/${id}`)
       console.log(response);
       setuserdata(response.data)
       
@@ -40,7 +40,7 @@ const [iddd,setid1]=useState(false)
   return (
 <div className='w-[100%]  bg-[#CCDAF6] flex justify-center '>
     <div class="p-1 border text-center bg-white  h-fit w-[500px] rounded-xl mt-10">
-    <img class="w-32 h-32 rounded-full mx-auto" src={`http://localhost:4000/uploads/${userdata.photo}`} alt=""/>
+    <img class="w-32 h-32 rounded-full mx-auto" src={`https://project-backend-2i9b.onrender.com/uploads/${userdata.photo}`} alt=""/>
     <div class="text-lg mt-5">
         <a href="#" class="font-medium leading-none text-gray-900 hover:text-indigo-600 transition duration-500 ease-in-out">
             {userdata.name}
@@ -62,26 +62,26 @@ const [iddd,setid1]=useState(false)
                 </div>
                 <div className=''>
                     <div className='font-bold'>id proof</div>
-                    <a href={`http://localhost:4000/uploads/${userdata.idproof}`} target='_blank'>
+                    <a href={`https://project-backend-2i9b.onrender.com/uploads/${userdata.idproof}`} target='_blank'>
 
                     <div onMouseEnter={toggleId} onMouseLeave={toggleIdfalse} className=''><button>view</button></div></a>
                 </div>
                 <div>
                     <div className='font-bold'>Pancard</div>
-                    <a href={`http://localhost:4000/uploads/${userdata.pancard}`} target='_blank'>
+                    <a href={`https://project-backend-2i9b.onrender.com/uploads/${userdata.pancard}`} target='_blank'>
 
                     <div onMouseEnter={toggleID1} onMouseLeave={toggleID1false} className=''><button>view</button></div></a>
                 </div>
             </div>
             { idd &&
             <div>
-                <img src={`http://localhost:4000/uploads/${userdata.idproof}`} alt="" />
+                <img src={`https://project-backend-2i9b.onrender.com/uploads/${userdata.idproof}`} alt="" />
             </div>
             }
             {
             iddd &&
             <div>
-                <img src={`http://localhost:4000/uploads/${userdata.pancard}`} alt="" />
+                <img src={`https://project-backend-2i9b.onrender.com/uploads/${userdata.pancard}`} alt="" />
             </div>
             }
             <div className='font-bold hover:text-indigo-600'>Permenant Address</div>

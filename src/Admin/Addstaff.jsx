@@ -24,7 +24,7 @@ export const Addstaff = () => {
   const[refresh,setrefresh]=useState(false)
   useEffect(()=>{
     let fetchData=async()=>{
-      let response=await axios.get('http://localhost:4000/President/vcategory',data)
+      let response=await axios.get('https://project-backend-2i9b.onrender.com/President/vcategory',data)
       console.log(response.data);
       setcategory(response.data)
     }
@@ -55,7 +55,7 @@ export const Addstaff = () => {
     console.log(formData,'formdata');
     
     try{
-    let response=await axios.post('http://localhost:4000/User/register',formData,{
+    let response=await axios.post('https://project-backend-2i9b.onrender.com/User/register',formData,{
       headers: {
         'Content-Type': 'multipart/form-data' // Set the content type for FormData
       }

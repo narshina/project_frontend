@@ -23,7 +23,7 @@ export const Field = () => {
     }
 
     try {
-      await axios.post(`http://localhost:4000/Staff/addfield/`, { ...data, servicesid: id });
+      await axios.post(`https://project-backend-2i9b.onrender.com/Staff/addfield/`, { ...data, servicesid: id });
       toast.success('Submitted successfully');
       // Clear the form fields
       setdata('');
@@ -38,7 +38,7 @@ export const Field = () => {
   // Function to fetch updated data
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:4000/Staff/applydetail/${id}`);
+      const response = await axios.get(`https://project-backend-2i9b.onrender.com/Staff/applydetail/${id}`);
       setdata(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);

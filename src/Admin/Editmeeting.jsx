@@ -18,7 +18,7 @@ export const Editmeeting = () => {
     navigate('/admin/viewmeet')
     setRefresh(!refresh);
     try {
-      const response = await axios.put(`http://localhost:4000/President/editmeet/${id}`, data);
+      const response = await axios.put(`https://project-backend-2i9b.onrender.com/President/editmeet/${id}`, data);
       console.log(response);
       setData('');
 

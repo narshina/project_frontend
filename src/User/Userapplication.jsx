@@ -17,7 +17,7 @@ export const Userapplication = () => {
   useEffect(() => {
     let fetchData = async () => {
       try {
-        let response = await axios.get(`http://localhost:4000/Staff/vform/${id}`);
+        let response = await axios.get(`https://project-backend-2i9b.onrender.com/Staff/vform/${id}`);
         if (!response.data || response.data.length === 0) {
           console.log('Data not found');
           toast.error('not ready to apply')
@@ -53,7 +53,7 @@ export const Userapplication = () => {
     formData.append('status', 'pending');
     try {
 
-      let response = await axios.post('http://localhost:4000/User/submitform', formData, {
+      let response = await axios.post('https://project-backend-2i9b.onrender.com/User/submitform', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

@@ -9,7 +9,7 @@ export const Viewsec = () => {
 
     useEffect(()=>{
         let fetchdata=async ()=>{
-            let response=await axios.get('http://localhost:4000/President/viewsecs')
+            let response=await axios.get('https://project-backend-2i9b.onrender.com/President/viewsecs')
             console.log(response.data);
             setdata(response.data)
         }

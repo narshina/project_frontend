@@ -11,7 +11,7 @@ export const Useviewnot = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/User/viewnotuser/${id}`);
+        const response = await axios.get(`https://project-backend-2i9b.onrender.com/User/viewnotuser/${id}`);
         // Sort the data by date before setting it to state
         const sortedData = response.data.sort((a, b) => new Date(b.date) - new Date(a.date));
         setdata(sortedData);

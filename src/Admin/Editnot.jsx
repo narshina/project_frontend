@@ -16,7 +16,7 @@ export const Editnot = () => {
     event.preventDefault();
     setRefresh(!refresh); // Toggling refresh state to trigger re-render
     try {
-      const response = await axios.put(`http://localhost:4000/President/editnot/${id}`, data);
+      const response = await axios.put(`https://project-backend-2i9b.onrender.com/President/editnot/${id}`, data);
       console.log(response);
 
       const requiredFields = ['notification'];

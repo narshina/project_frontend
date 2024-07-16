@@ -20,8 +20,8 @@ export default function Home() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/User/vnews');
-                const response1 = await axios.get('http://localhost:4000/President/viewward');
+                const response = await axios.get('https://project-backend-2i9b.onrender.com/User/vnews');
+                const response1 = await axios.get('https://project-backend-2i9b.onrender.com/President/viewward');
                 const sortedData = response.data.sort((a, b) => new Date(b.date) - new Date(a.date));
                 setuserdata(sortedData);
                 setward(response1.data)

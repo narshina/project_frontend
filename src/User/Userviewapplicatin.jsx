@@ -10,7 +10,7 @@ export const Userviewapplicatin = () => {
   const [itemsPerPage] = useState(5); 
   useEffect(()=>{
     let fetchData=async()=>{
-      let response=await axios.get(`http://localhost:4000/Staff/vapplyuser/${id}`)
+      let response=await axios.get(`https://project-backend-2i9b.onrender.com/Staff/vapplyuser/${id}`)
       console.log(response)
       // Sort the data by application date before setting it to state
       const sortedData = response.data.sort((a, b) => {

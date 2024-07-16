@@ -12,7 +12,7 @@ export const Viewsecdetail = () => {
   const navigate=useNavigate()
   useEffect(()=>{
     let fetchdata=async ()=>{
-      let response=await axios.get(`http://localhost:4000/President/viewsecs`)
+      let response=await axios.get(`https://project-backend-2i9b.onrender.com/President/viewsecs`)
       console.log(response)
       setuserdata(response.data)
       if(response.data==null){
@@ -31,7 +31,7 @@ export const Viewsecdetail = () => {
   
   let handledelete=(id)=>{
     
-    let response=axios.delete(`http://localhost:4000/User/deleteuser/${id}`)
+    let response=axios.delete(`https://project-backend-2i9b.onrender.com/User/deleteuser/${id}`)
     console.log(response)
     setrefresh(!refresh)
     navigate('/admin/addscre')
@@ -44,7 +44,7 @@ export const Viewsecdetail = () => {
   return (
     <div className='w-[100%] h-[695px] bg-[#CCDAF6] flex justify-center'>
     <div class="p-5 border text-center bg-white   h-fit  w-[450px]  rounded-xl mt-24">
-    <img class="w-32 h-32 rounded-full mx-auto" src={`http://localhost:4000/uploads/${userdata?.photo}`}  alt=""/>
+    <img class="w-32 h-32 rounded-full mx-auto" src={`https://project-backend-2i9b.onrender.com/uploads/${userdata?.photo}`}  alt=""/>
     <div class="text-sm mt-5">
         <a href="#"
             class="font-medium leading-none text-gray-900 hover:text-indigo-600 transition duration-500 ease-in-out text-[18px]">{userdata.name}

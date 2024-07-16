@@ -9,7 +9,7 @@ export const Staffviewservice = () => {
 
    useEffect(() => {
         let fetchData = async () => {
-            let response = await axios.get(`http://localhost:4000/Staff/vservice`);
+            let response = await axios.get(`https://project-backend-2i9b.onrender.com/Staff/vservice`);
             setUserData(response.data);
         }
         fetchData();

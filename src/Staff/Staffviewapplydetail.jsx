@@ -12,7 +12,7 @@ export const Staffviewapplydetail = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/Staff/applydetail/${id}`);
+        const response = await axios.get(`https://project-backend-2i9b.onrender.com/Staff/applydetail/${id}`);
         setData(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -28,7 +28,7 @@ export const Staffviewapplydetail = () => {
   const handlesubmit = async (statuss) => {
     navigate('/staff/staffviewapply')
 
-    let response = await axios.put(`http://localhost:4000/Staff/manageapplication/${id}`, { status: statuss, reason: reasons.reason });
+    let response = await axios.put(`https://project-backend-2i9b.onrender.com/Staff/manageapplication/${id}`, { status: statuss, reason: reasons.reason });
 
   };
 
@@ -55,7 +55,7 @@ export const Staffviewapplydetail = () => {
           <td className='py-2 px-4 border text-[20px]'>{key}</td>
           <td className='py-2 px-4 border text-[20px]'>
             {key === 'document' ? (
-              <a download={true} href={`http://localhost:4000/download/${data.application[key]}`}>
+              <a download={true} href={`https://project-backend-2i9b.onrender.com/download/${data.application[key]}`}>
                 <button>{data.application[key]}</button>
               </a>
             ) : (
@@ -103,7 +103,7 @@ export const Staffviewapplydetail = () => {
               <tr>
                 <td className='py-2 px-4 border text-[20px]'>Photo</td>
                 <td   className='py-2 px-4 border'>
-                  <a target='_blank' href={`http://localhost:4000/uploads/${data.users?.photo}`}><img  className='h-16 w-16' src={`http://localhost:4000/uploads/${data.users?.photo}`} alt=''/>
+                  <a target='_blank' href={`https://project-backend-2i9b.onrender.com/uploads/${data.users?.photo}`}><img  className='h-16 w-16' src={`https://project-backend-2i9b.onrender.com/uploads/${data.users?.photo}`} alt=''/>
                   </a>
                
                 </td>
@@ -122,7 +122,7 @@ export const Staffviewapplydetail = () => {
               </tr>
               <tr>
                 <td className='py-2 px-4 border text-[20px]'>ID Proof</td>
-                <td className='py-2 px-4 border text-[20px]'><a href={`http://localhost:4000/uploads/${data?.users?.idproof}`} target='_blank'>{data?.users?.idproof}</a>
+                <td className='py-2 px-4 border text-[20px]'><a href={`https://project-backend-2i9b.onrender.com/uploads/${data?.users?.idproof}`} target='_blank'>{data?.users?.idproof}</a>
 </td>
               </tr>
               <tr>
@@ -131,7 +131,7 @@ export const Staffviewapplydetail = () => {
               </tr>
               <tr>
                 <td className='py-2 px-4 border text-[20px]'>Pancard</td>
-                <td className='py-2 px-4 border text-[20px]'><a href={`http://localhost:4000/uploads/${data?.users?.pancard}`} target='_blank'>{data?.users?.pancard}</a></td>
+                <td className='py-2 px-4 border text-[20px]'><a href={`https://project-backend-2i9b.onrender.com/uploads/${data?.users?.pancard}`} target='_blank'>{data?.users?.pancard}</a></td>
               </tr>
               <tr>
                 <td className='py-2 px-4 border text-[20px]'>Ward Name</td>

@@ -14,7 +14,7 @@ export const Viewmeeting = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/Member/vmeeting/${id}`);
+                const response = await axios.get(`https://project-backend-2i9b.onrender.com/Member/vmeeting/${id}`);
                 const sortedData = response.data.sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort by date in descending order
                 setdata(sortedData);
             } catch (error) {
@@ -25,7 +25,7 @@ export const Viewmeeting = () => {
     }, [refresh]);
     
     let handledelete=(id)=>{
-        let response=axios.delete(`http://localhost:4000/User/deletemeeting/${id}`)
+        let response=axios.delete(`https://project-backend-2i9b.onrender.com/User/deletemeeting/${id}`)
         console.log(response)
         setrefresh(!refresh)
     }

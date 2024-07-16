@@ -15,7 +15,7 @@ export const Memberreplycomp = () => {
   let handlesubmit=async(event)=>{
     event.preventDefault('')
     setrefresh(!refresh)
-    let response=await axios.put(`http://localhost:4000/President/replycom/${id}`,data)
+    let response=await axios.put(`https://project-backend-2i9b.onrender.com/President/replycom/${id}`,data)
     console.log(response)
     setdata('')
     const requiredFields = ['reply'];

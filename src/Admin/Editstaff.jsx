@@ -12,7 +12,7 @@ export const Editstaff = () => {
   const[refresh,setrefresh]=useState(false)
   useEffect(()=>{
     let fetchdata=async()=>{
-      let response=await axios.get(`http://localhost:4000/User/viewprofile/${id}`)
+      let response=await axios.get(`https://project-backend-2i9b.onrender.com/User/viewprofile/${id}`)
       console.log(response.data)
       setuserdata(response.data)
     }
@@ -60,7 +60,7 @@ export const Editstaff = () => {
     console.log(formData,'formdata');
     setrefresh(!refresh)
     try{
-    let response=await axios.put(`http://localhost:4000/User/editprofile/${id}`,formData,{
+    let response=await axios.put(`https://project-backend-2i9b.onrender.com/User/editprofile/${id}`,formData,{
       headers: {
         'Content-Type': 'multipart/form-data' // Set the content type for FormData
       }

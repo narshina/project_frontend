@@ -12,7 +12,7 @@ export const Memberviewcomp = () => {
   const[refresh,setrefresh]=useState(false)
   useEffect(()=>{
     let fetchData=async()=>{
-        let response=await axios.get(`http://localhost:4000/User/vcom/${id}`)
+        let response=await axios.get(`https://project-backend-2i9b.onrender.com/User/vcom/${id}`)
         console.log(response.data);
         setdata(response.data)
     }

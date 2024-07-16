@@ -9,7 +9,7 @@ export const Viewaplcationdetail = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/Staff/applydetailuser/${id}`);
+                const response = await axios.get(`https://project-backend-2i9b.onrender.com/Staff/applydetailuser/${id}`);
                 console.log(response.data);
                 // Convert the date format if it exists in data.application
                 if (response.data.application && response.data.application.date) {
@@ -50,14 +50,14 @@ export const Viewaplcationdetail = () => {
                                 <tr key={key}>
                                     {key === 'finalDocument' ? (
                                         <td className=''>
-                                            <a  href={`http://localhost:4000/download/${data.application[key]}`}>
+                                            <a  href={`https://project-backend-2i9b.onrender.com/download/${data.application[key]}`}>
                                                 <button className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Download</button>
                                             </a>
                                         </td>
                                     ) : key === 'document' ? (
                                         
                                         <td className=''>
-                                        <a target='_blank' href={`http://localhost:4000/download/${data.application[key]}`}>
+                                        <a target='_blank' href={`https://project-backend-2i9b.onrender.com/download/${data.application[key]}`}>
                                             <span className="">{data.application[key]}</span>
                                         </a>
                                     </td>

@@ -18,7 +18,7 @@ export const Vhist = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/Staff/vhistory');
+                const response = await axios.get('https://project-backend-2i9b.onrender.com/Staff/vhistory');
                 const sortedData = response.data.sort((a, b) => new Date(b.application.ResultDate) - new Date(a.application.ResultDate));
                 setData(sortedData);
             } catch (error) {

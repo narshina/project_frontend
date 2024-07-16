@@ -18,7 +18,7 @@ export const Addmeeting = () => {
     event.preventDefault();
     let id = localStorage.getItem('id');
     try {
-      const response = await axios.post('http://localhost:4000/President/addmeeting', { ...data, userid: id });
+      const response = await axios.post('https://project-backend-2i9b.onrender.com/President/addmeeting', { ...data, userid: id });
       console.log(response);
       const requiredFields = ['agenda', 'date', 'time', 'venue'];
       for (const field of requiredFields) {

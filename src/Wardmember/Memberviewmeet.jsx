@@ -12,7 +12,7 @@ export const Memberviewmeet = () => {
     useEffect(()=>{
         const fetchData =async()=>{
             try{
-                const response=await axios.get(`http://localhost:4000/Member/vmeeting/${id}`)
+                const response=await axios.get(`https://project-backend-2i9b.onrender.com/Member/vmeeting/${id}`)
                 setdata(response.data)
                 console.log(response.data)
             }
@@ -23,7 +23,7 @@ export const Memberviewmeet = () => {
         fetchData()
     },[refresh])
     let handledelete=(id)=>{
-        let response=axios.delete(`http://localhost:4000/User/deletemeeting/${id}`)
+        let response=axios.delete(`https://project-backend-2i9b.onrender.com/User/deletemeeting/${id}`)
         console.log(response)
         setrefresh(!refresh)
     }

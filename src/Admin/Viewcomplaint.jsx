@@ -11,7 +11,7 @@ export const Viewcomplaint = () => {
     useEffect(()=>{
         const fetchData =async()=>{
             try{
-                const response=await axios.get(`http://localhost:4000/User/vcom/${id}`)
+                const response=await axios.get(`https://project-backend-2i9b.onrender.com/User/vcom/${id}`)
                 setdata(response.data)
                 console.log(response.data)
             }

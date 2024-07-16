@@ -14,7 +14,7 @@ export const Viewstaff = () => {
   useEffect(()=>{
     const fetchData=async()=>{
       try{
-        const response=await axios.get('http://localhost:4000/President/vstaff');
+        const response=await axios.get('https://project-backend-2i9b.onrender.com/President/vstaff');
         setData(response.data)
       }
       catch(error){
@@ -25,7 +25,7 @@ export const Viewstaff = () => {
   },[refresh])
   let handledelete=(id)=>{
     
-    let response=axios.delete(`http://localhost:4000/User/deleteuser/${id}`)
+    let response=axios.delete(`https://project-backend-2i9b.onrender.com/User/deleteuser/${id}`)
     console.log(response)
     setrefresh(!refresh)
 
@@ -76,7 +76,7 @@ export const Viewstaff = () => {
                   {staff.name}
                 </th>
                 <td className="px-6 py-4">
-                  <img className='h-9 w-9' src={`http://localhost:4000/uploads/${staff.photo}`} alt=''/>
+                  <img className='h-9 w-9' src={`https://project-backend-2i9b.onrender.com/uploads/${staff.photo}`} alt=''/>
                 </td>
                 <td className="px-6 py-4">
                   {staff.email}

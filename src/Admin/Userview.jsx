@@ -11,7 +11,7 @@ export const Userview = () => {
   useEffect(()=>{
     const fetchData=async()=>{
       try{
-        const response =await axios.get('http://localhost:4000/President/vuser')
+        const response =await axios.get('https://project-backend-2i9b.onrender.com/President/vuser')
         setdata(response.data)
       }
       catch(error){
@@ -65,7 +65,7 @@ export const Userview = () => {
                   {user.name}
                 </th>
                 <td className="px-6 py-4">
-                  <img className='h-9 w-9' src={`http://localhost:4000/uploads/${user.photo}`} alt='' />
+                  <img className='h-9 w-9' src={`https://project-backend-2i9b.onrender.com/uploads/${user.photo}`} alt='' />
                 </td>
                 <td className="px-6 py-4">
                   {user.email}

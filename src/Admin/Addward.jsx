@@ -14,7 +14,7 @@ export const Addward = () => {
     const id = localStorage.getItem('id');
 
     try {
-      const response = await axios.post('http://localhost:4000/President/addward', { ...data, userid: id });
+      const response = await axios.post('https://project-backend-2i9b.onrender.com/President/addward', { ...data, userid: id });
       console.log(response);
 
       const requiredFields = ['wardnumber', 'wardname', 'lgd'];

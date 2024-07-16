@@ -11,7 +11,7 @@ export const Editsecretary = () => {
   const[refresh,setrefresh]=useState(false)
   useEffect(()=>{
     let fetchdata=async()=>{
-      let response=await axios.get('http://localhost:4000/President/viewsecs')
+      let response=await axios.get('https://project-backend-2i9b.onrender.com/President/viewsecs')
       console.log(response.data)
       setuserdata(response.data)
     }
@@ -56,7 +56,7 @@ export const Editsecretary = () => {
     console.log(formData,'formdata');
     setrefresh(!refresh)
     try{
-    let response=await axios.put(`http://localhost:4000/User/editprofile/${id}`,formData,{
+    let response=await axios.put(`https://project-backend-2i9b.onrender.com/User/editprofile/${id}`,formData,{
       headers: {
         'Content-Type': 'multipart/form-data' // Set the content type for FormData
       }

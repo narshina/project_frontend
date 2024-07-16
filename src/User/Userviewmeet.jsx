@@ -11,7 +11,7 @@ export const Userviewmeet = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/User/viewmeetuser/${id}`);
+        const response = await axios.get(`https://project-backend-2i9b.onrender.com/User/viewmeetuser/${id}`);
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);

@@ -13,7 +13,7 @@ export const Memberedirnot = () => {
   let handlesubmit=async(event)=>{
     event.preventDefault()
     setrefresh(!refresh)
-    let response=await axios.put(`http://localhost:4000/President/editnot/${id}`,data)
+    let response=await axios.put(`https://project-backend-2i9b.onrender.com/President/editnot/${id}`,data)
     console.log(response);
     setdata('')
     const requiredFields = ['notification'];

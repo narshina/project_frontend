@@ -11,7 +11,7 @@ export const Addwardmember = () => {
   const [refresh,setrefresh]=useState(false)
   useEffect(()=>{
     let fetchdata=async ()=>{
-      let response=await axios.get('http://localhost:4000/President/viewward',data)
+      let response=await axios.get('https://project-backend-2i9b.onrender.com/President/viewward',data)
       console.log(response.data);
       setward(response.data)
 
@@ -62,7 +62,7 @@ export const Addwardmember = () => {
     formData.append('usertype', 'member');
 console.log(formData,'formdata');
 try {
-  let response = await axios.post('http://localhost:4000/User/register', formData, {
+  let response = await axios.post('https://project-backend-2i9b.onrender.com/User/register', formData, {
     headers: {
       'Content-Type': 'multipart/form-data' // Set the content type for FormData
     }
