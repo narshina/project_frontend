@@ -43,7 +43,7 @@ export const Userviewdetail = () => {
   return (
     <div className='w-[100%]  bg-[#CCDAF6] flex justify-center '>
     <div class="p-2 border text-center bg-white   h-fit  w-[500px]  rounded-xl mt-5">
-    <img class="w-32 h-32 rounded-full mx-auto" src={`https://project-backend-2i9b.onrender.com/uploads/${data.photo}`} alt=""/>
+    <img class="w-32 h-32 rounded-full mx-auto" src={`http://localhost:4000/uploads/${data.photo}`} alt=""/>
     <div class="text-base mt-5">
         <a href="#"
             class="font-medium leading-none text-gray-900 hover:text-indigo-600 transition duration-500 ease-in-out text-[15px]">{data.name}
